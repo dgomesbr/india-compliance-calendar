@@ -46,7 +46,8 @@ const FILL: Record<RowState, string> = {
 
 function radius(exposure: number, count: number, narrow: boolean): number {
   const r = (narrow ? 3 : 4.5) + Math.min(narrow ? 3.5 : 7, 2.1 * Math.log10(1 + exposure / 1000));
-  // Clusters are large enough to carry their count.
+  // Clusters are large enough to carry their count; two digits need more room.
+  if (count > 9) return Math.max(r, narrow ? 8 : 9.5);
   return count > 1 ? Math.max(r, narrow ? 6.5 : 8.5) : r;
 }
 
@@ -142,7 +143,7 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
 
     // Axis: month starts, or week starts for short spans; Today keeps its label.
     const xToday = xOf(today);
-    const ticks: { x: number; label: string; major: boolean }[] = [];
+    const ticks: { x: number; label: string; major: boolean; lx?: number; show?: boolean }[] = [];
     if (span <= 50) {
       for (let d = start; d <= end; d = addDays(d, 1)) {
         if (new Date(`${d}T00:00:00Z`).getUTCDay() === 1) {
@@ -154,15 +155,28 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
       let m = shiftMonth(s.y, s.m, 1);
       const step = span > 400 ? (narrow ? 6 : 3) : span > 200 ? (narrow ? 3 : 1) : 1;
       let i = 0;
+      let lastYear = -1;
       while (iso(m.y, m.m, 1) <= end) {
         if (i % step === 0) {
           const year = narrow ? String(m.y).slice(2) : String(m.y);
-          const label = m.m === 1 || (i === 0 && !narrow) ? `${MONTHS_SHORT[m.m - 1]} ${year}` : MONTHS_SHORT[m.m - 1];
+          const withYear = m.m === 1 || i === 0 || (narrow && m.y !== lastYear);
+          const label = withYear ? `${MONTHS_SHORT[m.m - 1]} ${year}` : MONTHS_SHORT[m.m - 1];
           ticks.push({ x: xOf(iso(m.y, m.m, 1)), label, major: m.m === 1 });
+          lastYear = m.y;
         }
         m = shiftMonth(m.y, m.m, 1);
         i++;
       }
+    }
+    // Place tick labels left to right: shift one just past Today, hide any that would collide.
+    const charW = 6.5;
+    let lastEnd = xToday + 40;
+    for (const t of [...ticks].sort((a, b) => a.x - b.x)) {
+      const w = t.label.length * charW;
+      t.lx = t.x - xToday > -4 && t.x - xToday < 46 ? xToday + 46 : t.x + 4;
+      const intoToday = t.lx < xToday && t.lx + w > xToday - 4;
+      t.show = !intoToday && (t.lx + w < xToday - 4 || t.lx >= lastEnd + 6);
+      if (t.show && t.lx > xToday) lastEnd = t.lx + w;
     }
     const heaviest = marks.filter((m) => !m.beyond && m.exposure > 0).reduce<Mark | null>((a, m) => (!a || m.exposure > a.exposure ? m : a), null);
     return { start, end, xOf, present, marks, ticks, x0, x1, xToday, heaviest };
@@ -244,9 +258,11 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
         {ticks.map((t) => (
           <g class={`tl-tick${t.major ? ' is-major' : ''}`}>
             <line x1={t.x} x2={t.x} y1={top - 6} y2={height - 6} />
-            <text x={t.x - xToday > -4 && t.x - xToday < 46 ? xToday + 46 : t.x + 4} y={top - 14} visibility={xToday - t.x >= 4 && xToday - t.x < 4 + t.label.length * 6.5 ? 'hidden' : undefined}>
-              {t.label}
-            </text>
+            {t.show && (
+              <text x={t.lx} y={top - 14}>
+                {t.label}
+              </text>
+            )}
           </g>
         ))}
 
@@ -289,7 +305,11 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
             >
               <circle cx={m.x} cy={y} r={Math.max(m.r, 12)} class="tl-hit" />
               <circle cx={m.x} cy={y} r={m.r} fill={FILL[m.state]} class="tl-dot" />
-              {m.count > 1 && <text x={m.x} y={y + 3.5} text-anchor="middle" class="tl-count">{m.count}</text>}
+              {m.count > 1 && (
+                <text x={m.x} y={y + 3.5} text-anchor="middle" class={`tl-count${m.count > 9 ? ' is-wide' : ''}`}>
+                  {m.count}
+                </text>
+              )}
             </g>
           );
         })}

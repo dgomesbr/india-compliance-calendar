@@ -349,6 +349,10 @@
   font-weight: 700;
   pointer-events: none;
 }
+.tl-count.is-wide {
+  font-size: 8.5px;
+  letter-spacing: -0.02em;
+}
 .tl-tip {
   position: absolute;
   z-index: 5;
@@ -704,7 +708,7 @@
 }
 .detail-due {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr) auto;
   gap: var(--s-3);
   margin: var(--s-4) 0 0;
   padding: var(--s-3) 0;
