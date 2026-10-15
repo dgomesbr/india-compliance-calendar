@@ -1,0 +1,116 @@
+---
+import Shell from '../layouts/Shell.astro';
+import { formatDate } from '../lib/dates.ts';
+import { addMonths } from '../lib/dates.ts';
+import { buildDate, getBundle, getFeeds, getUpdates, occurrencesBetween } from '../lib/site-data.ts';
+
+const updates = getUpdates();
+const feeds = getFeeds();
+const { rules } = getBundle();
+const byId = new Map(rules.map((r) => [r.id, r]));
+const today = buildDate();
+const changes = occurrencesBetween(addMonths(today, -6), addMonths(today, 18))
+  .filter((o) => o.extended)
+  .map((o) => ({ o, r: byId.get(o.ruleId)! }));
+const sources = [...new Map(updates.items.map((u) => [u.source, u.sourceName])).entries()];
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<Shell title="Regulator updates" active="updates" description="Latest circulars, notifications and press releases collected daily from Indian regulators.">
+  <div class="page read">
+    <header class="read-head">
+      <h1 class="cat read-title">Regulator updates</h1>
+      <p class="read-lede muted">
+        Circulars, notifications and press releases collected each day from the regulators' own feeds, plus every due-date
+        extension the calendar has applied.
+        {updates.fetched ? ` Last collected ${formatDate(updates.fetched.slice(0, 10))}.` : ' The first collection runs on the next scheduled build.'}
+      </p>
+      <p><a class="caps" href={`${base}updates.xml`}>RSS feed of these updates</a></p>
+    </header>
+
+    <section class="read-section" aria-labelledby="changes">
+      <h2 id="changes">Extensions applied to the calendar</h2>
+      {
+        changes.length ? (
+          <ul class="feed-list">
+            {changes.map(({ o, r }) => (
+              <li class="feed-item">
+                <span class="num faint">{formatDate(o.due, { weekday: false })}</span>
+                <span>
+                  <a href={`${base}o/${r.id}/`}><span class="cat">{r.code}</span> {o.periodLabel}</a>: moved from {formatDate(o.originalDue ?? o.due, { weekday: false })}. {o.extended?.reason}
+                  {o.extended?.source && <span class="feed-meta"><a href={o.extended.source.url} rel="noopener">{o.extended.source.title}</a></span>}
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="muted">No extension is in force for the coming months.</p>
+        )
+      }
+    </section>
+
+    <section class="read-section" aria-labelledby="feed">
+      <h2 id="feed">From the regulators</h2>
+      {
+        sources.length > 1 && (
+          <div class="chips" role="group" aria-label="Filter by source" data-feed-filter>
+            <button type="button" class="chip" aria-pressed="true" data-source="">All</button>
+            {sources.map(([id, name]) => (
+              <button type="button" class="chip" aria-pressed="false" data-source={id}>{name}</button>
+            ))}
+          </div>
+        )
+      }
+      {
+        updates.items.length ? (
+          <ul class="feed-list" data-feed-list>
+            {updates.items.map((u) => (
+              <li class="feed-item" data-source={u.source}>
+                <span class="num faint">{formatDate(u.date, { weekday: false })}</span>
+                <span>
+                  <a href={u.url} rel="noopener">{u.title}</a>
+                  <span class="feed-meta caps faint">{u.sourceName}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p class="muted">Nothing collected yet. The daily GitHub Actions job fills this list from the sources below.</p>
+        )
+      }
+    </section>
+
+    <section class="read-section" aria-labelledby="feed-sources">
+      <h2 id="feed-sources">Feeds we collect</h2>
+      <table class="data-table">
+        <thead><tr><th class="caps">Source</th><th class="caps">Feed</th><th class="caps">Last run</th></tr></thead>
+        <tbody>
+          {
+            feeds.map((f) => {
+              const s = updates.sources.find((x) => x.id === f.id);
+              return (
+                <tr>
+                  <td>{f.name}</td>
+                  <td><a href={f.url} rel="noopener">{f.url.replace(/^https?:\/\//, '')}</a></td>
+                  <td class="muted">{s ? (s.ok ? `${s.count} items` : `Failed: ${s.error ?? 'unreachable'}`) : 'Not yet collected'}</td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+    </section>
+  </div>
+</Shell>
+
+<script>
+  const group = document.querySelector('[data-feed-filter]');
+  const items = document.querySelectorAll<HTMLElement>('[data-feed-list] > li');
+  group?.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('button');
+    if (!btn) return;
+    const source = btn.dataset.source ?? '';
+    group.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+    items.forEach((li) => (li.hidden = Boolean(source) && li.dataset.source !== source));
+  });
+</script>

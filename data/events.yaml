@@ -1,0 +1,270 @@
+# Event types for the planner: deadlines that run from something that happened.
+# Each step links to a rule where the calendar has one (ruleId) and states its
+# own time limit. See docs/DATA_MODEL.md.
+events:
+  - id: agm-held
+    title: Annual general meeting held
+    description: >-
+      Filings that run from the date of the AGM. Assumes the auditor was appointed or
+      re-appointed and the accounts adopted at the meeting.
+    category: mca
+    steps:
+      - ruleId: mca-adt1-annual
+        code: ADT-1
+        title: Intimation of auditor appointment
+        within: { days: 14 }
+        note: Within 15 days of the meeting; counted conservatively including the AGM day.
+        law: "Section 139(1), Companies Act 2013; Rule 4(2), Companies (Audit and Auditors) Rules 2014"
+      - ruleId: mca-aoc4-annual
+        code: AOC-4
+        title: Financial statements (AOC-4, XBRL or CFS)
+        within: { days: 30 }
+        law: "Section 137(1), Companies Act 2013"
+      - ruleId: mca-csr2-annual
+        code: CSR-2
+        title: Report on corporate social responsibility (linked to AOC-4)
+        within: { days: 30 }
+        note: Only for companies covered by Section 135(1).
+        law: "Rule 12(1B), Companies (Accounts) Rules 2014"
+      - ruleId: mca-mgt15-annual
+        code: MGT-15
+        title: Report on the AGM (listed companies)
+        within: { days: 30 }
+        audience: [listed]
+        law: "Section 121, Companies Act 2013"
+      - ruleId: mca-mgt14-event
+        code: MGT-14
+        title: Special resolutions passed at the AGM
+        within: { days: 30 }
+        note: Only when the AGM passed resolutions covered by Section 117(3).
+        law: "Section 117(1), Companies Act 2013"
+      - ruleId: mca-mgt7-annual
+        code: MGT-7
+        title: Annual return (MGT-7, or MGT-7A for OPCs and small companies)
+        within: { days: 60 }
+        law: "Section 92(4), Companies Act 2013"
+
+  - id: resolution-passed
+    title: Resolution passed that must be filed
+    description: Special resolutions and the board resolutions listed in Section 117(3).
+    category: mca
+    steps:
+      - ruleId: mca-mgt14-event
+        code: MGT-14
+        title: Filing of resolutions and agreements
+        within: { days: 30 }
+        law: "Section 117(1), Companies Act 2013"
+
+  - id: shares-allotted
+    title: Shares or securities allotted
+    description: >-
+      Rights, bonus, preferential or ESOP allotments. For a private placement use the
+      private placement event, which has a shorter limit.
+    category: mca
+    steps:
+      - ruleId: mca-pas3-event
+        code: PAS-3
+        title: Return of allotment
+        within: { days: 30 }
+        law: "Section 39(4), Companies Act 2013; Rule 12, Companies (Prospectus and Allotment of Securities) Rules 2014"
+      - ruleId: rbi-fema-fc-gpr-event
+        code: FC-GPR
+        title: Report foreign investment received (if any allottee is a non-resident)
+        within: { days: 30 }
+        audience: [foreign]
+        law: "FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019"
+      - ruleId: rbi-fema-form-di-event
+        code: FORM DI
+        title: Downstream investment report (if the company is foreign-owned and invests onward)
+        within: { days: 30 }
+        audience: [foreign]
+        law: "FEM (Non-debt Instruments) Rules 2019"
+
+  - id: private-placement
+    title: Private placement allotment
+    description: Allotment under Section 42 (private placement).
+    category: mca
+    steps:
+      - ruleId: mca-pas3-event
+        code: PAS-3
+        title: Return of allotment for a private placement
+        within: { days: 15 }
+        law: "Section 42(9), Companies Act 2013"
+      - ruleId: rbi-fema-fc-gpr-event
+        code: FC-GPR
+        title: Report foreign investment received (if any allottee is a non-resident)
+        within: { days: 30 }
+        audience: [foreign]
+        law: "FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019"
+
+  - id: capital-altered
+    title: Share capital altered
+    description: Increase of authorised capital, consolidation, sub-division, conversion or redemption of preference shares.
+    category: mca
+    steps:
+      - ruleId: mca-sh7-event
+        code: SH-7
+        title: Notice of alteration of share capital
+        within: { days: 30 }
+        law: "Section 64(1), Companies Act 2013"
+      - ruleId: mca-mgt14-event
+        code: MGT-14
+        title: Resolution altering the articles (if a special resolution was passed)
+        within: { days: 30 }
+        law: "Section 117(1), Companies Act 2013"
+
+  - id: director-change
+    title: Director or key managerial person appointed or left
+    description: Appointment, resignation, change in designation or cessation of a director, CEO, CFO or company secretary.
+    category: mca
+    steps:
+      - ruleId: mca-dir12-event
+        code: DIR-12
+        title: Particulars of appointment or change
+        within: { days: 30 }
+        law: "Section 170(2), Companies Act 2013; Rule 18, Companies (Appointment and Qualification of Directors) Rules 2014"
+
+  - id: director-details-changed
+    title: Director's mobile, email or address changed
+    description: Personal contact details linked to a DIN.
+    category: mca
+    steps:
+      - ruleId: mca-dir3-kyc-change-event
+        code: DIR-3 KYC
+        title: Update KYC for the change
+        within: { days: 30 }
+        law: "Rule 12A, Companies (Appointment and Qualification of Directors) Rules 2014, as amended by G.S.R. 943(E)"
+
+  - id: auditor-resigned
+    title: Statutory auditor resigned
+    description: The auditor files ADT-3; the company fills the casual vacancy and files ADT-1.
+    category: mca
+    steps:
+      - ruleId: mca-adt3-event
+        code: ADT-3
+        title: Auditor's statement on resignation (filed by the auditor)
+        within: { days: 30 }
+        law: "Section 140(2), Companies Act 2013"
+      - ruleId: mca-adt1-annual
+        code: ADT-1
+        title: Appointment of the new auditor (casual vacancy, within 30 days by the board)
+        within: { days: 45 }
+        note: Board fills the vacancy within 30 days, then ADT-1 within 15 days of that appointment.
+        law: "Section 139(8), Companies Act 2013"
+
+  - id: charge-created
+    title: Charge created or modified
+    description: A loan secured on company assets, or a change to an existing charge.
+    category: mca
+    steps:
+      - ruleId: mca-chg1-event
+        code: CHG-1
+        title: Registration of the charge
+        within: { days: 30 }
+        note: The registrar may allow up to 60 days with additional fees, then a further 60 days with ad valorem fees.
+        law: "Section 77(1), Companies Act 2013"
+
+  - id: ben1-received
+    title: Significant beneficial ownership declaration received
+    description: A company receives BEN-1 from a significant beneficial owner, or a change in it.
+    category: mca
+    steps:
+      - ruleId: mca-ben2-event
+        code: BEN-2
+        title: Return of significant beneficial owners
+        within: { days: 30 }
+        law: "Section 90(4), Companies Act 2013"
+
+  - id: company-incorporated
+    title: Company incorporated
+    description: A new company with share capital.
+    category: mca
+    steps:
+      - ruleId: mca-inc20a-event
+        code: INC-20A
+        title: Declaration for commencement of business
+        within: { days: 180 }
+        law: "Section 10A, Companies Act 2013"
+
+  - id: llp-ben1-received
+    title: LLP beneficial ownership declaration received
+    description: An LLP receives LLP BEN-1, or Form 4B or 4C on beneficial interest in contribution.
+    category: mca
+    steps:
+      - ruleId: mca-llp-ben2-event
+        code: LLP BEN-2
+        title: Return of significant beneficial owners
+        within: { days: 30 }
+        law: "Rule 4, LLP (Significant Beneficial Owners) Rules 2023"
+      - ruleId: mca-llp-form4d-event
+        code: LLP-4D
+        title: Return of beneficial interest in contribution
+        within: { days: 30 }
+        law: "Rule 22A, LLP Rules 2009"
+
+  - id: shares-transferred-nonresident
+    title: Shares transferred between a resident and a non-resident
+    description: Transfer of equity instruments of an Indian company across the residency line.
+    category: rbi-fema
+    steps:
+      - ruleId: rbi-fema-fc-trs-event
+        code: FC-TRS
+        title: Report the transfer
+        within: { days: 60 }
+        note: 60 days from the transfer or from receipt or remittance of funds, whichever is earlier.
+        law: "FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019"
+
+  - id: esop-to-nonresident
+    title: Employee stock options issued to non-resident employees
+    description: ESOPs or sweat equity granted to employees or directors resident outside India.
+    category: rbi-fema
+    steps:
+      - ruleId: rbi-fema-form-esop-event
+        code: FORM ESOP
+        title: Report the issue of options
+        within: { days: 30 }
+        law: "FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019"
+
+  - id: convertible-notes-issued
+    title: Convertible notes issued by a startup
+    description: Issue or transfer of convertible notes to a person resident outside India.
+    category: rbi-fema
+    steps:
+      - ruleId: rbi-fema-form-cn-event
+        code: FORM CN
+        title: Report the convertible notes
+        within: { days: 30 }
+        law: "FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019"
+
+  - id: llp-foreign-contribution
+    title: Foreign contribution received by an LLP
+    description: Capital contribution or profit share acquired by a person resident outside India.
+    category: rbi-fema
+    steps:
+      - ruleId: rbi-fema-form-llp-event
+        code: FORM LLP
+        title: Form LLP(I) for the contribution received
+        within: { days: 30 }
+        law: "FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019"
+
+  - id: odi-remittance
+    title: Overseas direct investment remitted
+    description: Remittance or capitalisation of an overseas direct investment.
+    category: rbi-fema
+    steps:
+      - ruleId: rbi-fema-odi-evidence-event
+        code: ODI PROOF
+        title: Submit evidence of investment (share certificates)
+        within: { months: 6 }
+        law: "FEM (Overseas Investment) Regulations 2022"
+
+  - id: odi-restructured-or-exited
+    title: Overseas investment restructured or disinvested
+    description: Restructuring of an overseas entity or receipt of disinvestment proceeds.
+    category: rbi-fema
+    steps:
+      - ruleId: rbi-fema-odi-form-fc-event
+        code: FORM FC
+        title: Report the restructuring or disinvestment
+        within: { days: 30 }
+        law: "FEM (Overseas Investment) Regulations 2022"

@@ -1,0 +1,143 @@
+---
+import Shell from '../layouts/Shell.astro';
+import { getBundle, SITE_URL } from '../lib/site-data.ts';
+import { AUDIENCES, AUDIENCE_LABEL, CATEGORIES, CATEGORY_LABEL } from '../lib/types.ts';
+
+const { rules } = getBundle();
+const scheduled = rules.filter((r) => r.schedule);
+const feeds = [
+  { id: 'all', name: 'Everything', count: scheduled.length },
+  ...CATEGORIES.map((c) => ({ id: c, name: CATEGORY_LABEL[c], count: scheduled.filter((r) => r.category === c).length })),
+];
+const audienceFeeds = AUDIENCES.map((a) => ({ id: `for-${a}`, name: AUDIENCE_LABEL[a], count: scheduled.filter((r) => r.audience.includes(a)).length }));
+const webcal = (id: string) => `${SITE_URL.replace(/^https?:/, 'webcal:')}ics/${id}.ics`;
+const https = (id: string) => `${SITE_URL}ics/${id}.ics`;
+const google = (id: string) => `https://calendar.google.com/calendar/render?cid=${encodeURIComponent(webcal(id))}`;
+const endpoints = [
+  ['bundle.json', 'Rules, holidays, planner events and metadata in one file. What the site itself loads.'],
+  ['rules.json', 'Every obligation as a structured rule: schedule, applicability, law, penalty exposure, sources.'],
+  ['occurrences.json', 'Every dated occurrence from the start of the current financial year to 25 months ahead.'],
+  ['holidays.json', 'Central gazetted and restricted holidays, exchange and bank holidays where published.'],
+  ['events.json', 'Event types for the planner and the deadlines that follow each one.'],
+  ['updates.json', 'The latest regulator updates collected by the daily job.'],
+  ['sources.json', 'The catalogue of open datasets and official sources behind the calendar.'],
+  ['meta.json', 'Build time, rule counts, the verified window and the list of endpoints.'],
+];
+const mcpConfig = JSON.stringify(
+  { mcpServers: { 'india-compliance-calendar': { command: 'node', args: ['/path/to/india-compliance-calendar/mcp/server.ts'] } } },
+  null,
+  2,
+);
+---
+
+<Shell title="Feeds, API and MCP" active="subscribe" description="Calendar subscriptions, a JSON API and an MCP server for AI agents, all from the same source-cited data.">
+  <div class="page read">
+    <header class="read-head">
+      <h1 class="cat read-title">Feeds, API and MCP</h1>
+      <p class="read-lede muted">
+        The same rules feed people and machines. Subscribe in Google Calendar or Outlook, pull JSON into your own tools, or let
+        an AI agent query the calendar over MCP.
+      </p>
+    </header>
+
+    <section class="read-section" aria-labelledby="ics">
+      <h2 id="ics">Calendar subscriptions</h2>
+      <div class="prose">
+        <p>
+          All-day events in India time, refreshed with every daily build, with reminders 7 days and 1 day before. Each event
+          carries the period, the law, the cost of a 30-day delay and a link to the official source. In Outlook, choose Add
+          calendar, From internet, and paste the https link.
+        </p>
+      </div>
+      <h3 class="caps faint">By law</h3>
+      <div class="sub-grid">
+        {
+          feeds.map((f) => (
+            <div class="sub-item">
+              <span><span class="cat">{f.name}</span> <span class="faint num">{f.count} {f.count === 1 ? 'rule' : 'rules'}</span></span>
+              <span class="sub-links caps">
+                <a href={webcal(f.id)}>Subscribe</a>
+                <a href={google(f.id)} rel="noopener">Google Calendar</a>
+                <a href={https(f.id)}>Download</a>
+              </span>
+            </div>
+          ))
+        }
+      </div>
+      <h3 class="caps faint">By who files</h3>
+      <div class="sub-grid">
+        {
+          audienceFeeds.map((f) => (
+            <div class="sub-item">
+              <span><span class="cat">{f.name}</span> <span class="faint num">{f.count} {f.count === 1 ? 'rule' : 'rules'}</span></span>
+              <span class="sub-links caps">
+                <a href={webcal(f.id)}>Subscribe</a>
+                <a href={google(f.id)} rel="noopener">Google Calendar</a>
+                <a href={https(f.id)}>Download</a>
+              </span>
+            </div>
+          ))
+        }
+      </div>
+      <div class="prose">
+        <p>
+          Every obligation has its own feed too: open its entry and choose Subscribe to this obligation. For a feed shaped to
+          your profile and filed status, use Add to calendar in the overview, the planner's Download ICS, or the report's CSV.
+        </p>
+      </div>
+    </section>
+
+    <section class="read-section" aria-labelledby="api">
+      <h2 id="api">JSON API</h2>
+      <div class="prose">
+        <p>Static files, regenerated daily, free to use with attribution. No key, no rate limit beyond GitHub Pages' own.</p>
+      </div>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th class="caps">Endpoint</th><th class="caps">Contents</th></tr></thead>
+          <tbody>
+            {
+              endpoints.map(([file, what]) => (
+                <tr>
+                  <td><a href={`${SITE_URL}api/v1/${file}`}><code>/api/v1/{file}</code></a></td>
+                  <td class="muted">{what}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <pre><code>curl -s {SITE_URL}api/v1/occurrences.json | jq '.items[] | select(.due &gt;= "2026-10-01" and .due &lt;= "2026-10-31")'</code></pre>
+    </section>
+
+    <section class="read-section" aria-labelledby="mcp">
+      <h2 id="mcp">MCP server for AI agents</h2>
+      <div class="prose">
+        <p>
+          The repository ships a Model Context Protocol server, so assistants such as Claude, Cursor or any MCP client can ask
+          what is due, what a filing costs if late, or which deadlines follow an AGM. It has no dependencies and runs on Node
+          22.18 or later; it reads the published data above, so it is always as current as the site.
+        </p>
+        <ul>
+          <li><code>upcoming_obligations</code> - due items for a horizon (1 week to 24 months), filtered by law, audience or state, ordered by due date or penalty exposure.</li>
+          <li><code>get_obligation</code> - one rule with its schedule, law, penalty, sources and next due dates.</li>
+          <li><code>search_obligations</code> - find rules by form, law, authority or keyword.</li>
+          <li><code>event_deadlines</code> - every deadline that follows an event on a given date.</li>
+          <li><code>check_date</code> - holidays and obligations on a date.</li>
+          <li><code>list_holidays</code> and <code>regulatory_updates</code> - holiday lists and the latest regulator updates.</li>
+        </ul>
+        <p>Clone the repository, then add it to your client. For Claude Code:</p>
+      </div>
+      <pre><code>git clone https://github.com/dgomesbr/india-compliance-calendar
+claude mcp add india-compliance-calendar -- node ./india-compliance-calendar/mcp/server.ts</code></pre>
+      <div class="prose"><p>For Claude Desktop and other clients that read an <code>mcpServers</code> file:</p></div>
+      <pre><code>{mcpConfig}</code></pre>
+      <div class="prose">
+        <p>
+          Agents that read <a href={`${SITE_URL}llms.txt`}>llms.txt</a> find the endpoints and conventions there. Set
+          <code>ICC_DATA_URL</code> to point the server at a fork's published bundle.
+        </p>
+      </div>
+    </section>
+  </div>
+</Shell>

@@ -1,0 +1,178 @@
+---
+import Shell from '../layouts/Shell.astro';
+import { formatDate } from '../lib/dates.ts';
+import { getBundle, getSources } from '../lib/site-data.ts';
+import { CATEGORIES, CATEGORY_LABEL } from '../lib/types.ts';
+
+const { rules, holidays, meta } = getBundle();
+const sources = getSources();
+const repo = 'https://github.com/dgomesbr/india-compliance-calendar';
+const groups = [...new Set(sources.map((s) => s.category))];
+const GROUP_LABEL: Record<string, string> = {
+  'due-dates': 'Due dates and official calendars',
+  'regulatory-feed': 'Regulatory feeds',
+  holidays: 'Holidays',
+  'legal-text': 'Legal text',
+  'entity-data': 'Entity and identifier data',
+  statistics: 'Statistics',
+  'open-source': 'Open-source projects and datasets',
+  api: 'APIs',
+  'reference-site': 'Reference sites (not copied)',
+};
+const byConfidence = { high: 0, medium: 0, low: 0 } as Record<string, number>;
+for (const r of rules) byConfidence[r.confidence] = (byConfidence[r.confidence] ?? 0) + 1;
+const used = sources.filter((s) => s.used).length;
+---
+
+<Shell title="Method and sources" active="sources" description="How the calendar's dates are compiled and verified, and the catalogue of open datasets and official sources behind it.">
+  <div class="page read">
+    <header class="read-head">
+      <h1 class="cat read-title">Method and sources</h1>
+      <p class="read-lede muted">
+        Every date here comes from a rule written down from the law and checked against the official source it cites. Nothing
+        is copied from commercial calendars. This page says how the rules are built and lists every open dataset and official
+        source we looked at.
+      </p>
+    </header>
+
+    <section class="read-section" aria-labelledby="method">
+      <h2 id="method">How a due date is made</h2>
+      <div class="prose">
+        <ol>
+          <li>
+            Each obligation is a <strong>rule</strong>: what is filed or paid, who files it, the section and rules that require
+            it, the penalty for delay, and a schedule such as "the 20th of the month after each month" or "45 days after each
+            quarter".
+          </li>
+          <li>
+            The schedule is expanded into dated occurrences for any window up to 24 months ahead, in India time, with the
+            financial year running April to March.
+          </li>
+          <li>
+            When a ministry or regulator notifies an <strong>extension</strong>, it is recorded against that one period with its
+            circular or notification. The occurrence shows the new date and keeps the statutory one.
+          </li>
+          <li>
+            Dates up to {formatDate(meta.confirmedThrough, { weekday: false })} were checked against the cited sources. Later
+            dates are <strong>projected</strong> from the standing rule and say so, because laws and forms change.
+          </li>
+          <li>
+            Due dates are not moved for weekends or holidays. The calendar flags them instead: most filing portals stay open,
+            but banks and offices may not, and the rules on carrying a deadline to the next working day differ by law.
+          </li>
+        </ol>
+        <p>
+          Each rule carries a verified date and a confidence level: high means confirmed on a primary government source, medium
+          means the statute is clear but the date was confirmed only through a reputable secondary source, low means it could
+          not be confirmed and the entry says why. Today: {byConfidence.high} high, {byConfidence.medium} medium,
+          {byConfidence.low} low across {rules.length} rules.
+        </p>
+      </div>
+    </section>
+
+    <section class="read-section" aria-labelledby="coverage">
+      <h2 id="coverage">Coverage</h2>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th class="caps">Law</th><th class="caps">Rules</th><th class="caps">Calendar feed</th></tr></thead>
+          <tbody>
+            {
+              CATEGORIES.map((c) => (
+                <tr>
+                  <td>{CATEGORY_LABEL[c]}</td>
+                  <td class="num">{rules.filter((r) => r.category === c).length}</td>
+                  <td><a href={`${import.meta.env.BASE_URL.replace(/\/?$/, '/')}ics/${c}.ics`}>{c}.ics</a></td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="prose">
+        <p>
+          Holidays: {holidays.length} published lists ({holidays.map((h) => h.title).join('; ') || 'none yet'}).
+        </p>
+      </div>
+    </section>
+
+    <section class="read-section" aria-labelledby="catalogue">
+      <h2 id="catalogue">Open datasets and sources</h2>
+      <div class="prose">
+        <p>
+          {sources.length} sources surveyed, {used} used directly by the calendar today. Reachability was tested from outside
+          India, the same position as the GitHub Actions runner that builds this site, so a source marked blocked may still
+          work from an Indian network.
+        </p>
+      </div>
+      {
+        groups.length > 1 && (
+          <div class="chips" role="group" aria-label="Filter sources" data-src-filter>
+            <button type="button" class="chip" aria-pressed="true" data-group="">All</button>
+            {groups.map((g) => (
+              <button type="button" class="chip" aria-pressed="false" data-group={g}>{GROUP_LABEL[g] ?? g}</button>
+            ))}
+          </div>
+        )
+      }
+      <div class="data-table-wrap">
+        <table class="data-table" data-src-table>
+          <thead>
+            <tr>
+              <th class="caps">Source</th>
+              <th class="caps">Format and access</th>
+              <th class="caps">Licence</th>
+              <th class="caps">Reachable</th>
+              <th class="caps">What it gives the calendar</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              sources.map((s) => (
+                <tr data-group={s.category}>
+                  <td class="wrap">
+                    <a href={s.url} rel="noopener">{s.name}</a>
+                    <span class="feed-meta faint">{s.publisher}{s.used ? ' - used' : ''}</span>
+                  </td>
+                  <td class="muted">{s.format?.join(', ')}<span class="feed-meta faint">{s.access}</span></td>
+                  <td class="muted">{s.license}</td>
+                  <td class="muted num">
+                    {s.reachable ? String(s.reachable.status) : '-'}
+                    {s.reachable?.note && <span class="feed-meta faint">{s.reachable.note}</span>}
+                  </td>
+                  <td class="muted wrap">{s.useInCalendar}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="read-section" aria-labelledby="corrections">
+      <h2 id="corrections">Corrections and contributions</h2>
+      <div class="prose">
+        <p>
+          Rules live as YAML in <a href={`${repo}/tree/main/data/rules`}>data/rules</a>, one file per law, validated by the test
+          suite on every change. To fix a date or add an obligation, <a href={`${repo}/issues/new?labels=correction`}>open an issue</a>
+          with the official source, or send a pull request that edits the YAML and cites it.
+        </p>
+        <p>
+          This calendar is information, not legal advice. Laws, forms and portal behaviour change; confirm on the official
+          portal before you file.
+        </p>
+      </div>
+    </section>
+  </div>
+</Shell>
+
+<script>
+  const group = document.querySelector('[data-src-filter]');
+  const rows = document.querySelectorAll<HTMLElement>('[data-src-table] tbody tr');
+  group?.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('button');
+    if (!btn) return;
+    const g = btn.dataset.group ?? '';
+    group.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+    rows.forEach((tr) => (tr.hidden = Boolean(g) && tr.dataset.group !== g));
+  });
+</script>

@@ -1,0 +1,127 @@
+---
+import Shell from '../../layouts/Shell.astro';
+import Icon from '../../components/Icon.astro';
+import { addMonths, formatDate, formatLong } from '../../lib/dates.ts';
+import { delayCost, formatINR, interestNote, turnoverNote } from '../../lib/exposure.ts';
+import { describeSchedule } from '../../lib/schedule.ts';
+import { buildDate, getBundle, occurrencesBetween } from '../../lib/site-data.ts';
+import { AUDIENCE_LABEL, CATEGORY_LABEL, type Rule } from '../../lib/types.ts';
+import { STATE_NAME } from '../../lib/validate.ts';
+
+export function getStaticPaths() {
+  return getBundle().rules.map((rule) => ({ params: { id: rule.id }, props: { rule } }));
+}
+
+interface Props {
+  rule: Rule;
+}
+const { rule } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const today = buildDate();
+const next = rule.schedule ? occurrencesBetween(today, addMonths(today, 24), [rule]).slice(0, 8) : [];
+const extended = rule.schedule ? occurrencesBetween(addMonths(today, -12), addMonths(today, 24), [rule]).filter((o) => o.extended) : [];
+const e = rule.exposure;
+const cost30 = delayCost(e, 30);
+const interest = interestNote(e);
+const turnover = turnoverNote(e);
+const verified = rule.verified ? formatDate(rule.verified, { weekday: false }) : '';
+---
+
+<Shell title={`${rule.code} - ${rule.title}`} active="none" description={`${rule.title}: ${describeSchedule(rule)}. ${rule.summary}`}>
+  <article class="page read entry">
+    <header class="entry-head">
+      <p class="caps muted">{CATEGORY_LABEL[rule.category]} - {rule.authority}</p>
+      <h1 class="cat entry-code">{rule.code}</h1>
+      <p class="entry-title">{rule.title}</p>
+      <div class="form-actions">
+        {
+          rule.schedule && (
+            <a class="btn" href={`${base}ics/rules/${rule.id}.ics`}>
+              <span class="btn-label"><Icon name="calendar" />Subscribe to this obligation</span>
+              <span class="btn-block" />
+            </a>
+          )
+        }
+        <a class="btn" href={`${base}?q=${encodeURIComponent(rule.code)}&h=fy`}>
+          <span class="btn-label"><Icon name="arrow" />See it in the overview</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="entry-grid">
+      <div>
+        <dl class="entry-facts">
+          <div><dt class="caps faint">What</dt><dd>{rule.summary}</dd></div>
+          <div><dt class="caps faint">Who files</dt><dd>{rule.applicability}</dd></div>
+          <div>
+            <dt class="caps faint">Applies to</dt>
+            <dd>{rule.audience.map((a) => AUDIENCE_LABEL[a]).join(', ')}{rule.states?.length ? ` - ${rule.states.map((s) => STATE_NAME[s] ?? s).join(', ')}` : ''}</dd>
+          </div>
+          <div><dt class="caps faint">When</dt><dd>{describeSchedule(rule)}</dd></div>
+          {rule.trigger && <div><dt class="caps faint">Trigger</dt><dd>{rule.trigger}</dd></div>}
+          {rule.form && <div><dt class="caps faint">Form</dt><dd>{rule.form}</dd></div>}
+          <div><dt class="caps faint">Law</dt><dd>{rule.law}</dd></div>
+          <div>
+            <dt class="caps faint">Cost of a delay</dt>
+            <dd>
+              {cost30 ? <p>{formatINR(cost30)} fixed cost at 30 days late.</p> : null}
+              {turnover && <p>Penalty of {turnover}.</p>}
+              {interest && <p>Plus {interest} on the unpaid amount.</p>}
+              {(e?.other ?? []).map((o) => <p>{o}.</p>)}
+              {rule.penalty && <p class="muted">{rule.penalty}</p>}
+            </dd>
+          </div>
+          {rule.notes && <div><dt class="caps faint">Notes</dt><dd>{rule.notes}</dd></div>}
+          <div>
+            <dt class="caps faint">Sources</dt>
+            <dd>
+              <ul class="sources">
+                {rule.sources.map((s) => <li><a href={s.url} rel="noopener">{s.title}</a>{s.kind && <span class="caps faint"> {s.kind}</span>}</li>)}
+              </ul>
+              {verified && <p class="caps faint verified">Verified {verified} - confidence {rule.confidence}</p>}
+            </dd>
+          </div>
+        </dl>
+      </div>
+
+      <aside>
+        <section class="aside-list">
+          <h2 class="caps faint">Next due dates</h2>
+          {
+            next.length ? (
+              <ul class="next-list">
+                {next.map((o) => (
+                  <li>
+                    <span class="num">{formatLong(o.due)}</span>
+                    <span class="faint">{o.periodLabel}{o.projected ? ' - projected' : ''}{o.extended ? ' - extended' : ''}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="faint aside-empty">Event-based: due a set time after the event. Use the planner to date it.</p>
+            )
+          }
+        </section>
+        {
+          extended.length > 0 && (
+            <section class="aside-list">
+              <h2 class="caps faint">Notified extensions</h2>
+              <ul class="next-list">
+                {extended.map((o) => (
+                  <li>
+                    <span class="num">{o.periodLabel}: {formatDate(o.originalDue ?? o.due, { weekday: false })} to {formatDate(o.due, { weekday: false })}</span>
+                    <span class="faint">{o.extended?.source ? <a href={o.extended.source.url} rel="noopener">{o.extended.source.title}</a> : o.extended?.reason}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )
+        }
+        <section class="aside-list">
+          <h2 class="caps faint">Machine-readable</h2>
+          <p class="aside-empty"><a href={`${base}api/v1/rules.json`}>rules.json</a> - id <code>{rule.id}</code></p>
+        </section>
+      </aside>
+    </div>
+  </article>
+</Shell>

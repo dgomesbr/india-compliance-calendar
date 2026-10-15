@@ -1,0 +1,1171 @@
+# mca obligations. See docs/DATA_MODEL.md for the schema.
+# Every rule cites its sources; edit with care and keep prose ASCII.
+rules:
+  - id: mca-adt1-annual
+    title: ADT-1 auditor appointment notice
+    form: ADT-1
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: Notify the Registrar of the appointment or re-appointment of the statutory auditor within 15 days of the meeting at which the auditor was appointed.
+    applicability: Companies that appoint or re-appoint a statutory auditor at the AGM (normally once every five years for a five-year term, plus casual vacancies and first auditors). In years with no appointment there is nothing to file.
+    audience:
+      - company
+      - listed
+      - audit
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 14
+      monthOffset: 7
+    law: Section 139(1) fourth proviso, Companies Act 2013; Rule 4(2), Companies (Audit and Auditors) Rules 2014 (V3 form by G.S.R. 359(E))
+    penalty: "Additional fee under Table B: 1x the normal fee if up to 15 days late, then 2x up to 30 days, 4x up to 60 days, 6x up to 90 days, 10x up to 180 days and 12x beyond. Section 147(1): the company is punishable with a fine of Rs 25,000 to Rs 5 lakh and officers Rs 10,000 to Rs 1 lakh."
+    exposure:
+      fixedPenalty: 25000
+      maxPenalty: 500000
+      other:
+        - Table B additional fee 1x-12x of normal fee by length of delay
+      basis: "Section 147(1): company fine Rs 25,000 to Rs 5 lakh for contravention of Sections 139-146"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 139 (appointment of auditors)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mjc5Nzk=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Audit and Auditors) Rules 2014, Rule 4
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE0Nzk=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA - G.S.R. 359(E) dated 30-05-2025, Companies (Audit and Auditors) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTQwNjEyMjgw&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA e-book - Companies Act 2013, Section 147 (punishment for contravention)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwNzQ=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Registration Offices and Fees) Rules 2014, Rule 12 and Table of Fees
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE1NDU=&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    notes: Due date assumes the AGM is held on the last permitted day, 30 September; the real deadline runs from the actual AGM date (or from the last day the AGM should have been held, if it was not held). The 14 October date counts the AGM day as day 1 (the conservative reading used by most calendars); counting from the day after the AGM gives 15 October.
+    code: ADT-1
+  - id: mca-adt3-event
+    title: ADT-3 statement on auditor resignation
+    form: ADT-3
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: A resigning statutory auditor files a statement of reasons with the company and the Registrar (and with the CAG for Government companies).
+    applicability: Statutory auditors who resign from a company; the company then fills the casual vacancy and files ADT-1.
+    audience:
+      - audit
+      - company
+    frequency: event
+    trigger: Within 30 days of the date of resignation
+    law: Section 140(2)-(3), Companies Act 2013; Rule 8, Companies (Audit and Auditors) Rules 2014 (V3 form by G.S.R. 359(E))
+    penalty: "Section 140(3): the auditor is liable to a penalty of Rs 50,000 or the auditor's remuneration, whichever is less, plus Rs 500 per day of continuing failure, up to Rs 2 lakh."
+    exposure:
+      lateFeePerDay: 500
+      lateFeeCap: 200000
+      fixedPenalty: 50000
+      maxPenalty: 200000
+      other:
+        - Penalty falls on the auditor, not the company
+      basis: "Section 140(3): Rs 50,000 (or remuneration if lower) plus Rs 500/day up to Rs 2 lakh"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 140 (resignation of auditor)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mjc5ODA=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Audit and Auditors) Rules 2014, Rule 8
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mjk3MDQ=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA - G.S.R. 359(E) dated 30-05-2025, Companies (Audit and Auditors) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTQwNjEyMjgw&docCategory=Notifications&type=open
+        kind: notification
+    verified: 2026-10-14
+    confidence: high
+    code: ADT-3
+  - id: mca-agm-annual
+    title: Annual general meeting (AGM) deadline
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: Hold the annual general meeting that adopts the audited financial statements for the year. AOC-4, MGT-7, ADT-1 and MGT-15 deadlines run from this meeting.
+    applicability: Every company other than a One Person Company. First AGM within 9 months of the end of the first financial year; later AGMs within 6 months of the year end (30 September for a 31 March year end), with no more than 15 months between two AGMs. The ROC may extend a later AGM by up to 3 months on an application in Form GNL-1.
+    audience:
+      - company
+      - listed
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: 6
+    law: Section 96(1), Companies Act 2013; Section 99 (punishment); Section 101(1) (21 clear days' notice)
+    penalty: "Section 99: the company and every officer in default are punishable with a fine of up to Rs 1 lakh and, for a continuing default, up to Rs 5,000 for every day the default continues (court-imposed fine)."
+    exposure:
+      lateFeePerDay: 5000
+      maxPenalty: 100000
+      other:
+        - Court-imposed fine on prosecution, not an adjudicated penalty
+        - Tribunal can order the meeting on a member's application (Section 97)
+      basis: "Section 99: fine up to Rs 1 lakh plus up to Rs 5,000 per day of continuing default; no overall cap on the daily amount"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 96 (annual general meeting)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwNTU=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies Act 2013, Section 99 (punishment for AGM default)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjQ2Nzc=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies Act 2013, Section 101 (notice of meeting)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjU5MzIxMTQ4&docCategory=Acts&type=open
+        kind: act
+      - title: MCA - General Circular No. 03/2025 dated 22-09-2025 (AGM/EGM through VC or OAVM till further orders)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Njg4NzA0Mjkx&docCategory=Circulars&type=open
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: General Circular 03/2025 (22-09-2025) lets companies hold AGMs and EGMs through video conference till further orders but expressly grants no extension of the AGM deadline. No AGM extension has been notified for FY 2025-26. The top 100 listed entities must hold their AGM within 5 months (see sebi-agm-top100-annual). All AGM-linked rules in this file assume the AGM is held on 30 September.
+    code: AGM
+    tags:
+      - not-opc
+  - id: mca-aoc4-annual
+    title: AOC-4 / AOC-4 XBRL / AOC-4 CFS financial statements
+    form: AOC-4, AOC-4 XBRL, AOC-4 CFS, AOC-4 NBFC (Ind AS), AOC-4 CFS NBFC (Ind AS)
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: File the adopted standalone financial statements (and consolidated statements, if any) with the Board's report and auditor's report. Since 14-07-2025 the V3 forms also need the linked e-forms Extract of Board Report and Extract of Auditor's Report.
+    applicability: Every company other than a One Person Company (see mca-aoc4-opc-annual). XBRL mode for listed companies and their Indian subsidiaries, companies with paid-up capital of Rs 5 crore or more or turnover of Rs 100 crore or more, and Ind AS companies (banking, insurance, NBFC and housing finance companies excluded). Ind AS NBFCs use AOC-4 NBFC (Ind AS). Companies preparing consolidated statements also file AOC-4 CFS (or the consolidated XBRL / NBFC variant).
+    audience:
+      - company
+      - listed
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: 7
+    law: Section 137(1)-(3), Companies Act 2013; Rule 12(1), (1A) and (1C), Companies (Accounts) Rules 2014; Rule 3, Companies (Filing of Documents and Forms in XBRL) Rules 2015; Table D, Companies (Registration Offices and Fees) Rules 2014
+    penalty: "Additional fee of Rs 100 per day of delay with no upper limit (Table D, Fees Rules). Section 137(3): the company is liable to a penalty of Rs 10,000 plus Rs 100 per day of continuing failure, up to Rs 2 lakh; the MD and CFO (or responsible directors) Rs 10,000 plus Rs 100 per day, up to Rs 50,000 each. Directors of a company that has not filed financial statements or annual returns for three continuous years are disqualified for five years (Section 164(2)(a))."
+    exposure:
+      lateFeePerDay: 100
+      fixedPenalty: 10000
+      maxPenalty: 200000
+      other:
+        - Rs 100/day MCA additional fee has no cap
+        - Officer penalty Rs 10,000 + Rs 100/day up to Rs 50,000
+        - Director disqualification after 3 years of non-filing (Section 164(2)(a))
+      basis: "Table D Fees Rules: Rs 100/day additional fee; Section 137(3): Rs 10,000 plus Rs 100/day up to Rs 2 lakh for the company"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 137 (filing of financial statements)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwNzI=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Accounts) Rules 2014, Rule 12
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTM5NDE5NTA0&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - Companies (Filing of Documents and Forms in XBRL) Rules 2015, Rule 3
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzMzMDE=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - Companies (Registration Offices and Fees) Rules 2014, Rule 12 and Table of Fees
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE1NDU=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA - G.S.R. 357(E) dated 30-05-2025, Companies (Accounts) Second Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTQwOTQ3NDc4&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA e-book - Companies Act 2013, Section 164 (disqualification of directors)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mjc5NTk=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA - General Circular No. 06/2025 dated 17-10-2025 (FY 2024-25 annual filings without additional fee till 31-12-2025)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTc5MDY1MjQ0&docCategory=Circulars&type=open
+        kind: circular
+      - title: MCA - General Circular No. 08/2025 dated 30-12-2025 (FY 2024-25 annual filings without additional fee till 31-01-2026)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjExNDE5MzU5&docCategory=Circulars&type=open
+        kind: circular
+      - title: MCA - General Circular No. 01/2026 dated 24-02-2026 (Companies Compliance Facilitation Scheme 2026)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjM4NTY0NzE1&docCategory=Circulars&type=open
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: "Due date assumes the AGM is held on the last permitted day, 30 September; the real deadline runs from the actual AGM date (or from the last day the AGM should have been held, if it was not held). Unadopted statements must still be filed within 30 days of the AGM and the adopted ones within 30 days of the adjourned AGM. Producer companies are reported to have 60 days (Section 378ZA) - not verified here. FY 2024-25 relief (outside this window): no additional fee till 31-12-2025 (GC 06/2025) and then 31-01-2026 (GC 08/2025). CCFS-2026 (GC 01/2026, 15-04-2026 to 15-09-2026 after GC 03/2026 and 04/2026) let defaulting companies file old AOC-4/MGT-7 with only 10% of the additional fee. No relaxation for FY 2025-26 filings has been notified as of 14-10-2026."
+    code: AOC-4
+    tags:
+      - not-opc
+  - id: mca-aoc4-opc-annual
+    title: AOC-4 for One Person Company (180 days)
+    form: AOC-4 / AOC-4 XBRL
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: A One Person Company files its financial statements, as adopted by its member, with the Registrar within 180 days of the end of the financial year.
+    applicability: One Person Companies (no AGM is required).
+    audience:
+      - company
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      daysAfter: 180
+    law: Section 137(1), fourth proviso, Companies Act 2013; Rule 12, Companies (Accounts) Rules 2014; Table D, Companies (Registration Offices and Fees) Rules 2014
+    penalty: "Additional fee of Rs 100 per day of delay with no upper limit (Table D). Section 137(3): Rs 10,000 plus Rs 100 per day, up to Rs 2 lakh for the company and Rs 50,000 for responsible officers."
+    exposure:
+      lateFeePerDay: 100
+      fixedPenalty: 10000
+      maxPenalty: 200000
+      other:
+        - Rs 100/day MCA additional fee has no cap
+      basis: "Table D Fees Rules: Rs 100/day; Section 137(3): Rs 10,000 plus Rs 100/day up to Rs 2 lakh"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 137 (filing of financial statements)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwNzI=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Accounts) Rules 2014, Rule 12
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTM5NDE5NTA0&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - Companies (Registration Offices and Fees) Rules 2014, Rule 12 and Table of Fees
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE1NDU=&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    notes: 180 days from 31 March is 27 September.
+    code: AOC-4 OPC
+    tags:
+      - opc
+  - id: mca-ben2-event
+    title: BEN-2 return of significant beneficial owners
+    form: BEN-2
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: File the return of significant beneficial owners with the Registrar after receiving a BEN-1 declaration from an SBO.
+    applicability: Every company (reporting company) that receives a declaration of significant beneficial ownership or a change in it.
+    audience:
+      - company
+      - foreign
+    frequency: event
+    trigger: Within 30 days of receipt of the BEN-1 declaration
+    law: Section 90(4) and (11), Companies Act 2013; Rule 4, Companies (Significant Beneficial Owners) Rules 2018
+    penalty: "Section 90(11): the company is liable to Rs 1 lakh plus Rs 500 per day after the first of continuing failure, up to Rs 5 lakh; officers Rs 25,000 plus Rs 200 per day, up to Rs 1 lakh. Table B additional fees apply to late filing."
+    exposure:
+      lateFeePerDay: 500
+      lateFeeCap: 500000
+      fixedPenalty: 100000
+      maxPenalty: 500000
+      other:
+        - "Additional fee for late filing: 2x the normal fee up to 30 days late, 4x up to 60 days, 6x up to 90 days, 10x up to 180 days, 12x beyond (Table B, Fees Rules)"
+      basis: "Section 90(11): Rs 1 lakh plus Rs 500/day up to Rs 5 lakh (company)"
+    sources:
+      - title: MCA e-book - Companies (Significant Beneficial Owners) Rules 2018, Rule 4
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NDYwOTE1NTU4&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - Companies Act 2013, Section 90 (register of significant beneficial owners)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwNTE=&docCategory=Acts&type=open
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    code: BEN-2
+  - id: mca-chg1-event
+    title: CHG-1 registration of charge
+    form: CHG-1 (CHG-9 for debentures)
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: Register the creation or modification of a charge on the company's assets, signed by the company and the charge holder.
+    applicability: Every company that creates or modifies a charge (except charges exempted in consultation with RBI).
+    audience:
+      - company
+    frequency: event
+    trigger: Within 30 days of creation or modification of the charge; the ROC may allow a further 30 days (up to day 60) with additional fee and then a further 60 days with ad valorem fee
+    law: Section 77(1) and (3), Section 86(1), Companies Act 2013; Rule 3, Companies (Registration of Charges) Rules 2014; Table E, Fees Rules
+    penalty: "Section 86(1): the company is liable to a penalty of Rs 5 lakh and each officer in default Rs 50,000. Late registration within the extended periods needs additional fee (multiples of the normal fee) or ad valorem fee. An unregistered charge is not taken into account by a liquidator or other creditors (Section 77(3))."
+    exposure:
+      fixedPenalty: 500000
+      maxPenalty: 500000
+      other:
+        - Additional or ad valorem fee for days 31-120 (Table E)
+        - Unregistered charge void against liquidator and creditors
+      basis: "Section 86(1): Rs 5 lakh on the company"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 77 (duty to register charges)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwNDI=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies Act 2013, Section 86 (punishment for contravention - charges)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwNDU=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Registration of Charges) Rules 2014, Rule 3
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE0NDM=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - Companies (Registration Offices and Fees) Rules 2014, Rule 12 and Table of Fees
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE1NDU=&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    notes: The pending Corporate Laws (Amendment) Bill 2026 proposes a longer further window for prescribed classes of companies; not law as of 14-10-2026.
+    code: CHG-1
+  - id: mca-cra2-annual
+    title: CRA-2 cost auditor appointment
+    form: CRA-2
+    category: mca
+    authority: MCA (Cost Audit Branch)
+    summary: Appoint the cost auditor within 180 days of the start of the financial year and file CRA-2 within 30 days of the Board meeting that appointed them, or within 180 days of the start of the year, whichever is earlier.
+    applicability: Companies required to have their cost records audited under the Companies (Cost Records and Audit) Rules 2014 (by sector and turnover thresholds).
+    audience:
+      - company
+      - audit
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      daysAfter: 180
+    law: Rule 6(1), (2) and (3A), Companies (Cost Records and Audit) Rules 2014 (V3 form by G.S.R. 361(E)); Section 148(3) and (8), Companies Act 2013
+    penalty: "Table B additional fee. Section 148(8)(a) read with Section 147(1): the company is punishable with a fine of Rs 25,000 to Rs 5 lakh and officers Rs 10,000 to Rs 1 lakh."
+    exposure:
+      fixedPenalty: 25000
+      maxPenalty: 500000
+      other:
+        - "Additional fee for late filing: 2x the normal fee up to 30 days late, 4x up to 60 days, 6x up to 90 days, 10x up to 180 days, 12x beyond (Table B, Fees Rules)"
+      basis: "Section 148(8)(a) read with Section 147(1): company fine Rs 25,000 to Rs 5 lakh"
+    sources:
+      - title: MCA e-book - Companies (Cost Records and Audit) Rules 2014, Rule 6
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzcyMTE=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA - G.S.R. 361(E) dated 30-05-2025, Companies (Cost Records and Audit) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTQwNjExNTg0&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA e-book - Companies Act 2013, Section 148 (cost audit)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MTk2NzY4NTUy&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies Act 2013, Section 147 (punishment for contravention)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwNzQ=&docCategory=Acts&type=open
+        kind: act
+    verified: 2026-10-14
+    confidence: medium
+    notes: "Modelling: the occurrence labelled FY X (ending 31 March) falls on 27 September of the next financial year, i.e. the CRA-2 for the year that starts on 1 April after period FY X. 27 September is the outer limit; if the Board appoints the cost auditor earlier, CRA-2 is due 30 days after that meeting. A casual vacancy needs CRA-2 within 30 days of the new appointment."
+    code: CRA-2
+  - id: mca-cra4-annual
+    title: CRA-4 cost audit report (XBRL)
+    form: CRA-4
+    category: mca
+    authority: MCA (Cost Audit Branch)
+    summary: File the cost audit report with full explanations on qualifications in XBRL within 30 days of receiving it; the cost auditor must give the report to the Board within 180 days of the year end.
+    applicability: Companies whose cost records are subject to cost audit.
+    audience:
+      - company
+      - audit
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      daysAfter: 210
+    law: Section 148(6), Companies Act 2013; Rule 6(5)-(6), Companies (Cost Records and Audit) Rules 2014; Rule 4, Companies (Filing of Documents and Forms in XBRL) Rules 2015
+    penalty: "Table B additional fee. Section 148(8)(a) read with Section 147(1): company fine of Rs 25,000 to Rs 5 lakh; officers Rs 10,000 to Rs 1 lakh."
+    exposure:
+      fixedPenalty: 25000
+      maxPenalty: 500000
+      other:
+        - "Additional fee for late filing: 2x the normal fee up to 30 days late, 4x up to 60 days, 6x up to 90 days, 10x up to 180 days, 12x beyond (Table B, Fees Rules)"
+      basis: Section 148(8)(a) read with Section 147(1)
+    sources:
+      - title: MCA e-book - Companies (Cost Records and Audit) Rules 2014, Rule 6
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzcyMTE=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - Companies Act 2013, Section 148 (cost audit)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MTk2NzY4NTUy&docCategory=Acts&type=open
+        kind: act
+      - title: MCA - G.S.R. 361(E) dated 30-05-2025, Companies (Cost Records and Audit) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTQwNjExNTg0&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA - General Circular No. 07/2025 dated 27-10-2025 (CRA-4 for FY 2024-25 without additional fee till 31-12-2025)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTgxODM1Njg4&docCategory=Circulars&type=open
+        kind: circular
+    verified: 2026-10-14
+    confidence: medium
+    notes: Modelled as 30 days after the latest permitted report date (180 days after 31 March, i.e. 27 September), giving 27 October; if the report is received earlier the deadline is earlier. Companies with an AGM extension may file within the extended Section 137 period (Rule 6(6) proviso). FY 2024-25 CRA-4 could be filed without additional fee up to 31-12-2025 (GC 07/2025).
+    code: CRA-4
+  - id: mca-csr2-annual
+    title: CSR-2 report on CSR (addendum to AOC-4)
+    form: CSR-2
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: Report the CSR obligation, spend, unspent amounts and projects for the year in e-form CSR-2, filed as an addendum linked to the AOC-4 (it quotes the AOC-4 SRN).
+    applicability: "Companies covered by Section 135(1): net worth of Rs 500 crore or more, turnover of Rs 1,000 crore or more, or net profit of Rs 5 crore or more in the immediately preceding financial year."
+    audience:
+      - company
+      - listed
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: 7
+    law: Rule 12(1B), Companies (Accounts) Rules 2014 (V3 form substituted by G.S.R. 357(E), in force 14-07-2025); Section 135, Companies Act 2013
+    penalty: "No CSR-2-specific additional-fee slab was found. Non-filing is a contravention of the rules, which attracts the general penalty in Section 450: Rs 10,000 plus Rs 1,000 per day of continuing contravention, up to Rs 2 lakh for the company and Rs 50,000 for each officer in default."
+    exposure:
+      lateFeePerDay: 1000
+      lateFeeCap: 200000
+      fixedPenalty: 10000
+      maxPenalty: 200000
+      other:
+        - No separate CSR-2 additional fee identified - confirm on MCA portal
+      basis: "Section 450 general penalty: Rs 10,000 plus Rs 1,000/day up to Rs 2 lakh (company)"
+    sources:
+      - title: MCA e-book - Companies (Accounts) Rules 2014, Rule 12
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTM5NDE5NTA0&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA - G.S.R. 357(E) dated 30-05-2025, Companies (Accounts) Second Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTQwOTQ3NDc4&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA - G.S.R. 317(E) dated 19-05-2025, Companies (Accounts) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTM5MTAwMzQ4&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA - General Circular No. 02/2025 dated 16-06-2025 (separate filing of CSR-2 after V2-V3 transition)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTQzOTkyNTQy&docCategory=Circulars&type=open
+        kind: circular
+      - title: MCA e-book - Companies Act 2013, Section 135 (corporate social responsibility)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mjc5NzY=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies Act 2013, Section 450 (general penalty)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgyMjI=&docCategory=Acts&type=open
+        kind: act
+    verified: 2026-10-14
+    confidence: medium
+    notes: "Lead confirmed with a correction: CSR-2 became an e-form linked to AOC-4 through G.S.R. 357(E) dated 30-05-2025 (the Companies (Accounts) SECOND Amendment Rules 2025, effective 14-07-2025). G.S.R. 317(E) dated 19-05-2025 (the first Amendment Rules) only moved the separate FY 2023-24 CSR-2 deadline from 31-03-2025 to 30-06-2025; GC 02/2025 then opened a 14-07-2025 to 15-08-2025 window in V3. From FY 2024-25 onward there is no separate CSR-2 date, so this rule follows the AOC-4 due date. Due date assumes the AGM is held on the last permitted day, 30 September; the real deadline runs from the actual AGM date (or from the last day the AGM should have been held, if it was not held)."
+    code: CSR-2
+  - id: mca-dir12-event
+    title: DIR-12 appointment or change of director / KMP
+    form: DIR-12
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: File particulars of the appointment of a director or key managerial personnel, or any change (including resignation), with the Registrar.
+    applicability: Every company (Government companies wholly owned by governments are exempt from Section 170).
+    audience:
+      - company
+      - listed
+    frequency: event
+    trigger: Within 30 days of the appointment or change
+    law: Section 170(2), Companies Act 2013; Rule 18, Companies (Appointment and Qualification of Directors) Rules 2014; Section 172 (penalty)
+    penalty: "Section 172: the company and every officer in default are liable to Rs 50,000 plus Rs 500 per day of continuing failure, up to Rs 3 lakh for the company and Rs 1 lakh for an officer. Table B additional fees apply."
+    exposure:
+      lateFeePerDay: 500
+      lateFeeCap: 300000
+      fixedPenalty: 50000
+      maxPenalty: 300000
+      other:
+        - "Additional fee for late filing: 2x the normal fee up to 30 days late, 4x up to 60 days, 6x up to 90 days, 10x up to 180 days, 12x beyond (Table B, Fees Rules)"
+      basis: "Section 172: Rs 50,000 plus Rs 500/day up to Rs 3 lakh (company)"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 170 (register and return of directors and KMP)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mjc5NjI=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Appointment and Qualification of Directors) Rules 2014, Rule 18
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mjk4ODA=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - Companies Act 2013, Section 172 (penalty)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwODI=&docCategory=Acts&type=open
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    notes: Specified IFSC companies get 60 days instead of 30 (exception notified in 2017).
+    code: DIR-12
+  - id: mca-dir3-kyc-change-event
+    title: DIR-3 KYC Web - change in mobile, email or address
+    form: DIR-3-KYC-Web
+    category: mca
+    authority: MCA
+    summary: A DIN holder whose personal mobile number, email address or residential address changes must update it in DIR-3-KYC-Web.
+    applicability: Every individual holding a DIN.
+    audience:
+      - company
+      - llp
+      - individual
+    frequency: event
+    trigger: Within 30 days of the change in personal mobile number, email address or residential address
+    law: Rule 12A(2), Companies (Appointment and Qualification of Directors) Rules 2014 (G.S.R. 943(E)); item VII(iii), Annexure to Fees Rules (G.S.R. 300(E))
+    penalty: Fee of Rs 500 for every change filing. The rules do not specify a separate fee for a change reported after 30 days.
+    exposure:
+      other:
+        - Rs 500 normal fee per change filing
+        - Fee for late change filing not specified
+      basis: "G.S.R. 300(E) item VII(iii): Rs 500 per filing"
+    effective:
+      from: 2026-03-31
+      to: null
+    sources:
+      - title: MCA - G.S.R. 943(E) dated 31-12-2025, Companies (Appointment and Qualification of Directors) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjExMzk5Mzk2&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA - G.S.R. 300(E) dated 21-04-2026, Companies (Registration Offices and Fees) Amendment Rules 2026
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjQ1ODUwMDEw&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA - FAQs on Form DIR-3-KYC-Web
+        url: https://www.mca.gov.in/content/mca/global/en/help-faq/faqs/company-services/din-related/dir-3-kyc-web.html
+        kind: faq
+    verified: 2026-10-14
+    confidence: high
+    code: DIR-3 KYC
+  - id: mca-dir3-kyc-triennial
+    title: DIR-3 KYC Web - triennial KYC (DIN up to 31-03-2025)
+    form: DIR-3-KYC-Web
+    category: mca
+    authority: MCA
+    summary: Every DIN holder confirms KYC details once every three financial years, by 30 June of the year after each three-year block. For DINs allotted on or before 31-03-2025 the first filing window is April-June 2028.
+    applicability: Individuals holding a DIN allotted on or before 31 March 2025 who completed KYC in 2025 (filing for FY 2025-26 per MCA). DINs allotted during FY 2025-26 follow mca-dir3-kyc-triennial-new-din.
+    audience:
+      - company
+      - llp
+      - individual
+    frequency: every-n-years
+    schedule:
+      kind: every-n-years
+      everyYears: 3
+      anchor: FY2027-28
+      day: 30
+      monthOffset: 3
+    law: Rule 12A(1), Companies (Appointment and Qualification of Directors) Rules 2014, substituted by G.S.R. 943(E) dated 31-12-2025 (in force 31-03-2026); Rule 11(2)-(3); item VII, Annexure to Companies (Registration Offices and Fees) Rules 2014 (G.S.R. 300(E) dated 21-04-2026)
+    penalty: Fee is nil if filed within the Rule 12A(1) timeline; Rs 5,000 if filed later or to reactivate the DIN (G.S.R. 300(E)). A DIN not updated is deactivated (Rule 11(2)) and can be reactivated only by filing the form with the fee.
+    exposure:
+      fixedPenalty: 5000
+      other:
+        - DIN deactivation until filed (Rule 11(2)-(3))
+        - Deactivated DIN blocks filings for the director's companies
+      basis: "G.S.R. 300(E): Rs 5,000 fee for filing after the timeline or for reactivation"
+    effective:
+      from: 2026-03-31
+      to: null
+    sources:
+      - title: MCA - G.S.R. 943(E) dated 31-12-2025, Companies (Appointment and Qualification of Directors) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjExMzk5Mzk2&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA e-book - Companies (Appointment and Qualification of Directors) Rules 2014, Rule 12A
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjE1MDA1Njgx&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - Companies (Appointment and Qualification of Directors) Rules 2014, Rule 11
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjE1MDA1NjI5&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA - G.S.R. 300(E) dated 21-04-2026, Companies (Registration Offices and Fees) Amendment Rules 2026
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjQ1ODUwMDEw&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA - FAQs on Form DIR-3-KYC-Web
+        url: https://www.mca.gov.in/content/mca/global/en/help-faq/faqs/company-services/din-related/dir-3-kyc-web.html
+        kind: faq
+    verified: 2026-10-14
+    confidence: high
+    notes: "Lead confirmed: G.S.R. 943(E) dated 31-12-2025, in force 31-03-2026, replaced annual KYC (due 30 September; the last annual round was extended without fee to 15-10-2025 by GC 04/2025 and to 31-10-2025 by GC 05/2025) with a once-in-three-years filing due 30 June. MCA's FAQ: if KYC was filed for FY 2025-26 (DIN allotted on or before 31-03-2025), nothing is due for FY 2026-27 and FY 2027-28 unless particulars change, and the first filing is due April-June 2028. The e-form DIR-3 KYC and web form were merged into DIR-3-KYC-Web."
+    code: DIR-3 KYC
+  - id: mca-dir3-kyc-triennial-new-din
+    title: DIR-3 KYC Web - triennial KYC (DIN in FY 2025-26)
+    form: DIR-3-KYC-Web
+    category: mca
+    authority: MCA
+    summary: Holders of DINs allotted during FY 2025-26 make their first triennial KYC filing between April and June 2029 and then every third year.
+    applicability: Individuals whose DIN was allotted between 01-04-2025 and 31-03-2026.
+    audience:
+      - company
+      - llp
+      - individual
+    frequency: every-n-years
+    schedule:
+      kind: every-n-years
+      everyYears: 3
+      anchor: FY2028-29
+      day: 30
+      monthOffset: 3
+    law: Rule 12A(1), Companies (Appointment and Qualification of Directors) Rules 2014 (G.S.R. 943(E)); G.S.R. 300(E) dated 21-04-2026
+    penalty: Fee is nil if filed within the timeline; Rs 5,000 if filed late or to reactivate a DIN deactivated for non-filing (Rule 11(2)).
+    exposure:
+      fixedPenalty: 5000
+      other:
+        - DIN deactivation until filed
+      basis: "G.S.R. 300(E): Rs 5,000 fee for late filing or reactivation"
+    effective:
+      from: 2026-03-31
+      to: null
+    sources:
+      - title: MCA - FAQs on Form DIR-3-KYC-Web
+        url: https://www.mca.gov.in/content/mca/global/en/help-faq/faqs/company-services/din-related/dir-3-kyc-web.html
+        kind: faq
+      - title: MCA - G.S.R. 943(E) dated 31-12-2025, Companies (Appointment and Qualification of Directors) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjExMzk5Mzk2&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA - G.S.R. 300(E) dated 21-04-2026, Companies (Registration Offices and Fees) Amendment Rules 2026
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjQ1ODUwMDEw&docCategory=Notifications&type=open
+        kind: notification
+    verified: 2026-10-14
+    confidence: high
+    notes: First occurrence (30-06-2029) falls after the site's current window; included so the cohort is not shown the 2028 date. MCA has not yet stated the cycle for DINs allotted from FY 2026-27 onward.
+    code: DIR-3 KYC
+  - id: mca-dpt3-annual
+    title: DPT-3 return of deposits (30 June)
+    form: DPT-3
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: File the return of deposits and of outstanding receipts not treated as deposits (loans, advances and similar), as on 31 March and audited by the statutory auditor.
+    applicability: Every company other than a Government company, including private companies that only have exempt receipts such as loans from directors or other companies.
+    audience:
+      - company
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: 3
+    law: Rule 16 and Explanation, Companies (Acceptance of Deposits) Rules 2014; Rule 21 (punishment); Table B, Fees Rules
+    penalty: "Table B additional fee (2x the normal fee up to 30 days late, rising to 12x beyond 180 days). Rule 21: the company and every officer in default are punishable with a fine of up to Rs 5,000 and up to Rs 500 per day for a continuing contravention."
+    exposure:
+      lateFeePerDay: 500
+      maxPenalty: 5000
+      other:
+        - "Additional fee for late filing: 2x the normal fee up to 30 days late, 4x up to 60 days, 6x up to 90 days, 10x up to 180 days, 12x beyond (Table B, Fees Rules)"
+        - Rule 21 fine is court-imposed
+      basis: "Rule 21 Deposits Rules: fine up to Rs 5,000 plus up to Rs 500/day of continuing contravention"
+    overrides:
+      - period: FY2025-26
+        due: 2026-07-31
+        originalDue: 2026-06-30
+        reason: MCA General Circular No. 02/2026 (dated June 2026; listed 19-06-2026) allowed DPT-3 for FY 2025-26 to be filed without additional fees up to 31-07-2026, because of restoration work at the MCA data centre after a fire on 05-06-2026
+        source:
+          title: MCA General Circular No. 02/2026
+          url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjU4NzQ0MzA3&docCategory=Circulars&type=open
+    sources:
+      - title: MCA e-book - Companies (Acceptance of Deposits) Rules 2014, Rule 16
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MTk4MzA2ODU5&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - Companies (Acceptance of Deposits) Rules 2014, Rule 21
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE0NDE=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA - General Circular No. 02/2026 (DPT-3 for FY 2025-26 without additional fees up to 31-07-2026)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjU4NzQ0MzA3&docCategory=Circulars&type=open
+        kind: circular
+      - title: MCA - What's New (lists GC 02/2026 dated 19-06-2026)
+        url: https://www.mca.gov.in/content/mca/global/en/notifications-tender/whats-new.html
+        kind: portal
+      - title: MCA e-book - Companies (Registration Offices and Fees) Rules 2014, Rule 12 and Table of Fees
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE1NDU=&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    notes: "Lead confirmed: GC 02/2026 is a waiver of additional fees up to 31-07-2026 rather than a change to Rule 16; filings after 31-07-2026 pay additional fees counted from 30-06-2026."
+    code: DPT-3
+  - id: mca-inc20a-event
+    title: INC-20A declaration for commencement of business
+    form: INC-20A
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: A director declares that every subscriber has paid for the shares agreed to be taken; the company cannot start business or borrow until this is filed.
+    applicability: Companies with share capital incorporated on or after 02-11-2018.
+    audience:
+      - company
+    frequency: event
+    trigger: Within 180 days of the date of incorporation
+    law: Section 10A(1)(a), (2) and (3), Companies Act 2013; Rule 23A, Companies (Incorporation) Rules 2014
+    penalty: "Section 10A(2): the company is liable to a penalty of Rs 50,000 and each officer in default to Rs 1,000 per day, up to Rs 1 lakh. The ROC may also start strike-off action if no declaration is filed within 180 days (Section 10A(3))."
+    exposure:
+      fixedPenalty: 50000
+      maxPenalty: 50000
+      other:
+        - Officers Rs 1,000/day up to Rs 1 lakh
+        - Strike-off risk (Section 10A(3))
+        - No business or borrowing until filed
+      basis: "Section 10A(2): Rs 50,000 on the company"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 10A (commencement of business)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwMTQ=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Incorporation) Rules 2014, Rule 23A
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzEzNjE=&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    code: INC-20A
+  - id: mca-llp-ben2-event
+    title: LLP BEN-2 return of significant beneficial owners
+    form: LLP BEN-2
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: A reporting LLP files a return with the Registrar after receiving a significant beneficial ownership declaration (LLP BEN-1).
+    applicability: LLPs that receive an LLP BEN-1 declaration from an individual significant beneficial owner, or a change in it.
+    audience:
+      - llp
+      - foreign
+    frequency: event
+    trigger: Within 30 days of receipt of the LLP BEN-1 declaration
+    law: Rule 6, LLP (Significant Beneficial Owners) Rules 2023; Section 90 of the Companies Act 2013 as applied to LLPs
+    penalty: "Section 90(11) of the Companies Act as applied to LLPs: Rs 1 lakh plus Rs 500 per day of continuing failure, up to Rs 5 lakh; designated partners Rs 25,000 plus Rs 200 per day, up to Rs 1 lakh. Additional fee under Annexure A item 8."
+    exposure:
+      lateFeePerDay: 500
+      lateFeeCap: 500000
+      fixedPenalty: 100000
+      maxPenalty: 500000
+      other:
+        - "LLP additional fee (Annexure A item 8): 1x the normal fee up to 15 days late; then 2x/4x/6x/10x/15x (small LLPs) or 4x/8x/12x/20x/30x (others) up to 360 days; beyond 360 days 25x/50x, but for Forms 8 and 11 15x/30x plus Rs 10/Rs 20 per day"
+      basis: Section 90(11) Companies Act as applied to LLPs
+    sources:
+      - title: MCA e-book - LLP (Significant Beneficial Owners) Rules 2023, Rule 6
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mzc5OTY5NzQ3&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - Companies Act 2013, Section 90 (register of significant beneficial owners)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwNTE=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - LLP Rules 2009, Annexure A (fees and additional fees)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjU3MDM0MjY=&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: medium
+    notes: The application of Section 90 penalties to LLPs comes through the notification under Section 67 of the LLP Act that underpins the 2023 rules; not re-read in this session.
+    code: LLP BEN-2
+  - id: mca-llp-form11-annual
+    title: LLP Form 11 annual return
+    form: Form 11
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: Every LLP files its annual return (partners, contribution and other particulars) within 60 days of the close of the financial year.
+    applicability: Every limited liability partnership. LLPs with turnover above Rs 5 crore or contribution above Rs 50 lakh need a practising company secretary's certificate.
+    audience:
+      - llp
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: 2
+    law: Section 35(1)-(2), LLP Act 2008; Rule 25, LLP Rules 2009; Annexure A, LLP Rules
+    penalty: "Section 35(2): the LLP and its designated partners are liable to Rs 100 per day of continuing failure, up to Rs 1 lakh for the LLP and Rs 50,000 for each designated partner. Late filing also attracts additional fee under Annexure A item 8."
+    exposure:
+      lateFeePerDay: 100
+      lateFeeCap: 100000
+      maxPenalty: 100000
+      other:
+        - "LLP additional fee (Annexure A item 8): 1x the normal fee up to 15 days late; then 2x/4x/6x/10x/15x (small LLPs) or 4x/8x/12x/20x/30x (others) up to 360 days; beyond 360 days 25x/50x, but for Forms 8 and 11 15x/30x plus Rs 10/Rs 20 per day"
+      basis: "Section 35(2) LLP Act: Rs 100/day up to Rs 1 lakh for the LLP"
+    sources:
+      - title: MCA e-book - LLP Act 2008, Section 35 (annual return)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MTkzNzc0ODY=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - LLP Rules 2009, Rule 25 (Form 11)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NDg2MzU1OTU=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - LLP Rules 2009, Annexure A (fees and additional fees)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjU3MDM0MjY=&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    notes: 60 days from 31 March is 30 May. The often-quoted 'Rs 100 per day additional fee' is the Section 35(2) penalty; the MCA filing fee for delay is the tiered multiple in Annexure A (since 01-04-2022).
+    code: LLP-11
+  - id: mca-llp-form4d-event
+    title: LLP Form 4D beneficial interest in contribution
+    form: Form 4D
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: When an LLP receives a declaration of beneficial interest in contribution from a registered partner (Form 4B) or beneficial partner (Form 4C), it records it in the register of partners and files Form 4D.
+    applicability: LLPs receiving Form 4B or Form 4C declarations (LLP (Third Amendment) Rules 2023).
+    audience:
+      - llp
+    frequency: event
+    trigger: Within 30 days of receipt of the Form 4B or 4C declaration
+    law: Rules 22A and 22B(3), LLP Rules 2009; Section 74, LLP Act 2008
+    penalty: "Section 74 (general penalty): Rs 5,000 plus Rs 100 per day of continuing contravention, up to Rs 1 lakh. Additional fee under Annexure A item 8."
+    exposure:
+      lateFeePerDay: 100
+      lateFeeCap: 100000
+      fixedPenalty: 5000
+      maxPenalty: 100000
+      other:
+        - "LLP additional fee (Annexure A item 8): 1x the normal fee up to 15 days late; then 2x/4x/6x/10x/15x (small LLPs) or 4x/8x/12x/20x/30x (others) up to 360 days; beyond 360 days 25x/50x, but for Forms 8 and 11 15x/30x plus Rs 10/Rs 20 per day"
+      basis: "Section 74 LLP Act: Rs 5,000 plus Rs 100/day up to Rs 1 lakh"
+    sources:
+      - title: MCA e-book - LLP Rules 2009, Rules 22A-22B (register of partners, Form 4D)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mzc3NDAzMjMz&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - LLP Act 2008, Section 74 (general penalties)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MTkzODU2OTY=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - LLP Rules 2009, Annexure A (fees and additional fees)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjU3MDM0MjY=&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    code: LLP-4D
+  - id: mca-llp-form8-annual
+    title: LLP Form 8 statement of account and solvency
+    form: Form 8
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: Every LLP files its statement of account and solvency within 30 days from the end of six months of the financial year (by 30 October).
+    applicability: Every limited liability partnership. Accounts must be audited unless turnover is up to Rs 40 lakh or contribution up to Rs 25 lakh.
+    audience:
+      - llp
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: 7
+    law: Section 34(2), (3) and (5), LLP Act 2008; Rule 24(4), LLP Rules 2009; Annexure A, LLP Rules
+    penalty: "Section 34(5): the LLP and its designated partners are liable to Rs 100 per day of continuing failure, up to Rs 1 lakh for the LLP and Rs 50,000 for each designated partner. Additional fee under Annexure A item 8 also applies."
+    exposure:
+      lateFeePerDay: 100
+      lateFeeCap: 100000
+      maxPenalty: 100000
+      other:
+        - "LLP additional fee (Annexure A item 8): 1x the normal fee up to 15 days late; then 2x/4x/6x/10x/15x (small LLPs) or 4x/8x/12x/20x/30x (others) up to 360 days; beyond 360 days 25x/50x, but for Forms 8 and 11 15x/30x plus Rs 10/Rs 20 per day"
+      basis: "Section 34(5) LLP Act: Rs 100/day up to Rs 1 lakh for the LLP"
+    sources:
+      - title: MCA e-book - LLP Act 2008, Section 34 (statement of account and solvency)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MTkzNzcxNTM=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - LLP Rules 2009, Rule 24 (Form 8)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NDg2MzUyNjA=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - LLP Rules 2009, Annexure A (fees and additional fees)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjU3MDM0MjY=&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    code: LLP-8
+  - id: mca-mgt14-event
+    title: MGT-14 filing of resolutions
+    form: MGT-14
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: File copies of special resolutions and other resolutions and agreements listed in Section 117(3) with the Registrar.
+    applicability: Companies passing resolutions covered by Section 117(3) (special resolutions, MD appointment terms, Board resolutions under Section 179(3) subject to exemptions, and others).
+    audience:
+      - company
+      - listed
+    frequency: event
+    trigger: Within 30 days of passing the resolution or making the agreement
+    law: Section 117(1)-(3), Companies Act 2013; Rule 24, Companies (Management and Administration) Rules 2014
+    penalty: "Section 117(2): the company is liable to Rs 10,000 plus Rs 100 per day after the first of continuing failure, up to Rs 2 lakh; officers (including any liquidator) Rs 10,000 plus Rs 100 per day, up to Rs 50,000. Table B additional fees apply."
+    exposure:
+      lateFeePerDay: 100
+      lateFeeCap: 200000
+      fixedPenalty: 10000
+      maxPenalty: 200000
+      other:
+        - "Additional fee for late filing: 2x the normal fee up to 30 days late, 4x up to 60 days, 6x up to 90 days, 10x up to 180 days, 12x beyond (Table B, Fees Rules)"
+      basis: "Section 117(2): Rs 10,000 plus Rs 100/day up to Rs 2 lakh (company)"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 117 (resolutions to be filed)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mjc5NzE=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Management and Administration) Rules 2014, Rule 24
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE0NzM=&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    code: MGT-14
+  - id: mca-mgt15-annual
+    title: MGT-15 report on AGM (listed companies)
+    form: MGT-15
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: A listed public company files a report on the AGM confirming that it was convened, held and conducted as per the Act and rules.
+    applicability: Listed public companies.
+    audience:
+      - listed
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: 7
+    law: Section 121(1)-(3), Companies Act 2013; Rule 31(2), Companies (Management and Administration) Rules 2014 (V3 form by G.S.R. 358(E))
+    penalty: "Section 121(3): the company is liable to Rs 1 lakh plus Rs 500 per day of continuing failure, up to Rs 5 lakh; officers in default Rs 25,000 plus Rs 500 per day, up to Rs 1 lakh. Table B additional fees also apply to late filing."
+    exposure:
+      lateFeePerDay: 500
+      lateFeeCap: 500000
+      fixedPenalty: 100000
+      maxPenalty: 500000
+      other:
+        - Table B additional fee multiples
+      basis: "Section 121(3): Rs 1 lakh plus Rs 500/day up to Rs 5 lakh (company)"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 121 (report on AGM)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwNjM=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Management and Administration) Rules 2014, Rule 31
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE0NzY=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA - G.S.R. 358(E) dated 30-05-2025, Companies (Management and Administration) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTQwNjEzMTQx&docCategory=Notifications&type=open
+        kind: notification
+    verified: 2026-10-14
+    confidence: high
+    notes: Due date assumes the AGM is held on the last permitted day, 30 September; the real deadline runs from the actual AGM date (or from the last day the AGM should have been held, if it was not held). The 30 days run from the conclusion of the AGM.
+    code: MGT-15
+  - id: mca-mgt7-annual
+    title: MGT-7 annual return
+    form: MGT-7 (with MGT-8 certificate where required)
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: File the annual return describing shareholding, directors, meetings and other particulars as at the end of the financial year.
+    applicability: Every company other than One Person Companies and small companies (they file MGT-7A). Listed companies and companies with paid-up capital of Rs 10 crore or more or turnover of Rs 50 crore or more attach a certificate from a practising company secretary in Form MGT-8.
+    audience:
+      - company
+      - listed
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 29
+      monthOffset: 8
+    law: Section 92(4)-(5), Companies Act 2013; Rules 11 and 12, Companies (Management and Administration) Rules 2014 (V3 form by G.S.R. 358(E), in force 14-07-2025); Table D, Fees Rules
+    penalty: "Additional fee of Rs 100 per day with no upper limit (Table D). Section 92(5): the company and every officer in default are liable to Rs 10,000 plus Rs 100 per day of continuing failure, up to Rs 2 lakh for the company and Rs 50,000 for an officer."
+    exposure:
+      lateFeePerDay: 100
+      fixedPenalty: 10000
+      maxPenalty: 200000
+      other:
+        - Rs 100/day MCA additional fee has no cap
+        - Director disqualification after 3 years of non-filing (Section 164(2)(a))
+      basis: "Table D Fees Rules: Rs 100/day; Section 92(5): Rs 10,000 plus Rs 100/day up to Rs 2 lakh (company)"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 92 (annual return)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mjk1MDc=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Management and Administration) Rules 2014, Rule 11
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE0NjA=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA - G.S.R. 358(E) dated 30-05-2025, Companies (Management and Administration) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTQwNjEzMTQx&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA e-book - Companies (Registration Offices and Fees) Rules 2014, Rule 12 and Table of Fees
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE1NDU=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA - General Circular No. 06/2025 dated 17-10-2025 (FY 2024-25 annual filings without additional fee till 31-12-2025)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTc5MDY1MjQ0&docCategory=Circulars&type=open
+        kind: circular
+      - title: MCA - General Circular No. 08/2025 dated 30-12-2025 (FY 2024-25 annual filings without additional fee till 31-01-2026)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjExNDE5MzU5&docCategory=Circulars&type=open
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: Due date assumes the AGM is held on the last permitted day, 30 September; the real deadline runs from the actual AGM date (or from the last day the AGM should have been held, if it was not held). 60 days from a 30 September AGM is 29 November. FY 2024-25 filings were relieved to 31-01-2026 (GC 06/2025, GC 08/2025); none for FY 2025-26 so far.
+    code: MGT-7
+    tags:
+      - not-opc-small
+  - id: mca-mgt7a-annual
+    title: MGT-7A abridged annual return (OPC, small company)
+    form: MGT-7A
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: One Person Companies and small companies file the abridged annual return in Form MGT-7A.
+    applicability: One Person Companies and small companies. From 01-12-2025 a small company is one with paid-up capital not over Rs 10 crore and turnover not over Rs 100 crore (G.S.R. 880(E)), so more companies now qualify.
+    audience:
+      - company
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 29
+      monthOffset: 8
+    law: Section 92(1) second proviso and 92(4), Companies Act 2013; Rule 11(1), Companies (Management and Administration) Rules 2014; G.S.R. 880(E) dated 01-12-2025
+    penalty: "Additional fee of Rs 100 per day with no upper limit (Table D). Section 92(5): Rs 10,000 plus Rs 100 per day, up to Rs 2 lakh for the company and Rs 50,000 for an officer."
+    exposure:
+      lateFeePerDay: 100
+      fixedPenalty: 10000
+      maxPenalty: 200000
+      other:
+        - Rs 100/day MCA additional fee has no cap
+      basis: "Table D Fees Rules: Rs 100/day; Section 92(5): Rs 10,000 plus Rs 100/day up to Rs 2 lakh"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 92 (annual return)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mjk1MDc=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Management and Administration) Rules 2014, Rule 11
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE0NjA=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA - G.S.R. 880(E) dated 01-12-2025, Companies (Specification of definition details) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTk3MTc2NzQz&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA - G.S.R. 358(E) dated 30-05-2025, Companies (Management and Administration) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTQwNjEzMTQx&docCategory=Notifications&type=open
+        kind: notification
+    verified: 2026-10-14
+    confidence: high
+    notes: Due date assumes the AGM is held on the last permitted day, 30 September; the real deadline runs from the actual AGM date (or from the last day the AGM should have been held, if it was not held). OPCs hold no AGM; in practice they count 60 days from the date the AGM would have been due (30 September), giving 29 November - MCA has not published guidance on this point.
+    code: MGT-7A
+    tags:
+      - opc-small
+  - id: mca-msme1-halfyearly
+    title: MSME-1 half-yearly return on delayed MSE payments
+    form: MSME-1
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: "Report amounts due to micro and small enterprise suppliers that remain unpaid beyond 45 days of acceptance, with reasons for the delay: by 31 October for April-September and by 30 April for October-March."
+    applicability: Companies with payments to micro or small enterprise suppliers pending for more than 45 days from the date of acceptance or deemed acceptance (proviso inserted 15-07-2024). Companies without such dues need not file.
+    audience:
+      - company
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: fy
+      day: last
+      monthOffset: 1
+    law: Para 3, Specified Companies (Furnishing of information about payment to micro and small enterprise suppliers) Order 2019 (S.O. 368(E)), as amended by S.O. 2751(E) dated 15-07-2024; Section 405, Companies Act 2013
+    penalty: "Section 405(4): the company and every officer in default are liable to a penalty of Rs 20,000 plus Rs 1,000 per day after the first day of continuing failure, up to Rs 3 lakh."
+    exposure:
+      lateFeePerDay: 1000
+      lateFeeCap: 300000
+      fixedPenalty: 20000
+      maxPenalty: 300000
+      basis: "Section 405(4): Rs 20,000 plus Rs 1,000/day up to Rs 3 lakh"
+    sources:
+      - title: MCA - S.O. 368(E) dated 22-01-2019, Specified Companies (Furnishing of information about payment to micro and small enterprise suppliers) Order 2019
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NzU4NA==&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA - S.O. 2751(E) dated 15-07-2024, MSME-1 Amendment Order 2024
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NDU5OTY2Mjky&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA e-book - Companies Act 2013, Section 405 (power to call for information)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgxOTk=&docCategory=Acts&type=open
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    notes: The 2024 amendment also replaced the form (supplier-wise ageing of dues). No change in 2025-2026.
+    code: MSME-1
+  - id: mca-nfra2-annual
+    title: NFRA-2 annual return by auditors
+    form: NFRA-2
+    category: mca
+    authority: National Financial Reporting Authority
+    summary: Auditors of companies governed by NFRA file an annual return with NFRA on or before 30 November every year.
+    applicability: Auditors of listed companies, unlisted public companies with paid-up capital of Rs 500 crore or more, turnover of Rs 1,000 crore or more or loans, debentures and deposits of Rs 500 crore or more, insurance, banking and electricity companies, and other bodies covered by Rule 3 of the NFRA Rules.
+    audience:
+      - audit
+      - listed
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: 8
+    law: Rule 5, National Financial Reporting Authority Rules 2018 (as amended 05-09-2019); Rule 3 (applicability); Rule 13 (punishment)
+    penalty: "Rule 13 (as substituted in 2022): fine of up to Rs 5,000 and, for a continuing contravention, up to Rs 500 per day after the first."
+    exposure:
+      lateFeePerDay: 500
+      maxPenalty: 5000
+      basis: "Rule 13 NFRA Rules: fine up to Rs 5,000 plus up to Rs 500/day"
+    sources:
+      - title: MCA e-book - National Financial Reporting Authority Rules 2018, Rule 5
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE2NzY=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - National Financial Reporting Authority Rules 2018, Rule 3
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE2NzU=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - National Financial Reporting Authority Rules 2018, Rule 13
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MTgzMDkyOTkz&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    notes: The obligation is on the audit firm, not the company. No change in 2025-2026.
+    code: NFRA-2
+  - id: mca-pas3-event
+    title: PAS-3 return of allotment
+    form: PAS-3
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: File the return of allotment of shares or other securities, with the list of allottees, with the Registrar.
+    applicability: Every company having share capital that allots securities (rights, bonus, preferential, ESOP, private placement and others).
+    audience:
+      - company
+      - listed
+      - foreign
+    frequency: event
+    trigger: Within 30 days of allotment; within 15 days of allotment for a private placement under Section 42
+    law: Section 39(4)-(5) and Section 42(8)-(9), Companies Act 2013; Rule 12, Companies (Prospectus and Allotment of Securities) Rules 2014
+    penalty: "Section 39(5): the company and each officer in default are liable to Rs 1,000 per day of default or Rs 1 lakh, whichever is less. For a private placement, Section 42(9): the company, its promoters and directors are liable to Rs 1,000 per day, up to Rs 25 lakh. Table B additional fees apply."
+    exposure:
+      lateFeePerDay: 1000
+      lateFeeCap: 100000
+      maxPenalty: 100000
+      other:
+        - "Private placement: Section 42(9) Rs 1,000/day up to Rs 25 lakh"
+        - Private placement money cannot be used until PAS-3 is filed (Section 42(4) proviso)
+        - "Additional fee for late filing: 2x the normal fee up to 30 days late, 4x up to 60 days, 6x up to 90 days, 10x up to 180 days, 12x beyond (Table B, Fees Rules)"
+      basis: "Section 39(5): Rs 1,000/day or Rs 1 lakh whichever is less"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 39 (allotment of securities)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjQ1ODE=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies Act 2013, Section 42 (private placement)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwMjc=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Prospectus and Allotment of Securities) Rules 2014, Rule 12
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjU4MzIzMDYx&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    notes: If FDI is involved, Form FC-GPR is also due within 30 days of allotment (see rbi-fema-fc-gpr-event).
+    code: PAS-3
+  - id: mca-pas6-halfyearly
+    title: PAS-6 reconciliation of share capital audit
+    form: PAS-6
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: File a half-yearly reconciliation of share capital audit report (issued, listed and dematerialised capital), certified by a practising CS or CA, within 60 days of the end of each half-year.
+    applicability: Unlisted public companies (other than Nidhis, Government companies and wholly owned subsidiaries) under Rule 9A, and private companies other than small and Government companies once covered by Rule 9B (demat deadline 30-06-2025 for those that were not small on 31-03-2023; 18 months from the year end for others). Higher small-company limits from 01-12-2025 take some private companies out.
+    audience:
+      - company
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: fy
+      daysAfter: 60
+    law: Rule 9A(8) and Rule 9B(5), Companies (Prospectus and Allotment of Securities) Rules 2014 (proviso to Rule 9B(2) inserted by G.S.R. 131(E) dated 12-02-2025); Section 450, Companies Act 2013
+    penalty: No specific penalty; Section 450 general penalty of Rs 10,000 plus Rs 1,000 per day of continuing contravention, up to Rs 2 lakh for the company and Rs 50,000 for each officer. Table B additional fees apply to late filing.
+    exposure:
+      lateFeePerDay: 1000
+      lateFeeCap: 200000
+      fixedPenalty: 10000
+      maxPenalty: 200000
+      other:
+        - "Additional fee for late filing: 2x the normal fee up to 30 days late, 4x up to 60 days, 6x up to 90 days, 10x up to 180 days, 12x beyond (Table B, Fees Rules)"
+      basis: "Section 450: Rs 10,000 plus Rs 1,000/day up to Rs 2 lakh (company)"
+    sources:
+      - title: MCA e-book - Companies (Prospectus and Allotment of Securities) Rules 2014, Rule 9A
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzEzODY=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - Companies (Prospectus and Allotment of Securities) Rules 2014, Rule 9B
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTE3Mzc5MDkw&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA - G.S.R. 131(E) dated 12-02-2025, Companies (Prospectus and Allotment of Securities) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTE3MjcxODc4&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA - G.S.R. 880(E) dated 01-12-2025, Companies (Specification of definition details) Amendment Rules 2025
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTk3MTc2NzQz&docCategory=Notifications&type=open
+        kind: notification
+      - title: MCA e-book - Companies Act 2013, Section 450 (general penalty)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgyMjI=&docCategory=Acts&type=open
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    notes: 60 days after 30 September is 29 November; after 31 March it is 30 May. Rule 9B(5) applies Rule 9A(4)-(10), including the PAS-6 duty, to covered private companies; MCA has not said which half-year their first PAS-6 is for (open question). No PAS-6 extension was notified in 2025-2026.
+    code: PAS-6
+    tags:
+      - not-opc-small
+      - unlisted
+  - id: mca-sh7-event
+    title: SH-7 notice of alteration of share capital
+    form: SH-7
+    category: mca
+    authority: MCA / Registrar of Companies
+    summary: Notify the Registrar of an increase or other alteration of authorised share capital, redemption of redeemable preference shares or (for companies without share capital) an increase in members, with the altered memorandum.
+    applicability: Every company altering its share capital under Section 61(1) or redeeming preference shares.
+    audience:
+      - company
+    frequency: event
+    trigger: Within 30 days of the alteration, increase or redemption
+    law: Section 64(1)-(2), Companies Act 2013; Rule 15, Companies (Share Capital and Debentures) Rules 2014
+    penalty: "Section 64(2): the company and every officer in default are liable to Rs 500 per day of default, up to Rs 5 lakh for the company and Rs 1 lakh for an officer. Late filing also needs additional fee (Table C for increases in authorised capital)."
+    exposure:
+      lateFeePerDay: 500
+      lateFeeCap: 500000
+      maxPenalty: 500000
+      other:
+        - Additional fee for increase in authorised capital at a monthly percentage of the fee (Table C)
+      basis: "Section 64(2): Rs 500/day up to Rs 5 lakh (company)"
+    sources:
+      - title: MCA e-book - Companies Act 2013, Section 64 (notice of alteration of share capital)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwMzU=&docCategory=Acts&type=open
+        kind: act
+      - title: MCA e-book - Companies (Share Capital and Debentures) Rules 2014, Rule 15
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE0MDA=&docCategory=Rules&type=open
+        kind: rules
+      - title: MCA e-book - Companies (Registration Offices and Fees) Rules 2014, Rule 12 and Table of Fees
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzE1NDU=&docCategory=Rules&type=open
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    code: SH-7

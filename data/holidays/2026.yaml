@@ -1,0 +1,1282 @@
+# Official holiday lists for 2026.
+lists:
+  - id: central-gazetted-2026
+    title: Central Government gazetted holidays 2026 (Delhi / New Delhi)
+    kind: gazetted
+    scope: IN
+    year: 2026
+    authority: Department of Personnel and Training (Ministry of Personnel, Public Grievances and Pensions)
+    source:
+      title: DoPT OM F.No. 12/2/2023-JCA dated 03-07-2025, Annexure I (as amended)
+      url: https://documents.doptcirculars.nic.in/D2/D02est/Holidays%20to%20be%20observed%20in%20Central%20Government%20Offices%20during%20the%20year%2020265vgBs.pdf
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-04
+        name: Holi
+      - date: 2026-03-21
+        name: Id-ul-Fitr
+      - date: 2026-03-26
+        name: Ram Navami
+      - date: 2026-03-31
+        name: Mahavir Jayanti
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar's Birthday
+        note: Declared separately by DoPT OM F.No. 12/4/2020-JCA dated 09-04-2026 for all Central Government offices in India, including industrial establishments; not part of Annexure I.
+      - date: 2026-05-01
+        name: Buddha Purnima
+      - date: 2026-05-28
+        name: Id-ul-Zuha (Bakrid)
+        note: Annexure I had 27 May; moved to 28 May for Delhi/New Delhi offices by DoPT OM F.No. 12/3/2023-JCA dated 22-05-2026.
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-08-26
+        name: Milad-un-Nabi or Id-e-Milad (Prophet Mohammad's Birthday)
+      - date: 2026-09-04
+        name: Janmashtami (Vaishnava)
+      - date: 2026-10-02
+        name: Mahatma Gandhi's Birthday
+      - date: 2026-10-20
+        name: Dussehra
+      - date: 2026-11-08
+        name: Diwali (Deepavali)
+      - date: 2026-11-24
+        name: Guru Nanak's Birthday
+      - date: 2026-12-25
+        name: Christmas Day
+    alsoSee:
+      - title: DoPT OM F.No. 12/3/2023-JCA dated 22-05-2026 - Bakrid holiday moved to 28 May 2026 (copy)
+        url: https://www.staffnews.in/2026/05/change-in-the-date-of-holiday-on-account-of-id-u-zuha-bakrid.html
+      - title: DoPT OM F.No. 12/4/2020-JCA dated 09-04-2026 - holiday on 14 April 2026 (copy)
+        url: https://www.staffnews.in/2026/04/declaration-of-holiday-on-14th-april-2026.html
+      - title: Scanned copy of the 2026 OM (StaffNews mirror)
+        url: https://www.staffnews.in/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf
+      - title: National Portal of India - holiday calendar (central list, as per the DoPT circular)
+        url: https://www.india.gov.in/calendar
+    notes: "Applies to Central Government administrative offices in Delhi/New Delhi. Offices elsewhere observe the 14 compulsory holidays plus 3 optional ones chosen by the Central Government Employees Welfare Coordination Committee of the state capital, so state lists differ. Dates of Id-ul-Fitr, Id-ul-Zuha, Muharram and Id-e-Milad can be changed at short notice depending on moon sighting. Includes two later changes: Bakrid moved to 28 May, and 14 April added for Dr. B.R. Ambedkar."
+  - id: central-restricted-2026
+    title: Central Government restricted holidays 2026 (Delhi / New Delhi)
+    kind: restricted
+    scope: IN
+    year: 2026
+    authority: Department of Personnel and Training (Ministry of Personnel, Public Grievances and Pensions)
+    source:
+      title: DoPT OM F.No. 12/2/2023-JCA dated 03-07-2025, Annexure II
+      url: https://documents.doptcirculars.nic.in/D2/D02est/Holidays%20to%20be%20observed%20in%20Central%20Government%20Offices%20during%20the%20year%2020265vgBs.pdf
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-01
+        name: New Year's Day
+      - date: 2026-01-03
+        name: Hazarat Ali's Birthday
+      - date: 2026-01-14
+        name: Makar Sankranti
+      - date: 2026-01-14
+        name: Magha Bihu / Pongal
+      - date: 2026-01-23
+        name: Sri Panchami / Basant Panchami
+      - date: 2026-02-01
+        name: Guru Ravi Das's Birthday
+      - date: 2026-02-12
+        name: Swami Dayananda Saraswati's Birthday
+      - date: 2026-02-15
+        name: Maha Shivratri
+      - date: 2026-02-19
+        name: Shivaji Jayanti
+      - date: 2026-03-03
+        name: Holika Dahan
+      - date: 2026-03-03
+        name: Dolyatra
+      - date: 2026-03-19
+        name: Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand
+      - date: 2026-03-20
+        name: Jamat-ul-Vida
+      - date: 2026-04-05
+        name: Easter Sunday
+      - date: 2026-04-14
+        name: Vaisakhi / Vishu / Meshadi (Tamil New Year's Day)
+      - date: 2026-04-15
+        name: Vaisakhadi (Bengal) / Bahag Bihu (Assam)
+      - date: 2026-05-09
+        name: Guru Rabindranath Tagore's Birthday
+      - date: 2026-07-16
+        name: Rath Yatra
+      - date: 2026-08-15
+        name: Parsi New Year's Day / Nauraj
+      - date: 2026-08-26
+        name: Onam or Thiru Onam Day
+      - date: 2026-08-28
+        name: Raksha Bandhan
+      - date: 2026-09-14
+        name: Ganesh Chaturthi / Vinayaka Chaturthi
+      - date: 2026-10-18
+        name: Dussehra (Saptami)
+      - date: 2026-10-19
+        name: Dussehra (Mahashtami)
+      - date: 2026-10-20
+        name: Dussehra (Mahanavami)
+      - date: 2026-10-26
+        name: Maharishi Valmiki's Birthday
+      - date: 2026-10-29
+        name: Karaka Chaturthi (Karva Chauth)
+      - date: 2026-11-08
+        name: Naraka Chaturdashi
+      - date: 2026-11-09
+        name: Govardhan Puja
+      - date: 2026-11-11
+        name: Bhai Duj
+      - date: 2026-11-15
+        name: Pratihar Shashthi or Surya Shashthi (Chhath Puja)
+      - date: 2026-11-24
+        name: Guru Teg Bahadur's Martyrdom Day
+      - date: 2026-12-23
+        name: Hazarat Ali's Birthday
+      - date: 2026-12-24
+        name: Christmas Eve
+    alsoSee:
+      - title: Scanned copy of the 2026 OM (StaffNews mirror)
+        url: https://www.staffnews.in/wp-content/uploads/2025/07/Holidays-to-be-observed-in-Central-Government-Offices-during-the-year-2026.pdf
+      - title: National Portal of India - holiday calendar (central list, as per the DoPT circular)
+        url: https://www.india.gov.in/calendar
+    notes: "Optional holidays: each employee may take any two. Offices stay open, so these are not closures. The OM lists 34 items on 32 dates (two pairs share a date)."
+  - id: nse-trading-2026
+    title: NSE trading holidays 2026 - equity cash and equity derivatives
+    kind: exchange-trading
+    scope: NSE
+    year: 2026
+    authority: National Stock Exchange of India Ltd
+    source:
+      title: NSE circular NSE/CMTR/71775 dated 12-12-2025, modified by NSE/CMTR/72260 dated 12-01-2026
+      url: https://nsearchives.nseindia.com/content/circulars/CMTR71775.pdf
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-15
+        name: Municipal corporation elections in Maharashtra
+        note: Added by NSE circular NSE/CMTR/72260 dated 12-01-2026.
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-03
+        name: Holi
+      - date: 2026-03-26
+        name: Ram Navami
+      - date: 2026-03-31
+        name: Mahavir Jayanti
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti
+      - date: 2026-05-01
+        name: Maharashtra Day
+      - date: 2026-05-28
+        name: Bakri Id
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-09-14
+        name: Ganesh Chaturthi
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-20
+        name: Dussehra
+      - date: 2026-11-10
+        name: Diwali Balipratipada
+      - date: 2026-11-24
+        name: Guru Nanak Jayanti (Prakash Gurpurb)
+      - date: 2026-12-25
+        name: Christmas
+    alsoSee:
+      - title: NSE circular NSE/CMTR/72260 dated 12-01-2026 (15 Jan 2026 added)
+        url: https://nsearchives.nseindia.com/content/circulars/CMTR72260.pdf
+      - title: NSE holidays page
+        url: https://www.nseindia.com/resources/exchange-communication-holidays
+      - title: NSE holiday API (needs cookies from a homepage visit)
+        url: https://www.nseindia.com/api/holiday-master?type=trading
+    notes: "Weekday closures only. Holidays that fall on weekends: 15 Feb (Sun, Mahashivratri), 21 Mar (Sat, Id-ul-Fitr), 15 Aug (Sat, Independence Day) and 8 Nov (Sun, Diwali Laxmi Pujan; a Muhurat trading session is held that day). The same dates apply to the NSE F&O, SLB, corporate bond and tri-party repo segments. Currency and interest rate derivatives follow the bank-holiday list (see nse-settlement-2026); commodity derivatives close session-wise."
+  - id: nse-settlement-2026
+    title: NSE Clearing settlement holidays 2026 - capital market segment
+    kind: exchange-settlement
+    scope: NSE
+    year: 2026
+    authority: NSE Clearing Ltd
+    source:
+      title: NSE Clearing circular NCL/CMPT/71904 dated 22-12-2025, modified by NCL/CMPT/72224 dated 09-01-2026
+      url: https://nsearchives.nseindia.com/content/circulars/CMPT71904.pdf
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-15
+        name: Municipal corporation elections in Maharashtra
+        note: Added by NSE Clearing circular NCL/CMPT/72224 dated 09-01-2026.
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-02-19
+        name: Chhatrapati Shivaji Maharaj Jayanti
+        note: Trading day; no settlement.
+      - date: 2026-03-03
+        name: Holi (second day)
+      - date: 2026-03-19
+        name: Gudi Padwa
+        note: Trading day; no settlement.
+      - date: 2026-03-26
+        name: Ram Navami
+      - date: 2026-03-31
+        name: Mahavir Jayanti
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+        note: Trading day; no settlement.
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti
+      - date: 2026-05-01
+        name: Maharashtra Day / Buddha Purnima
+      - date: 2026-05-28
+        name: Bakri Id (Id-uz-Zuha)
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-08-26
+        name: Id-e-Milad
+        note: Trading day; no settlement.
+      - date: 2026-09-14
+        name: Ganesh Chaturthi
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-20
+        name: Dussehra
+      - date: 2026-11-10
+        name: Diwali (Bali Pratipada)
+      - date: 2026-11-24
+        name: Guru Nanak Jayanti
+      - date: 2026-12-25
+        name: Christmas
+    alsoSee:
+      - title: NSE Clearing circular NCL/CMPT/72224 dated 09-01-2026 (15 Jan 2026 added)
+        url: https://nsearchives.nseindia.com/content/circulars/CMPT72224.pdf
+      - title: NSE clearing holiday API (needs cookies from a homepage visit)
+        url: https://www.nseindia.com/api/holiday-master?type=clearing
+    notes: "Weekday settlement holidays only; they follow Mumbai bank holidays, so four are normal trading days with no settlement (19 Feb, 19 Mar, 1 Apr, 26 Aug). Weekend settlement holidays: 15 Feb, 21 Mar, 15 Aug, 8 Nov. The NSE Clearing lists for F&O, currency, interest rate, commodity, corporate bond, mutual fund and SLB segments use the same dates."
+  - id: bse-trading-2026
+    title: BSE trading holidays 2026 - equity and equity derivatives
+    kind: exchange-trading
+    scope: BSE
+    year: 2026
+    authority: BSE Ltd
+    source:
+      title: BSE trading holidays page - 2026 equity and equity derivative segments
+      url: https://www.bseindia.com/static/markets/marketinfo/listholi
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-15
+        name: Municipal corporation elections in Maharashtra (MCGM poll day)
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-03
+        name: Holi
+      - date: 2026-03-26
+        name: Ram Navami
+      - date: 2026-03-31
+        name: Mahavir Jayanti
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti
+      - date: 2026-05-01
+        name: Maharashtra Day
+      - date: 2026-05-28
+        name: Bakri Id
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-09-14
+        name: Ganesh Chaturthi
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-20
+        name: Dussehra
+      - date: 2026-11-10
+        name: Diwali Balipratipada
+      - date: 2026-11-24
+        name: Guru Nanak Jayanti (Prakash Gurpurb)
+      - date: 2026-12-25
+        name: Christmas
+    notes: Same dates as NSE. Weekday closures only; Muhurat trading on Sunday 8 Nov 2026. The BSE notice number for the 2026 list was not retrieved. BSE currency derivatives and tri-party repo segments follow the bank-holiday list (same dates as nse-settlement-2026).
+  - id: bank-mh-2026
+    title: Bank holidays 2026 - Maharashtra (RBI Mumbai centre)
+    kind: bank
+    scope: MH
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Mumbai regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-15
+        name: Municipal corporation elections in Maharashtra
+        note: Polling-day holiday added for the civic polls.
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-02-19
+        name: Chhatrapati Shivaji Maharaj Jayanti
+      - date: 2026-03-03
+        name: Holi (second day)
+      - date: 2026-03-19
+        name: Gudi Padwa
+      - date: 2026-03-21
+        name: Id-ul-Fitr (Ramzan Id)
+      - date: 2026-03-26
+        name: Ram Navami
+      - date: 2026-03-31
+        name: Mahavir Jayanti
+        note: Agency bank branches handling government receipts and payments were told to stay open on this day (RBI/2025-26/204 dated 03-02-2026).
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti
+      - date: 2026-05-01
+        name: Maharashtra Day / Buddha Purnima
+      - date: 2026-05-28
+        name: Bakri Id (Id-uz-Zuha)
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-08-15
+        name: Independence Day / Parsi New Year (Shahenshahi)
+      - date: 2026-08-26
+        name: Id-e-Milad
+      - date: 2026-09-14
+        name: Ganesh Chaturthi
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-20
+        name: Dussehra (Vijaya Dashami)
+      - date: 2026-11-10
+        name: Diwali (Bali Pratipada)
+      - date: 2026-11-24
+        name: Guru Nanak Jayanti
+      - date: 2026-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. Same dates as the RBI Belapur and Nagpur centres. Sunday holidays not shown by RBI: 15 Feb (Mahashivratri), 8 Nov (Diwali Laxmi Pujan)."
+  - id: bank-dl-2026
+    title: Bank holidays 2026 - Delhi (RBI New Delhi centre)
+    kind: bank
+    scope: DL
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - New Delhi regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-04
+        name: Holi
+      - date: 2026-03-21
+        name: Id-ul-Fitr
+      - date: 2026-03-31
+        name: Mahavir Jayanti
+        note: Agency bank branches handling government receipts and payments were told to stay open on this day (RBI/2025-26/204 dated 03-02-2026).
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti
+      - date: 2026-05-01
+        name: Buddha Purnima
+      - date: 2026-05-28
+        name: Id-ul-Zuha (Bakrid)
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-08-26
+        name: Milad-un-Nabi (Id-e-Milad)
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-20
+        name: Dussehra
+      - date: 2026-11-24
+        name: Guru Nanak Jayanti
+      - date: 2026-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. The Delhi NI Act list is shorter than the Central Government list: RBI shows no bank holiday for Ram Navami (26 Mar) or Janmashtami (4 Sep); Diwali (8 Nov) falls on a Sunday."
+  - id: bank-ka-2026
+    title: Bank holidays 2026 - Karnataka (RBI Bengaluru centre)
+    kind: bank
+    scope: KA
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Bengaluru regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-15
+        name: Makara Sankranti (Uttarayana Punyakala)
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-19
+        name: Ugadi
+      - date: 2026-03-21
+        name: Khutub-e-Ramzan (Id-ul-Fitr)
+      - date: 2026-03-30
+        name: Mahavir Jayanti
+        note: RBI shows 30 March; the Karnataka state government list shows 31 March.
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti
+      - date: 2026-04-20
+        name: Basava Jayanti / Akshaya Tritiya
+      - date: 2026-05-01
+        name: May Day (Labour Day)
+      - date: 2026-05-28
+        name: Bakrid (Id-ul-Zuha)
+      - date: 2026-06-26
+        name: Last day of Muharram
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-08-26
+        name: Id-e-Milad
+      - date: 2026-09-14
+        name: Varasiddhi Vinayaka Vrata (Ganesh Chaturthi)
+      - date: 2026-10-02
+        name: Gandhi Jayanti
+      - date: 2026-10-10
+        name: Mahalaya Amavasya
+      - date: 2026-10-20
+        name: Maha Navami / Ayudha Puja
+      - date: 2026-10-21
+        name: Vijaya Dashami
+      - date: 2026-11-10
+        name: Balipadyami (Deepavali)
+      - date: 2026-11-27
+        name: Kanakadasa Jayanti
+      - date: 2026-12-25
+        name: Christmas
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. Kannada Rajyotsava (1 Nov) falls on a Sunday.
+  - id: bank-tn-2026
+    title: Bank holidays 2026 - Tamil Nadu (RBI Chennai centre)
+    kind: bank
+    scope: TN
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Chennai regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-01
+        name: New Year's Day
+      - date: 2026-01-15
+        name: Pongal
+      - date: 2026-01-16
+        name: Thiruvalluvar Day
+      - date: 2026-01-17
+        name: Uzhavar Thirunal
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-19
+        name: Telugu New Year's Day (Ugadi)
+      - date: 2026-03-21
+        name: Ramzan (Id-ul-Fitr)
+      - date: 2026-03-31
+        name: Mahavir Jayanti
+        note: Agency bank branches handling government receipts and payments were told to stay open on this day (RBI/2025-26/204 dated 03-02-2026).
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Tamil New Year's Day / Dr. B.R. Ambedkar Jayanti
+      - date: 2026-04-23
+        name: Tamil Nadu Legislative Assembly general election
+        note: Polling-day holiday.
+      - date: 2026-05-01
+        name: May Day
+      - date: 2026-05-28
+        name: Bakrid (Id-ul-Zuha)
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-08-26
+        name: Milad-un-Nabi
+      - date: 2026-09-04
+        name: Krishna Jayanthi
+      - date: 2026-09-14
+        name: Vinayakar Chathurthi
+      - date: 2026-10-02
+        name: Gandhi Jayanti
+      - date: 2026-10-19
+        name: Ayutha Pooja
+      - date: 2026-10-20
+        name: Vijaya Dashami
+      - date: 2026-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. Sunday holidays not shown by RBI: 1 Feb (Thai Poosam), 8 Nov (Deepavali)."
+  - id: bank-wb-2026
+    title: Bank holidays 2026 - West Bengal (RBI Kolkata centre)
+    kind: bank
+    scope: WB
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Kolkata regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-01
+        name: New Year's Day
+      - date: 2026-01-12
+        name: Swami Vivekananda's Birthday
+      - date: 2026-01-23
+        name: Netaji Subhas Chandra Bose's Birthday / Saraswati Puja
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-03
+        name: Doljatra
+      - date: 2026-03-21
+        name: Id-ul-Fitr
+      - date: 2026-03-26
+        name: Ram Navami
+      - date: 2026-03-31
+        name: Mahavir Jayanti
+        note: Agency bank branches handling government receipts and payments were told to stay open on this day (RBI/2025-26/204 dated 03-02-2026).
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti
+      - date: 2026-04-15
+        name: Bengali New Year (Nababarsha)
+      - date: 2026-04-29
+        name: West Bengal Legislative Assembly general election
+        note: Polling-day holiday.
+      - date: 2026-05-01
+        name: May Day / Buddha Purnima
+      - date: 2026-05-09
+        name: Rabindranath Tagore's Birthday
+      - date: 2026-05-28
+        name: Bakrid (Id-uz-Zuha)
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-07-06
+        name: Dr. Syama Prasad Mookerjee's Birth Anniversary
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-09-04
+        name: Janmashtami
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-10
+        name: Mahalaya
+      - date: 2026-10-19
+        name: Durga Puja (Maha Ashtami)
+      - date: 2026-10-20
+        name: Durga Puja (Maha Navami)
+      - date: 2026-10-21
+        name: Durga Puja (Vijaya Dashami)
+      - date: 2026-11-11
+        name: Bhratridwitiya (Bhai Phonta)
+      - date: 2026-11-24
+        name: Guru Nanak Jayanti
+      - date: 2026-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. No Id-e-Milad bank holiday is listed for West Bengal. Diwali (8 Nov) falls on a Sunday.
+  - id: bank-tg-2026
+    title: Bank holidays 2026 - Telangana (RBI Hyderabad centre)
+    kind: bank
+    scope: TG
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Hyderabad regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-15
+        name: Sankranti / Pongal
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-03
+        name: Holi
+      - date: 2026-03-19
+        name: Ugadi
+      - date: 2026-03-21
+        name: Ramzan (Id-ul-Fitr)
+      - date: 2026-03-27
+        name: Sri Rama Navami
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti
+      - date: 2026-05-01
+        name: May Day
+      - date: 2026-05-28
+        name: Bakrid (Id-ul-Zuha)
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-08-26
+        name: Eid Milad-un-Nabi
+      - date: 2026-09-04
+        name: Sri Krishna Ashtami
+      - date: 2026-09-14
+        name: Vinayaka Chavithi
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-20
+        name: Vijaya Dashami
+      - date: 2026-11-24
+        name: Kartika Purnima / Guru Nanak Jayanti
+      - date: 2026-12-25
+        name: Christmas
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. Telangana state holidays such as Bonalu (10 Aug) and Bathukamma (18 Oct, a Sunday) are not NI Act bank holidays in the RBI list. Deepavali (8 Nov) falls on a Sunday.
+  - id: bank-gj-2026
+    title: Bank holidays 2026 - Gujarat (RBI Ahmedabad centre)
+    kind: bank
+    scope: GJ
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Ahmedabad regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-14
+        name: Makar Sankranti (Uttarayan)
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-04
+        name: Holi second day (Dhuleti)
+      - date: 2026-03-21
+        name: Ramzan Id (Id-ul-Fitr)
+      - date: 2026-03-26
+        name: Ram Navami
+      - date: 2026-03-31
+        name: Mahavir Janma Kalyanak
+        note: Agency bank branches handling government receipts and payments were told to stay open on this day (RBI/2025-26/204 dated 03-02-2026).
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti
+      - date: 2026-05-28
+        name: Bakri Id (Id-ul-Zuha)
+      - date: 2026-08-15
+        name: Independence Day / Parsi New Year
+      - date: 2026-08-28
+        name: Raksha Bandhan
+      - date: 2026-09-04
+        name: Janmashtami
+      - date: 2026-09-15
+        name: Samvatsari
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-20
+        name: Dussehra (Vijaya Dashami)
+      - date: 2026-10-31
+        name: Sardar Vallabhbhai Patel's Birthday
+      - date: 2026-11-10
+        name: Vikram Samvat New Year
+      - date: 2026-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. The Gujarat state government list also has Cheti Chand (19 Mar), Id-e-Milad (26 Aug), Bhai Bij (11 Nov) and Guru Nanak Jayanti (24 Nov); RBI does not show these as bank holidays for Ahmedabad.
+  - id: bank-kl-2026
+    title: Bank holidays 2026 - Kerala (RBI Kochi centre)
+    kind: bank
+    scope: KL
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Kochi regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-02
+        name: Mannam Jayanti
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-20
+        name: Id-ul-Fitr (Ramzan)
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-02
+        name: Maundy Thursday
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-09
+        name: Kerala Legislative Assembly general election
+        note: Polling-day holiday.
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti
+      - date: 2026-04-15
+        name: Vishu
+      - date: 2026-05-01
+        name: May Day
+      - date: 2026-05-27
+        name: Bakrid (Id-ul-Adha)
+        note: RBI lists both 27 and 28 May for the Kerala centres.
+      - date: 2026-05-28
+        name: Bakrid (Id-uz-Zuha)
+        note: RBI lists both 27 and 28 May for the Kerala centres.
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-08-25
+        name: First Onam / Milad-i-Sherif (Prophet's Birthday)
+      - date: 2026-08-26
+        name: Thiruvonam
+      - date: 2026-08-28
+        name: Sree Narayana Guru Jayanti / Ayyankali Jayanti
+      - date: 2026-09-04
+        name: Sree Krishna Jayanti
+      - date: 2026-09-21
+        name: Sree Narayana Guru Samadhi Day
+      - date: 2026-10-02
+        name: Gandhi Jayanti
+      - date: 2026-10-20
+        name: Maha Navami
+      - date: 2026-10-21
+        name: Vijaya Dashami
+      - date: 2026-12-25
+        name: Christmas
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. Taken from the RBI Kochi centre. The Thiruvananthapuram centre has the same dates plus 3 Mar (Attukal Pongala, a local holiday).
+  - id: bank-up-2026
+    title: Bank holidays 2026 - Uttar Pradesh (RBI Lucknow centre)
+    kind: bank
+    scope: UP
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Lucknow regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-03
+        name: Hazrat Ali's Birthday
+      - date: 2026-01-15
+        name: Makar Sankranti
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-02
+        name: Holika Dahan
+      - date: 2026-03-03
+        name: Holi
+      - date: 2026-03-04
+        name: Holi
+      - date: 2026-03-21
+        name: Id-ul-Fitr
+      - date: 2026-03-26
+        name: Ram Navami
+      - date: 2026-03-31
+        name: Mahavir Jayanti
+        note: Agency bank branches handling government receipts and payments were told to stay open on this day (RBI/2025-26/204 dated 03-02-2026).
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti
+      - date: 2026-05-01
+        name: Buddha Purnima
+      - date: 2026-05-28
+        name: Id-ul-Zuha (Bakrid)
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-08-26
+        name: Id-e-Milad / Barawafat
+      - date: 2026-08-28
+        name: Raksha Bandhan
+      - date: 2026-09-04
+        name: Janmashtami
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-20
+        name: Dussehra (Vijaya Dashami)
+      - date: 2026-11-09
+        name: Govardhan Puja
+      - date: 2026-11-11
+        name: Bhai Dooj / Chitragupta Jayanti
+      - date: 2026-11-24
+        name: Guru Nanak Jayanti / Kartik Purnima
+      - date: 2026-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. Same dates as the RBI Kanpur centre. RBI lists 2, 3 and 4 March around Holi.
+  - id: bank-rj-2026
+    title: Bank holidays 2026 - Rajasthan (RBI Jaipur centre)
+    kind: bank
+    scope: RJ
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Jaipur regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-03
+        name: Dhulandi (Holi)
+      - date: 2026-03-21
+        name: Id-ul-Fitr
+      - date: 2026-03-26
+        name: Ram Navami
+      - date: 2026-03-31
+        name: Mahavir Jayanti
+        note: Agency bank branches handling government receipts and payments were told to stay open on this day (RBI/2025-26/204 dated 03-02-2026).
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti
+      - date: 2026-05-28
+        name: Id-ul-Zuha (Bakrid)
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-08-28
+        name: Raksha Bandhan
+      - date: 2026-09-04
+        name: Janmashtami
+      - date: 2026-09-11
+        name: Jaipur Municipal Corporation elections
+        note: "Local holiday: only within Jaipur Municipal Corporation limits."
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-20
+        name: Vijaya Dashami
+      - date: 2026-11-09
+        name: Govardhan Puja
+      - date: 2026-11-24
+        name: Guru Nanak Jayanti
+      - date: 2026-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. The Rajasthan NI Act list is short: RBI shows no bank holiday for Good Friday (3 Apr), Muharram (26 Jun) or Id-e-Milad for Jaipur."
+  - id: bank-br-2026
+    title: Bank holidays 2026 - Bihar (RBI Patna centre)
+    kind: bank
+    scope: BR
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Patna regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-03
+        name: Holi
+      - date: 2026-03-04
+        name: Holi
+      - date: 2026-03-21
+        name: Id-ul-Fitr
+      - date: 2026-03-27
+        name: Ram Navami
+      - date: 2026-03-31
+        name: Mahavir Jayanti
+        note: Agency bank branches handling government receipts and payments were told to stay open on this day (RBI/2025-26/204 dated 03-02-2026).
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti
+      - date: 2026-05-01
+        name: May Day / Buddha Purnima
+      - date: 2026-05-28
+        name: Id-ul-Zuha (Bakrid)
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-08-26
+        name: Prophet Mohammad's Birthday (Id-e-Milad)
+      - date: 2026-09-04
+        name: Janmashtami
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-19
+        name: Durga Puja (Maha Ashtami)
+      - date: 2026-10-20
+        name: Durga Puja (Vijaya Dashami)
+      - date: 2026-11-16
+        name: Chhath Puja
+      - date: 2026-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list.
+  - id: bank-od-2026
+    title: Bank holidays 2026 - Odisha (RBI Bhubaneswar centre)
+    kind: bank
+    scope: OD
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Bhubaneswar regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-14
+        name: Makar Sankranti
+      - date: 2026-01-23
+        name: Netaji Subhas Chandra Bose Jayanti / Vir Surendra Sai Jayanti / Basanta Panchami
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-04
+        name: Holi
+      - date: 2026-03-21
+        name: Id-ul-Fitr
+      - date: 2026-03-27
+        name: Ram Navami
+      - date: 2026-04-01
+        name: Annual closing of bank accounts / Utkal Divas
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti / Maha Vishuva Sankranti
+      - date: 2026-06-15
+        name: Raja Sankranti
+      - date: 2026-07-16
+        name: Rath Yatra
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-09-04
+        name: Janmashtami
+      - date: 2026-09-14
+        name: Ganesh Puja
+      - date: 2026-09-15
+        name: Nuakhai
+      - date: 2026-10-02
+        name: Gandhi Jayanti
+      - date: 2026-10-19
+        name: Durga Puja (Maha Navami)
+      - date: 2026-10-20
+        name: Vijaya Dashami
+      - date: 2026-11-24
+        name: Rahas Purnima
+      - date: 2026-12-25
+        name: Christmas
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. RBI shows no Bakrid, Muharram or Id-e-Milad bank holiday for Bhubaneswar.
+  - id: bank-as-2026
+    title: Bank holidays 2026 - Assam (RBI Guwahati centre)
+    kind: bank
+    scope: AS
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Guwahati regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-14
+        name: Magh Bihu
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-03
+        name: Dol Jatra
+      - date: 2026-03-04
+        name: Holi
+      - date: 2026-03-21
+        name: Id-ul-Fitr
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-14
+        name: Bohag Bihu
+      - date: 2026-04-15
+        name: Bohag Bihu
+      - date: 2026-04-16
+        name: Bohag Bihu
+      - date: 2026-05-01
+        name: May Day
+      - date: 2026-05-27
+        name: Id-ul-Zuha (Bakrid)
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-09-12
+        name: Tirubhav Tithi of Srimanta Sankardeva
+      - date: 2026-09-21
+        name: Janmotsav of Srimanta Sankardeva
+      - date: 2026-10-02
+        name: Gandhi Jayanti
+      - date: 2026-10-19
+        name: Durga Puja
+      - date: 2026-10-20
+        name: Durga Puja / Vijaya Dashami
+      - date: 2026-10-21
+        name: Durga Puja / Vijaya Dashami
+      - date: 2026-12-25
+        name: Christmas
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. Bakrid is on 27 May in Assam (28 May in most other states). RBI shows no Good Friday bank holiday for Guwahati.
+  - id: bank-mp-2026
+    title: Bank holidays 2026 - Madhya Pradesh (RBI Bhopal centre)
+    kind: bank
+    scope: MP
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Bhopal regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-03
+        name: Holi
+      - date: 2026-03-04
+        name: Holi
+      - date: 2026-03-21
+        name: Id-ul-Fitr
+      - date: 2026-03-27
+        name: Ram Navami
+      - date: 2026-03-30
+        name: Mahavir Jayanti
+        note: RBI shows 30 March; the Madhya Pradesh state government list shows 31 March.
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti
+      - date: 2026-05-01
+        name: Buddha Purnima
+      - date: 2026-05-28
+        name: Id-ul-Zuha (Bakrid)
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-08-26
+        name: Milad-un-Nabi
+      - date: 2026-08-28
+        name: Raksha Bandhan
+      - date: 2026-09-04
+        name: Janmashtami
+      - date: 2026-10-02
+        name: Gandhi Jayanti
+      - date: 2026-10-20
+        name: Dussehra (Vijaya Dashami)
+      - date: 2026-11-09
+        name: Govardhan Puja
+      - date: 2026-11-24
+        name: Guru Nanak Jayanti
+      - date: 2026-12-25
+        name: Christmas
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list.
+  - id: bank-ap-2026
+    title: Bank holidays 2026 - Andhra Pradesh (RBI Vijayawada centre)
+    kind: bank
+    scope: AP
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Vijayawada regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-15
+        name: Makara Sankranti
+      - date: 2026-01-16
+        name: Kanuma
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-03
+        name: Holi
+      - date: 2026-03-19
+        name: Ugadi
+      - date: 2026-03-21
+        name: Id-ul-Fitr (Ramzan)
+      - date: 2026-03-27
+        name: Sri Rama Navami
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti
+      - date: 2026-05-01
+        name: May Day
+      - date: 2026-05-28
+        name: Bakrid (Id-ul-Zuha)
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-08-26
+        name: Milad-un-Nabi
+      - date: 2026-09-04
+        name: Sri Krishna Ashtami
+      - date: 2026-09-14
+        name: Vinayaka Chavithi
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-20
+        name: Vijaya Dashami
+      - date: 2026-12-25
+        name: Christmas
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. The Andhra Pradesh state government list puts some Islamic holidays one day earlier (Id-ul-Fitr 20 Mar, Bakrid 27 May, Muharram 25 Jun, Milad-un-Nabi 25 Aug); the RBI dates are shown here.
+  - id: bank-ga-2026
+    title: Bank holidays 2026 - Goa (RBI Panaji centre)
+    kind: bank
+    scope: GA
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Panaji regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-03-03
+        name: Holi (Dhulivandan)
+      - date: 2026-03-19
+        name: Gudi Padwa
+      - date: 2026-03-21
+        name: Id-ul-Fitr
+      - date: 2026-04-01
+        name: Annual closing of bank accounts
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti
+      - date: 2026-05-01
+        name: May Day
+      - date: 2026-05-28
+        name: Bakri Id (Id-ul-Zuha)
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-09-14
+        name: Ganesh Chaturthi
+      - date: 2026-09-15
+        name: Ganesh Chaturthi (second day)
+      - date: 2026-10-02
+        name: Gandhi Jayanti
+      - date: 2026-10-20
+        name: Dussehra (Vijaya Dashami)
+      - date: 2026-12-03
+        name: Feast of St. Francis Xavier
+      - date: 2026-12-19
+        name: Goa Liberation Day
+      - date: 2026-12-25
+        name: Christmas
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list.
+  - id: bank-jh-2026
+    title: Bank holidays 2026 - Jharkhand (RBI Ranchi centre)
+    kind: bank
+    scope: JH
+    year: 2026
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Ranchi regional office, 2026 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2026-01-26
+        name: Republic Day
+      - date: 2026-02-23
+        name: Municipal general elections in Jharkhand
+        note: Polling-day holiday.
+      - date: 2026-03-03
+        name: Holika Dahan
+      - date: 2026-03-04
+        name: Holi
+      - date: 2026-03-21
+        name: Id-ul-Fitr
+      - date: 2026-03-27
+        name: Ram Navami
+      - date: 2026-03-31
+        name: Mahavir Jayanti
+        note: Agency bank branches handling government receipts and payments were told to stay open on this day (RBI/2025-26/204 dated 03-02-2026).
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-04-14
+        name: Dr. B.R. Ambedkar Jayanti
+      - date: 2026-05-01
+        name: Buddha Purnima
+      - date: 2026-05-28
+        name: Bakrid (Id-ul-Zuha)
+      - date: 2026-06-26
+        name: Muharram
+      - date: 2026-08-15
+        name: Independence Day
+      - date: 2026-08-26
+        name: Milad-un-Nabi
+      - date: 2026-09-04
+        name: Janmashtami
+      - date: 2026-09-22
+        name: Karma Puja
+      - date: 2026-10-02
+        name: Mahatma Gandhi Jayanti
+      - date: 2026-10-19
+        name: Durga Puja (Maha Ashtami)
+      - date: 2026-10-20
+        name: Durga Puja (Maha Navami / Vijaya Dashami)
+      - date: 2026-11-16
+        name: Chhath Puja
+      - date: 2026-11-24
+        name: Guru Nanak Jayanti
+      - date: 2026-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: Holidays under the Negotiable Instruments Act, 1881 for this state as shown in the RBI holiday matrix. RBI omits Sundays; banks are also closed on the second and fourth Saturday of every month (not listed). RBI shows one combined description per date across all states, so the names here are the state-relevant part, checked against the state government holiday list. RBI does not list 1 April (annual closing) as a bank holiday for Jharkhand in 2026.

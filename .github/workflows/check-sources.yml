@@ -1,0 +1,23 @@
+name: Check sources
+
+on:
+  schedule:
+    # Mondays 07:00 IST: report source links that stopped resolving.
+    - cron: '30 1 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Check every cited source URL
+        run: node scripts/check-links.ts >> "$GITHUB_STEP_SUMMARY"

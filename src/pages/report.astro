@@ -1,0 +1,10 @@
+---
+import Shell from '../layouts/Shell.astro';
+import Report from '../components/Report.tsx';
+---
+
+<Shell title="Board report" active="report" preloadData description="Printable compliance status for the board or audit committee.">
+  <Report client:only="preact">
+    <div slot="fallback" class="page" aria-busy="true"><div class="skeleton" style="height:320px;margin-top:32px"></div></div>
+  </Report>
+</Shell>

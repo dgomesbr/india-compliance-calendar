@@ -1,0 +1,514 @@
+# rbi-fema obligations. See docs/DATA_MODEL.md for the schema.
+# Every rule cites its sources; edit with care and keep prose ASCII.
+rules:
+  - id: rbi-fema-bo-lo-po-aac-annual
+    title: Annual Activity Certificate for BO / LO / PO
+    form: Annual Activity Certificate (AAC)
+    category: rbi-fema
+    authority: RBI / AD bank; DGIT (International Taxation)
+    summary: A branch, liaison or project office of a foreign entity submits its Annual Activity Certificate as at 31 March with audited financial statements by 30 September (branch and liaison offices also send it to the DGIT (International Taxation)).
+    applicability: Branch offices, liaison offices and project offices in India of foreign entities.
+    audience:
+      - foreign
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: 6
+    law: FEM (Establishment in India of a branch office or a liaison office or a project office or any other place of business) Regulations 2016 (FEMA 22(R)/2016-RB), Regulation 4(l); Master Direction on BO/LO/PO para 4
+    penalty: No late submission fee is prescribed; the AD bank reports defaults to RBI, and the delay is a FEMA contravention (compounding guidance Rs 10,000 per delayed AAC).
+    exposure:
+      other:
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+        - Compounding guidance Rs 10,000 per delayed AAC
+        - Defaults reported by AD bank to RBI
+      basis: Compounding Master Direction para 5 guidance; Section 13 FEMA
+    sources:
+      - title: RBI - FEM (Establishment in India of a branch office or a liaison office or a project office) Regulations 2016, FEMA 22(R)/2016-RB
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=10327&Mode=0
+        kind: notification
+      - title: RBI - Master Direction on establishment of BO/LO/PO by foreign entities
+        url: https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=10404
+        kind: circular
+      - title: RBI - Master Direction on compounding of contraventions under FEMA dated 22-04-2025
+        url: https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12839&Mode=0
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: Where the office's accounts close on a date other than 31 March, the AAC is due within six months of that date.
+    code: AAC
+  - id: rbi-fema-ecb1-event
+    title: Form ECB 1 / Revised Form ECB 1 (LRN)
+    form: Form ECB 1, Revised Form ECB 1
+    category: rbi-fema
+    authority: RBI / designated AD bank
+    summary: Submit Form ECB 1 through the AD bank to obtain a loan registration number before the first drawdown; report later changes to ECB terms in Revised Form ECB 1.
+    applicability: Eligible borrowers raising external commercial borrowings.
+    audience:
+      - company
+      - llp
+      - foreign
+    frequency: event
+    trigger: Form ECB 1 before the first drawdown (LRN needed first); Revised Form ECB 1 within 7 calendar days from the end of the month in which a change was given effect
+    law: Schedule I paras 10(1) and 16(1)(a)-(b), FEM (Borrowing and Lending) Regulations 2018 (as substituted from 16-02-2026); A.P. (DIR Series) Circular No. 25 dated 30-03-2026
+    penalty: Late submission fee of Rs 7,500 per return; from 01-04-2026 these are treated as returns that do not capture flows.
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - Drawdown not allowed before LRN
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "A.P. (DIR) 25/2026: Form ECB 1 / Revised ECB 1 are non-flow returns - flat LSF Rs 7,500"
+    effective:
+      from: 2026-02-16
+      to: null
+    sources:
+      - title: RBI - FEM (Borrowing and Lending) (First Amendment) Regulations 2026, FEMA 3(R)(5)/2026-RB dated 09-02-2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13306&Mode=0
+        kind: notification
+      - title: RBI A.P. (DIR Series) Circular No. 25 dated 30-03-2026 (ECB returns and LSF)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13345&Mode=0
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: Form ECB and Revised Form ECB were renamed Form ECB 1 and Revised Form ECB 1 by the 2026 amendment; the ECB Master Direction now covers only trade credits.
+    code: ECB 1
+  - id: rbi-fema-ecb2-monthly
+    title: Form ECB 2 return (7 calendar days)
+    form: Form ECB 2
+    category: rbi-fema
+    authority: RBI / designated AD bank
+    summary: Report receipt of ECB proceeds and debt servicing (and any event that changes the amount outstanding under the LRN) through the designated AD bank within 7 calendar days from the end of the month.
+    applicability: Borrowers with an ECB loan registration number, for months in which proceeds were received, debt was serviced or the outstanding changed.
+    audience:
+      - company
+      - llp
+      - foreign
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 7
+      monthOffset: 1
+    law: Schedule I para 16(1)(c) and 16(2), FEM (Borrowing and Lending) Regulations 2018, as substituted by FEMA 3(R)(5)/2026-RB dated 09-02-2026 (Gazette 16-02-2026); A.P. (DIR Series) Circular No. 25 dated 30-03-2026
+    penalty: Late submission fee Rs 7,500 + (0.025% x A x n) per return; from 01-04-2026 each late ECB 2 under an LRN is a separate instance for the fixed part. Borrowers missing returns for four consecutive quarters may be treated as untraceable and reported to RBI and the Directorate of Enforcement.
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - Each delayed ECB 2 is a separate LSF instance from 01-04-2026
+        - Untraceable-borrower reporting to RBI and ED after 4 quarters of non-reporting
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "LSF for flow returns: Rs 7,500 + (0.025% x A x n), where A is the amount involved and n the years of delay (rounded up to the month, 2 decimals); capped at 100% of A, rounded up to the next Rs 100; available up to 3 years from the due date"
+    effective:
+      from: 2026-02-01
+      to: null
+    sources:
+      - title: RBI - FEM (Borrowing and Lending) (First Amendment) Regulations 2026, FEMA 3(R)(5)/2026-RB dated 09-02-2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13306&Mode=0
+        kind: notification
+      - title: RBI A.P. (DIR Series) Circular No. 25 dated 30-03-2026 (ECB returns and LSF)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13345&Mode=0
+        kind: circular
+      - title: RBI A.P. (DIR Series) Circular No. 16 dated 30-09-2022 (uniform LSF matrix)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12393&Mode=0
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: "Changed in 2026: the old rule was a return every month within 7 WORKING days; since 16-02-2026 it is within 7 CALENDAR days and only for months with drawdown or servicing (applies to existing ECBs too). RBI has not said whether a nil return is needed in quiet months. LSF is now paid to the RBI Regional Office by NEFT/RTGS after RBI's acknowledgment e-mail."
+    code: ECB 2
+  - id: rbi-fema-fc-gpr-event
+    title: Form FC-GPR (fresh issue to foreign investor)
+    form: FC-GPR (Single Master Form on FIRMS)
+    category: rbi-fema
+    authority: RBI / AD bank
+    summary: Report the issue of equity instruments to a person resident outside India that counts as FDI.
+    applicability: Indian companies issuing equity instruments to non-residents as FDI (including participating interest in oil fields).
+    audience:
+      - company
+      - foreign
+    frequency: event
+    trigger: Not later than 30 days from the date of issue of the equity instruments
+    law: Regulation 4(1), FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019; Regulation 5 (late submission fee)
+    penalty: Late submission fee Rs 7,500 + (0.025% x A x n); otherwise a FEMA contravention liable to Section 13 penalty or compounding.
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "LSF for flow returns: Rs 7,500 + (0.025% x A x n), where A is the amount involved and n the years of delay (rounded up to the month, 2 decimals); capped at 100% of A, rounded up to the next Rs 100; available up to 3 years from the due date"
+    sources:
+      - title: RBI - FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019 (amended up to 13-06-2026)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11723&Mode=0
+        kind: notification
+      - title: RBI A.P. (DIR Series) Circular No. 16 dated 30-09-2022 (uniform LSF matrix)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12393&Mode=0
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: Shares must be issued within 60 days of receiving the money, failing which it must be refunded within 15 days. File PAS-3 with MCA as well (mca-pas3-event).
+    code: FC-GPR
+  - id: rbi-fema-fc-trs-event
+    title: Form FC-TRS (transfer between resident and non-resident)
+    form: FC-TRS (Single Master Form on FIRMS)
+    category: rbi-fema
+    authority: RBI / AD bank
+    summary: Report a transfer of equity instruments between a non-resident (repatriable) and a resident, or between repatriable and non-repatriable non-residents, and each tranche of deferred consideration.
+    applicability: The resident transferor or transferee (or the non-resident holding on a non-repatriable basis), and non-residents selling on a stock exchange.
+    audience:
+      - company
+      - foreign
+      - individual
+    frequency: event
+    trigger: Within 60 days of the transfer of equity instruments or receipt/remittance of funds, whichever is earlier
+    law: Regulation 4(3), FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019; Regulation 5
+    penalty: Late submission fee Rs 7,500 + (0.025% x A x n).
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "LSF for flow returns: Rs 7,500 + (0.025% x A x n), where A is the amount involved and n the years of delay (rounded up to the month, 2 decimals); capped at 100% of A, rounded up to the next Rs 100; available up to 3 years from the due date"
+    sources:
+      - title: RBI - FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019 (amended up to 13-06-2026)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11723&Mode=0
+        kind: notification
+      - title: RBI A.P. (DIR Series) Circular No. 16 dated 30-09-2022 (uniform LSF matrix)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12393&Mode=0
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    code: FC-TRS
+  - id: rbi-fema-fla-annual
+    title: FLA return (foreign liabilities and assets)
+    form: FLA Return (FLAIR portal)
+    category: rbi-fema
+    authority: RBI (Department of Statistics and Information Management)
+    summary: Report foreign direct investment and overseas direct investment liabilities and assets as at end-March to RBI on the FLAIR portal by 15 July; unaudited figures are allowed and are revised after audit.
+    applicability: Indian companies and LLPs (and AIFs, partnership firms and others) that received FDI or made ODI in the previous year or the current year (April-March).
+    audience:
+      - company
+      - llp
+      - foreign
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 15
+      monthOffset: 4
+    law: Regulation 4(2), FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019; Regulation 10(5), FEM (Overseas Investment) Regulations 2022; Master Direction - Reporting under FEMA
+    penalty: "Late submission fee of Rs 7,500 (non-flow return). Non-filing is a FEMA contravention: Section 13 penalty up to Rs 2 lakh where the amount is not quantifiable plus up to Rs 5,000 per day; compounding guidance is Rs 10,000 per delayed FLA return."
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+        - Compounding guidance Rs 10,000 per delayed FLA return
+      basis: LSF flat Rs 7,500 for returns that do not capture flows (A.P. (DIR) 16/2022 matrix; MD-OI para 18)
+    sources:
+      - title: RBI - FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019 (amended up to 13-06-2026)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11723&Mode=0
+        kind: notification
+      - title: RBI - FEM (Overseas Investment) Regulations 2022
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12380&Mode=0
+        kind: notification
+      - title: RBI - FAQs on FLA Return (updated 01-07-2026)
+        url: https://www.rbi.org.in/scripts/FS_FAQs.aspx?Id=95&fn=5
+        kind: faq
+      - title: RBI A.P. (DIR Series) Circular No. 16 dated 30-09-2022 (uniform LSF matrix)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12393&Mode=0
+        kind: circular
+      - title: RBI - Master Direction on compounding of contraventions under FEMA dated 22-04-2025
+        url: https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12839&Mode=0
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: IFSC units follow IFSCA instructions. No change to the due date or portal in 2025-2026 (FAQ updated 01-07-2026).
+    code: FLA
+  - id: rbi-fema-form-cn-event
+    title: Form CN (convertible notes by startups)
+    form: Form CN
+    category: rbi-fema
+    authority: RBI / AD bank
+    summary: A startup reports convertible notes issued to a non-resident; residents transferring convertible notes to or from non-residents also report the transfer.
+    applicability: Indian startup companies issuing convertible notes to persons resident outside India, and resident transferors or transferees of such notes.
+    audience:
+      - company
+      - foreign
+    frequency: event
+    trigger: Within 30 days of the issue or transfer of the convertible notes
+    law: Regulation 4(12), FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019
+    penalty: Late submission fee Rs 7,500 + (0.025% x A x n).
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "LSF for flow returns: Rs 7,500 + (0.025% x A x n), where A is the amount involved and n the years of delay (rounded up to the month, 2 decimals); capped at 100% of A, rounded up to the next Rs 100; available up to 3 years from the due date"
+    sources:
+      - title: RBI - FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019 (amended up to 13-06-2026)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11723&Mode=0
+        kind: notification
+      - title: RBI A.P. (DIR Series) Circular No. 16 dated 30-09-2022 (uniform LSF matrix)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12393&Mode=0
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    code: FORM CN
+  - id: rbi-fema-form-di-event
+    title: Form DI (downstream investment)
+    form: Form DI
+    category: rbi-fema
+    authority: RBI / DPIIT
+    summary: An Indian entity with foreign investment that makes a downstream investment counted as indirect foreign investment reports it to RBI, and notifies DPIIT's Secretariat for Industrial Assistance.
+    applicability: Indian entities and investment vehicles making downstream investment that counts as indirect foreign investment for the investee.
+    audience:
+      - company
+      - llp
+      - foreign
+    frequency: event
+    trigger: Form DI within 30 days from the date of allotment of equity instruments; DPIIT (SIA) notice within 30 days of the investment, even before allotment
+    law: Regulation 4(11), FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019; Rule 22, FEM (Non-debt Instruments) Rules 2019
+    penalty: Late submission fee Rs 7,500 + (0.025% x A x n).
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "LSF for flow returns: Rs 7,500 + (0.025% x A x n), where A is the amount involved and n the years of delay (rounded up to the month, 2 decimals); capped at 100% of A, rounded up to the next Rs 100; available up to 3 years from the due date"
+    sources:
+      - title: RBI - FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019 (amended up to 13-06-2026)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11723&Mode=0
+        kind: notification
+      - title: RBI A.P. (DIR Series) Circular No. 16 dated 30-09-2022 (uniform LSF matrix)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12393&Mode=0
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    code: FORM DI
+  - id: rbi-fema-form-esop-event
+    title: Form ESOP (options to non-resident employees)
+    form: Form ESOP
+    category: rbi-fema
+    authority: RBI / AD bank
+    summary: Report employee stock options issued to non-resident employees or directors of the company or of its holding company, joint venture or overseas subsidiaries.
+    applicability: Indian companies issuing ESOPs to persons resident outside India.
+    audience:
+      - company
+      - foreign
+    frequency: event
+    trigger: Within 30 days from the date of issue of the employee stock options
+    law: Regulation 4(4), FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019
+    penalty: Late submission fee Rs 7,500 + (0.025% x A x n).
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "LSF for flow returns: Rs 7,500 + (0.025% x A x n), where A is the amount involved and n the years of delay (rounded up to the month, 2 decimals); capped at 100% of A, rounded up to the next Rs 100; available up to 3 years from the due date"
+    sources:
+      - title: RBI - FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019 (amended up to 13-06-2026)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11723&Mode=0
+        kind: notification
+      - title: RBI A.P. (DIR Series) Circular No. 16 dated 30-09-2022 (uniform LSF matrix)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12393&Mode=0
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    code: FORM ESOP
+  - id: rbi-fema-form-llp-event
+    title: Form LLP(I) / LLP(II) (foreign investment in LLP)
+    form: Form LLP(I), Form LLP(II)
+    category: rbi-fema
+    authority: RBI / AD bank
+    summary: An LLP reports capital contribution or acquisition of profit shares by non-residents in Form LLP(I); transfers or disinvestment between residents and non-residents are reported in Form LLP(II).
+    applicability: LLPs receiving foreign investment (LLP(I)) and resident transferors or transferees of LLP interests (LLP(II)).
+    audience:
+      - llp
+      - foreign
+    frequency: event
+    trigger: Form LLP(I) within 30 days of receipt of the consideration; Form LLP(II) within 60 days of receipt of funds
+    law: Regulation 4(6)-(7), FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019
+    penalty: Late submission fee Rs 7,500 + (0.025% x A x n).
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "LSF for flow returns: Rs 7,500 + (0.025% x A x n), where A is the amount involved and n the years of delay (rounded up to the month, 2 decimals); capped at 100% of A, rounded up to the next Rs 100; available up to 3 years from the due date"
+    sources:
+      - title: RBI - FEM (Mode of Payment and Reporting of Non-Debt Instruments) Regulations 2019 (amended up to 13-06-2026)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11723&Mode=0
+        kind: notification
+      - title: RBI A.P. (DIR Series) Circular No. 16 dated 30-09-2022 (uniform LSF matrix)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12393&Mode=0
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    code: FORM LLP
+  - id: rbi-fema-grn-quarterly
+    title: Form GRN - cross-border guarantees (quarterly)
+    form: Form GRN
+    category: rbi-fema
+    authority: RBI / AD bank
+    summary: Report the issue, change (amount, extension, pre-closure) and invocation of guarantees where any party is a person resident outside India, to the AD bank each quarter.
+    applicability: Residents who are the surety, or the principal debtor who arranged a guarantee from a non-resident surety, or the creditor where both other parties are non-residents. Guarantees under the Overseas Investment Regulations are excluded (reported in Form FC).
+    audience:
+      - company
+      - llp
+      - foreign
+    frequency: quarterly
+    schedule:
+      kind: quarterly
+      basis: fy
+      day: 15
+      monthOffset: 1
+    law: Regulations 7 and 8, FEM (Guarantees) Regulations 2026 (FEMA 8(R)/2026-RB dated 06-01-2026)
+    penalty: Late submission fee Rs 7,500 + (0.025% x A x n), rounded up to the next hundred; A is the amount involved (for issue or modification reports usually nil, so Rs 7,500).
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "Reg 8 FEM (Guarantees) Regulations 2026: Rs 7,500 + 0.025% x A x n"
+    effective:
+      from: 2026-01-01
+      to: null
+    sources:
+      - title: RBI - FEM (Guarantees) Regulations 2026, FEMA 8(R)/2026-RB dated 06-01-2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13269&Mode=0
+        kind: notification
+      - title: RBI A.P. (DIR Series) Circular No. 19 dated 12-01-2026 (Guarantees Regulations; trade credit guarantee reporting discontinued from quarter ending March 2026)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13268&Mode=0
+        kind: circular
+      - title: RBI A.P. (DIR Series) Circular No. 01 dated 01-04-2026 (Form GRN Issue / Modification / Invocation)
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13358&Mode=0
+        kind: circular
+    verified: 2026-10-14
+    confidence: medium
+    notes: "New in 2026: the regulations took effect on publication in January 2026 (superseding FEMA 8/2000). A.P. (DIR) 19/2026 discontinued the old trade-credit guarantee return from the quarter ending March 2026, which suggests the first GRN return covered January-March 2026 (due 15-04-2026), but the GRN files were only released on 01-04-2026 (A.P. (DIR) 01/2026), so treat that first quarter as uncertain. Due 15 July, 15 October, 15 January and 15 April. AD banks forward returns to RBI within 30 days of quarter end."
+    code: FORM GRN
+  - id: rbi-fema-odi-apr-annual
+    title: Annual Performance Report (APR) for ODI
+    form: APR
+    category: rbi-fema
+    authority: RBI / AD bank
+    summary: File an Annual Performance Report for each foreign entity in which overseas direct investment is held, based on its audited accounts, by 31 December every year.
+    applicability: Persons resident in India holding ODI in a foreign entity. Not required if the holding is under 10% without control and only equity, or if the foreign entity is under liquidation. The highest stakeholder files where several residents invest.
+    audience:
+      - company
+      - llp
+      - foreign
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 31
+      monthOffset: 9
+    law: Regulation 10(4), FEM (Overseas Investment) Regulations 2022; Regulations 11 and 12; Master Direction - Overseas Investment para 18
+    penalty: Late submission fee of Rs 7,500 per APR (within 3 years of the due date). Until the delay is regularised, no further financial commitment or transfer of the investment is allowed (Regulation 12).
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - Block on further financial commitment or transfer until regularised (Reg 12)
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "MD-OI para 18: LSF Rs 7,500 for APR (non-flow return)"
+    sources:
+      - title: RBI - FEM (Overseas Investment) Regulations 2022
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12380&Mode=0
+        kind: notification
+      - title: RBI - Master Direction - Overseas Investment (updated 01-04-2026), para 18 LSF
+        url: https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12710
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: Where the foreign entity's accounting year ends on 31 December, the APR for that year is due by 31 December of the next year.
+    code: APR
+  - id: rbi-fema-odi-evidence-event
+    title: ODI evidence of investment (share certificates)
+    form: Evidence of investment
+    category: rbi-fema
+    authority: RBI / AD bank
+    summary: Submit share certificates or other documents evidencing the overseas direct investment to the AD bank.
+    applicability: Persons resident in India acquiring equity capital in a foreign entity that counts as ODI.
+    audience:
+      - company
+      - llp
+      - foreign
+      - individual
+    frequency: event
+    trigger: Within 6 months of the remittance, or of the date dues were capitalised or allowed to be capitalised
+    law: Regulation 9(1), FEM (Overseas Investment) Regulations 2022; Regulation 11; Master Direction - Overseas Investment para 18
+    penalty: Late submission fee of Rs 7,500 (non-flow item); further ODI is blocked until regularised.
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - Block on further ODI until regularised (Reg 12)
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "MD-OI para 18: LSF Rs 7,500 for evidence of investment"
+    sources:
+      - title: RBI - FEM (Overseas Investment) Regulations 2022
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12380&Mode=0
+        kind: notification
+      - title: RBI - Master Direction - Overseas Investment (updated 01-04-2026), para 18 LSF
+        url: https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12710
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    code: ODI PROOF
+  - id: rbi-fema-odi-form-fc-event
+    title: Form FC (ODI commitment, restructuring, exit)
+    form: Form FC (including restructuring and disinvestment sections)
+    category: rbi-fema
+    authority: RBI / AD bank
+    summary: Report overseas direct investment financial commitments, and later restructuring or disinvestment of the foreign entity, through the designated AD bank; a UIN must be obtained before the first remittance.
+    applicability: Indian entities and resident individuals making ODI or financial commitments in a foreign entity.
+    audience:
+      - company
+      - llp
+      - foreign
+      - individual
+    frequency: event
+    trigger: "Financial commitment: at the time of sending the remittance or making the commitment, whichever is earlier; restructuring: within 30 days of the restructuring; disinvestment: within 30 days of receipt of proceeds"
+    law: Regulations 9(2), 10(2), 11 and 12, FEM (Overseas Investment) Regulations 2022; Master Direction - Overseas Investment para 18
+    penalty: Late submission fee Rs 7,500 + (0.025% x A x n) (within 3 years); no further financial commitment or transfer until the delay is regularised (Regulation 12).
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - Block on further ODI until regularised (Reg 12)
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "LSF for flow returns: Rs 7,500 + (0.025% x A x n), where A is the amount involved and n the years of delay (rounded up to the month, 2 decimals); capped at 100% of A, rounded up to the next Rs 100; available up to 3 years from the due date"
+    sources:
+      - title: RBI - FEM (Overseas Investment) Regulations 2022
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12380&Mode=0
+        kind: notification
+      - title: RBI - Master Direction - Overseas Investment (updated 01-04-2026), para 18 LSF
+        url: https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12710
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: Form FC replaced the old Form ODI Part I and Part III. Overseas investment references are now handled by seven RBI Regional Offices (MD-OI update of 01-04-2026).
+    code: FORM FC
+  - id: rbi-fema-opi-halfyearly
+    title: Form OPI - overseas portfolio investment
+    form: Form OPI
+    category: rbi-fema
+    authority: RBI / AD bank
+    summary: Report overseas portfolio investment made or transferred during each half-year within 60 days of the half-year ending September or March; the Indian entity also reports employees' ESOP/benefit-scheme acquisitions in the foreign parent.
+    applicability: Persons resident in India other than resident individuals making or transferring OPI, and Indian subsidiaries or offices of foreign entities whose employees or directors acquire shares under ESOP or employee benefit schemes.
+    audience:
+      - company
+      - foreign
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: fy
+      daysAfter: 60
+    law: Regulation 10(3), FEM (Overseas Investment) Regulations 2022; Regulation 11; Master Direction - Overseas Investment para 18
+    penalty: Late submission fee of Rs 7,500 per return (within 3 years of the due date).
+    exposure:
+      fixedPenalty: 7500
+      other:
+        - "Section 13 FEMA 1999: adjudicated penalty up to 3 times the sum involved (up to Rs 2 lakh where not quantifiable) plus up to Rs 5,000 per day of continuing contravention"
+      basis: "MD-OI para 18: LSF Rs 7,500 for Form OPI (non-flow return)"
+    sources:
+      - title: RBI - FEM (Overseas Investment) Regulations 2022
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12380&Mode=0
+        kind: notification
+      - title: RBI - Master Direction - Overseas Investment (updated 01-04-2026), para 18 LSF
+        url: https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12710
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: Due 29 November (April-September) and 30 May (October-March).
+    code: FORM OPI

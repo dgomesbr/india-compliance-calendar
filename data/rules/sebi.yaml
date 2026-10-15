@@ -1,0 +1,395 @@
+# sebi obligations. See docs/DATA_MODEL.md for the schema.
+# Every rule cites its sources; edit with care and keep prose ASCII.
+rules:
+  - id: sebi-agm-top100-annual
+    title: AGM within 5 months for top 100 listed entities
+    category: sebi
+    authority: SEBI / stock exchanges (NSE, BSE)
+    summary: The top 100 listed entities by market capitalisation must hold their AGM within five months of the end of the financial year (31 August) and provide a one-way live webcast.
+    applicability: Top 100 listed entities by market capitalisation.
+    audience:
+      - listed
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 31
+      monthOffset: 5
+    law: Regulation 44(5)-(6), SEBI LODR Regulations 2015
+    penalty: SOP fine of Rs 25,000 per instance of not convening the AGM within five months.
+    exposure:
+      fixedPenalty: 25000
+      basis: "LODR Master Circular Ch. VII para 6.1: Reg 44(5) Rs 25,000 per instance"
+    sources:
+      - title: SEBI - LODR Regulations 2015 (consolidated, last amended 14-07-2026)
+        url: https://www.sebi.gov.in/legal/regulations/jul-2026/securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-last-amended-on-july-14-2026-_102974.html
+        kind: rules
+      - title: SEBI - LODR Master Circular, last updated 30-01-2026 (Chapter VII para 6.1 fines)
+        url: https://www.sebi.gov.in/legal/master-circulars/jan-2026/master-circular-for-compliance-with-the-provisions-of-the-securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-by-listed-entities_99432.html
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: Companies Act deadline for all others remains 30 September (mca-agm-annual).
+    code: AGM TOP 100
+  - id: sebi-annual-report-reg34
+    title: Annual report to stock exchanges (Reg 34)
+    form: Annual report
+    category: sebi
+    authority: SEBI / stock exchanges (NSE, BSE)
+    summary: Submit the annual report with the AGM notice to the exchanges and publish it on the website on or before the day dispatch to shareholders begins; a revised copy is due within 48 hours after the AGM if changed.
+    applicability: Entities with listed specified securities.
+    audience:
+      - listed
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 8
+      monthOffset: 6
+    law: Regulation 34(1), SEBI LODR Regulations 2015; Section 101(1), Companies Act 2013 (21 clear days' notice)
+    penalty: SOP fine of Rs 2,000 per day; non-submission for two consecutive years is a ground for suspension.
+    exposure:
+      lateFeePerDay: 2000
+      basis: "LODR Master Circular Ch. VII para 6.1: Reg 34 Rs 2,000/day"
+    sources:
+      - title: SEBI - LODR Regulations 2015 (consolidated, last amended 14-07-2026)
+        url: https://www.sebi.gov.in/legal/regulations/jul-2026/securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-last-amended-on-july-14-2026-_102974.html
+        kind: rules
+      - title: SEBI - LODR Master Circular, last updated 30-01-2026 (Chapter VII para 6.1 fines)
+        url: https://www.sebi.gov.in/legal/master-circulars/jan-2026/master-circular-for-compliance-with-the-provisions-of-the-securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-by-listed-entities_99432.html
+        kind: circular
+      - title: MCA e-book - Companies Act 2013, Section 101 (notice of meeting)
+        url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjU5MzIxMTQ4&docCategory=Acts&type=open
+        kind: act
+    verified: 2026-10-14
+    confidence: medium
+    notes: The real deadline is the date dispatch begins. 8 September is the latest dispatch date for an AGM on 30 September with 21 clear days' notice by electronic mode; top 100 entities holding the AGM by 31 August must dispatch earlier.
+    code: REG 34
+  - id: sebi-brsr-annual
+    title: BRSR (top 1,000 listed entities)
+    form: Business Responsibility and Sustainability Report
+    category: sebi
+    authority: SEBI / stock exchanges (NSE, BSE)
+    summary: The top 1,000 listed entities by market capitalisation include a Business Responsibility and Sustainability Report in the annual report, with assessment or assurance of BRSR Core under a glide path.
+    applicability: "Top 1,000 listed entities by market capitalisation. BRSR Core assessment or assurance: top 150 from FY 2023-24, top 250 from FY 2024-25, top 500 from FY 2025-26 and top 1,000 from FY 2026-27."
+    audience:
+      - listed
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 8
+      monthOffset: 6
+    law: Regulation 34(2)(f), SEBI LODR Regulations 2015 (amended 28-03-2025); SEBI Circular dated 28-03-2025 on BRSR Core assessment or assurance and value chain
+    penalty: No BRSR-specific fine; filed with the annual report, so the Reg 34 SOP fine of Rs 2,000 per day applies to a late annual report.
+    exposure:
+      lateFeePerDay: 2000
+      basis: Reg 34 SOP fine Rs 2,000/day (BRSR forms part of the annual report)
+    sources:
+      - title: SEBI - LODR Regulations 2015 (consolidated, last amended 14-07-2026)
+        url: https://www.sebi.gov.in/legal/regulations/jul-2026/securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-last-amended-on-july-14-2026-_102974.html
+        kind: rules
+      - title: SEBI Circular dated 28-03-2025 (BRSR Core assessment or assurance glide path)
+        url: https://www.sebi.gov.in/legal/circulars/mar-2025/measures-to-facilitate-ease-of-doing-business-with-respect-to-framework-for-assurance-or-assessment-esg-disclosures-for-value-chain-and-introduction-of-voluntary-disclosure-on-green-credits_93102.html
+        kind: circular
+      - title: NSE - Compliance calendar, main board (updated 24-10-2025)
+        url: https://www.nseindia.com/static/companies-listing/compliance-information-compliance-calendar-main-board
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    notes: Value-chain ESG disclosures are voluntary for the top 250 from FY 2025-26 and their assessment or assurance voluntary from FY 2026-27. Date follows the annual report (see sebi-annual-report-reg34).
+    code: BRSR
+  - id: sebi-integrated-filing-financial-quarterly
+    title: Integrated Filing (Financial) - results, RPT, deviation
+    form: Integrated Filing (Financial) XBRL
+    category: sebi
+    authority: SEBI / stock exchanges (NSE, BSE)
+    summary: One filing containing the quarterly financial results (Reg 33), statement of deviation or variation (Reg 32(1)), disclosure of outstanding defaults on loans and debt securities, half-yearly related party transactions (Reg 23(9), Q2 and Q4) and, in Q4, the statement on impact of audit qualifications.
+    applicability: Entities with listed specified securities (equity) on the main board.
+    audience:
+      - listed
+    frequency: quarterly
+    schedule:
+      kind: quarterly
+      basis: fy
+      daysAfter: 45
+      except:
+        Q4:
+          daysAfter: 60
+    law: Regulations 10(1A), 23(9), 32(1) and 33(3)(a) and (d), SEBI LODR Regulations 2015; SEBI Circular SEBI/HO/CFD/CFD-PoD-2/CIR/P/2024/185 dated 31-12-2024
+    penalty: "SOP fines: Rs 5,000 per day for late financial results (Reg 33), Rs 5,000 per day for late RPT disclosure (Reg 23(9)) and Rs 1,000 per day for the statement of deviation (Reg 32(1)); repeated default leads to promoter demat freeze and suspension."
+    exposure:
+      lateFeePerDay: 5000
+      other:
+        - Reg 23(9) RPT fine Rs 5,000/day in Q2 and Q4
+        - Reg 32(1) fine Rs 1,000/day
+        - Suspension after two consecutive quarters of default on results
+      basis: "LODR Master Circular Ch. VII para 6.1: Reg 33 Rs 5,000/day (principal component)"
+    effective:
+      from: 2024-10-01
+      to: null
+    sources:
+      - title: SEBI Circular SEBI/HO/CFD/CFD-PoD-2/CIR/P/2024/185 dated 31-12-2024 (Integrated Filing)
+        url: https://www.sebi.gov.in/legal/circulars/dec-2024/circular-for-implementation-of-recommendations-of-the-expert-committee-for-facilitating-ease-of-doing-business-for-listed-entities_90406.html
+        kind: circular
+      - title: SEBI - LODR Regulations 2015 (consolidated, last amended 14-07-2026)
+        url: https://www.sebi.gov.in/legal/regulations/jul-2026/securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-last-amended-on-july-14-2026-_102974.html
+        kind: rules
+      - title: SEBI - LODR Master Circular, last updated 30-01-2026 (Chapter VII para 6.1 fines)
+        url: https://www.sebi.gov.in/legal/master-circulars/jan-2026/master-circular-for-compliance-with-the-provisions-of-the-securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-by-listed-entities_99432.html
+        kind: circular
+      - title: NSE - Compliance calendar, main board (updated 24-10-2025)
+        url: https://www.nseindia.com/static/companies-listing/compliance-information-compliance-calendar-main-board
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    notes: Q1-Q3 due 14 August, 14 November and 14 February; Q4 and annual audited results due 30 May. The exchanges expect the XBRL on the same day as the results PDF filed with the board meeting outcome. RPT disclosure is half-yearly, on the date the results are published (Reg 23(9) proviso since 01-04-2023). Entities under an approved IBC resolution plan get 90 days (120 for annual results).
+    code: IF-FIN
+  - id: sebi-integrated-filing-governance-quarterly
+    title: Integrated Filing (Governance) - quarterly
+    form: Integrated Filing (Governance) XBRL
+    category: sebi
+    authority: SEBI / stock exchanges (NSE, BSE)
+    summary: One quarterly governance filing that combines the corporate governance compliance report, the investor grievance statement and certain Schedule III disclosures (small acquisitions, sub-threshold fines, tax litigation updates); Q2 and Q4 carry extra half-yearly and annual affirmations.
+    applicability: Entities with listed specified securities (equity) on the main board.
+    audience:
+      - listed
+    frequency: quarterly
+    schedule:
+      kind: quarterly
+      basis: fy
+      day: 30
+      monthOffset: 1
+    law: Regulations 10(1A), 13(3) and 27(2)(a), SEBI LODR Regulations 2015; SEBI Circular SEBI/HO/CFD/CFD-PoD-2/CIR/P/2024/185 dated 31-12-2024 (now in LODR Master Circular dated 30-01-2026, Section VI-L)
+    penalty: "Exchange fines under the SOP: Rs 2,000 per day for the corporate governance report (Reg 27(2)) and Rs 1,000 per day for the investor grievance statement (Reg 13(3)); continued default can lead to freezing of promoter holdings and suspension of trading."
+    exposure:
+      lateFeePerDay: 3000
+      other:
+        - Promoter demat freeze and suspension after continued non-compliance
+        - Fines accrue until rectified
+      basis: "LODR Master Circular Ch. VII para 6.1: Reg 27(2) Rs 2,000/day plus Reg 13(3) Rs 1,000/day"
+    effective:
+      from: 2024-10-01
+      to: null
+    sources:
+      - title: SEBI Circular SEBI/HO/CFD/CFD-PoD-2/CIR/P/2024/185 dated 31-12-2024 (Integrated Filing)
+        url: https://www.sebi.gov.in/legal/circulars/dec-2024/circular-for-implementation-of-recommendations-of-the-expert-committee-for-facilitating-ease-of-doing-business-for-listed-entities_90406.html
+        kind: circular
+      - title: SEBI - LODR Master Circular, last updated 30-01-2026 (Chapter VII para 6.1 fines)
+        url: https://www.sebi.gov.in/legal/master-circulars/jan-2026/master-circular-for-compliance-with-the-provisions-of-the-securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-by-listed-entities_99432.html
+        kind: circular
+      - title: SEBI - LODR Regulations 2015 (consolidated, last amended 14-07-2026)
+        url: https://www.sebi.gov.in/legal/regulations/jul-2026/securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-last-amended-on-july-14-2026-_102974.html
+        kind: rules
+      - title: NSE - Compliance calendar, main board (updated 24-10-2025)
+        url: https://www.nseindia.com/static/companies-listing/compliance-information-compliance-calendar-main-board
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    notes: Integrated Filing was introduced from the quarter ended 31-12-2024 (that quarter allowed 45 days). It subsumed the standalone Reg 27(2) CG report (earlier due in 21 days) and Reg 13(3) grievance statement (21 days); the standalone XBRLs stopped from the March 2025 quarter. The Q4 filing is also due 30 April. The shareholding pattern (Reg 31) remains a separate filing.
+    code: IF-GOV
+  - id: sebi-reconciliation-share-capital-audit-quarterly
+    title: Reconciliation of share capital audit report
+    form: Reconciliation of Share Capital Audit Report
+    category: sebi
+    authority: SEBI / stock exchanges / depositories
+    summary: Submit a quarterly audit report by a practising CA, CS or cost accountant reconciling issued, listed and dematerialised capital within 30 days of each quarter end.
+    applicability: Every issuer whose securities are admitted to a depository and listed on a stock exchange.
+    audience:
+      - listed
+    frequency: quarterly
+    schedule:
+      kind: quarterly
+      basis: fy
+      day: 30
+      monthOffset: 1
+    law: Regulation 76, SEBI (Depositories and Participants) Regulations 2018; SEBI Master Circular for Depositories dated 03-12-2024, para 3.20
+    penalty: No per-day SOP fine; non-submission for two consecutive quarters is a ground for suspension under the LODR Master Circular, and SEBI may act under the Depositories Act.
+    exposure:
+      other:
+        - No SOP per-day fine
+        - Suspension ground after two consecutive quarters
+        - Action under the Depositories Act 1996
+      basis: Depositories Master Circular para 3.20.3; LODR Master Circular Ch. VII
+    sources:
+      - title: SEBI - Depositories and Participants Regulations 2018 (last amended 22-11-2025)
+        url: https://www.sebi.gov.in/legal/regulations/nov-2025/securities-and-exchange-board-of-india-depositories-and-participants-regulations-2018-last-amended-on-november-22-2025-_98196.html
+        kind: rules
+      - title: SEBI - Master Circular for Depositories dated 03-12-2024 (para 3.20)
+        url: https://www.sebi.gov.in/legal/master-circulars/dec-2024/master-circular-for-depositories_89245.html
+        kind: circular
+      - title: NSE - Compliance calendar, main board (updated 24-10-2025)
+        url: https://www.nseindia.com/static/companies-listing/compliance-information-compliance-calendar-main-board
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    code: REG 76
+  - id: sebi-reg52-debt-results-quarterly
+    title: Debt-listed entity financial results (Reg 52)
+    form: Financial results (Reg 52)
+    category: sebi
+    authority: SEBI / stock exchanges (NSE, BSE)
+    summary: Entities with listed non-convertible securities submit quarterly and year-to-date standalone results within 45 days of each quarter end, and annual audited results within 60 days of the year end.
+    applicability: Entities that have listed non-convertible debt securities or other non-convertible securities (including debt-only listed companies).
+    audience:
+      - listed
+    frequency: quarterly
+    schedule:
+      kind: quarterly
+      basis: fy
+      daysAfter: 45
+      except:
+        Q4:
+          daysAfter: 60
+    law: Regulation 52(1)-(2), SEBI LODR Regulations 2015; SEBI Master Circular for non-convertible securities dated 11-07-2025
+    penalty: Fine of Rs 5,000 per day for late results; not levied again if a Reg 33 fine is already levied for the same default.
+    exposure:
+      lateFeePerDay: 5000
+      basis: "NCS Master Circular Annex (fines): Reg 52(1)/52(2) Rs 5,000/day"
+    sources:
+      - title: SEBI - LODR Regulations 2015 (consolidated, last amended 14-07-2026)
+        url: https://www.sebi.gov.in/legal/regulations/jul-2026/securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-last-amended-on-july-14-2026-_102974.html
+        kind: rules
+      - title: SEBI - Master Circular for non-convertible securities dated 11-07-2025 (fines)
+        url: https://www.sebi.gov.in/legal/master-circulars/jul-2025/master-circular-for-listing-obligations-and-disclosure-requirements-for-non-convertible-securities-securitized-debt-instruments-and-or-commercial-paper_95230.html
+        kind: circular
+      - title: NSE - Compliance calendar, debt (updated 11-08-2026)
+        url: https://www.nseindia.com/static/companies-listing/compliance-information-compliance-calendar-debt
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    notes: Equity-listed entities already file results through Integrated Filing (Financial); this rule matters mainly for debt-only listed entities. Entities audited by the CAG may file audited results within 9 months.
+    code: REG 52
+  - id: sebi-reg74-5-certificate-quarterly
+    title: Reg 74(5) certificate on dematerialisation
+    form: Certificate under Regulation 74(5)
+    category: sebi
+    authority: SEBI / stock exchanges / depositories
+    summary: Confirm to the depositories and stock exchanges that securities received for dematerialisation were listed, the certificates cancelled and the depository substituted as registered owner; filed as a quarterly certificate within 15 days of quarter end.
+    applicability: Listed issuers (through their registrar and share transfer agent).
+    audience:
+      - listed
+    frequency: quarterly
+    schedule:
+      kind: quarterly
+      basis: fy
+      day: 15
+      monthOffset: 1
+    law: Regulation 74(5), SEBI (Depositories and Participants) Regulations 2018
+    penalty: No SOP fine is prescribed for this certificate.
+    exposure:
+      other:
+        - No SOP fine prescribed
+      basis: Regulation 74(5) sets a 15-day confirmation duty per request
+    sources:
+      - title: SEBI - Depositories and Participants Regulations 2018 (last amended 22-11-2025)
+        url: https://www.sebi.gov.in/legal/regulations/nov-2025/securities-and-exchange-board-of-india-depositories-and-participants-regulations-2018-last-amended-on-november-22-2025-_98196.html
+        kind: rules
+    verified: 2026-10-14
+    confidence: medium
+    notes: The regulation itself requires confirmation within 15 days of receiving each certificate; the quarterly certificate within 15 days of quarter end is exchange practice (about 2,000 such filings appear on NSE in the first half of each quarter-start month) rather than written law.
+    code: REG 74(5)
+  - id: sebi-sdd-compliance-certificate-annual
+    title: SDD compliance certificate (where Reg 24A n.a.)
+    form: Structured Digital Database compliance certificate
+    category: sebi
+    authority: Stock exchanges (BSE, NSE) under SEBI PIT Regulations
+    summary: Listed entities to which Regulation 24A does not apply submit an annual practising CS certificate on compliance with the structured digital database requirement within 60 days of the year end; non-compliant entities file quarterly until they comply.
+    applicability: Listed entities outside Regulation 24A (for example SME-listed entities). Entities covered by Regulation 24A confirm SDD compliance inside the annual secretarial compliance report instead.
+    audience:
+      - listed
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      daysAfter: 60
+    law: Regulations 3(5) and 3(6), SEBI (Prohibition of Insider Trading) Regulations 2015; BSE Notice 20241018-44 dated 18-10-2024
+    penalty: No per-day fine; the exchange flags the entity as SDD non-compliant on its website, gives no further listing approvals except bonus and split, and may seek the Board's comments.
+    exposure:
+      other:
+        - Non-compliance flag on exchange website
+        - No listing approvals except bonus/split until compliant
+      basis: BSE Notice 20241018-44, para 4
+    sources:
+      - title: BSE Notice 20241018-44 (SOP for Structured Digital Database)
+        url: https://www.bseindia.com/markets/MarketInfo/DispNewNoticesCirculars.aspx?page=20241018-44
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: The earlier quarterly SDD certificate for all listed entities was rescinded in October 2024.
+    code: SDD
+  - id: sebi-secretarial-compliance-report-annual
+    title: Annual secretarial compliance report (Reg 24A)
+    form: Secretarial Compliance Report
+    category: sebi
+    authority: SEBI / stock exchanges (NSE, BSE)
+    summary: Submit the annual secretarial compliance report, signed by the peer-reviewed secretarial auditor, within 60 days of the end of the financial year. It also confirms compliance with the structured digital database (SDD) requirement.
+    applicability: Entities with listed specified securities (main board) to which Regulation 24A applies.
+    audience:
+      - listed
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      daysAfter: 60
+    law: Regulation 24A(2), SEBI LODR Regulations 2015
+    penalty: SOP fine of Rs 2,000 per day.
+    exposure:
+      lateFeePerDay: 2000
+      basis: "LODR Master Circular Ch. VII para 6.1: Reg 24A(2) Rs 2,000/day"
+    sources:
+      - title: SEBI - LODR Regulations 2015 (consolidated, last amended 14-07-2026)
+        url: https://www.sebi.gov.in/legal/regulations/jul-2026/securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-last-amended-on-july-14-2026-_102974.html
+        kind: rules
+      - title: SEBI - LODR Master Circular, last updated 30-01-2026 (Chapter VII para 6.1 fines)
+        url: https://www.sebi.gov.in/legal/master-circulars/jan-2026/master-circular-for-compliance-with-the-provisions-of-the-securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-by-listed-entities_99432.html
+        kind: circular
+      - title: NSE - Compliance calendar, main board (updated 24-10-2025)
+        url: https://www.nseindia.com/static/companies-listing/compliance-information-compliance-calendar-main-board
+        kind: portal
+      - title: BSE Notice 20241018-44 (SOP for Structured Digital Database)
+        url: https://www.bseindia.com/markets/MarketInfo/DispNewNoticesCirculars.aspx?page=20241018-44
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: Due 30 May. From 01-04-2025 the report must be signed only by the secretarial auditor or a peer-reviewed company secretary meeting Reg 24A(1A)-(1B) conditions.
+    code: REG 24A
+  - id: sebi-shareholding-pattern-quarterly
+    title: Shareholding pattern (Reg 31) - quarterly
+    form: Shareholding pattern XBRL
+    category: sebi
+    authority: SEBI / stock exchanges (NSE, BSE)
+    summary: Submit the statement of holding of securities and shareholding pattern for each class of securities within 21 days of each quarter end.
+    applicability: Entities with listed specified securities. SME-exchange entities file half-yearly within 21 days of the half-year.
+    audience:
+      - listed
+    frequency: quarterly
+    schedule:
+      kind: quarterly
+      basis: fy
+      day: 21
+      monthOffset: 1
+    law: Regulation 31(1)(b), SEBI LODR Regulations 2015; SEBI Circular SEBI/HO/CFD/CFD-PoD-2/P/CIR/2025/35 dated 20-03-2025 (revised format)
+    penalty: SOP fine of Rs 2,000 per day; repeated default can lead to promoter demat freeze and suspension.
+    exposure:
+      lateFeePerDay: 2000
+      other:
+        - Suspension after two consecutive quarters of default
+      basis: "LODR Master Circular Ch. VII para 6.1: Reg 31(1) Rs 2,000/day"
+    sources:
+      - title: SEBI - LODR Regulations 2015 (consolidated, last amended 14-07-2026)
+        url: https://www.sebi.gov.in/legal/regulations/jul-2026/securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-last-amended-on-july-14-2026-_102974.html
+        kind: rules
+      - title: SEBI - LODR Master Circular, last updated 30-01-2026 (Chapter VII para 6.1 fines)
+        url: https://www.sebi.gov.in/legal/master-circulars/jan-2026/master-circular-for-compliance-with-the-provisions-of-the-securities-and-exchange-board-of-india-listing-obligations-and-disclosure-requirements-regulations-2015-by-listed-entities_99432.html
+        kind: circular
+      - title: SEBI Circular SEBI/HO/CFD/CFD-PoD-2/P/CIR/2025/35 dated 20-03-2025 (shareholding pattern format)
+        url: https://www.sebi.gov.in/legal/circulars/mar-2025/disclosure-of-holding-of-specified-securities-in-dematerialized-form_92797.html
+        kind: circular
+      - title: NSE - Compliance calendar, main board (updated 24-10-2025)
+        url: https://www.nseindia.com/static/companies-listing/compliance-information-compliance-calendar-main-board
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    notes: Also due one day before listing and within 10 days of a capital restructuring changing capital by more than 2% (Reg 31(1)(a) and (c)). SEBI's 31-12-2024 circular earmarked the shareholding pattern for system-driven disclosure by the exchanges; no implementing exchange circular was found, so the 21-day filing still applies.
+    code: REG 31

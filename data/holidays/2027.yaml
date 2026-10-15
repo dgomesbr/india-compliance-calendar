@@ -1,0 +1,134 @@
+# Official holiday lists for 2027.
+lists:
+  - id: central-gazetted-2027
+    title: Central Government gazetted holidays 2027 (Delhi / New Delhi)
+    kind: gazetted
+    scope: IN
+    year: 2027
+    authority: Department of Personnel and Training (Ministry of Personnel, Public Grievances and Pensions)
+    source:
+      title: DoPT OM F.No. 12/2/2023-JCA dated 16-07-2026, Annexure I (dates as published on the National Portal of India holiday calendar)
+      url: https://www.india.gov.in/calendar
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2027-01-26
+        name: Republic Day
+      - date: 2027-03-10
+        name: Id-ul-Fitr
+      - date: 2027-03-23
+        name: Holi
+      - date: 2027-03-26
+        name: Good Friday
+      - date: 2027-04-15
+        name: Ram Navami
+      - date: 2027-04-19
+        name: Mahavir Jayanti
+      - date: 2027-05-17
+        name: Id-ul-Zuha (Bakrid)
+      - date: 2027-05-20
+        name: Buddha Purnima
+      - date: 2027-06-16
+        name: Muharram
+      - date: 2027-08-15
+        name: Independence Day
+      - date: 2027-08-15
+        name: Milad-un-Nabi or Id-e-Milad (Prophet Mohammad's Birthday)
+      - date: 2027-08-25
+        name: Janmashtami (Vaishnava)
+      - date: 2027-10-02
+        name: Mahatma Gandhi's Birthday
+      - date: 2027-10-09
+        name: Dussehra (Vijaya Dashami)
+      - date: 2027-10-29
+        name: Diwali (Deepavali)
+      - date: 2027-11-14
+        name: Guru Nanak's Birthday
+      - date: 2027-12-25
+        name: Christmas Day
+    alsoSee:
+      - title: Scanned copy of the 2027 OM (StaffNews mirror)
+        url: https://www.staffnews.in/wp-content/uploads/2026/07/Holiday-list-2027.pdf
+      - title: StaffNews transcription of the 2027 OM
+        url: https://www.staffnews.in/2026/07/list-of-holidays-2027-to-be-observed-in-central-government-offices.html
+    notes: Applies to Central Government administrative offices in Delhi/New Delhi. Offices elsewhere observe the 14 compulsory holidays plus 3 optional ones chosen by the Central Government Employees Welfare Coordination Committee of the state capital, so state lists differ. Dates of Id-ul-Fitr, Id-ul-Zuha, Muharram and Id-e-Milad can be changed at short notice depending on moon sighting. Dr. B.R. Ambedkar's Birthday (14 Apr 2027) is not in the list; DoPT normally declares it by a separate OM shortly before the date. Independence Day and Milad-un-Nabi both fall on Sunday 15 Aug 2027.
+  - id: central-restricted-2027
+    title: Central Government restricted holidays 2027 (Delhi / New Delhi)
+    kind: restricted
+    scope: IN
+    year: 2027
+    authority: Department of Personnel and Training (Ministry of Personnel, Public Grievances and Pensions)
+    source:
+      title: DoPT OM F.No. 12/2/2023-JCA dated 16-07-2026, Annexure II (dates as published on the National Portal of India holiday calendar)
+      url: https://www.india.gov.in/calendar
+    verified: 2026-10-14
+    confidence: high
+    holidays:
+      - date: 2027-01-01
+        name: New Year's Day
+      - date: 2027-01-14
+        name: Makar Sankranti / Magha Bihu
+      - date: 2027-01-15
+        name: Pongal / Guru Gobind Singh's Birthday
+      - date: 2027-02-11
+        name: Sri Panchami / Basant Panchami
+      - date: 2027-02-19
+        name: Shivaji Jayanti
+      - date: 2027-02-20
+        name: Guru Ravi Das's Birthday
+      - date: 2027-03-02
+        name: Swami Dayananda Saraswati's Birthday
+      - date: 2027-03-05
+        name: Jamat-ul-Vida
+      - date: 2027-03-06
+        name: Maha Shivratri
+      - date: 2027-03-22
+        name: Holika Dahan / Dolyatra
+      - date: 2027-03-28
+        name: Easter Sunday
+      - date: 2027-04-07
+        name: Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand / 1st Navratra
+      - date: 2027-04-14
+        name: Vaisakhi / Vishu / Meshadi (Tamil New Year's Day)
+      - date: 2027-04-15
+        name: Vaisakhadi (Bengal) / Bahag Bihu (Assam)
+      - date: 2027-05-09
+        name: Guru Rabindranath Tagore's Birthday
+      - date: 2027-07-05
+        name: Rath Yatra
+      - date: 2027-08-15
+        name: Parsi New Year's Day / Navroz
+      - date: 2027-08-17
+        name: Raksha Bandhan
+      - date: 2027-09-04
+        name: Ganesh Chaturthi / Vinayaka Chaturthi
+      - date: 2027-09-12
+        name: Onam or Thiru Onam Day
+      - date: 2027-10-06
+        name: Dussehra (Saptami)
+      - date: 2027-10-07
+        name: Dussehra (Mahashtami)
+      - date: 2027-10-08
+        name: Dussehra (Mahanavami)
+      - date: 2027-10-15
+        name: Maharishi Valmiki's Birthday
+      - date: 2027-10-18
+        name: Karaka Chaturthi (Karva Chauth)
+      - date: 2027-10-28
+        name: Naraka Chaturdashi
+      - date: 2027-10-30
+        name: Govardhan Puja
+      - date: 2027-10-31
+        name: Bhai Duj
+      - date: 2027-11-04
+        name: Pratihar Shashthi or Surya Shashthi (Chhath Puja)
+      - date: 2027-11-24
+        name: Guru Teg Bahadur's Martyrdom Day
+      - date: 2027-12-12
+        name: Hazarat Ali's Birthday
+      - date: 2027-12-24
+        name: Christmas Eve
+    alsoSee:
+      - title: Scanned copy of the 2027 OM (StaffNews mirror)
+        url: https://www.staffnews.in/wp-content/uploads/2026/07/Holiday-list-2027.pdf
+    notes: "Optional holidays: each employee may take any two. Offices stay open, so these are not closures."

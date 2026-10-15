@@ -1,0 +1,10 @@
+---
+import Shell from '../layouts/Shell.astro';
+import MonthCalendar from '../components/MonthCalendar.tsx';
+---
+
+<Shell title="Calendar" active="calendar" preloadData description="Month view of Indian statutory due dates, with central holidays.">
+  <MonthCalendar client:only="preact">
+    <div slot="fallback" class="page" aria-busy="true"><div class="skeleton" style="height:520px;margin-top:32px"></div></div>
+  </MonthCalendar>
+</Shell>

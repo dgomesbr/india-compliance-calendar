@@ -1,0 +1,15 @@
+---
+import Shell from '../layouts/Shell.astro';
+import Planner from '../components/Planner.tsx';
+---
+
+<Shell
+  title="Event planner"
+  active="planner"
+  preloadData
+  description="Deadlines that run from an event: AGM, allotment, director change, charge, foreign investment."
+>
+  <Planner client:only="preact">
+    <div slot="fallback" class="page" aria-busy="true"><div class="skeleton" style="height:320px;margin-top:32px"></div></div>
+  </Planner>
+</Shell>

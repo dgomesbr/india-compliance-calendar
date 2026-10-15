@@ -1,0 +1,4 @@
+# Due dates up to confirmedThrough were checked against sources; later dates
+# are computed from the standing rule and shown as projected.
+confirmedThrough: 2027-06-30
+version: 0.1.0

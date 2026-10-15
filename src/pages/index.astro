@@ -1,0 +1,51 @@
+---
+import Shell from '../layouts/Shell.astro';
+import Overview from '../components/Overview.tsx';
+import { formatDate } from '../lib/dates.ts';
+import { getBundle, upcoming } from '../lib/site-data.ts';
+
+const { rules } = getBundle();
+const byId = new Map(rules.map((r) => [r.id, r]));
+const next = upcoming(30).slice(0, 60);
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+
+<Shell
+  title="Overview"
+  active="overview"
+  preloadData
+  description="What is due, what is at risk and what it costs if late: Indian statutory deadlines with official sources."
+>
+  <Overview client:only="preact">
+    <div slot="fallback" class="page ov-fallback" aria-busy="true">
+      <div class="skeleton" style="height:44px;width:min(420px,80%);margin-top:32px"></div>
+      <div class="skeleton" style="height:36px;margin-top:24px"></div>
+      <div class="skeleton" style="height:260px;margin-top:32px"></div>
+    </div>
+  </Overview>
+  <noscript>
+    <section class="page noscript-list">
+      <h1 class="cat">Due in the next 30 days</h1>
+      <p class="muted">As of the last build. Turn on JavaScript for horizons, filters, filing status and the pulse plot.</p>
+      <table class="obl">
+        <thead>
+          <tr><th class="caps">Due</th><th class="caps">Obligation</th><th class="caps">Period</th></tr>
+        </thead>
+        <tbody>
+          {
+            next.map((o) => {
+              const r = byId.get(o.ruleId)!;
+              return (
+                <tr class="obl-row">
+                  <td class="num">{formatDate(o.due)}</td>
+                  <td><a href={`${base}o/${r.id}/`}>{r.code}</a> {r.title}</td>
+                  <td class="muted">{o.periodLabel}</td>
+                </tr>
+              );
+            })
+          }
+        </tbody>
+      </table>
+    </section>
+  </noscript>
+</Shell>
