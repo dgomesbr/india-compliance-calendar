@@ -1,0 +1,1394 @@
+{
+ "checked": "2026-10-15T06:24:22.358Z",
+ "runner": "GitHub Actions",
+ "official": [
+  {
+   "source": "Income Tax e-Filing tax calendar",
+   "window": "FY 2026-27",
+   "items": 353,
+   "unmatched": [
+    {
+     "date": "2026-04-14",
+     "items": [
+      "Form 16B",
+      "Form 16C",
+      "Form 16D",
+      "Form 16E"
+     ]
+    },
+    {
+     "date": "2026-06-29",
+     "items": [
+      "Form 3CEK",
+      "Form 49D"
+     ]
+    }
+   ],
+   "calendarOnly": []
+  },
+  {
+   "source": "GST portal due dates",
+   "window": "due 2026-10",
+   "items": 12,
+   "unmatched": [],
+   "calendarOnly": []
+  }
+ ],
+ "links": {
+  "total": 677,
+  "answered": 300,
+  "refused": 229,
+  "unreachable": [
+   {
+    "url": "https://apct.gov.in/apportal/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-ap"
+    ]
+   },
+   {
+    "url": "https://aplabourwelfareboard.ap.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-lwf-ap"
+    ]
+   },
+   {
+    "url": "https://ctax.jharkhand.gov.in/web/10231/professional-tax-acts",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-jh"
+    ]
+   },
+   {
+    "url": "https://dlwb.delhi.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-lwf-dl"
+    ]
+   },
+   {
+    "url": "https://documents.doptcirculars.nic.in/D2/D02est/Holidays%20to%20be%20observed%20in%20Central%20Government%20Offices%20during%20the%20year%2020265vgBs.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "central-gazetted-2026",
+     "central-restricted-2026"
+    ]
+   },
+   {
+    "url": "https://dopt.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source dopt-holiday-om"
+    ]
+   },
+   {
+    "url": "https://efiling.gstat.gov.in/downloads/manual/GSTAT_Due_date_Notification.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstat-appeal",
+     "gst-gstat-backlog-deadline"
+    ]
+   },
+   {
+    "url": "https://egazette.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source egazette"
+    ]
+   },
+   {
+    "url": "https://einvoice1.gst.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source gst-einvoice-portal"
+    ]
+   },
+   {
+    "url": "https://ewaybillgst.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source gst-ewaybill-portal"
+    ]
+   },
+   {
+    "url": "https://firms.rbi.org.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source rbi-firms-portal"
+    ]
+   },
+   {
+    "url": "https://glwb.gujarat.gov.in/index.htm",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-lwf-gj"
+    ]
+   },
+   {
+    "url": "https://gstat.gov.in/whats-new/32",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstat-appeal",
+     "gst-gstat-backlog-deadline"
+    ]
+   },
+   {
+    "url": "https://hrylabour.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-lwf-hr"
+    ]
+   },
+   {
+    "url": "https://hspcb.org.in/uploads/ep_act_rules/Amendment_in_ep_act_1986.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-bmw-annual-report-form-iv",
+     "other-env-statement-form-v",
+     "other-hazardous-waste-annual-return"
+    ]
+   },
+   {
+    "url": "https://hspcb.org.in/uploads/ep_act_rules/eprotect_rules_1986.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-env-statement-form-v"
+    ]
+   },
+   {
+    "url": "https://itat.gov.in/judicial/tribunal_orders",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source legal-itat"
+    ]
+   },
+   {
+    "url": "https://itat.gov.in/page/holiday_lists",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source legal-itat-holiday-lists"
+    ]
+   },
+   {
+    "url": "https://klwb.karnataka.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-lwf-ka"
+    ]
+   },
+   {
+    "url": "https://labour.chd.gov.in/PublicPages/deposit-of-labour-welfare-fund.aspx",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-lwf-ch"
+    ]
+   },
+   {
+    "url": "https://labour.wb.gov.in/welfare_board/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-lwf-wb"
+    ]
+   },
+   {
+    "url": "https://labourdirectorate.odisha.gov.in/notifications-guidelines/olwf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-lwf-od"
+    ]
+   },
+   {
+    "url": "https://lad.py.gov.in/acts-rules",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-py"
+    ]
+   },
+   {
+    "url": "https://lwb.tn.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-lwf-tn"
+    ]
+   },
+   {
+    "url": "https://mptax.mp.gov.in/mpvatweb/download/act/pdf/PTACTRules.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "state-pt-mp-enrolment",
+     "state-pt-mp-monthly",
+     "state-pt-mp-quarterly-return"
+    ]
+   },
+   {
+    "url": "https://mptax.mp.gov.in/mpvatweb/requestRedirect.do?dispatch=displayPTActDetails",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "state-pt-mp-monthly",
+     "state-pt-mp-quarterly-return",
+     "source state-pt-mp"
+    ]
+   },
+   {
+    "url": "https://nclt.gov.in/all-cause-list",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source legal-nclt"
+    ]
+   },
+   {
+    "url": "https://nclt.gov.in/notifcation-holidays",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source legal-nclt-holiday-notices"
+    ]
+   },
+   {
+    "url": "https://nsearchives.nseindia.com/content/circulars/CMPT71904.pdf",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "nse-settlement-2026"
+    ]
+   },
+   {
+    "url": "https://nsearchives.nseindia.com/content/circulars/CMPT72224.pdf",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "nse-settlement-2026"
+    ]
+   },
+   {
+    "url": "https://nsearchives.nseindia.com/content/circulars/CMTR71775.pdf",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "nse-trading-2026"
+    ]
+   },
+   {
+    "url": "https://nsearchives.nseindia.com/content/circulars/CMTR72260.pdf",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "nse-trading-2026"
+    ]
+   },
+   {
+    "url": "https://nsearchives.nseindia.com/content/equities/EQUITY_L.csv",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "source entity-nse-equity-list"
+    ]
+   },
+   {
+    "url": "https://nsearchives.nseindia.com/content/RSS/Circulars.xml",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "source nse-rss-feeds"
+    ]
+   },
+   {
+    "url": "https://pblabour.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-lwf-pb"
+    ]
+   },
+   {
+    "url": "https://professiontax.lsgkerala.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-kl"
+    ]
+   },
+   {
+    "url": "https://professiontax.lsgkerala.gov.in/faq.php",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "state-pt-kl-halfyearly"
+    ]
+   },
+   {
+    "url": "https://professiontax.wb.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-wb"
+    ]
+   },
+   {
+    "url": "https://shramsuvidha.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source shram-suvidha"
+    ]
+   },
+   {
+    "url": "https://sikkimtax.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-sk"
+    ]
+   },
+   {
+    "url": "https://taxation.punjab.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-pb"
+    ]
+   },
+   {
+    "url": "https://taxes.tripura.gov.in/index.php/profession_rules",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-tr"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/api/cbic-notification-msts/fetchUpdatesByTaxId/1000001",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source cbic-taxinfo-api"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/acts/1962_custom_act/active/chapter17/section158_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "trade-customs-warehouse-monthly-return",
+     "trade-igcr-monthly-statement"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/regulations/manufacture_and_other_operations_in_warehouse_no/active/regulation17_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "trade-customs-warehouse-monthly-return"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/regulations/warehouse_custody_and_handling_of_goods_regulations_2016/active/regulation11_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "trade-customs-warehouse-monthly-return"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/rules/customs_import_of_goods_at_concessional_rate_of_duty_or_for_specified_end_use_rules_2022/active/rule12.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "trade-igcr-monthly-statement"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/rules/customs_import_of_goods_at_concessional_rate_of_duty_or_for_specified_end_use_rules_2022/active/rule6.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "trade-igcr-monthly-statement"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter10/section50_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr3b-monthly",
+     "gst-pmt06-qrmp"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter10/section51_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr7-tds"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter10/section52_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr8-tcs",
+     "gst-three-year-filing-bar"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter11/section54_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr11-uin",
+     "gst-gstr5-nonresident",
+     "gst-refund-time-limit"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter12/section62_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr10-final-return"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter18/section107_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-first-appeal"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter18/section112_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstat-appeal"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter19/section122_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-einvoice-30-day-reporting",
+     "gst-gstr6-isd",
+     "gst-gstr8-tcs"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter19/section125_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-itc04-annual",
+     "gst-itc04-halfyearly"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter21/section143_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-itc04-annual",
+     "gst-itc04-halfyearly"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter3/section10_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-cmp02-opt-in",
+     "gst-cmp08-composition"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter5/section16_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-itc-credit-note-cutoff"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter5/section20_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr6-isd"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter7/section34_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-itc-credit-note-cutoff"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section37_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr1-monthly",
+     "gst-itc-credit-note-cutoff",
+     "gst-three-year-filing-bar"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section39_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr3b-monthly",
+     "gst-gstr4-annual",
+     "gst-gstr5-nonresident",
+     "gst-gstr6-isd",
+     "gst-gstr7-tds"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section44_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr9-annual",
+     "gst-gstr9c-reconciliation",
+     "gst-three-year-filing-bar"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section45_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr10-final-return"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section47_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr10-final-return",
+     "gst-gstr3b-monthly",
+     "gst-gstr8-tcs",
+     "gst-gstr9-annual"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_IGST_Act/active/chapterv/section14_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr5a-oidar"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_IGST_Act/active/chaptervii/section16_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-lut-rfd11"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter10/rule89_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-refund-time-limit"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter10/rule96a_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-lut-rfd11"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter16/rule138e_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-cmp08-composition"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter2/rule3_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-cmp02-opt-in"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter3/rule10a_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-bank-account-rule10a"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter3/rule21_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-bank-account-rule10a"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter5/rule45_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-itc04-annual",
+     "gst-itc04-halfyearly"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter6/rule48_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-einvoice-30-day-reporting"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule59_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr1-monthly",
+     "gst-gstr1-quarterly-qrmp",
+     "gst-gstr1a-amendment",
+     "gst-iff-qrmp"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule61_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr3b-monthly",
+     "gst-gstr3b-qrmp-22",
+     "gst-gstr3b-qrmp-24",
+     "gst-pmt06-qrmp"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule61a_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr1-quarterly-qrmp",
+     "gst-qrmp-option-window"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule62_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-cmp08-composition",
+     "gst-gstr4-annual"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule63_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr5-nonresident"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule64_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr5a-oidar"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule65_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr6-isd"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule66_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr7-tds"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule67_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr8-tcs"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule80_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr9-annual",
+     "gst-gstr9c-reconciliation"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule81_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr10-final-return"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule82_v1.00.html",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr11-uin"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000498/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-itc04-annual",
+     "gst-itc04-halfyearly"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000511/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr7-tds"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000512/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr4-annual"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000513/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr1-monthly",
+     "gst-gstr1-quarterly-qrmp"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000514/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr3b-monthly",
+     "gst-gstr3b-qrmp-22",
+     "gst-gstr3b-qrmp-24"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000545/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-pmt06-qrmp"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000546/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr1-quarterly-qrmp",
+     "gst-gstr3b-qrmp-22",
+     "gst-gstr3b-qrmp-24",
+     "gst-iff-qrmp",
+     "gst-qrmp-option-window"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000547/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr1-monthly",
+     "gst-gstr1-quarterly-qrmp"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000623/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-einvoice-30-day-reporting"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000701/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-cmp02-opt-in",
+     "gst-cmp08-composition"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000721/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr3b-monthly"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000791/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr6-isd"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000792/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr5a-oidar"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000793/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr5-nonresident"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000794/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr1-monthly"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000800/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr4-annual"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1000862/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-pmt06-qrmp"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1003263/ENG/Circulars",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr9-annual",
+     "gst-gstr9c-reconciliation"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1009689/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr9-annual"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1009690/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr10-final-return"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1009732/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-einvoice-30-day-reporting"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1009783/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gta-forward-charge-option"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1009806/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-three-year-filing-bar"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010097/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr1a-amendment",
+     "gst-gstr4-annual"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010188/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr7-tds"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010249/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr1-monthly",
+     "gst-gstr1-monthly (2024-12)",
+     "gst-gstr1-quarterly-qrmp",
+     "gst-gstr1-quarterly-qrmp (FY2024-25-Q3)"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010250/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr3b-monthly",
+     "gst-gstr3b-monthly (2024-12)",
+     "gst-gstr3b-qrmp-22",
+     "gst-gstr3b-qrmp-22 (FY2024-25-Q3)",
+     "gst-gstr3b-qrmp-24"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010251/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr5-nonresident",
+     "gst-gstr5-nonresident (2024-12)"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010252/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr6-isd",
+     "gst-gstr6-isd (2024-12)"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010253/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr7-tds",
+     "gst-gstr7-tds (2024-12)"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010254/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr8-tcs",
+     "gst-gstr8-tcs (2024-12)"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010273/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-specified-premises-declaration"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010288/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr9c-reconciliation"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010314/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr6-isd"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010424/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr3b-monthly"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010462/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstat-appeal",
+     "gst-gstr9-annual",
+     "gst-gstr9c-reconciliation"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010465/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr9-annual"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010466/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-first-appeal"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010488/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr3b-monthly",
+     "gst-gstr3b-monthly (2025-09)",
+     "gst-gstr3b-qrmp-22",
+     "gst-gstr3b-qrmp-22 (FY2025-26-Q2)",
+     "gst-gstr3b-qrmp-24"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010630/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstr3b-monthly",
+     "gst-gstr3b-monthly (2026-03)"
+    ]
+   },
+   {
+    "url": "https://taxinformation.cbic.gov.in/view-pdf/1010680/ENG/Notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "gst-gstat-appeal"
+    ]
+   },
+   {
+    "url": "https://www.biharcommercialtax.gov.in/bweb/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-br"
+    ]
+   },
+   {
+    "url": "https://www.cbic.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source cbic-website"
+    ]
+   },
+   {
+    "url": "https://www.esic.gov.in/circulars",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source esic-portal"
+    ]
+   },
+   {
+    "url": "https://www.finmin.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source finmin"
+    ]
+   },
+   {
+    "url": "https://www.icegate.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source icegate"
+    ]
+   },
+   {
+    "url": "https://www.mahagst.gov.in/en/profession-tax-and-other-rate-schedule",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-mh"
+    ]
+   },
+   {
+    "url": "https://www.nseindia.com/api/circulars",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "source nse-circulars-api"
+    ]
+   },
+   {
+    "url": "https://www.nseindia.com/api/event-calendar",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "source nse-corporate-events-api"
+    ]
+   },
+   {
+    "url": "https://www.nseindia.com/api/holiday-master?type=clearing",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "nse-settlement-2026"
+    ]
+   },
+   {
+    "url": "https://www.nseindia.com/api/holiday-master?type=trading",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "nse-trading-2026",
+     "source nse-holiday-api"
+    ]
+   },
+   {
+    "url": "https://www.nseindia.com/resources/exchange-communication-holidays",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "nse-trading-2026"
+    ]
+   },
+   {
+    "url": "https://www.nseindia.com/static/companies-listing/compliance-information-compliance-calendar-debt",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "sebi-reg52-debt-results-quarterly"
+    ]
+   },
+   {
+    "url": "https://www.nseindia.com/static/companies-listing/compliance-information-compliance-calendar-main-board",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "sebi-brsr-annual",
+     "sebi-integrated-filing-financial-quarterly",
+     "sebi-integrated-filing-governance-quarterly",
+     "sebi-reconciliation-share-capital-audit-quarterly",
+     "sebi-secretarial-compliance-report-annual"
+    ]
+   }
+  ],
+  "notFound": [
+   {
+    "url": "https://odishatax.gov.in/document/upload_img/170133-Profession%20Tax%20Rule%202000.pdf",
+    "status": "not-found",
+    "detail": "HTTP 404",
+    "citedBy": [
+     "state-pt-od-annual-return"
+    ]
+   },
+   {
+    "url": "https://odishatax.gov.in/document/upload_img/354609-333927-ptact.pdf",
+    "status": "not-found",
+    "detail": "HTTP 404",
+    "citedBy": [
+     "state-pt-od-annual-return"
+    ]
+   },
+   {
+    "url": "https://odishatax.gov.in/document/upload_img/620607-NOT232072010.pdf",
+    "status": "not-found",
+    "detail": "HTTP 404",
+    "citedBy": [
+     "state-pt-od-annual-return"
+    ]
+   },
+   {
+    "url": "https://odishatax.gov.in/document/upload_img/975618-1496-LAW%20DEPTT.pdf",
+    "status": "not-found",
+    "detail": "HTTP 404",
+    "citedBy": [
+     "state-pt-od-annual-return"
+    ]
+   },
+   {
+    "url": "https://razorpay.com/docs/payroll/faqs/",
+    "status": "not-found",
+    "detail": "HTTP 404",
+    "citedBy": [
+     "state-pt-ka-monthly"
+    ]
+   }
+  ]
+ },
+ "holidays": {
+  "checked": [
+   "ca-federal-2026",
+   "ca-on-statutory-2026",
+   "ca-on-bank-2026",
+   "us-federal-2026",
+   "us-fed-bank-2026",
+   "ca-federal-2027",
+   "ca-on-statutory-2027",
+   "ca-on-bank-2027",
+   "us-federal-2027",
+   "us-fed-bank-2027"
+  ],
+  "drafted": [],
+  "mismatches": [],
+  "crossChecks": [
+   {
+    "source": "OPM federal holidays feed",
+    "year": 2026,
+    "list": "us-federal-2026",
+    "missing": [],
+    "extra": []
+   },
+   {
+    "source": "Federal Register closure orders",
+    "year": 2026,
+    "list": "us-federal-2026",
+    "missing": [],
+    "extra": []
+   },
+   {
+    "source": "Labour Program general holidays",
+    "year": 2026,
+    "list": "ca-federal-2026",
+    "missing": [],
+    "extra": []
+   },
+   {
+    "source": "Payments Canada closure schedule",
+    "year": 2026,
+    "list": "ca-on-bank-2026",
+    "missing": [],
+    "extra": []
+   },
+   {
+    "source": "canada-holidays.ca",
+    "year": 2026,
+    "list": "ca-on-statutory-2026",
+    "missing": [],
+    "extra": []
+   },
+   {
+    "source": "OPM federal holidays feed",
+    "year": 2027,
+    "list": "us-federal-2027",
+    "missing": [],
+    "extra": []
+   },
+   {
+    "source": "Federal Register closure orders",
+    "year": 2027,
+    "list": "us-federal-2027",
+    "missing": [],
+    "extra": []
+   },
+   {
+    "source": "Labour Program general holidays",
+    "year": 2027,
+    "list": "ca-federal-2027",
+    "missing": [],
+    "extra": []
+   },
+   {
+    "source": "Payments Canada closure schedule",
+    "year": 2027,
+    "list": "ca-on-bank-2027",
+    "missing": [],
+    "extra": [],
+    "error": "nothing published for 2027 yet"
+   },
+   {
+    "source": "canada-holidays.ca",
+    "year": 2027,
+    "list": "ca-on-statutory-2027",
+    "missing": [],
+    "extra": []
+   }
+  ]
+ }
+}
