@@ -1,0 +1,38 @@
+# Official feeds collected daily by scripts/fetch-feeds.ts into data/updates.json.
+# Reachability from outside India was tested on 2026-10-14 (see data/sources.yaml).
+# format: rss (default), wp-json or gst-news. include: keep matching titles only.
+# The collector identifies itself in its User-Agent. PIB's RSS and the Labour
+# ministry's WordPress API refuse identified clients (HTTP 403), so they are not
+# collected; both are listed in data/sources.yaml.
+feeds:
+  - id: sebi
+    name: SEBI
+    url: https://www.sebi.gov.in/sebirss.xml
+    category: sebi
+  - id: rbi-notifications
+    name: RBI notifications
+    url: https://www.rbi.org.in/notifications_rss.xml
+    category: rbi-fema
+  - id: rbi-press
+    name: RBI press releases
+    url: https://www.rbi.org.in/pressreleases_rss.xml
+    category: rbi-fema
+  - id: income-tax
+    name: Income Tax e-filing
+    url: https://www.incometax.gov.in/iec/foportal/rss.xml
+    category: income-tax
+  - id: gst-portal
+    name: GST portal
+    url: https://www.gst.gov.in/fomessage/newsupdates
+    format: gst-news
+    category: gst
+  - id: bse
+    name: BSE notices
+    url: https://www.bseindia.com/data/xml/notices.xml
+    category: sebi
+    include: "listing|lodr|compliance|disclosure|shareholding|corporate governance|xbrl|results"
+  - id: nse
+    name: NSE circulars
+    url: https://nsearchives.nseindia.com/content/RSS/Circulars.xml
+    category: sebi
+    include: "listing|lodr|compliance|disclosure|shareholding|corporate governance|xbrl|results"

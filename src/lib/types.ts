@@ -27,6 +27,18 @@ export const CATEGORY_LABEL: Record<Category, string> = {
   other: 'Other regulators',
 };
 
+export const CATEGORY_SHORT: Record<Category, string> = {
+  'income-tax': 'Income tax',
+  gst: 'GST',
+  mca: 'MCA',
+  sebi: 'SEBI',
+  'rbi-fema': 'FEMA',
+  labour: 'Labour',
+  state: 'State',
+  trade: 'Trade',
+  other: 'Other',
+};
+
 export const AUDIENCES = [
   'company',
   'listed',

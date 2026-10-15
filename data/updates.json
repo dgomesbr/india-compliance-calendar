@@ -1,1 +1,779 @@
-{"fetched": null, "sources": [], "items": []}
+{
+ "fetched": "2026-10-15T01:34:22.120Z",
+ "sources": [
+  {
+   "id": "bse",
+   "name": "BSE notices",
+   "ok": true,
+   "count": 6
+  },
+  {
+   "id": "gst-portal",
+   "name": "GST portal",
+   "ok": true,
+   "count": 20
+  },
+  {
+   "id": "income-tax",
+   "name": "Income Tax e-filing",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "id": "nse",
+   "name": "NSE circulars",
+   "ok": false,
+   "count": 0,
+   "error": "fetch failed"
+  },
+  {
+   "id": "rbi-notifications",
+   "name": "RBI notifications",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "id": "rbi-press",
+   "name": "RBI press releases",
+   "ok": true,
+   "count": 10
+  },
+  {
+   "id": "sebi",
+   "name": "SEBI",
+   "ok": true,
+   "count": 25
+  }
+ ],
+ "items": [
+  {
+   "id": "rbi-press:https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63805",
+   "source": "rbi-press",
+   "sourceName": "RBI press releases",
+   "title": "RBI to conduct Overnight Variable Rate Reverse Repo (VRRR) auction under LAF on October 15, 2026",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63805",
+   "date": "2026-10-15",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-press:https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63806",
+   "source": "rbi-press",
+   "sourceName": "RBI press releases",
+   "title": "Conversion/Switch of Government of India Securities",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63806",
+   "date": "2026-10-15",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-press:https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63807",
+   "source": "rbi-press",
+   "sourceName": "RBI press releases",
+   "title": "Premature redemption under Sovereign Gold Bond (SGB) Scheme - Redemption Price for premature redemption of SGB 2019-20 Series V due on October 15, 2026",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63807",
+   "date": "2026-10-15",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "bse:https://www.bseindia.com/downloads/UploadDocs/Notices/20261014-12/20261014-12.pdf",
+   "source": "bse",
+   "sourceName": "BSE notices",
+   "title": "Guidelines on Compliance and Reporting Requirements for Surrendering Investment Advisers",
+   "url": "https://www.bseindia.com/downloads/UploadDocs/Notices/20261014-12/20261014-12.pdf",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "bse:https://www.bseindia.com/downloads/UploadDocs/Notices/20261014-13/20261014-13.pdf",
+   "source": "bse",
+   "sourceName": "BSE notices",
+   "title": "Guidelines on Compliance and Reporting Requirements for Surrendering Research Analysts",
+   "url": "https://www.bseindia.com/downloads/UploadDocs/Notices/20261014-13/20261014-13.pdf",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "bse:https://www.bseindia.com/downloads/UploadDocs/Notices/20261014-21/20261014-21.pdf",
+   "source": "bse",
+   "sourceName": "BSE notices",
+   "title": "Listing of further securities issued by the companies under ESOP / ESOS",
+   "url": "https://www.bseindia.com/downloads/UploadDocs/Notices/20261014-21/20261014-21.pdf",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "bse:https://www.bseindia.com/downloads/UploadDocs/Notices/20261014-25/20261014-25.pdf",
+   "source": "bse",
+   "sourceName": "BSE notices",
+   "title": "Update in the formats for publishing financial results as required under the SEBI (Listing Obligations and Disclosure Requirements) Regulations, 2015 and Filing of Financial Results in XBRL Mode by all Insurers and Reinsurers",
+   "url": "https://www.bseindia.com/downloads/UploadDocs/Notices/20261014-25/20261014-25.pdf",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "bse:https://www.bseindia.com/downloads/UploadDocs/Notices/20261014-26/20261014-26.pdf",
+   "source": "bse",
+   "sourceName": "BSE notices",
+   "title": "Listing of privately placed securities on the debt market segment of the Exchange",
+   "url": "https://www.bseindia.com/downloads/UploadDocs/Notices/20261014-26/20261014-26.pdf",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "bse:https://www.bseindia.com/downloads/UploadDocs/Notices/20261014-27/20261014-27.pdf",
+   "source": "bse",
+   "sourceName": "BSE notices",
+   "title": "Listing of Equity Shares of TEMBO GLOBAL INDUSTRIES LIMITED",
+   "url": "https://www.bseindia.com/downloads/UploadDocs/Notices/20261014-27/20261014-27.pdf",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "rbi-press:https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63798",
+   "source": "rbi-press",
+   "sourceName": "RBI press releases",
+   "title": "Detailed Result: OMO Sale Auction held on Oct 13, 2026 and Settlement on Oct 14, 2026",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63798",
+   "date": "2026-10-14",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-press:https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63799",
+   "source": "rbi-press",
+   "sourceName": "RBI press releases",
+   "title": "State Government Securities - Full Auction Result",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63799",
+   "date": "2026-10-14",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-press:https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63800",
+   "source": "rbi-press",
+   "sourceName": "RBI press releases",
+   "title": "RBI to conduct Overnight Variable Rate Reverse Repo (VRRR) auction under LAF on October 14, 2026",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63800",
+   "date": "2026-10-14",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-press:https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63801",
+   "source": "rbi-press",
+   "sourceName": "RBI press releases",
+   "title": "Money Market Operations as on October 13, 2026",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63801",
+   "date": "2026-10-14",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-press:https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63802",
+   "source": "rbi-press",
+   "sourceName": "RBI press releases",
+   "title": "Result of the Overnight Variable Rate Reverse Repo (VRRR) auction held on October 14, 2026",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63802",
+   "date": "2026-10-14",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-press:https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63803",
+   "source": "rbi-press",
+   "sourceName": "RBI press releases",
+   "title": "91-Day, 182-Day and 364-Day T-Bill Auction Result: Cut-off",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63803",
+   "date": "2026-10-14",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-press:https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63804",
+   "source": "rbi-press",
+   "sourceName": "RBI press releases",
+   "title": "Treasury Bills: Full Auction Result",
+   "url": "https://www.rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?prid=63804",
+   "date": "2026-10-14",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/orders/oct-2026/exemption-order-in-the-matter-of-allcargo-logistics-limited_105250.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Exemption Order in the matter of Allcargo Logistics Limited",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/exemption-order-in-the-matter-of-allcargo-logistics-limited_105250.html",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-demand-dated-october-14-2026-issued-against-jalaj-agrawal-pan-audpa0226h-in-the-matter-of-market-manipulation-using-social-media-in-the-scrip-of-moksh-ornaments-limited-rc-no-9304-of-2-_105253.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of Demand dated October 14, 2026 issued against Jalaj Agrawal (PAN:AUDPA0226H) in the matter of market manipulation using social media in the scrip of Moksh Ornaments Limited - RC No. 9304 of 2026",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-demand-dated-october-14-2026-issued-against-jalaj-agrawal-pan-audpa0226h-in-the-matter-of-market-manipulation-using-social-media-in-the-scrip-of-moksh-ornaments-limited-rc-no-9304-of-2-_105253.html",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/completion-of-recovery-certificate-no-3965-of-2021-ram-kishore-taparia-pan-abjpt1453c-in-the-matter-of-cosboard-industries-ltd_105259.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Completion of Recovery Certificate No. 3965 of 2021-Ram Kishore Taparia (PAN - ABJPT1453C) in the matter of Cosboard Industries Ltd",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/completion-of-recovery-certificate-no-3965-of-2021-ram-kishore-taparia-pan-abjpt1453c-in-the-matter-of-cosboard-industries-ltd_105259.html",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/orders/oct-2026/confirmatory-order-in-the-matter-of-rajesh-exports-limited_105261.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Confirmatory order in the matter of Rajesh Exports Limited",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/confirmatory-order-in-the-matter-of-rajesh-exports-limited_105261.html",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/release-order-for-rc-no-3965-of-2021-ram-kishore-taparia-pan-abjpt1453c-in-the-matter-of-cosboard-industries-ltd_105263.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Release Order for RC No.3965 of 2021-Ram Kishore Taparia (PAN - ABJPT1453C) in the matter of Cosboard Industries Ltd",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/release-order-for-rc-no-3965-of-2021-ram-kishore-taparia-pan-abjpt1453c-in-the-matter-of-cosboard-industries-ltd_105263.html",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/media-and-notifications/press-releases/oct-2026/sebi-s-policytwin-prototype-wins-first-place-at-the-c-dir-global-agentic-regulator-hackathon_105265.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "SEBI's PolicyTwin Prototype Wins First Place at the C:>DIR Global 'Agentic Regulator' Hackathon",
+   "url": "https://www.sebi.gov.in/media-and-notifications/press-releases/oct-2026/sebi-s-policytwin-prototype-wins-first-place-at-the-c-dir-global-agentic-regulator-hackathon_105265.html",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/media-and-notifications/press-releases/oct-2026/sebi-teams-win-at-iosco-techsprint-2026-on-investor-education-in-the-age-of-artificial-intelligence-ai-_105266.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "SEBI Teams win at IOSCO TechSprint 2026 on Investor Education in the Age of Artificial Intelligence (AI)",
+   "url": "https://www.sebi.gov.in/media-and-notifications/press-releases/oct-2026/sebi-teams-win-at-iosco-techsprint-2026-on-investor-education-in-the-age-of-artificial-intelligence-ai-_105266.html",
+   "date": "2026-10-14",
+   "category": "sebi"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/676",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "FAQs in relation to recommendations of the 57th GST Council Meeting",
+   "url": "https://www.gst.gov.in/newsandupdates/read/676",
+   "date": "2026-10-13",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/677",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Annual Returns in the form of GSTR-9/9C for FY 2025-26",
+   "url": "https://www.gst.gov.in/newsandupdates/read/677",
+   "date": "2026-10-13",
+   "category": "gst"
+  },
+  {
+   "id": "rbi-notifications:https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13739&Mode=0",
+   "source": "rbi-notifications",
+   "sourceName": "RBI notifications",
+   "title": "Risk Management and Inter-Bank Dealings",
+   "url": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13739&Mode=0",
+   "date": "2026-10-13",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/orders/oct-2026/adjudication-order-in-the-matter-of-inspection-of-iifl-capital-services-limited_105198.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Adjudication Order in the matter of inspection of IIFL Capital Services Limited",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/adjudication-order-in-the-matter-of-inspection-of-iifl-capital-services-limited_105198.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/orders/oct-2026/adjudication-order-in-the-matter-of-suspected-insider-trading-in-the-scrip-of-wipro-ltd_105200.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Adjudication Order in the matter of suspected insider trading in the scrip of Wipro Ltd",
+   "url": "https://www.sebi.gov.in/enforcement/orders/oct-2026/adjudication-order-in-the-matter-of-suspected-insider-trading-in-the-scrip-of-wipro-ltd_105200.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-demand-under-recovery-certificate-number-9302-of-2026-dated-october-13-2026-issued-to-arvind-shukla-pan-iszps7481g-defaulter-in-the-matter-of-market-manipulation-using-social-media-in-_105202.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of Demand under Recovery Certificate number 9302 of 2026 dated October 13, 2026, issued to Arvind Shukla (PAN: ISZPS7481G) [Defaulter] in the matter of market manipulation using social media in the scrip of Moksh Ornaments Limited: under Recovery Certificate No. 9302 of...",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-demand-under-recovery-certificate-number-9302-of-2026-dated-october-13-2026-issued-to-arvind-shukla-pan-iszps7481g-defaulter-in-the-matter-of-market-manipulation-using-social-media-in-_105202.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-rc-no-7568-of-2024-issued-against-shreyanse-finance-ltd-in-the-matter-of-arvind-remedies-ltd_105206.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026-RC No. 7568 of 2024 issued against Shreyanse Finance Ltd in the matter of Arvind Remedies Ltd",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-rc-no-7568-of-2024-issued-against-shreyanse-finance-ltd-in-the-matter-of-arvind-remedies-ltd_105206.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-sathish-kumar-n-under-rc-no-7694-of-2024-in-the-matter-of-arvind-remedies-ltd-_105208.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026 issued against Sathish Kumar N under RC No. 7694 of 2024 in the matter of Arvind Remedies Ltd.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-sathish-kumar-n-under-rc-no-7694-of-2024-in-the-matter-of-arvind-remedies-ltd-_105208.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-varalakshmi-p-under-rc-no-7695-of-2024-in-the-matter-of-arvind-remedies-ltd-_105210.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026 issued against Varalakshmi P under RC No. 7695 of 2024 in the matter of Arvind Remedies Ltd.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-varalakshmi-p-under-rc-no-7695-of-2024-in-the-matter-of-arvind-remedies-ltd-_105210.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-s-nagarajan-under-rc-no-7696-of-2024-in-the-matter-of-arvind-remedies-ltd-_105212.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026 issued against S Nagarajan under RC No. 7696 of 2024 in the matter of Arvind Remedies Ltd.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-s-nagarajan-under-rc-no-7696-of-2024-in-the-matter-of-arvind-remedies-ltd-_105212.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-k-manikandan-under-rc-no-7698-of-2024-in-the-matter-of-arvind-remedies-ltd-_105214.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026 issued against K Manikandan under RC No. 7698 of 2024 in the matter of Arvind Remedies Ltd.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-k-manikandan-under-rc-no-7698-of-2024-in-the-matter-of-arvind-remedies-ltd-_105214.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-raja-p-under-rc-no-7704-of-2024-in-the-matter-of-arvind-remedies-ltd-_105216.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026 issued against Raja P under RC No. 7704 of 2024 in the matter of Arvind Remedies Ltd.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-raja-p-under-rc-no-7704-of-2024-in-the-matter-of-arvind-remedies-ltd-_105216.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-solomon-y-under-rc-no-7706-of-2024-in-the-matter-of-arvind-remedies-ltd-_105218.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026 issued against Solomon Y under RC No. 7706 of 2024 in the matter of Arvind Remedies Ltd.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-solomon-y-under-rc-no-7706-of-2024-in-the-matter-of-arvind-remedies-ltd-_105218.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-m-sasikala-under-rc-no-7699-of-2024-in-the-matter-of-arvind-remedies-ltd-_105220.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026 issued against M Sasikala under RC No.7699 of 2024 in the matter of Arvind Remedies Ltd.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-m-sasikala-under-rc-no-7699-of-2024-in-the-matter-of-arvind-remedies-ltd-_105220.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-murali-prakash-naidu-under-rc-no-7707-of-2024-in-the-matter-of-arvind-remedies-ltd-_105222.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026 issued against Murali Prakash Naidu under RC No. 7707 of 2024 in the matter of Arvind Remedies Ltd.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-murali-prakash-naidu-under-rc-no-7707-of-2024-in-the-matter-of-arvind-remedies-ltd-_105222.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-shreyanse-finance-ltd-under-rc-no-7708-of-2024-in-the-matter-of-arvind-remedies-ltd-_105224.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026 issued against Shreyanse Finance Ltd under RC No. 7708 of 2024 in the matter of Arvind Remedies Ltd.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-shreyanse-finance-ltd-under-rc-no-7708-of-2024-in-the-matter-of-arvind-remedies-ltd-_105224.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-m-sethujanani-under-rc-no-7709-of-2024-in-the-matter-of-arvind-remedies-ltd-_105226.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026 issued against M Sethujanani under RC No. 7709 of 2024 in the matter of Arvind Remedies Ltd.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-m-sethujanani-under-rc-no-7709-of-2024-in-the-matter-of-arvind-remedies-ltd-_105226.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-s-sengolancy-beaula-under-rc-no-7711-of-2024-in-the-matter-of-arvind-remedies-ltd-_105228.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026 issued against S Sengolancy Beaula under RC No. 7711 of 2024 in the matter of Arvind Remedies Ltd.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-s-sengolancy-beaula-under-rc-no-7711-of-2024-in-the-matter-of-arvind-remedies-ltd-_105228.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-subhalakshmi-m-s-under-rc-no-7712-of-2024-in-the-matter-of-arvind-remedies-ltd-_105230.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of attachment dated October 13,2026 issued against Subhalakshmi M S under RC No. 7712 of 2024 in the matter of Arvind Remedies Ltd.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-attachment-dated-october-13-2026-issued-against-subhalakshmi-m-s-under-rc-no-7712-of-2024-in-the-matter-of-arvind-remedies-ltd-_105230.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-demand-under-recovery-certificate-number-9303-of-2026-dated-october-13-2026-issued-to-mr-aviral-saxena-pan-kvyps1652d-in-the-matter-of-investigation-in-the-matter-of-market-manipulatio-_105240.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Notice of Demand under Recovery Certificate number 9303 of 2026 dated October 13, 2026, issued to Mr. Aviral Saxena (PAN: KVYPS1652D) in the matter of Investigation in the matter of market manipulation using social media in the scrip of Moksh Ornaments Limited: under Recovery ...",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/notice-of-demand-under-recovery-certificate-number-9303-of-2026-dated-october-13-2026-issued-to-mr-aviral-saxena-pan-kvyps1652d-in-the-matter-of-investigation-in-the-matter-of-market-manipulatio-_105240.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "sebi:https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/prohibitory-order-no-1555-of-2026-in-the-matter-of-hbn-dairies-and-allied-limited-under-recovery-certificate-no-1216-of-2017-_105255.html",
+   "source": "sebi",
+   "sourceName": "SEBI",
+   "title": "Prohibitory Order no. 1555 of 2026 in the matter of HBN Dairies & Allied Limited under Recovery Certificate No. 1216 of 2017.",
+   "url": "https://www.sebi.gov.in/enforcement/recovery-proceedings/oct-2026/prohibitory-order-no-1555-of-2026-in-the-matter-of-hbn-dairies-and-allied-limited-under-recovery-certificate-no-1216-of-2017-_105255.html",
+   "date": "2026-10-13",
+   "category": "sebi"
+  },
+  {
+   "id": "rbi-notifications:https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13736&Mode=0",
+   "source": "rbi-notifications",
+   "sourceName": "RBI notifications",
+   "title": "Section 42(1) of the Reserve Bank of India Act, 1934 - Change in Daily Minimum Cash Reserve Maintenance Requirement",
+   "url": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13736&Mode=0",
+   "date": "2026-10-10",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-notifications:https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13737&Mode=0",
+   "source": "rbi-notifications",
+   "sourceName": "RBI notifications",
+   "title": "Risk Management and Inter-Bank Dealings",
+   "url": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13737&Mode=0",
+   "date": "2026-10-10",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-notifications:https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13738&Mode=0",
+   "source": "rbi-notifications",
+   "sourceName": "RBI notifications",
+   "title": "Risk Management and Inter-Bank Dealings - Foreign Exchange Risk Reserve",
+   "url": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13738&Mode=0",
+   "date": "2026-10-10",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/675",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Recommendations of the 57th GST Council Meeting - Key Reforms",
+   "url": "https://www.gst.gov.in/newsandupdates/read/675",
+   "date": "2026-10-09",
+   "category": "gst"
+  },
+  {
+   "id": "income-tax:http://www.incometax.gov.in/iec/foportal/node/11962",
+   "source": "income-tax",
+   "sourceName": "Income Tax e-filing",
+   "title": "FAQs for Form 141 (Challan-cum-Statement of Deduction of Tax under Section 393(1))",
+   "url": "http://www.incometax.gov.in/iec/foportal/node/11962",
+   "date": "2026-10-08",
+   "category": "income-tax"
+  },
+  {
+   "id": "income-tax:http://www.incometax.gov.in/iec/foportal/newdownloads/form1/of%20fast-ds-faq",
+   "source": "income-tax",
+   "sourceName": "Income Tax e-filing",
+   "title": "FAQs on Form 1 of FAST-DS",
+   "url": "http://www.incometax.gov.in/iec/foportal/newdownloads/form1/of%20fast-ds-faq",
+   "date": "2026-10-08",
+   "category": "income-tax"
+  },
+  {
+   "id": "income-tax:http://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/form%20141%20schedule%20e%20challan-cum-statement%20of%20deduction%20of%20tax%20under%20section%20393-%20um",
+   "source": "income-tax",
+   "sourceName": "Income Tax e-filing",
+   "title": "Form 141 Schedule E [Challan-cum-Statement of Deduction of Tax under Section 393(2)]",
+   "url": "http://www.incometax.gov.in/iec/foportal/help/all-topics/e-filing-services/form%20141%20schedule%20e%20challan-cum-statement%20of%20deduction%20of%20tax%20under%20section%20393-%20um",
+   "date": "2026-10-08",
+   "category": "income-tax"
+  },
+  {
+   "id": "rbi-notifications:https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13730&Mode=0",
+   "source": "rbi-notifications",
+   "sourceName": "RBI notifications",
+   "title": "Reserve Bank of India (Commercial Banks - Forthcoming Instructions) Amendment Directions, 2026",
+   "url": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13730&Mode=0",
+   "date": "2026-10-08",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-notifications:https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13731&Mode=0",
+   "source": "rbi-notifications",
+   "sourceName": "RBI notifications",
+   "title": "Reserve Bank of India (Commercial Banks - Miscellaneous) Amendment Directions, 2026",
+   "url": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13731&Mode=0",
+   "date": "2026-10-08",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-notifications:https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13732&Mode=0",
+   "source": "rbi-notifications",
+   "sourceName": "RBI notifications",
+   "title": "Reserve Bank of India (Commercial Banks - Prudential Norms on Capital Adequacy) Twelfth Amendment Directions, 2026",
+   "url": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13732&Mode=0",
+   "date": "2026-10-08",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-notifications:https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13733&Mode=0",
+   "source": "rbi-notifications",
+   "sourceName": "RBI notifications",
+   "title": "Reserve Bank of India (Small Finance Banks - Prudential Norms on Capital Adequacy) Sixth Amendment Directions, 2026",
+   "url": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13733&Mode=0",
+   "date": "2026-10-08",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-notifications:https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13734&Mode=0",
+   "source": "rbi-notifications",
+   "sourceName": "RBI notifications",
+   "title": "Reserve Bank of India (Payments Banks - Prudential Norms on Capital Adequacy) Third Amendment Directions, 2026",
+   "url": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13734&Mode=0",
+   "date": "2026-10-08",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "rbi-notifications:https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13735&Mode=0",
+   "source": "rbi-notifications",
+   "sourceName": "RBI notifications",
+   "title": "Reserve Bank of India (All India Financial Institutions (AIFIs) - Prudential Norms on Capital Adequacy) Fifth Amendment Directions, 2026",
+   "url": "https://www.rbi.org.in/scripts/NotificationUser.aspx?Id=13735&Mode=0",
+   "date": "2026-10-08",
+   "category": "rbi-fema"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/673",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Gross and Net GST revenue collections for the month of September, 2026",
+   "url": "https://www.gst.gov.in/newsandupdates/read/673",
+   "date": "2026-10-01",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/674",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Advisory on \"Multistate Registration\" Facility for GST Registration",
+   "url": "https://www.gst.gov.in/newsandupdates/read/674",
+   "date": "2026-10-01",
+   "category": "gst"
+  },
+  {
+   "id": "income-tax:http://www.incometax.gov.in/iec/foportal/latest-news/11961",
+   "source": "income-tax",
+   "sourceName": "Income Tax e-filing",
+   "title": "Circular No.07/2026",
+   "url": "http://www.incometax.gov.in/iec/foportal/latest-news/11961",
+   "date": "2026-09-29",
+   "category": "income-tax"
+  },
+  {
+   "id": "income-tax:http://www.incometax.gov.in/iec/foportal/node/11954",
+   "source": "income-tax",
+   "sourceName": "Income Tax e-filing",
+   "title": "e_campaigns_sms-11954",
+   "url": "http://www.incometax.gov.in/iec/foportal/node/11954",
+   "date": "2026-09-24",
+   "category": "income-tax"
+  },
+  {
+   "id": "income-tax:http://www.incometax.gov.in/iec/foportal/node/11955",
+   "source": "income-tax",
+   "sourceName": "Income Tax e-filing",
+   "title": "Processing demand of Income tax return for AY 2026-27",
+   "url": "http://www.incometax.gov.in/iec/foportal/node/11955",
+   "date": "2026-09-24",
+   "category": "income-tax"
+  },
+  {
+   "id": "income-tax:http://www.incometax.gov.in/iec/foportal/node/11956",
+   "source": "income-tax",
+   "sourceName": "Income Tax e-filing",
+   "title": "REMAINDER: Refund is on hold u/s 139AA (2) of the Income Tax Act, 1961.",
+   "url": "http://www.incometax.gov.in/iec/foportal/node/11956",
+   "date": "2026-09-24",
+   "category": "income-tax"
+  },
+  {
+   "id": "income-tax:http://www.incometax.gov.in/iec/foportal/node/11957",
+   "source": "income-tax",
+   "sourceName": "Income Tax e-filing",
+   "title": "File Audit Reports Before 30 September 2026",
+   "url": "http://www.incometax.gov.in/iec/foportal/node/11957",
+   "date": "2026-09-24",
+   "category": "income-tax"
+  },
+  {
+   "id": "income-tax:http://www.incometax.gov.in/iec/foportal/node/11958",
+   "source": "income-tax",
+   "sourceName": "Income Tax e-filing",
+   "title": "Audit Report Due Soon. File Form 10B/10BB by 30 September 2026",
+   "url": "http://www.incometax.gov.in/iec/foportal/node/11958",
+   "date": "2026-09-24",
+   "category": "income-tax"
+  },
+  {
+   "id": "income-tax:http://www.incometax.gov.in/iec/foportal/node/11959",
+   "source": "income-tax",
+   "sourceName": "Income Tax e-filing",
+   "title": "Time to File Your Tax Audit Report | Due by 30 September 2026",
+   "url": "http://www.incometax.gov.in/iec/foportal/node/11959",
+   "date": "2026-09-24",
+   "category": "income-tax"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/672",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Advisory on use of version 3.3 of emSigner",
+   "url": "https://www.gst.gov.in/newsandupdates/read/672",
+   "date": "2026-09-19",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/671",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Enabling Filing of Appeals in Cases Involving NIL or Zero Demand Amount - reg.",
+   "url": "https://www.gst.gov.in/newsandupdates/read/671",
+   "date": "2026-09-07",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/670",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Gross and Net GST revenue collections for the month of August, 2026",
+   "url": "https://www.gst.gov.in/newsandupdates/read/670",
+   "date": "2026-09-01",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/669",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Gross and Net GST revenue collections for the month of July, 2026",
+   "url": "https://www.gst.gov.in/newsandupdates/read/669",
+   "date": "2026-08-01",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/668",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Advisory on Keeping on Hold the Proposed e-Way Bill Enhancements",
+   "url": "https://www.gst.gov.in/newsandupdates/read/668",
+   "date": "2026-07-29",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/665",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Gross and Net GST revenue collections for the month of June, 2026",
+   "url": "https://www.gst.gov.in/newsandupdates/read/665",
+   "date": "2026-07-01",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/666",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Advisory on Revision of Timeline for Amendment of Aggregate Annual Turnover (AATO), 2026",
+   "url": "https://www.gst.gov.in/newsandupdates/read/666",
+   "date": "2026-07-01",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/662",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Gross and Net GST revenue collections for the month of May, 2026",
+   "url": "https://www.gst.gov.in/newsandupdates/read/662",
+   "date": "2026-06-01",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/660",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Filing of Annexure-B for Refund Applications involving Accumulated ITC using the offline utility in GST portal",
+   "url": "https://www.gst.gov.in/newsandupdates/read/660",
+   "date": "2026-05-18",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/659",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Gross and Net GST revenue collections for the month of Apr, 2026",
+   "url": "https://www.gst.gov.in/newsandupdates/read/659",
+   "date": "2026-05-01",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/658",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Introduction of IMS Offline Tool",
+   "url": "https://www.gst.gov.in/newsandupdates/read/658",
+   "date": "2026-04-21",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/657",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Advisory on Re-Computation of Interest under Table 5.1 of GSTR-3B",
+   "url": "https://www.gst.gov.in/newsandupdates/read/657",
+   "date": "2026-04-16",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/656",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Pre-deposit Percentage in the GST Portal",
+   "url": "https://www.gst.gov.in/newsandupdates/read/656",
+   "date": "2026-04-10",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/655",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Subject: Difficulty in filing appeals on the GST portal in cases where adjudication orders reflect \"NIL\" demand due to prior voluntary payment - reg.",
+   "url": "https://www.gst.gov.in/newsandupdates/read/655",
+   "date": "2026-04-03",
+   "category": "gst"
+  },
+  {
+   "id": "gst-portal:https://www.gst.gov.in/newsandupdates/read/654",
+   "source": "gst-portal",
+   "sourceName": "GST portal",
+   "title": "Gross and Net GST revenue collections for the month of Mar, 2026",
+   "url": "https://www.gst.gov.in/newsandupdates/read/654",
+   "date": "2026-04-01",
+   "category": "gst"
+  }
+ ]
+}

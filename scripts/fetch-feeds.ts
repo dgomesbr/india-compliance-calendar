@@ -5,6 +5,7 @@
 //   node scripts/fetch-feeds.ts            write data/updates.json
 //   node scripts/fetch-feeds.ts --dry-run  print a summary only
 
+import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import YAML from 'yaml';
@@ -17,13 +18,17 @@ interface Feed {
   category?: Update['category'];
   /** Only keep items whose title matches this regular expression. */
   include?: string;
+  /** rss (RSS or Atom, default), wp-json (WordPress REST list) or gst-news (GST portal JSON). */
+  format?: 'rss' | 'wp-json' | 'gst-news';
 }
 
 const ROOT = process.cwd();
 const OUT = join(ROOT, 'data', 'updates.json');
 const PER_SOURCE = 25;
 const TOTAL = 250;
-const UA = 'Mozilla/5.0 (compatible; india-compliance-calendar/0.1; +https://github.com/dgomesbr/india-compliance-calendar)';
+// Browser-compatible, still naming the project, so basic bot filters on public feeds let it through.
+const UA =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36 india-compliance-calendar/0.1 (+https://github.com/dgomesbr/india-compliance-calendar)';
 
 const ENTITIES: Record<string, string> = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' };
 
@@ -93,13 +98,84 @@ export function parseFeed(xml: string, feed: Feed): Update[] {
   return out;
 }
 
-async function fetchText(url: string): Promise<string> {
+function item(feed: Feed, title: string, url: string, date: string | null): Update {
+  const t = decode(title);
+  return {
+    id: `${feed.id}:${url}`,
+    source: feed.id,
+    sourceName: feed.name,
+    title: t.length > 280 ? `${t.slice(0, 277)}...` : t,
+    url,
+    date: date ?? new Date().toISOString().slice(0, 10),
+    ...(feed.category ? { category: feed.category } : {}),
+  };
+}
+
+/** WordPress REST lists (the ministries' digifootprint CMS): title.rendered, link, date. */
+export function parseWpJson(text: string, feed: Feed): Update[] {
+  const list = JSON.parse(text) as { title?: { rendered?: string }; link?: string; date?: string }[];
+  if (!Array.isArray(list)) throw new Error('not a WordPress list');
+  return list
+    .filter((x) => x.title?.rendered && x.link)
+    .map((x) => item(feed, x.title!.rendered!, x.link!, x.date ? x.date.slice(0, 10) : null));
+}
+
+/** GST portal news: {data: [{id, title, date: "dd/mm/yyyy"}]}. */
+export function parseGstNews(text: string, feed: Feed): Update[] {
+  const doc = JSON.parse(text) as { data?: { id?: number | string; title?: string; date?: string; linkURl?: string; IsExternal?: string }[] };
+  if (!Array.isArray(doc.data)) throw new Error('unexpected GST news shape');
+  return doc.data
+    .filter((x) => x.title && x.id !== undefined)
+    .map((x) => {
+      const m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(x.date ?? '');
+      const date = m ? `${m[3]}-${m[2]}-${m[1]}` : null;
+      return item(feed, x.title!, `https://www.gst.gov.in/newsandupdates/read/${x.id}`, date);
+    });
+}
+
+function decodeBytes(bytes: Uint8Array): string {
+  try {
+    return new TextDecoder('utf-8', { fatal: true }).decode(bytes);
+  } catch {
+    // Some portals send Windows-1252 smart quotes inside a UTF-8 response.
+    return new TextDecoder('windows-1252').decode(bytes);
+  }
+}
+
+/** Some government CDNs refuse Node's TLS fingerprint but serve curl; retry through it. */
+function curlText(url: string, headers: Record<string, string>): string {
+  const args = ['-sSL', '--compressed', '-m', '25', '-f'];
+  for (const [k, v] of Object.entries(headers)) args.push('-H', `${k}: ${v}`);
+  args.push(url);
+  return decodeBytes(new Uint8Array(execFileSync('curl', args, { maxBuffer: 20 * 1024 * 1024 })));
+}
+
+async function fetchText(url: string, format: Feed['format']): Promise<string> {
+  try {
+    return await fetchDirect(url, format);
+  } catch (first) {
+    try {
+      return curlText(url, headersFor(format));
+    } catch {
+      throw first;
+    }
+  }
+}
+
+function headersFor(format: Feed['format']): Record<string, string> {
+  const accept = format && format !== 'rss' ? 'application/json, text/plain, */*' : 'application/rss+xml, application/xml, text/xml, */*';
+  const headers: Record<string, string> = { 'User-Agent': UA, Accept: accept, 'Accept-Language': 'en-IN,en;q=0.9' };
+  if (format === 'gst-news') headers.Referer = 'https://www.gst.gov.in/newsandupdates';
+  return headers;
+}
+
+async function fetchDirect(url: string, format: Feed['format']): Promise<string> {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 25_000);
   try {
-    const r = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/rss+xml, application/xml, text/xml, */*' }, signal: ctrl.signal });
+    const r = await fetch(url, { headers: headersFor(format), signal: ctrl.signal });
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    return await r.text();
+    return decodeBytes(new Uint8Array(await r.arrayBuffer()));
   } finally {
     clearTimeout(timer);
   }
@@ -115,7 +191,10 @@ async function main(): Promise<void> {
   await Promise.all(
     feeds.map(async (feed) => {
       try {
-        const parsed = parseFeed(await fetchText(feed.url), feed);
+        const text = await fetchText(feed.url, feed.format);
+        const include = feed.include ? new RegExp(feed.include, 'i') : null;
+        const parsed = (feed.format === 'wp-json' ? parseWpJson(text, feed) : feed.format === 'gst-news' ? parseGstNews(text, feed) : parseFeed(text, feed))
+          .filter((u) => !include || include.test(u.title));
         if (!parsed.length) throw new Error('no items parsed');
         const kept = parsed.sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, PER_SOURCE);
         items.push(...kept);

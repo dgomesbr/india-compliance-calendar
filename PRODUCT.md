@@ -78,6 +78,9 @@ delay were in front of them early enough.
 
 - Name: India Compliance Calendar.
 - Styled with the Impeccable design process (user's instruction).
+- Visual register: corporate and clean (user's standing preference, stated
+  15 Oct 2026 after trying a dark catalog look). The chosen world is the
+  blue-chip annual report.
 
 ## Evidence on Hand
 

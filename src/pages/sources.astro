@@ -27,7 +27,7 @@ const used = sources.filter((s) => s.used).length;
 <Shell title="Method and sources" active="sources" description="How the calendar's dates are compiled and verified, and the catalogue of open datasets and official sources behind it.">
   <div class="page read">
     <header class="read-head">
-      <h1 class="cat read-title">Method and sources</h1>
+      <h1 class="fig read-title">Method and sources</h1>
       <p class="read-lede muted">
         Every date here comes from a rule written down from the law and checked against the official source it cites. Nothing
         is copied from commercial calendars. This page says how the rules are built and lists every open dataset and official
@@ -74,7 +74,7 @@ const used = sources.filter((s) => s.used).length;
       <h2 id="coverage">Coverage</h2>
       <div class="data-table-wrap">
         <table class="data-table">
-          <thead><tr><th class="caps">Law</th><th class="caps">Rules</th><th class="caps">Calendar feed</th></tr></thead>
+          <thead><tr><th class="label">Law</th><th class="label">Rules</th><th class="label">Calendar feed</th></tr></thead>
           <tbody>
             {
               CATEGORIES.map((c) => (
@@ -118,11 +118,11 @@ const used = sources.filter((s) => s.used).length;
         <table class="data-table" data-src-table>
           <thead>
             <tr>
-              <th class="caps">Source</th>
-              <th class="caps">Format and access</th>
-              <th class="caps">Licence</th>
-              <th class="caps">Reachable</th>
-              <th class="caps">What it gives the calendar</th>
+              <th class="label">Source</th>
+              <th class="label">Format and access</th>
+              <th class="label">Licence</th>
+              <th class="label">Reachable</th>
+              <th class="label">What it gives the calendar</th>
             </tr>
           </thead>
           <tbody>

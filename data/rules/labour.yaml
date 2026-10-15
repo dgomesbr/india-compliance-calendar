@@ -1,0 +1,590 @@
+# labour obligations. See docs/DATA_MODEL.md for the schema.
+# Every rule cites its sources; edit with care and keep prose ASCII.
+rules:
+  - id: labour-bocw-cess-completion-return
+    title: BOCW cess return on completion of a project
+    form: Form-XVIII (cess return); Form-XV (information); Form-XVI (self-assessment)
+    category: labour
+    authority: State assessing officer / State Building and Other Construction Workers' Welfare Board
+    summary: Pay the building workers' welfare cess (1% of construction cost) in advance on self-assessment and file the completion return with the assessing officer after each project.
+    applicability: Employers carrying out building or other construction work (excluding work employing fewer than 10 workers and individual homes costing up to Rs 50 lakh, per Section 2(6)).
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: event
+    trigger: Return within 60 days of completion of each project; Form-XV within 60 days of commencement; cess paid in advance at approval or before work starts
+    law: Sections 100-103, Code on Social Security 2020; Rules 41-43, Social Security (Central) Rules 2026; S.O. 2322(E) dated 8 May 2026
+    penalty: Interest at 1% per month on cess not paid by the assessed date (Rule 42(2)); penalty up to the amount of cess (Rule 43); imprisonment up to 6 months or fine up to Rs 50,000 for non-payment (Section 133(l)).
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Penalty up to 100% of the cess due (r.43)
+        - "Prosecution: up to 6 months or fine up to Rs 50,000 (s.133(l))"
+      basis: SS (Central) Rules 2026 r.42(2) interest 1% per month; r.43 penalty up to the cess amount
+    sources:
+      - title: MoLE - Social Security (Central) Rules, 2026 (G.S.R. 344(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/49aa9b62c2125499c37399b90e969d67.pdf
+        kind: rules
+      - title: "MoLE - S.O. 2322(E), 8 May 2026: BOCW cess at 1% of cost of construction under Section 100(1)"
+        url: https://www.labour.gov.in/static/uploads/2026/05/2913baa6a579ad87978b132e29c84af2.pdf
+        kind: notification
+      - title: MoLE - Compliance Handbook for Employers under the Four Labour Codes (Feb 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/02/83978455025732b99b0165def80ab171.pdf
+        kind: faq
+    verified: 2026-10-14
+    confidence: high
+    notes: Government and PSU works deduct cess from bills and deposit it within 30 days. Projects longer than a year pay advance cess on one year's self-assessed cost, then further instalments.
+    code: BOCW CESS
+  - id: labour-bonus-payment-annual
+    title: Pay statutory bonus within 8 months of year-end
+    category: labour
+    authority: MoLE / State labour departments (Inspector-cum-Facilitator)
+    summary: Credit the statutory bonus (minimum 8.33%, maximum 20% of wages) to eligible employees' bank accounts within eight months from the close of the accounting year.
+    applicability: Establishments in which 20 or more persons were employed on any day of the accounting year; employees drawing wages up to Rs 21,000 per month who worked at least 30 days, with bonus computed on wages capped at Rs 7,000 per month or the minimum wage, whichever is higher.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      day: 30
+      monthOffset: 8
+    law: Sections 26 and 39, Code on Wages 2019; S.O. 4711(E) and S.O. 4710(E) dated 25 Aug 2026 (deemed from 21 Nov 2025)
+    penalty: Fine up to Rs 50,000 for paying less than the amount due (Section 54(1)(a)); other contraventions up to Rs 20,000. The appropriate government may extend the eight-month period on application, up to two years in total.
+    exposure:
+      maxPenalty: 50000
+      other:
+        - "Repeat within 5 years: imprisonment up to 3 months and fine up to Rs 1 lakh (s.54(1)(b))"
+      basis: Code on Wages s.54(1)(a) fine up to Rs 50,000
+    sources:
+      - title: Code on Wages, 2019 (Act 29 of 2019) - text on labour.gov.in
+        url: https://www.labour.gov.in/static/uploads/2025/06/c328da14bbb15fc4ad571dc33e7a4ab3.pdf
+        kind: act
+      - title: "MoLE - S.O. 4711(E), 25 Aug 2026: bonus eligibility for wages up to Rs 21,000 per month (deemed from 21 Nov 2025)"
+        url: https://www.labour.gov.in/static/uploads/2026/09/1f92b29d09af1539e8cbe0c8acb7a52b.pdf
+        kind: notification
+      - title: "MoLE - S.O. 4710(E), 25 Aug 2026: bonus calculation ceiling Rs 7,000 or minimum wage (deemed from 21 Nov 2025)"
+        url: https://www.labour.gov.in/static/uploads/2026/09/3977906b27b1b53b9b98c245091b0726.pdf
+        kind: notification
+      - title: MoLE - Compliance Handbook for Employers under the Four Labour Codes (Feb 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/02/83978455025732b99b0165def80ab171.pdf
+        kind: faq
+      - title: MoLE - Code on Wages (Central) Rules, 2026 (G.S.R. 343(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/6eb0c35ba63b776487a025e5123b6b12.pdf
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    notes: Modelled for an April-March accounting year (due 30 November). The Payment of Bonus Act 1965 was repealed on 21 Nov 2025 and the Payment of Bonus Rules 1975, including the Form D annual return, were superseded by the Code on Wages (Central) Rules 2026 on 8 May 2026; bonus details now go into the unified annual return (FORM-XVII, section H) for central-sphere establishments.
+    code: BONUS
+  - id: labour-career-centre-employment-return
+    title: Employment Information Return to Career Centre
+    form: FORM-XXVI (Employment Information Return)
+    category: labour
+    authority: Career Centre (Regional) - State Directorate of Employment / DGE, MoLE
+    summary: Submit the yearly return of headcount, recruitment, occupational details, unfilled vacancies and expected vacancies for the financial year ending 31 March.
+    applicability: Public sector establishments and private sector establishments with 20 or more employees.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      day: 30
+      monthOffset: 1
+    law: Section 139, Code on Social Security 2020; Rule 56(5)-(6), Social Security (Central) Rules 2026; S.O. 2341(E) dated 8 May 2026
+    penalty: Fine up to Rs 50,000 (Section 133, Code on Social Security).
+    exposure:
+      maxPenalty: 50000
+      basis: SS Code s.133(e)/(m) fine up to Rs 50,000
+    effective:
+      from: 2026-04-01
+      to: null
+    sources:
+      - title: MoLE - Social Security (Central) Rules, 2026 (G.S.R. 344(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/49aa9b62c2125499c37399b90e969d67.pdf
+        kind: rules
+      - title: "MoLE - S.O. 2341(E), 8 May 2026: vacancy reporting to career centres from 90 days after the SS (Central) Rules"
+        url: https://www.labour.gov.in/static/uploads/2026/05/c63c658b9cc252b4e29c8da26c235c48.pdf
+        kind: notification
+      - title: "MoLE - S.O. 2343(E), 8 May 2026: Section 139 not applicable to vacancies paying under Rs 11,000 per month"
+        url: https://www.labour.gov.in/static/uploads/2026/05/9868ec29f6578d5537fbcbf5e857e57a.pdf
+        kind: notification
+      - title: MoLE - Compliance Handbook for Employers under the Four Labour Codes (Feb 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/02/83978455025732b99b0165def80ab171.pdf
+        kind: faq
+    verified: 2026-10-14
+    confidence: medium
+    notes: Due within 30 days after 31 March, i.e. 30 April; the first return under the 2026 rules is for FY2026-27, due 30 Apr 2027. Replaces the quarterly ER-I and biennial ER-II under the Employment Exchanges (CNV) Rules 1960, superseded on 8 May 2026. Medium confidence because the manner of filing (manual, electronic or portal) is left to State notification and private-sector record-keeping applies from a date to be notified.
+    code: FORM XXVI
+  - id: labour-career-centre-vacancy-notice
+    title: Report vacancies to the Career Centre before filling
+    form: FORM-XXV
+    category: labour
+    authority: Career Centre (Regional / Central) - DGE, MoLE and State employment departments
+    summary: Report each vacancy to the specified career centre before filling it, and report the selection result afterwards.
+    applicability: Employers in public sector establishments and private sector establishments with 20 or more employees, from 90 days after 8 May 2026; vacancies with total remuneration under Rs 11,000 per month are exempt.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: event
+    trigger: At least 15 days before the last date for receipt of applications (40 days if reported to the Career Centre (Central)); selection result within 30 days of selection
+    law: Section 139, Code on Social Security 2020; Rule 56(1)-(4), Social Security (Central) Rules 2026; S.O. 2341(E) and S.O. 2343(E) dated 8 May 2026
+    penalty: Fine up to Rs 50,000 (Section 133, Code on Social Security).
+    exposure:
+      maxPenalty: 50000
+      basis: SS Code s.133(m) fine up to Rs 50,000
+    sources:
+      - title: MoLE - Social Security (Central) Rules, 2026 (G.S.R. 344(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/49aa9b62c2125499c37399b90e969d67.pdf
+        kind: rules
+      - title: "MoLE - S.O. 2341(E), 8 May 2026: vacancy reporting to career centres from 90 days after the SS (Central) Rules"
+        url: https://www.labour.gov.in/static/uploads/2026/05/c63c658b9cc252b4e29c8da26c235c48.pdf
+        kind: notification
+      - title: "MoLE - S.O. 2343(E), 8 May 2026: Section 139 not applicable to vacancies paying under Rs 11,000 per month"
+        url: https://www.labour.gov.in/static/uploads/2026/05/9868ec29f6578d5537fbcbf5e857e57a.pdf
+        kind: notification
+    verified: 2026-10-14
+    confidence: high
+    notes: Reporting a vacancy does not oblige the employer to recruit through the career centre. Ninety days from 8 May 2026 falls on about 6 Aug 2026.
+    code: FORM XXV
+  - id: labour-codes-contractor-half-yearly-return
+    title: Contractor half-yearly return (contract labour)
+    form: FORM-XVIII
+    category: labour
+    authority: Deputy Chief Labour Commissioner (Central)
+    summary: Contractors file a half-yearly return electronically for January-June and July-December.
+    applicability: Contractors covered by the contract labour chapter of the OSH Code (establishments or contractors engaging 50 or more contract labour) in the central sphere.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: calendar
+      daysAfter: 30
+    law: Sections 45-56, OSH Code 2020; Rule 98(7), OSH (Central) Rules 2026
+    penalty: Penalty of Rs 50,000 to Rs 1 lakh for failing to file returns (Section 96(1), OSH Code).
+    exposure:
+      fixedPenalty: 50000
+      maxPenalty: 100000
+      other:
+        - "Repeat conviction: Rs 50,000 to Rs 2 lakh (OSH s.96(2))"
+      basis: OSH Code s.96(1)
+    effective:
+      from: 2026-01-01
+      to: null
+    sources:
+      - title: MoLE - Occupational Safety, Health and Working Conditions (Central) Rules, 2026 (G.S.R. 345(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/ee246f790cad0b8e99c3828f34fa09a6.pdf
+        kind: rules
+      - title: Occupational Safety, Health and Working Conditions Code, 2020 (Act 37 of 2020) - text on labour.gov.in
+        url: https://www.labour.gov.in/static/uploads/2025/07/36fcfa5d8e6b9145e282bf7b950d6c47.pdf
+        kind: act
+      - title: "MoLE - G.S.R. 1594(E), 29 Dec 2017: legacy unified annual return under CLRA Central Rules due 1 February"
+        url: https://www.labour.gov.in/static/uploads/2025/07/58311d3c54d5de170bbd8c998f80333d.pdf
+        kind: notification
+    verified: 2026-10-14
+    confidence: high
+    notes: Due not later than 30 days from the close of each half-year (30 July and 30 January). Principal employers report contractors in Part III of the unified annual return. The legacy CLRA Central Rules had dropped the half-yearly Form XXIV in 2018 in favour of the unified annual return; the 2026 rules reintroduce a half-yearly return. State-sphere contractors follow their State's contract labour or OSH rules.
+    code: CONTRACTOR RTN
+  - id: labour-codes-unified-annual-return
+    title: Unified annual return under the Labour Codes
+    form: FORM-XVII (OSH Central Rules) = FORM-XXIII (SS Central Rules)
+    category: labour
+    authority: MoLE - Chief Labour Commissioner (Central) / Inspector-cum-Facilitator (Shram Suvidha portal)
+    summary: File one electronic annual return for the calendar year covering workforce, hours and shifts, welfare facilities, layoffs and retrenchment, bonus, maternity benefit, accidents, works committee, contractors (Part III for principal employers) and an EPF/ESI self-declaration (Part IV).
+    applicability: Every employer of an establishment for which the Central Government is the appropriate government under the four Codes (central-sphere establishments such as central PSUs, railways, mines, oilfields, major ports, banks, insurers, airlines, telecom and their contractors). State-sphere establishments follow the State's Code rules once notified.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: calendar
+      day: last
+      monthOffset: 2
+    law: Section 33, OSH Code 2020; Rules 72(5), 74 and 98(9), OSH (Central) Rules 2026; Rule 53(5), Social Security (Central) Rules 2026 (FORM-XXIII); Rule 48, Code on Wages (Central) Rules 2026; works committee rule, Industrial Relations (Central) Rules 2026
+    penalty: Penalty of Rs 50,000 to Rs 1 lakh for failing to file returns (Section 96(1), OSH Code), Rs 50,000 to Rs 2 lakh on repeat; fine up to Rs 50,000 under Section 133(e) of the Code on Social Security.
+    exposure:
+      fixedPenalty: 50000
+      maxPenalty: 100000
+      other:
+        - "Repeat conviction: Rs 50,000 to Rs 2 lakh (OSH s.96(2))"
+        - "SS Code s.133(e): fine up to Rs 50,000"
+      basis: OSH Code s.96(1) penalty Rs 50,000 to Rs 1,00,000 for non-filing of returns
+    effective:
+      from: 2026-01-01
+      to: null
+    sources:
+      - title: MoLE - Occupational Safety, Health and Working Conditions (Central) Rules, 2026 (G.S.R. 345(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/ee246f790cad0b8e99c3828f34fa09a6.pdf
+        kind: rules
+      - title: MoLE - Social Security (Central) Rules, 2026 (G.S.R. 344(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/49aa9b62c2125499c37399b90e969d67.pdf
+        kind: rules
+      - title: MoLE - Code on Wages (Central) Rules, 2026 (G.S.R. 343(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/6eb0c35ba63b776487a025e5123b6b12.pdf
+        kind: rules
+      - title: MoLE - Industrial Relations (Central) Rules, 2026 (G.S.R. 342(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/f05a2c220dcdec0ea9c55e84d9ff791f.pdf
+        kind: rules
+      - title: Occupational Safety, Health and Working Conditions Code, 2020 (Act 37 of 2020) - text on labour.gov.in
+        url: https://www.labour.gov.in/static/uploads/2025/07/36fcfa5d8e6b9145e282bf7b950d6c47.pdf
+        kind: act
+      - title: MoLE - Compliance Handbook for Employers under the Four Labour Codes (Feb 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/02/83978455025732b99b0165def80ab171.pdf
+        kind: faq
+      - title: "MoLE - G.S.R. 1594(E), 29 Dec 2017: legacy unified annual return under CLRA Central Rules due 1 February"
+        url: https://www.labour.gov.in/static/uploads/2025/07/58311d3c54d5de170bbd8c998f80333d.pdf
+        kind: notification
+      - title: "MoLE - FAQs on Labour Codes dated 30-12-2025 (transition: old rules continue until new rules are notified)"
+        url: https://www.labour.gov.in/static/uploads/2026/01/9fb60321f0028fc2fe08d3b3d8626dd7.pdf
+        kind: faq
+    verified: 2026-10-14
+    confidence: high
+    notes: Due on or before the last day of February (28th or 29th) after each calendar year; the first return under the 2026 rules is for CY2026, due 28 Feb 2027. It replaces the legacy central unified annual return (Form XIV, due 1 February under G.S.R. 1594(E)) and separate returns such as bonus Form D. A further return is due within one month of a sale or abandonment, or four months after discontinuance (Rule 72(6)). For state-sphere employers, MoLE's FAQ of 30 Dec 2025 says old rules stay in force until the new rules are finally notified, so legacy state returns (factories, contract labour, maternity, shops) continue in States without final Code rules, with State-specific dates.
+    code: UNIFIED RETURN
+  - id: labour-epf-ecr-monthly
+    title: EPF ECR filing and contribution payment
+    form: ECR (Electronic Challan-cum-Return)
+    category: labour
+    authority: EPFO (Employees' Provident Fund Organisation)
+    summary: Upload the monthly UAN-based Electronic Challan-cum-Return on the EPFO employer portal and remit EPF, EPS and EDLI contributions plus administrative charges for the previous wage month.
+    applicability: "Establishments covered by Chapter III of the Code on Social Security 2020 (20 or more employees, or voluntarily covered). Membership is mandatory for employees whose PF wages are within the wage ceiling: Rs 15,000 per month up to 16 Sep 2026 and Rs 25,000 per month from 17 Sep 2026 (S.O. 5109(E))."
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 15
+      monthOffset: 1
+    law: Section 16 and Chapter III, Code on Social Security 2020; Employees' Provident Fund Scheme 2026, Employees' Pension Scheme 2026 and EDLI Scheme 2026 (notified 29 Jun 2026, replacing the EPF Scheme 1952, EPS 1995 and EDLI Scheme 1976); Sections 127, 128 and 133 of the Code
+    penalty: Simple interest at 12% per annum from the due date (Section 127; S.O. 2698(E), deemed from 21 Nov 2025). Damages under Section 128 up to the amount of arrears, reported under the 2026 Scheme as 0.25% per month for delays up to 2 months, 0.50% for 2-4 months and 1% beyond 4 months. A late return reportedly attracts Rs 500 per day, capped at that month's administrative charges. Non-payment is an offence under Section 133 (1-3 years and a Rs 1 lakh fine where the employee share deducted is not paid).
+    exposure:
+      lateFeePerDay: 500
+      interestPctPerAnnum: 12
+      other:
+        - Damages u/s 128 up to 100% of arrears (reported graded rate 0.25%-1% per month by length of delay)
+        - Late-return fee capped at the month's administrative charges (variable, so no fixed cap)
+        - "Prosecution u/s 133: imprisonment 1-3 years and Rs 1 lakh fine if the deducted employee share is not remitted"
+      basis: Code on Social Security s.127 interest 12% p.a. (S.O. 2698(E)); s.128 damages at EPF Scheme 2026 rates (secondary); Rs 500/day late-return fee per secondary sources; s.133 prosecution
+    sources:
+      - title: EPFO Employer Portal - home page and linked FAQs on the wage ceiling revision (September 2026 ECR due by 15 October 2026; Para 22, EPF Scheme 2026)
+        url: https://unifiedportal-emp.epfindia.gov.in/epfo/
+        kind: faq
+      - title: "MoLE - S.O. 5109(E), 17 Sep 2026: EPF wage ceiling Rs 25,000 per month (Chapter III, Code on Social Security)"
+        url: https://www.labour.gov.in/static/uploads/2026/09/2b0f1dbbd3769fc388416186ec145328.pdf
+        kind: notification
+      - title: "MoLE - S.O. 2698(E), 29 May 2026: interest 12% p.a. under Section 127 (Chapter III), deemed from 21 Nov 2025"
+        url: https://www.labour.gov.in/static/uploads/2026/06/730db9e9a2b244dba77b741b37fd842d.pdf
+        kind: notification
+      - title: PIB - Amnesty provisions in the EPF Scheme 2026, notified on 29.06.2026
+        url: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2305867&reg=3&lang=1
+        kind: portal
+      - title: PIB / MoLE - Cabinet approves EPFO wage ceiling of Rs 25,000 from 17 Sep 2026 (16 Sep 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/09/4f607a88c5342aeb980c6b999997caab.pdf
+        kind: portal
+      - title: Zoho Payroll Academy - EPF Scheme, 2026 guide (ECR within 15 days; Rs 500/day late fee capped at admin charges)
+        url: https://www.zoho.com/in/payroll/academy/taxes-and-compliance/epf-scheme-2026-guide.html
+        kind: secondary
+      - title: "India Briefing - Employee Provident Fund 2026: compliance rules for employers (damages table, late fee)"
+        url: https://www.india-briefing.com/news/employee-provident-fund-2026-contribution-withdrawal-rules-45897.html/
+        kind: secondary
+      - title: MoLE - Pradhan Mantri Viksit Bharat Rozgar Yojana Guidelines (registration period 1 Aug 2025 - 31 Jul 2027; UAN via Face Authentication)
+        url: https://www.labour.gov.in/static/uploads/2026/09/b5504f01d81b2ec8902a16355f65eedd.pdf
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: "Due date confirmed by EPFO's own FAQ on the wage ceiling revision: the September 2026 ECR and remittance are due by 15 October 2026 as a single ECR with split ceilings for 1-16 Sep and 17-30 Sep. The EPF Scheme 2026 (G.S.R. 525(E), 29 Jun 2026) replaced the EPF Scheme 1952; its gazette text was not opened, so the damages table and the Rs 500/day late fee rest on secondary sources. Admin charges are 0.50% of wages (minimum Rs 500 per month, Rs 75 where there is no contributing member). New UANs must be generated through Face Authentication on UMANG (since 1 Aug 2025); PM-VBRY (ELI) incentives for hires between 1 Aug 2025 and 31 Jul 2027 depend on regular paid ECRs. Whether a separate monthly IW-1 return for international workers survives under the 2026 Scheme was not verified."
+    code: PF ECR
+  - id: labour-epfo-eec-2026-deadline
+    title: EPFO Employees' Enrolment Campaign 2026 closes
+    category: labour
+    authority: EPFO
+    summary: Last date to declare and enrol eligible employees who were left out of EPF coverage between 1 Apr 2009 and 31 Mar 2026, with relaxations such as waiver of the undeducted employee share.
+    applicability: Optional; establishments with past employees not enrolled in EPF who are still in service on the date of declaration.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: one-time
+    schedule:
+      kind: fixed
+      dates:
+        - due: 2026-10-31
+          period: EEC 2026 window (29 Jun - 31 Oct 2026)
+    trigger: Campaign effective from 29 Jun 2026 and open up to 31 Oct 2026
+    law: Employees' Enrolment Campaign 2026 provisions notified with the EPF Scheme 2026 under the Code on Social Security 2020
+    penalty: Optional scheme. After it closes, enrolling past employees attracts the normal interest (12% p.a.) and damages.
+    exposure:
+      interestPctPerAnnum: 12
+      other:
+        - Normal damages u/s 128 apply outside the campaign
+      basis: Code on Social Security s.127-128 outside the campaign
+    sources:
+      - title: PIB - Employees' Enrolment Campaign, 2026 open up to 31 October 2026 (22 Aug 2026)
+        url: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2302247&reg=3&lang=1
+        kind: portal
+      - title: Zoho Payroll Academy - EPF Scheme, 2026 guide (ECR within 15 days; Rs 500/day late fee capped at admin charges)
+        url: https://www.zoho.com/in/payroll/academy/taxes-and-compliance/epf-scheme-2026-guide.html
+        kind: secondary
+    verified: 2026-10-14
+    confidence: high
+    notes: A UAN for each declared employee must be generated through Face Authentication on UMANG and contributions remitted through ECR. Secondary sources report nominal damages of Rs 100 under the campaign; interest for past periods remains payable.
+    code: EPFO EEC
+  - id: labour-epfo-vishwas-2026-deadline
+    title: EPFO VISHWAS 2026 damages settlement closes
+    category: labour
+    authority: EPFO
+    summary: Last date to apply online to settle disputes over EPF damages or penalty at concessional rates (0.25%, 0.50% or 1% per month by length of delay) for defaults before 14 Jun 2024.
+    applicability: Optional; employers with pending or potential damages or penalty cases under Section 14B of the EPF Act or Section 128 of the Code, after paying all interest due.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: one-time
+    schedule:
+      kind: fixed
+      dates:
+        - due: 2026-12-28
+          period: VISHWAS 2026 window (29 Jun - 28 Dec 2026)
+    trigger: Scheme in force from 29 Jun 2026 for six months; closes 28 Dec 2026
+    law: VISHWAS, 2026 notified by G.S.R. 525(E) dated 29 Jun 2026 as part of the EPF Scheme 2026; Section 128, Code on Social Security 2020
+    penalty: Optional scheme. Outside it, damages for pre-June 2024 defaults are levied at the older graded rates (PIB cites up to 37% a year including interest).
+    exposure:
+      other:
+        - Older graded damages plus 12% interest apply if not settled
+      basis: PIB release on VISHWAS 2026
+    sources:
+      - title: PIB - EPFO launches VISHWAS, 2026 (G.S.R. 525(E), 29 Jun 2026)
+        url: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2285666&reg=3&lang=1
+        kind: portal
+      - title: PIB - VISHWAS, 2026 open until 28 December 2026
+        url: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2306438&reg=3&lang=1
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    notes: PIB states the closing date will not be extended. Applications are filed through the EPFO employer portal with DSC or e-Sign.
+    code: EPFO VISHWAS
+  - id: labour-esic-contribution-monthly
+    title: ESIC monthly contribution payment
+    form: ESIC monthly contribution (online challan)
+    category: labour
+    authority: ESIC (Employees' State Insurance Corporation)
+    summary: File monthly contribution details and pay the employer (3.25%) and employee (0.75%) ESI contributions for the previous month on the ESIC portal.
+    applicability: Establishments with 10 or more persons covered by Chapter IV of the Code on Social Security 2020 (hazardous establishments even with one employee); employees whose wages, as defined in the Code from 21 Nov 2025, are up to Rs 21,000 per month.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 15
+      monthOffset: 1
+    law: Chapter IV, Code on Social Security 2020; Rule 19, Social Security (Central) Rules 2026 (contribution rates); Regulations 31, 31-A and 31-C, ESI (General) Regulations 1950 (continued under the Code)
+    penalty: Simple interest at 12% per annum for each day of delay (Regulation 31-A; Section 127 and S.O. 2357(E)). Damages under Section 128 and Regulation 31-C at graded maximum rates of 5%, 10%, 15% and 25% per annum for delays under 2, 4, 6 and over 6 months; ESIC decided in June 2025 to replace these with a flat 1% per month. Failure to pay is an offence under Section 133.
+    exposure:
+      interestPctPerAnnum: 12
+      other:
+        - Damages u/s 128 / Reg 31-C up to 25% p.a. by length of delay; ESIC approved a flat 1% per month in June 2025 (notification of the amended regulation not verified)
+        - "Prosecution u/s 133: imprisonment 1-3 years and Rs 1 lakh fine if the deducted employee share is not paid"
+      basis: ESI (General) Regulations r.31-A interest 12% p.a. (also SS Code s.127, S.O. 2357(E)); r.31-C graded damages; SS Code s.133 prosecution
+    sources:
+      - title: India Code - Employees' State Insurance (General) Regulations, 1950 (Regulations 26, 31, 31-A, 31-C)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/b43ee1e9-64bd-46b0-84bd-98326422315b/content
+        kind: rules
+      - title: MoLE - Social Security (Central) Rules, 2026 (G.S.R. 344(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/49aa9b62c2125499c37399b90e969d67.pdf
+        kind: rules
+      - title: "MoLE - S.O. 2357(E), 8 May 2026: interest 12% p.a. under Section 127 (Chapter IV / ESI)"
+        url: https://www.labour.gov.in/static/uploads/2026/05/798bd0d4d7422ae1ca2717675b16f906.pdf
+        kind: notification
+      - title: "MoLE - S.O. 2358(E), 8 May 2026: officers authorised to recover damages under Section 128 (ESI)"
+        url: https://www.labour.gov.in/static/uploads/2026/05/e2b0fa18314c04e6931e031e293c9b59.pdf
+        kind: notification
+      - title: MoLE - Additional FAQs on Labour Codes (as on 16.03.2026)
+        url: https://www.labour.gov.in/static/uploads/2026/03/a4ccf4c6d97c4f1f36a6d83f8c64213d.pdf
+        kind: faq
+      - title: "PIB / MoLE - 196th ESIC meeting (27 Jun 2025): damages simplified to 1% per month; Amnesty Scheme 2025"
+        url: https://www.labour.gov.in/static/uploads/2025/09/4d2ef3e4c621afbb52d0893fa3d05a01.pdf
+        kind: portal
+      - title: PIB / MoLE - SPREE-2025 (till 31 Dec 2025) and ESIC Amnesty Scheme 2025 (1 Oct 2025 - 30 Sep 2026)
+        url: https://www.labour.gov.in/static/uploads/2025/09/09aa0dd0e5bfb1e65d45ed6a8724113a.pdf
+        kind: portal
+      - title: Zoho Payroll Academy - What is ESI (contributions to be paid by the 15th of every month)
+        url: https://www.zoho.com/in/payroll/academy/taxes-and-compliance/what-is-esi.html
+        kind: secondary
+    verified: 2026-10-14
+    confidence: high
+    notes: Regulation 31 requires payment within 15 days of the last day of the calendar month in which contributions fall due (India Code copy of the ESI (General) Regulations); esic.gov.in itself refused connections from the research machine. Rates (3.25% / 0.75%) are in Rule 19 of the SS (Central) Rules 2026; the Rs 21,000 ceiling continues per the MoLE FAQ of 16 Mar 2026. Regulation 26 still describes a return of contributions in Form 5 within 42 days of each six-month contribution period (April-September and October-March); ESIC's online system builds it from the monthly filings, so it is not modelled as a separate filing (not re-verified). SPREE-2025 closed 31 Dec 2025 and the ESIC Amnesty Scheme 2025 closed 30 Sep 2026.
+    code: ESIC
+  - id: labour-gig-aggregator-final-return
+    title: Gig/platform aggregator final contribution return
+    form: Form-XXI
+    category: labour
+    authority: MoLE - Social Security Fund for gig and platform workers
+    summary: After the audited accounts are final, aggregators file the final return reconciling the provisional contribution and pay any balance, or claim a refund of excess.
+    applicability: Aggregators liable to contribute under Section 114(4) of the Code on Social Security.
+    audience:
+      - company
+      - llp
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      day: 31
+      monthOffset: 7
+    law: Section 114(4), Code on Social Security 2020; Rule 49(3)(b)-(c), Social Security (Central) Rules 2026
+    penalty: Interest at 1% per month on unpaid contribution (Rule 49(2)); prosecution under Section 133.
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Prosecution u/s 133
+      basis: SS (Central) Rules 2026 r.49(2)
+    effective:
+      from: 2026-04-01
+      to: null
+    sources:
+      - title: MoLE - Social Security (Central) Rules, 2026 (G.S.R. 344(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/49aa9b62c2125499c37399b90e969d67.pdf
+        kind: rules
+      - title: Code on Social Security, 2020 (Act 36 of 2020) - text on labour.gov.in
+        url: https://www.labour.gov.in/static/uploads/2025/07/b0620548445580767b5c0d18c95c26f7.pdf
+        kind: act
+    verified: 2026-10-14
+    confidence: medium
+    notes: "Due by 31 October of the year after the financial year. Same caveat as the provisional contribution: operative only once the Section 114(4) rate is notified."
+    code: GIG FINAL
+  - id: labour-gig-aggregator-provisional-contribution
+    title: Gig/platform aggregator contribution (provisional)
+    form: Form-XX
+    category: labour
+    authority: MoLE - Social Security Fund for gig and platform workers
+    summary: Aggregators self-assess and pay the provisional social security contribution for the previous financial year into the Social Security Fund.
+    applicability: Aggregators engaging gig or platform workers, directly or through associates, subsidiaries, LLPs or third parties, once the Section 114(4) contribution rate (1-2% of annual turnover, capped at 5% of amounts paid to such workers) is notified.
+    audience:
+      - company
+      - llp
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      day: 30
+      monthOffset: 3
+    law: Section 114(4), Code on Social Security 2020; Rule 49(2)-(3)(a), Social Security (Central) Rules 2026
+    penalty: Interest at 1% per month or part of a month on late contribution (Rule 49(2)); failure to pay contribution is an offence under Section 133.
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Prosecution u/s 133 for non-payment
+      basis: SS (Central) Rules 2026 r.49(2) interest 1% per month
+    effective:
+      from: 2026-04-01
+      to: null
+    sources:
+      - title: MoLE - Social Security (Central) Rules, 2026 (G.S.R. 344(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/49aa9b62c2125499c37399b90e969d67.pdf
+        kind: rules
+      - title: Code on Social Security, 2020 (Act 36 of 2020) - text on labour.gov.in
+        url: https://www.labour.gov.in/static/uploads/2025/07/b0620548445580767b5c0d18c95c26f7.pdf
+        kind: act
+      - title: MoLE - Additional FAQs on Labour Codes (as on 16.03.2026)
+        url: https://www.labour.gov.in/static/uploads/2026/03/a4ccf4c6d97c4f1f36a6d83f8c64213d.pdf
+        kind: faq
+      - title: MoLE - Compliance Handbook for Employers under the Four Labour Codes (Feb 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/02/83978455025732b99b0165def80ab171.pdf
+        kind: faq
+    verified: 2026-10-14
+    confidence: medium
+    notes: Due by 30 June for the preceding financial year. The rule is notified, but the Section 114(4) contribution rate had not been found as notified by 14 Oct 2026 (the MoLE FAQ of 16 Mar 2026 says it will be notified), so the obligation may not yet be operative.
+    code: GIG PROVISIONAL
+  - id: labour-osh-registration-update
+    title: Update old labour registrations in OSH FORM-I
+    form: FORM-I (Shram Suvidha portal)
+    category: labour
+    authority: Registering Officer under the OSH Code (Central)
+    summary: Establishments already registered under earlier central labour laws update their registration particulars in FORM-I on the Shram Suvidha portal.
+    applicability: Central-sphere establishments registered under pre-Code central labour laws (for example contract labour, building and construction, inter-state migrant workmen).
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: one-time
+    schedule:
+      kind: fixed
+      dates:
+        - due: 2026-11-08
+          period: Transition to OSH (Central) Rules 2026
+    trigger: Within six months from 8 May 2026, when the OSH (Central) Rules 2026 came into force
+    law: Section 3, OSH Code 2020; Rule 3(6), OSH (Central) Rules 2026
+    penalty: The Registering Officer may direct compliance (Rule 3(5)); contravention of the rules attracts a penalty of Rs 50,000 to Rs 1 lakh (Section 97(1), OSH Code).
+    exposure:
+      fixedPenalty: 50000
+      maxPenalty: 100000
+      basis: OSH Code s.97(1)
+    sources:
+      - title: MoLE - Occupational Safety, Health and Working Conditions (Central) Rules, 2026 (G.S.R. 345(E), 8 May 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/05/ee246f790cad0b8e99c3828f34fa09a6.pdf
+        kind: rules
+      - title: Occupational Safety, Health and Working Conditions Code, 2020 (Act 37 of 2020) - text on labour.gov.in
+        url: https://www.labour.gov.in/static/uploads/2025/07/36fcfa5d8e6b9145e282bf7b950d6c47.pdf
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    notes: Due date computed as six months from 8 May 2026. Later changes in particulars must be updated within 30 days (Rule 3(8)); closure must be intimated within 30 days (Rule 3(10)).
+    code: OSH REG
+  - id: labour-wages-monthly-payment
+    title: Pay monthly wages by the 7th (Code on Wages)
+    category: labour
+    authority: MoLE / State labour departments (Inspector-cum-Facilitator)
+    summary: Pay wages to employees on a monthly wage period before the end of the seventh day of the following month.
+    applicability: Every employer, for employees on a monthly wage period. Daily-rated staff are paid at the end of the shift, weekly-rated on the last working day of the week, fortnightly-rated within two days after the fortnight.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 7
+      monthOffset: 1
+    law: Sections 16 and 17(1)(iv), Code on Wages 2019 (in force from 21 Nov 2025)
+    penalty: Fine up to Rs 20,000 for contravention (Section 54(1)(c)); fine up to Rs 50,000 if less than the amount due is paid (Section 54(1)(a)); repeat offences within five years can attract imprisonment. The Inspector-cum-Facilitator must first give a written direction to comply (Section 54(3)).
+    exposure:
+      maxPenalty: 20000
+      other:
+        - "Underpayment: fine up to Rs 50,000 (s.54(1)(a))"
+        - "Repeat within 5 years: imprisonment up to 1 month and fine up to Rs 40,000 (s.54(1)(d))"
+      basis: Code on Wages s.54(1)(c) fine up to Rs 20,000; s.54(1)(a) up to Rs 50,000 for paying less than due
+    sources:
+      - title: Code on Wages, 2019 (Act 29 of 2019) - text on labour.gov.in
+        url: https://www.labour.gov.in/static/uploads/2025/06/c328da14bbb15fc4ad571dc33e7a4ab3.pdf
+        kind: act
+      - title: MoLE - Compliance Handbook for Employers under the Four Labour Codes (Feb 2026)
+        url: https://www.labour.gov.in/static/uploads/2026/02/83978455025732b99b0165def80ab171.pdf
+        kind: faq
+    verified: 2026-10-14
+    confidence: high
+    notes: The appropriate government may prescribe other time limits (Section 17(3)). Wages on exit are covered by a separate event rule.
+    code: WAGES

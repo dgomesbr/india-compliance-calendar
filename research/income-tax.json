@@ -1,0 +1,3233 @@
+[
+  {
+    "id": "income-tax-tds-deposit-1961-act",
+    "title": "TDS deposit - deductions up to March 2026 (1961 Act)",
+    "form": "Challan ITNS 281 (Income-tax Act, 1961 challan)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Tax deducted at source under the 1961 Act is paid to the government by the 7th of the following month, and by 30 April for tax deducted in March. Inside the site window this covers only tax deducted in March 2026, due 30 April 2026.",
+    "applicability": "Every non-government deductor for sums paid or credited on or before 31 March 2026, even if the deposit is made after 1 April 2026 (old challan and AY 2026-27). Government offices paying by challan deposit March tax by 7 April; book-entry credits are due the same day.",
+    "audience": [
+      "tds",
+      "employer"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 7,
+      "monthOffset": 1,
+      "except": {
+        "3": {
+          "day": 30,
+          "monthOffset": 1
+        }
+      }
+    },
+    "law": "Section 200(1), Income-tax Act, 1961; rule 30, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Interest under section 201(1A): 1% per month or part from the date tax was deductible to the date it is deducted, and 1.5% per month or part from deduction to payment. The deductor is an assessee in default (section 201(1)); penalty under section 271C; prosecution under section 276B; 30% of the expense is disallowed for resident payees (section 40(a)(ia)).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": 1.5,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Assessee in default (section 201(1))",
+        "Penalty up to the tax not deducted (section 271C)",
+        "Prosecution for failure to pay (section 276B)",
+        "30% expense disallowance for resident payees (section 40(a)(ia))"
+      ],
+      "basis": "Section 201(1A): 1.5% per month or part from deduction to payment; 1% per month or part where not deducted"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - TDS deposit for March 2026 by non-government deductors (due 2026-04-30)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-deposit-of-tax-deducted-by-an-assessee-other-than-an-office-of-the-government-for-the-month-of-march-2026-1",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - TDS/TCS deposit for March 2026 by government offices (due 2026-04-07)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-deposit-of-tax-deducted/collected-by-an-office-of-the-government-for-the-month-of-march-2026.-however-all-sum-deducted-by-an-office-of-the-government-shall-be-paid-to-the-credit-of-the-central-government-on-the-same-day-where-tax-is-paid-wi-1",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "CBDT FAQ Q2.8, Q2.9 and Q6.8: the obligation follows the date of payment or credit, so March 2026 deductions stay under the 1961 Act with the old challan and AY 2026-27. From April 2026 see income-tax-tds-tcs-deposit."
+  },
+  {
+    "id": "income-tax-tcs-deposit-1961-act",
+    "title": "TCS deposit - collections up to March 2026 (1961 Act)",
+    "form": "Challan ITNS 281 (Income-tax Act, 1961 challan)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Tax collected at source under the 1961 Act is paid within one week from the end of the month of collection, including March. Inside the site window this covers March 2026 collections, due 7 April 2026.",
+    "applicability": "Sellers and other collectors under section 206C for amounts debited or received on or before 31 March 2026.",
+    "audience": [
+      "tds"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 7,
+      "monthOffset": 1
+    },
+    "law": "Section 206C(3), Income-tax Act, 1961; rule 37CA, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Interest at 1% per month or part under section 206C(7) from the date tax was collectible to the date of payment; the collector is an assessee in default (section 206C(6A)); penalty equal to the tax not collected (section 271CA); prosecution for failure to pay (section 276BB).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": 1,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Assessee in default (section 206C(6A))",
+        "Penalty up to the tax not collected (section 271CA)",
+        "Prosecution for failure to pay (section 276BB)"
+      ],
+      "basis": "Section 206C(7): simple interest 1% per month or part"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "TDSMAN - TDS/TCS compliances reminder for April and May 2026",
+        "url": "https://blog.tdsman.com/2026/04/tds-tcs-compliances-reminder-for-april-may-2026/",
+        "kind": "secondary"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "medium",
+    "notes": "TDSMAN's April-May 2026 reminder lists 7 April 2026 for March 2026 TCS; no CBDT calendar entry for the March 2026 TCS deposit was found. Old rule 37CA had no 30 April concession for March. Under the 2025 Act, March TCS moves to 30 April (rule 218(2)(a)). FAQ Q6.21 applies the debit/receipt-date test to decide which Act governs."
+  },
+  {
+    "id": "income-tax-tds-tcs-deposit",
+    "title": "TDS/TCS deposit (Income-tax Act 2025)",
+    "form": "Income-tax Act, 2025 challan (e-Pay Tax)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Tax deducted or collected at source under the 2025 Act is paid to the government by the 7th of the following month; tax deducted or collected in March is due by 30 April. The same dates now apply to TDS and TCS.",
+    "applicability": "Every person deducting tax under sections 392/393 or collecting tax under section 394, other than government offices, for amounts paid, credited, debited or received on or after 1 April 2026. Government offices: same day where no challan is used, otherwise by the 7th of the next month including March. Payers using Form 141 (rent, property, individual payers of contract/professional fees, VDA) follow the 30-day rule instead.",
+    "audience": [
+      "tds",
+      "employer"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 7,
+      "monthOffset": 1,
+      "except": {
+        "3": {
+          "day": 30,
+          "monthOffset": 1
+        }
+      }
+    },
+    "law": "Section 397(3)(a), Income-tax Act, 2025; rule 218(1) and (2), Income-tax Rules, 2026",
+    "penalty": "Interest under section 398(3)(a): 1% per month or part from the date tax was deductible or collectible to the date of deduction or collection, and 1.5% per month or part from deduction or collection to payment. The person is an assessee in default (section 398(1)); penalty for failure to deduct or collect (sections 448 and 449); prosecution for failure to pay (section 476); 30% of the expense is disallowed for resident payees (section 35(b)).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": 1.5,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Assessee in default (section 398(1))",
+        "Penalty up to the tax not deducted or collected (sections 448, 449)",
+        "Prosecution for failure to pay (section 476)",
+        "30% expense disallowance for resident payees (section 35(b))"
+      ],
+      "basis": "Section 398(3)(a)(ii): 1.5% per month or part from deduction or collection to payment; 1% per month where not deducted or collected"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "CBDT tax calendar - TDS/TCS deposit for April 2026 (due 2026-05-07)",
+        "url": "https://www.incometaxindia.gov.in/w/%E2%80%8Bdue-date-for-deposit-of-tax-deducted/collected-for-the-month-of-april-2026.-however-all-sum-deducted/collected-by-an-office-of-the-government-shall-be-paid-to-the-credit-of-the-central-government-on-the-same-day-where-tax-is-paid-without-producti",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      },
+      {
+        "title": "TDSMAN - TDS/TCS annual compliance calendar for Tax Year 2026-27",
+        "url": "https://blog.tdsman.com/2026/07/tds-tcs-annual-compliance-calendar/",
+        "kind": "secondary"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Rule 218(2)(a) gives 30 April for amounts 'credited or paid, or debited or received' in March, which covers TCS as well; TDSMAN's calendar confirms 30 April for both. Section 398(3)(a) applies the 1%/1.5% rates to collectors too (old section 206C(7) used 1%). Quote the 2025 Act section codes (FAQ Q2.5)."
+  },
+  {
+    "id": "income-tax-challan-statement-1961-act",
+    "title": "Challan-cum-statements 26QB/26QC/26QD/26QE (1961 Act)",
+    "form": "Form 26QB / 26QC / 26QD / 26QE",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "TDS on purchase of immovable property (194-IA), rent paid by specified individuals/HUFs (194-IB), contract/professional payments by individuals/HUFs (194M) and VDA transfers (194S) is paid with a challan-cum-statement within 30 days from the end of the month of deduction. In-window: March 2026 deductions, due 30 April 2026.",
+    "applicability": "Payers without TAN covered by sections 194-IA, 194-IB, 194M and 194S for deductions made on or before 31 March 2026. The related certificate (Form 16B/16C/16D/16E) is due 15 days after the challan-cum-statement due date (15 May 2026 for March 2026).",
+    "audience": [
+      "individual",
+      "tds"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "daysAfter": 30
+    },
+    "law": "Sections 194-IA, 194-IB, 194M, 194S and 200(3), Income-tax Act, 1961; rules 30, 31 and 31A, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Fee Rs 200 per day under section 234E (capped at the TDS amount); penalty Rs 10,000 to Rs 1,00,000 under section 271H; interest under section 201(1A); certificate delays attract Rs 100 per day under section 272A(2)(g), capped at the TDS amount.",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": null,
+      "fixedPenalty": 10000,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": 1.5,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Late certificate: Rs 100/day under section 272A(2)(g), capped at the tax"
+      ],
+      "basis": "234E fee Rs 200/day up to the TDS amount; 271H penalty Rs 10,000 to 1,00,000; 201(1A) interest 1.5% per month after deduction"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - challan-cum-statement for March 2026 (1961 Act) (due 2026-04-30)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-furnishing-of-challan-cum-statement-in-respect-of-tax-deducted-under-section-194-ia-194-ib-194m-and-194s-by-specified-person-income-tax-act-1961-in-the-month-of-march-2026-1",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "CBDT FAQ Q6.8 and Q6.11: transactions with payment or credit on or before 31 March 2026 stay on the old forms."
+  },
+  {
+    "id": "income-tax-form-141-challan-statement",
+    "title": "Form 141 challan-cum-statement (old 26QB/26QC/26QD/26QE)",
+    "form": "Form 141 (old 26QB, 26QC, 26QD, 26QE)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "A single challan-cum-statement replaces the four old forms. TDS on purchase of immovable property, rent paid by specified individuals/HUFs, contract, professional and commission payments by individuals/HUFs, and VDA transfers is paid and reported in Form 141 within 30 days from the end of the month of deduction.",
+    "applicability": "Persons deducting under section 393(1) [Table Sl. No. 2(i), 3(i), 6(ii) and 8(vi)] who need no TAN, from 1 April 2026. From 1 October 2026 it also covers resident individuals/HUFs deducting TDS on immovable property bought from a non-resident (section 393(2) [Table Sl. No. 17], new Schedule E).",
+    "audience": [
+      "individual",
+      "tds",
+      "foreign"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "daysAfter": 30
+    },
+    "law": "Sections 393(1), 393(2), 397(1)(c) and 397(3)(a)-(b), Income-tax Act, 2025; rules 218(3) and 219(5), Income-tax Rules, 2026 (as amended by Notification No. 121/2026 from 1 October 2026)",
+    "penalty": "Fee Rs 200 per day under section 427(1), capped at the TDS amount and payable before filing; penalty Rs 10,000 to Rs 1,00,000 under section 461; interest under section 398(3)(a) at 1% or 1.5% per month.",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": null,
+      "fixedPenalty": 10000,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": 1.5,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Assessee in default (section 398(1))"
+      ],
+      "basis": "427(1) fee Rs 200/day capped at the TDS amount; 461 penalty Rs 10,000 to 1,00,000; 398(3)(a) interest 1.5% per month after deduction"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "CBDT tax calendar - Form 141 for June 2026 (due 2026-07-30)",
+        "url": "https://www.incometaxindia.gov.in/w/furnishing-of-challan-cum-statement-in-form-no.-141-income-tax-rules-2026-in-respect-of-deduction-of-tax-under-section-393-1-table-sl.-no.-2-i-3-i-6-ii-8-vi-of-the-income-tax-act-2025-for-the-month-of-june-2026",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT Notification No. 121/2026 (Income-tax (Fifth Amendment) Rules, 2026) dated 22-09-2026",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-09/Notification-no-121-2026.pdf",
+        "kind": "notification"
+      },
+      {
+        "title": "Finance Act, 2026 (4 of 2026, assent 30-03-2026) - full text reproduced by TaxGuru",
+        "url": "https://taxguru.in/income-tax/finance-act-2026.html",
+        "kind": "secondary"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Calendar examples: 30 July 2026 for June 2026 deductions and 2 March 2027 for January 2027 (30 days after month end). Finance Act 2026 substituted section 397(1)(c) from 1 October 2026 so resident individual/HUF buyers paying non-resident sellers need no TAN; Notification 121/2026 added Schedule E and amended rules 215, 218 and 219."
+  },
+  {
+    "id": "income-tax-form-132-certificate",
+    "title": "Form 132 TDS certificate (old 16B/16C/16D/16E)",
+    "form": "Form 132 (old 16B, 16C, 16D, 16E)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "After filing Form 141, the deductor downloads the TDS certificate in Form 132 and gives it to the payee within 15 days from the Form 141 due date, i.e. 45 days after the end of the month of deduction.",
+    "applicability": "Deductors who file Form 141: property buyers, specified tenants, individual/HUF payers of contract or professional fees, VDA buyers and, from 1 October 2026, resident buyers of property from non-residents.",
+    "audience": [
+      "individual",
+      "tds"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "daysAfter": 45
+    },
+    "law": "Section 395(4), Income-tax Act, 2025; rule 215(1) [Table Sl. No. 3], Income-tax Rules, 2026",
+    "penalty": "Penalty Rs 500 per day of default under section 465(2)(g), not exceeding the tax deductible or collectible (section 465(3)(b)).",
+    "exposure": {
+      "lateFeePerDay": 500,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Penalty (not a fee) of Rs 500/day under section 465(2)(g), capped at the tax deductible or collectible (465(3)(b))"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "CBDT tax calendar - Form 132 for May 2026 deductions (due 2026-07-15)",
+        "url": "https://www.incometaxindia.gov.in/w/issue-of-certificate-in-form-no.-132-income-tax-rules-2026-under-section-395-4-of-the-income-tax-act-2025-for-tax-deducted-at-source-under-section-393-1-table-sl.-no.-2-i-3-i-6-ii-8-vi-of-the-income-tax-act-2025-in-the-month-of-may-2026",
+        "kind": "portal"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Calendar examples: 15 July 2026 for May 2026 deductions and 14 August 2026 for June 2026. For deductions up to March 2026 the old Forms 16B/16C/16D/16E applied (March 2026: 15 May 2026)."
+  },
+  {
+    "id": "income-tax-form-24g-1961-act",
+    "title": "Form 24G book adjustment statement (1961 Act)",
+    "form": "Form 24G",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Government accounts offices that credit TDS/TCS by book entry (without challan) file Form 24G within 15 days from the end of the month, and by 30 April for March. In-window: March 2026 statement, due 30 April 2026.",
+    "applicability": "Pay and Accounts Officers, Treasury Officers, Cheque Drawing and Disbursing Officers and similar offices for months up to March 2026.",
+    "audience": [
+      "tds"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 15,
+      "monthOffset": 1,
+      "except": {
+        "3": {
+          "day": 30,
+          "monthOffset": 1
+        }
+      }
+    },
+    "law": "Sections 200(2A) and 206C(3A), Income-tax Act, 1961; rules 30 and 37CA, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Penalty Rs 100 per day under section 272A(2)(m), not exceeding the tax deductible or collectible.",
+    "exposure": {
+      "lateFeePerDay": 100,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Deductors cannot quote a Book Identification Number until the statement is filed"
+      ],
+      "basis": "Penalty (not a fee) of Rs 100/day under section 272A(2)(m), capped at the tax amount"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "incometaxindia.gov.in - About Form 24G (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-24g",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - Form 24G for March 2026 (due 2026-04-30)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-furnishing-of-form-24g-income-tax-rules-1962-by-an-office-of-the-government-where-tds/tcs-for-the-month-of-march-2026-has-been-paid-without-the-production-of-a-challan-1",
+        "kind": "portal"
+      },
+      {
+        "title": "Income-tax Act, 1961 - section 272A (incometaxindia.gov.in)",
+        "url": "https://www.incometaxindia.gov.in/w/section-272a",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-form-137-book-adjustment",
+    "title": "Form 137 book adjustment statement (old 24G)",
+    "form": "Form 137 (old 24G); AIN application in Form 136",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Government accounts offices crediting TDS/TCS without a challan file the TDS/TCS book adjustment statement in Form 137 within 15 days from the end of the month, and by 30 April for March, then pass the Book Identification Number to each deductor.",
+    "applicability": "Pay and Accounts Officers, Treasury Officers, Cheque Drawing and Disbursing Officers and similar offices from April 2026; an Accounts Office Identification Number (Form 136) is required.",
+    "audience": [
+      "tds"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 15,
+      "monthOffset": 1,
+      "except": {
+        "3": {
+          "day": 30,
+          "monthOffset": 1
+        }
+      }
+    },
+    "law": "Section 397(3)(e), Income-tax Act, 2025; rule 218(5) to (8), Income-tax Rules, 2026",
+    "penalty": "Penalty Rs 500 per day under section 465(2)(l), not exceeding the tax deductible or collectible (section 465(3)(c)).",
+    "exposure": {
+      "lateFeePerDay": 500,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Deductors cannot quote a Book Identification Number until the statement is filed"
+      ],
+      "basis": "Penalty (not a fee) of Rs 500/day under section 465(2)(l), capped at the tax amount (465(3)(c))"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "CBDT tax calendar - Form 137 for June 2026 (due 2026-07-15)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-furnishing-form-no.-137-income-tax-rules-2026-by-an-office-of-the-government-where-tds/tcs-for-the-month-of-june-2026-has-been-paid-without-the-production-of-a-challan",
+        "kind": "portal"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "The calendar entry for September 2026 shows 7 October 2026, which conflicts with rule 218(6) (15 days after month end, i.e. 15 October); the rule text is followed here."
+  },
+  {
+    "id": "income-tax-tds-statements-1961-act",
+    "title": "TDS statements 24Q/26Q/27Q (1961 Act)",
+    "form": "Form 24Q / 26Q / 27Q",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Quarterly TDS statements under the 1961 Act for salary (24Q), resident non-salary (26Q) and non-resident (27Q) payments. In-window: quarter January-March 2026 (Q4 FY 2025-26), due 31 May 2026.",
+    "applicability": "All deductors with TAN for quarters up to March 2026; correction statements for those quarters also stay on the old forms.",
+    "audience": [
+      "tds",
+      "employer",
+      "foreign"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 1,
+      "except": {
+        "Q4": {
+          "day": 31,
+          "monthOffset": 2
+        }
+      }
+    },
+    "law": "Section 200(3), Income-tax Act, 1961; rule 31A, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Fee Rs 200 per day under section 234E, not exceeding the tax deductible or collectible; penalty Rs 10,000 to Rs 1,00,000 under section 271H for late or incorrect statements.",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": null,
+      "fixedPenalty": 10000,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "234E fee Rs 200/day capped at the TDS/TCS amount; 271H penalty Rs 10,000 to 1,00,000"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - TDS statements for quarter ending 31-03-2026 (due 2026-05-31)",
+        "url": "https://www.incometaxindia.gov.in/w/quarterly-statement-of-tds-deposited-for-the-quarter-ending-march-31-2026",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "CBDT FAQ Q6.10 and Q6.14. Form 15G/15H particulars (with UIN) were reported in the quarterly 26Q/27Q."
+  },
+  {
+    "id": "income-tax-tds-statements",
+    "title": "TDS statements: Forms 138/140/144 (old 24Q/26Q/27Q)",
+    "form": "Form 138 (old 24Q), Form 140 (old 26Q), Form 144 (old 27Q); Form 142 (old 26QF) for VDA exchanges",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Quarterly TDS statements under the 2025 Act: Form 138 for salary and specified senior citizens' pension/interest, Form 140 for non-salary payments to residents and Form 144 for payments to non-residents. Due 31 July, 31 October, 31 January and 31 May.",
+    "applicability": "Every deductor with TAN from the quarter April-June 2026, including quarters where only Form 121 declarations were received. VDA exchanges paying tax under the section 400(2) guidelines file Form 142 on the same dates.",
+    "audience": [
+      "tds",
+      "employer",
+      "foreign"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 1,
+      "except": {
+        "Q4": {
+          "day": 31,
+          "monthOffset": 2
+        }
+      }
+    },
+    "law": "Section 397(3)(b), Income-tax Act, 2025; rule 219(1), (2) and (4), Income-tax Rules, 2026",
+    "penalty": "Fee Rs 200 per day under section 427(1), not exceeding the tax deductible or collectible and payable before the statement is filed; penalty Rs 10,000 to Rs 1,00,000 under section 461 (not levied where tax, fee and interest are paid and the statement is filed within one month of the due date, section 461(2)).",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": null,
+      "fixedPenalty": 10000,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Penalty waived if filed within one month of the due date after paying tax, fee and interest (section 461(2))"
+      ],
+      "basis": "427(1) fee Rs 200/day capped at the tax deductible or collectible; 461 penalty Rs 10,000 to 1,00,000"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "CBDT tax calendar - Form 138 for quarter ending 30-06-2026 (due 2026-07-31)",
+        "url": "https://www.incometaxindia.gov.in/w/filing-of-quarterly-statement-in-form-no.-138-income-tax-rules-2026-by-employers-responsible-for-tds-from-salaries-paid-to-employees-under-section-392-or-by-a-specified-bank-in-respect-of-income-paid-to-a-specified-senior-citizen-under-section-393-1-table",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - Form 140 for quarter ending 30-06-2026 (due 2026-07-31)",
+        "url": "https://www.incometaxindia.gov.in/w/filing-of-quarterly-statement-in-form-no.-140-income-tax-rules-2026-by-deductors-responsible-for-deduction-of-tax-at-source-on-non-salary-payments-such-as-commission-brokerage-professional-fees-rent-etc.-made-to-residents-for-the-quarter-ending-june-30-20",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - Form 144 for quarter ending 30-06-2026 (due 2026-07-31)",
+        "url": "https://www.incometaxindia.gov.in/w/filing-of-quarterly-statement-of-tds-in-form-no.-144-income-tax-rules-2026-in-respect-of-payments-other-than-salary-made-to-non-residents-for-quarter-ending-june-30-2026",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      },
+      {
+        "title": "CBDT old-to-new section and form mapping data (incometaxindia.gov.in Act comparison tool)",
+        "url": "https://www.incometaxindia.gov.in/o/c/incometaxactcompares/",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Section mapping (CBDT comparison data): 234E to 427, 271H to 461. No extension of any 2026-27 quarter had been notified as of 14 October 2026."
+  },
+  {
+    "id": "income-tax-tcs-statement-1961-act",
+    "title": "TCS statement 27EQ (1961 Act)",
+    "form": "Form 27EQ",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Quarterly TCS statement under the 1961 Act, due on the 15th of the month after the quarter and on 15 May for January-March. In-window: Q4 FY 2025-26, due 15 May 2026.",
+    "applicability": "Collectors under section 206C for quarters up to March 2026.",
+    "audience": [
+      "tds"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 15,
+      "monthOffset": 1,
+      "except": {
+        "Q4": {
+          "day": 15,
+          "monthOffset": 2
+        }
+      }
+    },
+    "law": "Proviso to section 206C(3), Income-tax Act, 1961; rule 31AA, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Fee Rs 200 per day under section 234E, not exceeding the tax deductible or collectible; penalty Rs 10,000 to Rs 1,00,000 under section 271H for late or incorrect statements.",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": null,
+      "fixedPenalty": 10000,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "234E fee Rs 200/day capped at the TDS/TCS amount; 271H penalty Rs 10,000 to 1,00,000"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "incometaxindia.gov.in - About Form 27EQ (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-27eq",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - TCS statement for quarter ending 31-03-2026 (due 2026-05-15)",
+        "url": "https://www.incometaxindia.gov.in/w/%E2%80%8Bquarterly-statement-of-tcs-deposited-for-the-quarter-ending-march-31-2026",
+        "kind": "portal"
+      },
+      {
+        "title": "TDSMAN - TDS/TCS compliances reminder for April and May 2026",
+        "url": "https://blog.tdsman.com/2026/04/tds-tcs-compliances-reminder-for-april-may-2026/",
+        "kind": "secondary"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "CBDT FAQ Q6.10 lists 27EQ alongside a 31 May 2026 date, but rule 31AA, the official Form 27EQ page and the tax calendar give 15 May 2026."
+  },
+  {
+    "id": "income-tax-tcs-statement",
+    "title": "TCS statement: Form 143 (old 27EQ)",
+    "form": "Form 143 (old 27EQ)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Quarterly TCS statement under the 2025 Act. Rule 219(4) now uses the same dates as TDS statements: 31 July, 31 October, 31 January and 31 May (previously the 15th of the month).",
+    "applicability": "Every collector under section 394 from the quarter April-June 2026.",
+    "audience": [
+      "tds"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 1,
+      "except": {
+        "Q4": {
+          "day": 31,
+          "monthOffset": 2
+        }
+      }
+    },
+    "law": "Section 397(3)(b), Income-tax Act, 2025; rule 219(1) [Table Sl. No. 4] and (4), Income-tax Rules, 2026",
+    "penalty": "Fee Rs 200 per day under section 427(1), not exceeding the tax deductible or collectible and payable before the statement is filed; penalty Rs 10,000 to Rs 1,00,000 under section 461 (not levied where tax, fee and interest are paid and the statement is filed within one month of the due date, section 461(2)).",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": null,
+      "fixedPenalty": 10000,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Penalty waived if filed within one month of the due date after paying tax, fee and interest (section 461(2))"
+      ],
+      "basis": "427(1) fee Rs 200/day capped at the tax deductible or collectible; 461 penalty Rs 10,000 to 1,00,000"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "CBDT tax calendar - Form 143 for quarter ending 30-06-2026 (due 2026-07-31)",
+        "url": "https://www.incometaxindia.gov.in/w/filing-of-quarterly-statement-of-collection-of-tax-at-source-under-section-397-3-b-of-the-income-tax-act-2025-in-form-no.-143-income-tax-rules-2026-for-the-quarter-ending-june-30-2026",
+        "kind": "portal"
+      },
+      {
+        "title": "TDSMAN - TDS/TCS annual compliance calendar for Tax Year 2026-27",
+        "url": "https://blog.tdsman.com/2026/07/tds-tcs-annual-compliance-calendar/",
+        "kind": "secondary"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-form-16a-1961-act",
+    "title": "Form 16A non-salary TDS certificate (1961 Act)",
+    "form": "Form 16A",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Quarterly TDS certificate for non-salary deductions, due 15 days after the TDS statement due date. In-window: quarter January-March 2026, due 15 June 2026.",
+    "applicability": "Deductors of non-salary TDS for quarters up to March 2026.",
+    "audience": [
+      "tds"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 15,
+      "monthOffset": 2,
+      "except": {
+        "Q4": {
+          "day": 15,
+          "monthOffset": 3
+        }
+      }
+    },
+    "law": "Section 203, Income-tax Act, 1961; rule 31(3), Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Penalty Rs 100 per day of default under section 272A(2)(g), not exceeding the tax deductible or collectible.",
+    "exposure": {
+      "lateFeePerDay": 100,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Penalty (not a fee) of Rs 100/day under section 272A(2)(g) per the incometaxindia.gov.in text of section 272A (the CBDT transition FAQ Q6.16 says Rs 500/day), capped at the tax amount"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "incometaxindia.gov.in - About Form 16A (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-16a",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - Form 16A for quarter ending March 2026 (due 2026-06-15)",
+        "url": "https://www.incometaxindia.gov.in/w/quarterly-tds-certificates-in-respect-of-tax-deducted-for-payments-other-than-salary-for-the-quarter-ending-march-2026",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      },
+      {
+        "title": "Income-tax Act, 1961 - section 272A (incometaxindia.gov.in)",
+        "url": "https://www.incometaxindia.gov.in/w/section-272a",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "CBDT Circular 02/2026 had extended Q3 FY 2025-26 certificates to 31 March 2026 (before the site window). FAQ Q6.16 cites Rs 500/day under 272A(2)(g); the Act text on incometaxindia.gov.in shows Rs 100/day."
+  },
+  {
+    "id": "income-tax-form-27d-1961-act",
+    "title": "Form 27D TCS certificate (1961 Act)",
+    "form": "Form 27D",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Quarterly TCS certificate, due 15 days after the TCS statement due date: 30 July, 30 October, 30 January and 30 May. In-window: quarter January-March 2026, due 30 May 2026.",
+    "applicability": "Collectors under section 206C for quarters up to March 2026.",
+    "audience": [
+      "tds"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 1,
+      "except": {
+        "Q4": {
+          "day": 30,
+          "monthOffset": 2
+        }
+      }
+    },
+    "law": "Section 206C(5), Income-tax Act, 1961; rule 37D, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Penalty Rs 100 per day of default under section 272A(2)(g), not exceeding the tax deductible or collectible.",
+    "exposure": {
+      "lateFeePerDay": 100,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Penalty (not a fee) of Rs 100/day under section 272A(2)(g) per the incometaxindia.gov.in text of section 272A (the CBDT transition FAQ Q6.16 says Rs 500/day), capped at the tax amount"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "incometaxindia.gov.in - About Form 27D (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-27d",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - TCS certificates for Q4 FY 2025-26 (due 2026-05-30)",
+        "url": "https://www.incometaxindia.gov.in/w/issue-of-tcs-certificates-for-the-4th-quarter-of-the-financial-year-2025-26",
+        "kind": "portal"
+      },
+      {
+        "title": "TDSMAN - TDS/TCS compliances reminder for April and May 2026",
+        "url": "https://blog.tdsman.com/2026/04/tds-tcs-compliances-reminder-for-april-may-2026/",
+        "kind": "secondary"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-form-131-133-certificates",
+    "title": "TDS/TCS certificates: Forms 131, 133 (old 16A, 27D)",
+    "form": "Form 131 (old 16A); Form 133 (old 27D)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Quarterly certificates for non-salary TDS (Form 131) and TCS (Form 133), downloaded from the TRACES portal and issued within 15 days from the statement due date: 15 August, 15 November, 15 February and 15 June.",
+    "applicability": "Deductors and collectors from the quarter April-June 2026. Because TCS statements are now due on the 31st, TCS certificates move from the 30th to the 15th of the following month.",
+    "audience": [
+      "tds"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 15,
+      "monthOffset": 2,
+      "except": {
+        "Q4": {
+          "day": 15,
+          "monthOffset": 3
+        }
+      }
+    },
+    "law": "Section 395(4), Income-tax Act, 2025; rule 215(1) [Table Sl. Nos. 2 and 4], Income-tax Rules, 2026",
+    "penalty": "Penalty Rs 500 per day of default under section 465(2)(g), not exceeding the tax deductible or collectible (section 465(3)(b)).",
+    "exposure": {
+      "lateFeePerDay": 500,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Penalty (not a fee) of Rs 500/day under section 465(2)(g), capped at the tax deductible or collectible (465(3)(b))"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "CBDT tax calendar - Form 131 for quarter ending 30-06-2026 (due 2026-08-15)",
+        "url": "https://www.incometaxindia.gov.in/w/issuance-of-tds-certificate-in-form-no.-131-income-tax-rules-2026-for-tds-other-than-on-salary-pension-or-interest-income-of-specified-senior-citizen-under-section-393-1-of-the-income-tax-act-2025-for-the-quarter-ending-june-30-2026",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - Form 133 for quarter ending 30-06-2026 (due 2026-08-15)",
+        "url": "https://www.incometaxindia.gov.in/w/issuance-of-tcs-certificate-in-form-no.-133-income-tax-rules-2026-under-section-395-4-of-the-income-tax-act-2025-for-tax-collected-at-source-for-the-quarter-ending-june-30-2026",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-form-16-1961-act",
+    "title": "Form 16 salary TDS certificate (1961 Act)",
+    "form": "Form 16",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Annual certificate of tax deducted on salary for FY 2025-26, due 15 June 2026.",
+    "applicability": "Employers who deducted or paid tax on salary paid up to 31 March 2026.",
+    "audience": [
+      "employer",
+      "tds"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 15,
+      "monthOffset": 3
+    },
+    "law": "Section 203, Income-tax Act, 1961; rule 31, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Penalty Rs 100 per day of default under section 272A(2)(g), not exceeding the tax deductible or collectible.",
+    "exposure": {
+      "lateFeePerDay": 100,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Penalty (not a fee) of Rs 100/day under section 272A(2)(g) per the incometaxindia.gov.in text of section 272A (the CBDT transition FAQ Q6.16 says Rs 500/day), capped at the tax amount"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "incometaxindia.gov.in - About Form 16 (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-16-1",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      },
+      {
+        "title": "Income-tax Act, 1961 - section 272A (incometaxindia.gov.in)",
+        "url": "https://www.incometaxindia.gov.in/w/section-272a",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "CBDT FAQ Q6.15 table: Form 16 for FY 2025-26 under the old Act by 15 June 2026."
+  },
+  {
+    "id": "income-tax-form-130-salary-certificate",
+    "title": "Form 130 salary TDS certificate (old Form 16)",
+    "form": "Form 130 (old Form 16)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Annual certificate of tax deducted on salary (and on pension or interest of specified senior citizens) for the tax year, due 15 June after the year; first due 15 June 2027.",
+    "applicability": "Employers deducting under section 392 and specified banks deducting under section 393(1) [Table Sl. No. 8(iii)], from tax year 2026-27. Each employer issues Parts A and B for its period of employment.",
+    "audience": [
+      "employer",
+      "tds"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 15,
+      "monthOffset": 3
+    },
+    "law": "Section 395(4), Income-tax Act, 2025; rule 215(1) [Table Sl. No. 1] and (2), Income-tax Rules, 2026",
+    "penalty": "Penalty Rs 500 per day of default under section 465(2)(g), not exceeding the tax deductible or collectible (section 465(3)(b)).",
+    "exposure": {
+      "lateFeePerDay": 500,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Penalty (not a fee) of Rs 500/day under section 465(2)(g), capped at the tax deductible or collectible (465(3)(b))"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-form-15cc-1961-act",
+    "title": "Form 15CC remittance statement (1961 Act)",
+    "form": "Form 15CC",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Authorised dealers file a quarterly statement of remittances to non-residents within 15 days from the end of the quarter. In-window: quarter January-March 2026, due 15 April 2026.",
+    "applicability": "Authorised dealers (banks) for remittances made in quarters up to March 2026.",
+    "audience": [
+      "foreign",
+      "company"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "daysAfter": 15
+    },
+    "law": "Section 195(6), Income-tax Act, 1961; rule 37BB, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "No dedicated late fee is prescribed for Form 15CC; general penalty provisions may apply (not quantified).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "No dedicated fee or penalty identified"
+      ],
+      "basis": "No specific fee or penalty section identified for late Form 15CC"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "incometaxindia.gov.in - About Form 15CC (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-15cc",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - Form 15CC for quarter ending March 2026 (due 2026-04-15)",
+        "url": "https://www.incometaxindia.gov.in/w/quarterly-statement-in-respect-of-foreign-remittances-to-be-furnished-by-authorized-dealers-in-form-no.-15cc-income-tax-rules-1962-for-quarter-ending-march-2026-1",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-form-147-remittance-statement",
+    "title": "Form 147 remittance statement (old 15CC)",
+    "form": "Form 147 (old 15CC); Form 148 (old 15CD) for IFSC units",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Authorised dealers file a quarterly statement of remittances to non-residents within 15 days from the end of each quarter (15 July, 15 October, 15 January, 15 April). IFSC units paying non-residents file Form 148 on the same timeline.",
+    "applicability": "Authorised dealers under section 10(1) of FEMA and IFSC units, from the quarter April-June 2026.",
+    "audience": [
+      "foreign",
+      "company"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "daysAfter": 15
+    },
+    "law": "Section 397(3)(d), Income-tax Act, 2025; rule 220(6), Income-tax Rules, 2026",
+    "penalty": "No dedicated late fee is prescribed for Form 147/148; general penalty provisions may apply (not quantified).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "No dedicated fee or penalty identified"
+      ],
+      "basis": "No specific fee or penalty section identified for late Form 147/148"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "CBDT tax calendar - Form 147 for quarter ending June 2026 (due 2026-07-15)",
+        "url": "https://www.incometaxindia.gov.in/w/furnishing-of-quarterly-statement-in-form-147-income-tax-rules-2026-to-be-furnished-by-an-authorised-dealer-in-respect-of-remittances-made-for-the-quarter-ending-june-2026",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Remitters themselves file Form 145 (old 15CA) and, above Rs 5 lakh, Form 146 (old 15CB) before each remittance."
+  },
+  {
+    "id": "income-tax-15g-15h-statement-1961-act",
+    "title": "Form 15G/15H declarations upload (1961 Act)",
+    "form": "Form 15G / 15H (statement of declarations received)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Payers upload particulars of Form 15G/15H declarations received in each quarter by the 15th of the following month, and by 30 April for January-March. In-window: quarter January-March 2026, due 30 April 2026.",
+    "applicability": "Banks, companies, EPFO and other payers that received 15G/15H no-deduction declarations up to 31 March 2026.",
+    "audience": [
+      "tds"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 15,
+      "monthOffset": 1,
+      "except": {
+        "Q4": {
+          "day": 30,
+          "monthOffset": 1
+        }
+      }
+    },
+    "law": "Section 197A, Income-tax Act, 1961; rule 29C, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Penalty Rs 100 per day under section 272A(2)(f), not exceeding the tax deductible.",
+    "exposure": {
+      "lateFeePerDay": 100,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Penalty (not a fee) of Rs 100/day under section 272A(2)(f), capped at the tax deductible"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - 15G/15H declarations for quarter ending March 2026 (due 2026-04-30)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-uploading-declarations-received-from-recipients-in-form.-15g/15h-income-tax-rules-1962-during-the-quarter-ending-march-2026-1",
+        "kind": "portal"
+      },
+      {
+        "title": "Income-tax Act, 1961 - section 272A (incometaxindia.gov.in)",
+        "url": "https://www.incometaxindia.gov.in/w/section-272a",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-form-121-declarations",
+    "title": "Form 121 declarations upload (old 15G/15H)",
+    "form": "Form 121 Part B (old 15G and 15H)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Forms 15G and 15H are merged into Form 121. The payer allots a UIN to each declaration and uploads Part B with the declarations received in a quarter by the 7th of the month after the quarter (7 July, 7 October, 7 January, 7 April). The declarations are also reported in the quarterly TDS statement.",
+    "applicability": "Payers of interest, dividends, rent, EPF withdrawals and other incomes covered by section 393(6) who receive no-deduction declarations, from 1 April 2026.",
+    "audience": [
+      "tds"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 7,
+      "monthOffset": 1
+    },
+    "law": "Sections 393(6) and 393(7), Income-tax Act, 2025 (section 393(7) substituted by Finance Act, 2026); rule 211, Income-tax Rules, 2026; DIT(S) Notification No. 01/CPC(TDS)/2026",
+    "penalty": "Penalty Rs 500 per day under section 465(2)(f), not exceeding the tax deductible (section 465(3)(a)).",
+    "exposure": {
+      "lateFeePerDay": 500,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Penalty (not a fee) of Rs 500/day under section 465(2)(f), capped at the tax deductible (465(3)(a))"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - Form 121 declarations for quarter ending June 2026 (due 2026-07-07)",
+        "url": "https://www.incometaxindia.gov.in/w/upload-the-declarations-received-from-recipients-in-form-no.-121-income-tax-rules-2026-during-the-quarter-ending-june-2026",
+        "kind": "portal"
+      },
+      {
+        "title": "DIT(Systems) Notification No. 01/CPC(TDS)/2026 dated 28-03-2026 - Form 121 UIN and quarterly Part B",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-04/Notification-No-01-CPC-TDS-2026.pdf",
+        "kind": "notification"
+      },
+      {
+        "title": "Finance Act, 2026 (4 of 2026, assent 30-03-2026) - full text reproduced by TaxGuru",
+        "url": "https://taxguru.in/income-tax/finance-act-2026.html",
+        "kind": "secondary"
+      },
+      {
+        "title": "Finance Bill, 2026 as introduced (indiabudget.gov.in)",
+        "url": "https://www.indiabudget.gov.in/doc/Finance_Bill.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "TaxGuru - EPFO circular dated 13-04-2026 on Form 121 (monthly upload practice)",
+        "url": "https://taxguru.in/income-tax/transition-form-15g-15h-consolidated-form-121-tds-exempted-incomes.html",
+        "kind": "secondary"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "The original section 393(7) required monthly delivery by the 7th; Finance Act 2026 made it quarterly. The Memorandum says the change takes effect on 1 April 2027, but the enacted text dates only the new depository clause (393(6)(b)) to 1 April 2027, and the CBDT calendar shows quarterly dates for 2026-27. EPFO's circular of 13 April 2026 still uploads monthly; monthly upload remains a safe practice."
+  },
+  {
+    "id": "income-tax-advance-tax",
+    "title": "Advance tax instalments (15 Jun, Sep, Dec, Mar)",
+    "form": "Income-tax Act, 2025 challan - advance tax",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Where tax for the year after TDS/TCS is Rs 10,000 or more, advance tax is paid in four instalments: at least 15% by 15 June, 45% by 15 September, 75% by 15 December and 100% by 15 March.",
+    "applicability": "All assessees liable under sections 403 and 404, except resident individuals aged 60 or more with no business or professional income (section 403(3)). Presumptive-scheme taxpayers pay in one instalment (see income-tax-advance-tax-presumptive).",
+    "audience": [
+      "individual",
+      "company",
+      "firm",
+      "llp",
+      "trust"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "day": 15,
+      "monthOffset": 0
+    },
+    "law": "Sections 403 to 406 and 408(1), Income-tax Act, 2025",
+    "penalty": "Interest at 1% per month under section 424 where advance tax paid is below 90% of the assessed tax, and under section 425 for deferment of instalments (1% per month, generally for three months for each shortfall).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": 1,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Sections 424 and 425 (old 234B and 234C): simple interest 1% per month or part"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      },
+      {
+        "title": "CBDT tax calendar - first instalment for Tax Year 2026-27 (due 2026-06-15)",
+        "url": "https://www.incometaxindia.gov.in/w/first-instalment-of-advance-tax-for-the-tax-year-2026-27",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - fourth instalment for Tax Year 2026-27 (due 2027-03-15)",
+        "url": "https://www.incometaxindia.gov.in/w/fourth-instalment-of-advance-tax-for-the-tax-year-2026-27",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "FAQ Q2.15-Q2.21. The last 1961-Act instalment (AY 2026-27) fell on 15 March 2026, before the site window; interest for that year stays under sections 234B/234C."
+  },
+  {
+    "id": "income-tax-advance-tax-presumptive",
+    "title": "Advance tax - presumptive taxation (15 March)",
+    "form": "Income-tax Act, 2025 challan - advance tax",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Residents declaring business or professional income on a presumptive basis pay the whole advance tax in one instalment by 15 March.",
+    "applicability": "Assessees declaring income under section 58(2) [Table Sl. No. 1 or 3] (old sections 44AD and 44ADA), from tax year 2026-27.",
+    "audience": [
+      "individual",
+      "firm"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 15,
+      "monthOffset": 0
+    },
+    "law": "Section 408(2), Income-tax Act, 2025",
+    "penalty": "Interest at 1% per month under sections 424 and 425.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": 1,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Sections 424 and 425: simple interest 1% per month or part"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "FAQ Q2.20."
+  },
+  {
+    "id": "income-tax-itr-non-audit",
+    "title": "ITR - non-business, non-audit taxpayers (31 July)",
+    "form": "ITR-1 / ITR-2 (other ITR forms as applicable)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Return of income for taxpayers outside the audit, transfer pricing and non-audit business categories - typically salaried individuals, pensioners, HUFs and others filing ITR-1 or ITR-2. Due 31 July after the year.",
+    "applicability": "Sl. No. 4 ('any other assessee') of the due-date table in section 139(1) Explanation 2 (AY 2026-27) and section 263(1)(c) (tax year 2026-27 onward).",
+    "audience": [
+      "individual"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 4
+    },
+    "law": "Section 139(1) and Explanation 2, Income-tax Act, 1961 (AY 2026-27; Explanation 2 substituted by section 5, Finance Act, 2026); section 263(1)(c), Income-tax Act, 2025 (tax year 2026-27 onward; substituted by Finance Act, 2026)",
+    "penalty": "Late fee Rs 5,000 (Rs 1,000 where total income does not exceed Rs 5 lakh) under section 234F (1961 Act) / section 428(a) (2025 Act); interest at 1% per month or part on unpaid tax under section 234A / section 423; business, speculation and capital losses cannot be carried forward if the return is late.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 1000,
+      "maxPenalty": 5000,
+      "interestPctPerMonth": 1,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Business and capital losses not carried forward if filed late"
+      ],
+      "basis": "234F / 428(a) fee Rs 1,000 (income up to Rs 5 lakh) or Rs 5,000; 234A / 423 interest 1% per month on tax due"
+    },
+    "effective": {
+      "from": null,
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - ITR for AY 2026-27 by other assessees (due 2026-07-31)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-furnishing-the-return-of-income-for-the-assessment-year-2026-27-by-an-assessee",
+        "kind": "portal"
+      },
+      {
+        "title": "Finance Act, 2026 (4 of 2026, assent 30-03-2026) - full text reproduced by TaxGuru",
+        "url": "https://taxguru.in/income-tax/finance-act-2026.html",
+        "kind": "secondary"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      },
+      {
+        "title": "Income Tax e-filing portal - Latest news",
+        "url": "https://www.incometax.gov.in/iec/foportal/latest-news",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Finance Act 2026 moved non-audit business/professional cases to 31 August (see income-tax-itr-business-non-audit). No CBDT extension of 31 July 2026 was issued (portal news and CBDT circulars checked to 14 October 2026). Tax year 2026-27 returns (first due 31 July 2027) will use new ITR forms under the 2025 Act."
+  },
+  {
+    "id": "income-tax-itr-business-non-audit",
+    "title": "ITR - non-audit business or profession (31 August)",
+    "form": "ITR-3 / ITR-4 / ITR-5 (as applicable)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "New from AY 2026-27: taxpayers with business or professional income whose accounts need no audit, and partners of non-audited firms (and spouses whose income is clubbed), file by 31 August instead of 31 July.",
+    "applicability": "Sl. No. 3 of the due-date table - individuals, HUFs, firms, LLPs, AOPs and others with non-audited business or professional income (including presumptive cases) where no transfer pricing report is required.",
+    "audience": [
+      "individual",
+      "firm",
+      "llp"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 5
+    },
+    "law": "Section 139(1) and Explanation 2, Income-tax Act, 1961 (AY 2026-27; Explanation 2 substituted by section 5, Finance Act, 2026); section 263(1)(c), Income-tax Act, 2025 (tax year 2026-27 onward; substituted by Finance Act, 2026)",
+    "penalty": "Late fee Rs 5,000 (Rs 1,000 where total income does not exceed Rs 5 lakh) under section 234F (1961 Act) / section 428(a) (2025 Act); interest at 1% per month or part on unpaid tax under section 234A / section 423; business, speculation and capital losses cannot be carried forward if the return is late.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 1000,
+      "maxPenalty": 5000,
+      "interestPctPerMonth": 1,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Business and capital losses not carried forward if filed late"
+      ],
+      "basis": "234F / 428(a) fee Rs 1,000 (income up to Rs 5 lakh) or Rs 5,000; 234A / 423 interest 1% per month on tax due"
+    },
+    "effective": {
+      "from": "2025-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - ITR for AY 2026-27 by non-audit business cases (due 2026-08-31)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-furnishing-the-return-of-income-for-the-assessment-year-2026-27",
+        "kind": "portal"
+      },
+      {
+        "title": "Finance Act, 2026 (4 of 2026, assent 30-03-2026) - full text reproduced by TaxGuru",
+        "url": "https://taxguru.in/income-tax/finance-act-2026.html",
+        "kind": "secondary"
+      },
+      {
+        "title": "Memorandum explaining the provisions in the Finance Bill, 2026 (indiabudget.gov.in)",
+        "url": "https://www.indiabudget.gov.in/doc/memo.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Introduced by Finance Act 2026 for both Acts (1961 Act w.e.f. 1 March 2026 for AY 2026-27; 2025 Act from tax year 2026-27). The Memorandum says ITR-1/ITR-2 filers stay at 31 July. No extension of 31 August 2026 was issued."
+  },
+  {
+    "id": "income-tax-itr-audit",
+    "title": "ITR - companies and audit cases (31 October)",
+    "form": "ITR-3 / ITR-5 / ITR-6 / ITR-7 (as applicable)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Return of income for companies, other assessees whose accounts must be audited under the Income-tax Act or another law, and partners of audited firms (and clubbed spouses), where no transfer pricing report is required. Due 31 October.",
+    "applicability": "Sl. No. 2 of the due-date table, including audited trusts and other non-profit organisations.",
+    "audience": [
+      "company",
+      "firm",
+      "llp",
+      "trust",
+      "audit"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 7
+    },
+    "law": "Section 139(1) and Explanation 2, Income-tax Act, 1961 (AY 2026-27; Explanation 2 substituted by section 5, Finance Act, 2026); section 263(1)(c), Income-tax Act, 2025 (tax year 2026-27 onward; substituted by Finance Act, 2026)",
+    "penalty": "Late fee Rs 5,000 (Rs 1,000 where total income does not exceed Rs 5 lakh) under section 234F (1961 Act) / section 428(a) (2025 Act); interest at 1% per month or part on unpaid tax under section 234A / section 423; business, speculation and capital losses cannot be carried forward if the return is late.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 1000,
+      "maxPenalty": 5000,
+      "interestPctPerMonth": 1,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Business and capital losses not carried forward if filed late"
+      ],
+      "basis": "234F / 428(a) fee Rs 1,000 (income up to Rs 5 lakh) or Rs 5,000; 234A / 423 interest 1% per month on tax due"
+    },
+    "effective": {
+      "from": null,
+      "to": null
+    },
+    "overrides": [
+      {
+        "period": "FY2025-26",
+        "due": "2026-11-21",
+        "originalDue": "2026-10-31",
+        "reason": "Extended by CBDT Circular No. 07/2026 dated 28-09-2026 for persons at Sl. No. 2 of the Table below Explanation 2 to section 139(1), Income-tax Act, 1961 (AY 2026-27)",
+        "source": {
+          "title": "CBDT Circular No. 07/2026",
+          "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-09/Circular-7-2026.pdf"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "title": "CBDT Circular No. 07/2026 dated 28-09-2026 (F. No. 225/128/2026/ITA-II)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-09/Circular-7-2026.pdf",
+        "kind": "circular"
+      },
+      {
+        "title": "CBDT tax calendar - ITR for AY 2026-27 audit cases (extended) (due 2026-11-21)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-furnishing-the-return-of-income-for-the-assessment-year-2026-27-by-the-following-assessees-1",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - ITR for AY 2026-27 audit cases (original) (due 2026-10-31)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-furnishing-the-return-of-income-for-the-assessment-year-2026-27-by-the-following-assessees-",
+        "kind": "portal"
+      },
+      {
+        "title": "Finance Act, 2026 (4 of 2026, assent 30-03-2026) - full text reproduced by TaxGuru",
+        "url": "https://taxguru.in/income-tax/finance-act-2026.html",
+        "kind": "secondary"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      },
+      {
+        "title": "Income Tax e-filing portal - Latest news",
+        "url": "https://www.incometax.gov.in/iec/foportal/latest-news",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Circular 07/2026 covers Sl. No. 2 only; transfer pricing cases (30 November 2026) were not extended. For tax year 2026-27 the date is 31 October 2027 unless extended."
+  },
+  {
+    "id": "income-tax-itr-transfer-pricing",
+    "title": "ITR - transfer pricing cases (30 November)",
+    "form": "ITR-3 / ITR-5 / ITR-6 (as applicable)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Taxpayers required to furnish a transfer pricing accountant's report (international or specified domestic transactions), including partners of such firms and clubbed spouses, file by 30 November.",
+    "applicability": "Sl. No. 1 of the due-date table (section 92E applies under the 1961 Act; section 172 under the 2025 Act).",
+    "audience": [
+      "company",
+      "firm",
+      "llp",
+      "audit",
+      "foreign"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 8
+    },
+    "law": "Section 139(1) and Explanation 2, Income-tax Act, 1961 (AY 2026-27; Explanation 2 substituted by section 5, Finance Act, 2026); section 263(1)(c), Income-tax Act, 2025 (tax year 2026-27 onward; substituted by Finance Act, 2026)",
+    "penalty": "Late fee Rs 5,000 (Rs 1,000 where total income does not exceed Rs 5 lakh) under section 234F (1961 Act) / section 428(a) (2025 Act); interest at 1% per month or part on unpaid tax under section 234A / section 423; business, speculation and capital losses cannot be carried forward if the return is late.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 1000,
+      "maxPenalty": 5000,
+      "interestPctPerMonth": 1,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Business and capital losses not carried forward if filed late"
+      ],
+      "basis": "234F / 428(a) fee Rs 1,000 (income up to Rs 5 lakh) or Rs 5,000; 234A / 423 interest 1% per month on tax due"
+    },
+    "effective": {
+      "from": null,
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - ITR for AY 2026-27 transfer pricing cases (due 2026-11-30)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-furnishing-the-return-of-income-for-the-assessment-year-2026-27-by-an-assessee-including-a-partner-of-a-firm-or-the-spouse-of-such-partner-where-section-5a-of-the-income-tax-act-1961-applies-who-is-required-to-furnish-a-report-under-section-9",
+        "kind": "portal"
+      },
+      {
+        "title": "Finance Act, 2026 (4 of 2026, assent 30-03-2026) - full text reproduced by TaxGuru",
+        "url": "https://taxguru.in/income-tax/finance-act-2026.html",
+        "kind": "secondary"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Not covered by Circular 07/2026; AY 2026-27 date remains 30 November 2026."
+  },
+  {
+    "id": "income-tax-belated-return",
+    "title": "Belated return (31 December)",
+    "form": "ITR - belated return (section 139(4) / 263(4))",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "A taxpayer who missed the original due date can file a belated return within nine months from the end of the year (31 December) or before the assessment is completed, whichever is earlier.",
+    "applicability": "Any person who did not file by the section 139(1) / 263(1) due date.",
+    "audience": [
+      "individual",
+      "company",
+      "firm",
+      "llp",
+      "trust"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 9
+    },
+    "law": "Section 139(4), Income-tax Act, 1961 (AY 2026-27); section 263(4), Income-tax Act, 2025 (tax year 2026-27 onward)",
+    "penalty": "Late fee Rs 5,000 (Rs 1,000 where total income does not exceed Rs 5 lakh) under section 234F (1961 Act) / section 428(a) (2025 Act); interest at 1% per month or part on unpaid tax under section 234A / section 423; business, speculation and capital losses cannot be carried forward if the return is late.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 1000,
+      "maxPenalty": 5000,
+      "interestPctPerMonth": 1,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Business and capital losses not carried forward if filed late"
+      ],
+      "basis": "234F / 428(a) fee Rs 1,000 (income up to Rs 5 lakh) or Rs 5,000; 234A / 423 interest 1% per month on tax due"
+    },
+    "effective": {
+      "from": null,
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - belated return for AY 2026-27 (due 2026-12-31)",
+        "url": "https://www.incometaxindia.gov.in/w/filing-of-belated-return-of-income-for-the-assessment-year-2026-27-for-all-assessee-provided-assessment-has-not-been-completed-on-or-before-december-31-2026-",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "FAQ Q3.8 and Q3.13. After this date only an updated return (ITR-U) is possible."
+  },
+  {
+    "id": "income-tax-revised-return",
+    "title": "Revised return (31 March; fee after 31 December)",
+    "form": "ITR - revised return (section 139(5) / 263(5))",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "From AY 2026-27 a revised return can be filed up to 31 March following the year (12 months after the year end) or before the assessment is completed. A revised return filed after 31 December (nine months) attracts a fee.",
+    "applicability": "Any person who filed an original or belated return and finds an omission or wrong statement.",
+    "audience": [
+      "individual",
+      "company",
+      "firm",
+      "llp",
+      "trust"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 12
+    },
+    "law": "Section 139(5) read with section 234-I, Income-tax Act, 1961 (substituted/inserted by Finance Act, 2026); section 263(5) read with section 428(b), Income-tax Act, 2025",
+    "penalty": "Fee Rs 5,000 (Rs 1,000 where total income does not exceed Rs 5 lakh) for a revised return filed more than nine months after the end of the year - section 234-I (1961 Act) / section 428(b) (2025 Act).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 1000,
+      "maxPenalty": 5000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "234-I / 428(b) fee Rs 1,000 (income up to Rs 5 lakh) or Rs 5,000 for revisions after nine months"
+    },
+    "effective": {
+      "from": "2025-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - revised return for AY 2026-27 (due 2027-03-31)",
+        "url": "https://www.incometaxindia.gov.in/w/filing-of-revised-return-of-income-for-the-assessment-year-2026-27-for-all-assessee-provided-assessment-has-not-been-completed-on-or-before-march-31-2027-",
+        "kind": "portal"
+      },
+      {
+        "title": "Finance Act, 2026 (4 of 2026, assent 30-03-2026) - full text reproduced by TaxGuru",
+        "url": "https://taxguru.in/income-tax/finance-act-2026.html",
+        "kind": "secondary"
+      },
+      {
+        "title": "Memorandum explaining the provisions in the Finance Bill, 2026 (indiabudget.gov.in)",
+        "url": "https://www.indiabudget.gov.in/doc/memo.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      },
+      {
+        "title": "TaxGuru - Missed ITR deadline for FY 2025-26: belated, revised and updated returns",
+        "url": "https://taxguru.in/income-tax/not-filed-your-it-return-by-4th-august-file-it-now.html",
+        "kind": "secondary"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Before Finance Act 2026 the deadline was 31 December. As enacted, section 234-I refers to nine to twelve months 'from the end of the relevant assessment year', which read literally would never apply; the intended reading (followed by commentators) is revisions filed between 1 January and 31 March 2027."
+  },
+  {
+    "id": "income-tax-updated-return",
+    "title": "Updated return (ITR-U) - last date",
+    "form": "ITR-U (section 139(8A) / 263(6))",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "An updated return can be filed within 48 months from the end of the assessment year (1961 Act) or from the end of the financial year after the tax year (2025 Act) - i.e. by 31 March five years after the income year - with additional tax on the tax and interest due.",
+    "applicability": "Any person, whether or not a return was filed, except where it would reduce tax, create or increase a refund or loss, or where proceedings, search or prosecution bar it.",
+    "audience": [
+      "individual",
+      "company",
+      "firm",
+      "llp",
+      "trust"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 60
+    },
+    "law": "Sections 139(8A) and 140B, Income-tax Act, 1961; sections 263(6) and 267, Income-tax Act, 2025",
+    "penalty": "Additional income-tax of 25%, 50%, 60% or 70% of the tax and interest depending on how late it is filed (section 140B / 267); a further 10% applies if filed in response to a reassessment notice (section 140B(3A), Finance Act 2026).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Additional tax of 25% to 70% of tax and interest"
+      ],
+      "basis": "140B / 267 additional income-tax on aggregate tax and interest; not a fee or penalty"
+    },
+    "effective": {
+      "from": null,
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "TaxGuru - Missed ITR deadline for FY 2025-26: belated, revised and updated returns",
+        "url": "https://taxguru.in/income-tax/not-filed-your-it-return-by-4th-august-file-it-now.html",
+        "kind": "secondary"
+      },
+      {
+        "title": "Income Tax e-filing portal - Latest news",
+        "url": "https://www.incometax.gov.in/iec/foportal/latest-news",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "In-window last dates: AY 2022-23 (FY 2021-22) on 31 March 2027 and AY 2023-24 (FY 2022-23) on 31 March 2028 (the portal released AY 2022-23 ITR-U utilities in June 2026). AY 2026-27 runs to 31 March 2031 and tax year 2026-27 to 31 March 2032."
+  },
+  {
+    "id": "income-tax-new-regime-opt-out",
+    "title": "Opt out of new tax regime (business income)",
+    "form": "Form 10-IEA (AY 2026-27); manner under section 202(4) not yet prescribed for tax year 2026-27",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "The new tax regime is the default. An individual, HUF, AOP, BOI or artificial juridical person with business or professional income who wants the old regime must exercise the option by the ITR due date; it then applies to later years and can be withdrawn only once.",
+    "applicability": "Individuals, HUFs, AOPs (other than co-operatives), BOIs and AJPs with business or professional income. Others choose the regime in the return itself.",
+    "audience": [
+      "individual"
+    ],
+    "frequency": "event",
+    "trigger": "On or before the original ITR due date that applies to the taxpayer under section 139(1) (AY 2026-27) or section 263(1) (tax year 2026-27 onward).",
+    "law": "Section 115BAC(6), Income-tax Act, 1961 and rule 21AGA, Income-tax Rules, 1962 (AY 2026-27); section 202(4), Income-tax Act, 2025 (tax year 2026-27 onward)",
+    "penalty": "No fee; a late option is invalid and the new regime applies for the year.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Old-regime deductions lost for the year if the option is late"
+      ],
+      "basis": "No monetary fee or penalty"
+    },
+    "effective": {
+      "from": null,
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "incometaxindia.gov.in - About Form 10-IEA (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form_10-iea",
+        "kind": "portal"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      },
+      {
+        "title": "CBDT old-to-new section and form mapping data (incometaxindia.gov.in Act comparison tool)",
+        "url": "https://www.incometaxindia.gov.in/o/c/incometaxactcompares/",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "medium",
+    "notes": "No 2025-Rules equivalent of Form 10-IEA appears in the Income-tax Rules, 2026 or the CBDT mapping data. Options exercised under the 1961 Act carry over (section 536(2)(f); FAQ Q10.2)."
+  },
+  {
+    "id": "income-tax-tax-audit-1961-act",
+    "title": "Tax audit report 3CA/3CB/3CD (1961 Act)",
+    "form": "Form 3CA or 3CB with Form 3CD",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Tax audit report for FY 2025-26 (AY 2026-27), due one month before the ITR due date: normally 30 September 2026, extended to 21 October 2026; 31 October 2026 where a transfer pricing report is also required.",
+    "applicability": "Businesses with turnover above Rs 1 crore (Rs 10 crore where cash receipts and payments are each within 5%), professionals with receipts above Rs 50 lakh, and presumptive-scheme taxpayers declaring lower profits, for FY 2025-26.",
+    "audience": [
+      "audit",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 6
+    },
+    "law": "Section 44AB and clause (ii) of its Explanation, Income-tax Act, 1961; rule 6G, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Penalty of 0.5% of turnover or gross receipts, up to Rs 1,50,000, under section 271B.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": 150000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": 0.5,
+      "other": [],
+      "basis": "Section 271B: 0.5% of turnover or gross receipts, maximum Rs 1,50,000"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "overrides": [
+      {
+        "period": "FY2025-26",
+        "due": "2026-10-21",
+        "originalDue": "2026-09-30",
+        "reason": "Extended by CBDT Circular No. 07/2026 dated 28-09-2026 (specified date under clause (ii) of the Explanation to section 44AB for Sl. No. 2 persons)",
+        "source": {
+          "title": "CBDT Circular No. 07/2026",
+          "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-09/Circular-7-2026.pdf"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "title": "CBDT Circular No. 07/2026 dated 28-09-2026 (F. No. 225/128/2026/ITA-II)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-09/Circular-7-2026.pdf",
+        "kind": "circular"
+      },
+      {
+        "title": "CBDT tax calendar - tax audit report AY 2026-27 (extended) (due 2026-10-21)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-filing-of-audit-report-under%C2%A0section-44ab%C2%A0-income-tax-act-1961-for-the-assessment-year-2026-27-in-the-case-of-a-corporate-assessee-or-non-corporate-assessee-who-is-required-to-submit-his/its-return-of-income-on-october-31-2026-",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - tax audit report AY 2026-27 in transfer pricing cases (due 2026-10-31)",
+        "url": "https://www.incometaxindia.gov.in/w/audit-report-under-section-44ab-income-tax-act-1961-for-the-assessment-year-2026-27-in-the-case-of-an-assessee-who-is-also-required-to-submit-a-report-pertaining-to-international-or-specified-domestic-transactions-under-section-92e-income-tax-act-1961-.",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "FAQ Q3.25 and Q4.32: AY 2026-27 reports use the old forms even though filed after 1 April 2026. Transfer pricing cases (ITR due 30 November) file the tax audit report by 31 October 2026 - not extended."
+  },
+  {
+    "id": "income-tax-tax-audit-form-26",
+    "title": "Tax audit report: Form 26 (old 3CA/3CB/3CD)",
+    "form": "Form 26 (old 3CA, 3CB and 3CD)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "From tax year 2026-27 the tax audit report and statement of particulars are one Form 26 (Part A where audited under another law, Part B otherwise, Parts C and D particulars), due one month before the ITR due date: 30 September, or 31 October in transfer pricing cases.",
+    "applicability": "Persons meeting the section 63 thresholds (unchanged from old section 44AB).",
+    "audience": [
+      "audit",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 6
+    },
+    "law": "Section 63(3) and 63(5)(a), Income-tax Act, 2025; rule 47, Income-tax Rules, 2026",
+    "penalty": "Fee under section 428(c) (Finance Act, 2026): Rs 75,000 for a delay of up to one month and Rs 1,50,000 thereafter; this replaces the turnover-based penalty of old section 446.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 75000,
+      "maxPenalty": 150000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Section 428(c): Rs 75,000 for delay up to one month, Rs 1,50,000 thereafter"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "Finance Act, 2026 (4 of 2026, assent 30-03-2026) - full text reproduced by TaxGuru",
+        "url": "https://taxguru.in/income-tax/finance-act-2026.html",
+        "kind": "secondary"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      },
+      {
+        "title": "CBDT old-to-new section and form mapping data (incometaxindia.gov.in Act comparison tool)",
+        "url": "https://www.incometaxindia.gov.in/o/c/incometaxactcompares/",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "FAQ Q4.33: first due 30 September 2027. Rule 47(3) allows a revised audit report before the end of the following financial year where later payments change the section 35/37 disallowance."
+  },
+  {
+    "id": "income-tax-tp-report-1961-act",
+    "title": "Transfer pricing report Form 3CEB (1961 Act)",
+    "form": "Form 3CEB",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Accountant's report on international and specified domestic transactions for FY 2025-26, due one month before the 30 November ITR date: 31 October 2026.",
+    "applicability": "Persons who entered into international transactions or specified domestic transactions in FY 2025-26.",
+    "audience": [
+      "audit",
+      "company",
+      "foreign",
+      "firm",
+      "llp"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 7
+    },
+    "law": "Section 92E, Income-tax Act, 1961; rule 10E, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Penalty Rs 1,00,000 under section 271BA.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 100000,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Section 271BA: Rs 1,00,000"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - Form 3CEB for AY 2026-27 (due 2026-10-31)",
+        "url": "https://www.incometaxindia.gov.in/w/report-to-be-furnished-under-section-92e-income-tax-act-1961-in-form-no.-3ceb-income-tax-rules-1962-in-respect-of-international-transaction-and-specified-domestic-transaction",
+        "kind": "portal"
+      },
+      {
+        "title": "incometaxindia.gov.in - About Form 3CEB (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-3ceb",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Not extended by Circular 07/2026."
+  },
+  {
+    "id": "income-tax-tp-report-form-48",
+    "title": "Transfer pricing report: Form 48 (old 3CEB)",
+    "form": "Form 48 (old 3CEB)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Accountant's report on international and specified domestic transactions under the 2025 Act, due at least one month before the 30 November ITR due date: 31 October; first due 31 October 2027.",
+    "applicability": "Persons with international or specified domestic transactions from tax year 2026-27.",
+    "audience": [
+      "audit",
+      "company",
+      "foreign",
+      "firm",
+      "llp"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 7
+    },
+    "law": "Section 172, Income-tax Act, 2025; rule 85, Income-tax Rules, 2026",
+    "penalty": "Fee under section 428(d) (Finance Act, 2026): Rs 50,000 for a delay of up to one month and Rs 1,00,000 thereafter; old penalty section 447 was omitted.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 50000,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Section 428(d): Rs 50,000 for delay up to one month, Rs 1,00,000 thereafter"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "Finance Act, 2026 (4 of 2026, assent 30-03-2026) - full text reproduced by TaxGuru",
+        "url": "https://taxguru.in/income-tax/finance-act-2026.html",
+        "kind": "secondary"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "CBDT old-to-new section and form mapping data (incometaxindia.gov.in Act comparison tool)",
+        "url": "https://www.incometaxindia.gov.in/o/c/incometaxactcompares/",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-master-file-1961-act",
+    "title": "Master file Form 3CEAA (1961 Act)",
+    "form": "Form 3CEAA (Part A and Part B); Form 3CEAB for designated entity",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Constituent entities of international groups file the master file for accounting year 2025-26 by the ITR due date: 30 November 2026 where transfer pricing applies. Part A is filed by every constituent entity; Part B only above the thresholds.",
+    "applicability": "Constituent entities of international groups; Part B where consolidated group revenue exceeds Rs 500 crore and international transactions exceed Rs 50 crore (or Rs 10 crore for intangibles).",
+    "audience": [
+      "company",
+      "foreign",
+      "audit"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 8
+    },
+    "law": "Section 92D(4), Income-tax Act, 1961; rule 10DA, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Penalty Rs 5,00,000 under section 271AA(2).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 500000,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Section 271AA(2): Rs 5,00,000"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - Form 3CEAA for accounting year 2025-26 (due 2026-11-30)",
+        "url": "https://www.incometaxindia.gov.in/w/report-in-form-no.-3ceaa-income-tax-rules-1962-by-a-constituent-entity-of-an-international-group-for-the-accounting-year-2025-26",
+        "kind": "portal"
+      },
+      {
+        "title": "incometaxindia.gov.in - About Form 3CEAA (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-3ceaa",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "A constituent entity without a Form 3CEB obligation would key off its own ITR due date (rare)."
+  },
+  {
+    "id": "income-tax-master-file-form-56",
+    "title": "Master file: Form 56 (old 3CEAA)",
+    "form": "Form 56 (old 3CEAA); Form 57 (old 3CEAB) 30 days earlier where one entity files for the group",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Master file of an international group under the 2025 Act, due on or before the ITR due date under section 263(1)(c): 30 November for transfer pricing cases; first due 30 November 2027.",
+    "applicability": "Constituent entities of international groups; full form where group revenue exceeds Rs 500 crore and international transactions exceed Rs 50 crore (or Rs 10 crore for intangibles); Part A from every constituent entity.",
+    "audience": [
+      "company",
+      "foreign",
+      "audit"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 8
+    },
+    "law": "Section 171(4), Income-tax Act, 2025; rule 123, Income-tax Rules, 2026",
+    "penalty": "Penalty Rs 5,00,000 under section 442(2).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 500000,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Section 442(2): Rs 5,00,000"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "CBDT old-to-new section and form mapping data (incometaxindia.gov.in Act comparison tool)",
+        "url": "https://www.incometaxindia.gov.in/o/c/incometaxactcompares/",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-cbcr-1961-act",
+    "title": "Country-by-country report 3CEAD (1961 Act)",
+    "form": "Form 3CEAD (intimations in Forms 3CEAC and 3CEAE)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Indian parent or alternate reporting entities (and constituent entities in specified cases) of groups with consolidated revenue of Rs 6,400 crore or more file the CbC report within 12 months from the end of the reporting accounting year: by 31 March 2027 for a year ending 31 March 2026.",
+    "applicability": "International groups above the Rs 6,400 crore consolidated revenue threshold, for reporting accounting years starting before 1 April 2026.",
+    "audience": [
+      "company",
+      "foreign"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": "last",
+      "monthOffset": 12
+    },
+    "law": "Section 286, Income-tax Act, 1961; rule 10DB, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Penalty under section 271GB: Rs 5,000 per day for the first month, Rs 15,000 per day thereafter and Rs 50,000 per day after a penalty order; Rs 5,00,000 for inaccurate information.",
+    "exposure": {
+      "lateFeePerDay": 5000,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": 500000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Rs 15,000/day after one month; Rs 50,000/day after a penalty order"
+      ],
+      "basis": "Section 271GB: per-day penalty (not a fee) Rs 5,000 rising to Rs 15,000; Rs 5,00,000 for inaccurate report"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "incometaxindia.gov.in - About Form 3CEAD (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-3cead",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - Form 3CEAD for previous year 2024-25 (due 2026-03-31)",
+        "url": "https://www.incometaxindia.gov.in/w/country-by-country-report-in-form-no.-3cead-for-the-previous-year-2024-25-by-a-parent-entity-or-the-alternate-reporting-entity-resident-in-india-in-respect-of-the-international-group-of-which-it-is-a-constituent-of-such-group",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Groups with other year ends count 12 months from their own year end; this FY schedule fits 31 March year ends. Treating the 2025-26 reporting year under the old Act follows section 536(2) (assumption)."
+  },
+  {
+    "id": "income-tax-cbcr-form-59",
+    "title": "Country-by-country report: Form 59 (old 3CEAD)",
+    "form": "Form 59 (old 3CEAD); Forms 58 and 60 (old 3CEAC and 3CEAE)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "CbC report under the 2025 Act within 12 months from the end of the reporting accounting year; first due 31 March 2028 for a year ending 31 March 2027. Form 58 (notification by an Indian constituent of a foreign-parented group) is due two months before that.",
+    "applicability": "International groups with consolidated revenue of Rs 6,400 crore or more (rule 124(7)).",
+    "audience": [
+      "company",
+      "foreign"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": "last",
+      "monthOffset": 12
+    },
+    "law": "Section 511(1), (2) and (4), Income-tax Act, 2025; rule 124, Income-tax Rules, 2026",
+    "penalty": "Penalty under section 459: Rs 5,000 per day for the first month, Rs 15,000 per day thereafter and Rs 50,000 per day after a penalty order; Rs 5,00,000 for inaccurate information.",
+    "exposure": {
+      "lateFeePerDay": 5000,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": 500000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Rs 15,000/day after one month; Rs 50,000/day after a penalty order"
+      ],
+      "basis": "Section 459: per-day penalty (not a fee) Rs 5,000 rising to Rs 15,000; Rs 5,00,000 for inaccurate report"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "CBDT old-to-new section and form mapping data (incometaxindia.gov.in Act comparison tool)",
+        "url": "https://www.incometaxindia.gov.in/o/c/incometaxactcompares/",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-trust-audit-1961-act",
+    "title": "Trust audit report 10B/10BB (1961 Act)",
+    "form": "Form 10B / 10BB",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Audit report of charitable or religious trusts, institutions and section 10(23C) entities for FY 2025-26, due one month before the ITR due date: 30 September 2026, extended to 21 October 2026.",
+    "applicability": "Trusts registered under section 12A/12AB and funds or institutions approved under section 10(23C) whose income before exemption exceeds the basic exemption limit; Form 10B where income exceeds Rs 5 crore, foreign contribution is received or income is applied outside India, otherwise 10BB.",
+    "audience": [
+      "trust",
+      "audit"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 6
+    },
+    "law": "Section 12A(1)(b) and the tenth proviso to section 10(23C), Income-tax Act, 1961; rules 16CC and 17B, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "No fee; the exemption under sections 11/12 or 10(23C) can be denied if the audit report is not furnished in time.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Loss of exemption for the year"
+      ],
+      "basis": "No monetary fee; exemption condition"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "overrides": [
+      {
+        "period": "FY2025-26",
+        "due": "2026-10-21",
+        "originalDue": "2026-09-30",
+        "reason": "Extended by CBDT Circular No. 07/2026 dated 28-09-2026 (CBDT tax calendar note on Form 10B/10BB)",
+        "source": {
+          "title": "CBDT tax calendar - Form 10B/10BB AY 2026-27 (extended)",
+          "url": "https://www.incometaxindia.gov.in/w/furnishing-of-audit-report-in-form-no.-10b/10bb-income-tax-rules-1962-by-a-fund-or-trust-or-institution-or-any-university-or-other-educational-institution-or-any-hospital-or-other-medical-institution-1"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "title": "CBDT tax calendar - Form 10B/10BB for AY 2026-27 (extended) (due 2026-10-21)",
+        "url": "https://www.incometaxindia.gov.in/w/furnishing-of-audit-report-in-form-no.-10b/10bb-income-tax-rules-1962-by-a-fund-or-trust-or-institution-or-any-university-or-other-educational-institution-or-any-hospital-or-other-medical-institution-1",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - Form 10B/10BB for AY 2026-27 (original) (due 2026-09-30)",
+        "url": "https://www.incometaxindia.gov.in/w/furnishing-of-audit-report-in-form-no.-10b/10bb-income-tax-rules-1962-by-a-fund-or-trust-or-institution-or-any-university-or-other-educational-institution-or-any-hospital-or-other-medical-institution",
+        "kind": "portal"
+      },
+      {
+        "title": "incometaxindia.gov.in - About Form 10B (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-10b",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT Circular No. 07/2026 dated 28-09-2026 (F. No. 225/128/2026/ITA-II)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-09/Circular-7-2026.pdf",
+        "kind": "circular"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Last year's Circulars 14/2025 and 15/2025 were applied to Form 10B/10BB in the same way."
+  },
+  {
+    "id": "income-tax-npo-audit-form-112",
+    "title": "NPO audit report: Form 112 (old 10B/10BB)",
+    "form": "Form 112 (old 10B and 10BB)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Registered non-profit organisations whose total income before exemptions exceeds the basic exemption limit file the audit report in Form 112 one month before the ITR due date: 30 September; first due 30 September 2027.",
+    "applicability": "Registered non-profit organisations under Chapter XVII-B of the 2025 Act, from tax year 2026-27.",
+    "audience": [
+      "trust",
+      "audit"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 6
+    },
+    "law": "Sections 348 and 349, Income-tax Act, 2025; rule 188, Income-tax Rules, 2026",
+    "penalty": "No fee identified; non-compliance can cost the exemption for the year (not quantified).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Risk of losing exemption for the year"
+      ],
+      "basis": "No monetary fee identified"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "CBDT old-to-new section and form mapping data (incometaxindia.gov.in Act comparison tool)",
+        "url": "https://www.incometaxindia.gov.in/o/c/incometaxactcompares/",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-donation-statement-1961-act",
+    "title": "Donation statement 10BD and certificates 10BE (1961 Act)",
+    "form": "Form 10BD (statement); Form 10BE (certificate to donors)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Institutions approved under section 80G or section 35(1A) report donations received in FY 2025-26 in Form 10BD and issue Form 10BE certificates to donors by 31 May 2026.",
+    "applicability": "Approved 80G institutions and funds and approved research associations, universities and companies under section 35, for donations up to 31 March 2026.",
+    "audience": [
+      "trust"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 2
+    },
+    "law": "Sections 80G(5) and 35(1A), Income-tax Act, 1961; rule 18AB, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Fee Rs 200 per day under section 234G (not exceeding the amount concerned); penalty Rs 10,000 to Rs 1,00,000 under section 271K; donors cannot claim unreported donations.",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": null,
+      "fixedPenalty": 10000,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Donors lose the deduction for unreported donations"
+      ],
+      "basis": "234G fee Rs 200/day capped at the amount concerned; 271K penalty Rs 10,000 to 1,00,000"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - Form 10BD for FY 2025-26 (due 2026-05-31)",
+        "url": "https://www.incometaxindia.gov.in/w/statement-of-donation-in-form-10bd-income-tax-rules-1962-to-be-furnished-by-reporting-person-under-section-80g-5-iii-or-section-section-35-1a-i-%E2%80%8B-income-tax-act-1961-in-respect-of-the-financial-year-2025-26%E2%80%8B",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT tax calendar - Form 10BE for FY 2025-26 (due 2026-05-31)",
+        "url": "https://www.incometaxindia.gov.in/w/certificate-of-donation-in-form-no.-10be-income-tax-rules-1962-as-referred-to-in-section-80g-5-ix-or-section-35-1a-ii-income-tax-act-1961-to-the-donor-specifying-the-amount-of-donation-received-during-the-financial-year-2025-26.%E2%80%8B",
+        "kind": "portal"
+      },
+      {
+        "title": "incometaxindia.gov.in - About Form 10BD (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-10bd",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-donation-statement-form-113",
+    "title": "Donation statement Form 113 and certificate Form 114",
+    "form": "Form 113 (old 10BD); Form 114 (old 10BE); Forms 15 and 16 for research bodies",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Approved donees report donations received in the financial year in Form 113 and issue Form 114 certificates to donors by 31 May after the year; first due 31 May 2027.",
+    "applicability": "Registered non-profit organisations and funds approved under section 354 (old 80G); research associations, universities and companies under section 45(3) use Forms 15 and 16 on the same date.",
+    "audience": [
+      "trust"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 2
+    },
+    "law": "Sections 354(1)(e) to (g) and 45(4)(a), Income-tax Act, 2025; rules 31 and 190, Income-tax Rules, 2026",
+    "penalty": "Fee Rs 200 per day under section 429 (not exceeding the amount concerned); penalty Rs 10,000 to Rs 1,00,000 under section 464.",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": null,
+      "fixedPenalty": 10000,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Donors lose the deduction for unreported donations"
+      ],
+      "basis": "429 fee Rs 200/day capped at the amount concerned; 464 penalty Rs 10,000 to 1,00,000"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "CBDT old-to-new section and form mapping data (incometaxindia.gov.in Act comparison tool)",
+        "url": "https://www.incometaxindia.gov.in/o/c/incometaxactcompares/",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-lo-statement-1961-act",
+    "title": "Liaison office statement Form 49C (1961 Act)",
+    "form": "Form 49C",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "A non-resident with a liaison office in India files an annual statement of the office's activities within eight months from the end of the financial year: for FY 2025-26, by 30 November 2026.",
+    "applicability": "Non-residents with a liaison office set up under RBI/FEMA, for financial years up to 2025-26.",
+    "audience": [
+      "foreign"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 8
+    },
+    "law": "Section 285, Income-tax Act, 1961; rule 114DA, Income-tax Rules, 1962 (as amended by Notification No. 14/2025) (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Penalty under section 271GC: Rs 1,000 per day for up to three months; Rs 1,00,000 beyond that.",
+    "exposure": {
+      "lateFeePerDay": 1000,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Section 271GC: Rs 1,000/day (penalty) up to three months, Rs 1,00,000 if longer"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "CBDT Notification No. 14/2025 (Income-tax (Fourth Amendment) Rules, 2025) - rule 114DA",
+        "url": "https://www.incometaxindia.gov.in/documents/d/guest/notification-no-14-2025-pdf",
+        "kind": "notification"
+      },
+      {
+        "title": "CBDT tax calendar - Form 49C for FY 2025-26 (due 2026-11-30)",
+        "url": "https://www.incometaxindia.gov.in/w/electronic-submission-of-statement-in-form-no.-49c-income-tax-rules-1962-by-a-non-resident-under-section-285-income-tax-act-1961-having-a-liaison-office-in-india-for-the-financial-year-2025-26",
+        "kind": "portal"
+      },
+      {
+        "title": "incometaxindia.gov.in - About Form 49C (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-49c",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "The 60-day deadline was replaced by eight months from 7 February 2025 (Notification 14/2025)."
+  },
+  {
+    "id": "income-tax-lo-statement-form-162",
+    "title": "Liaison office statement: Form 162 (old 49C)",
+    "form": "Form 162 (old 49C)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Annual statement of a non-resident's liaison office under the 2025 Act, due within eight months from the end of the financial year: 30 November; first due 30 November 2027.",
+    "applicability": "Non-residents with a liaison office in India, from tax year 2026-27; verified by a chartered accountant or authorised signatory.",
+    "audience": [
+      "foreign"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 8
+    },
+    "law": "Section 505, Income-tax Act, 2025; rule 234, Income-tax Rules, 2026",
+    "penalty": "Penalty under section 460: Rs 1,000 per day for up to three months; Rs 1,00,000 beyond that.",
+    "exposure": {
+      "lateFeePerDay": 1000,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Section 460: Rs 1,000/day (penalty) up to three months, Rs 1,00,000 if longer"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)",
+        "url": "https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf",
+        "kind": "act"
+      },
+      {
+        "title": "CBDT old-to-new section and form mapping data (incometaxindia.gov.in Act comparison tool)",
+        "url": "https://www.incometaxindia.gov.in/o/c/incometaxactcompares/",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-sft-1961-act",
+    "title": "SFT - statement of financial transactions 61A (1961 Act)",
+    "form": "Form 61A",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Banks, post offices, NBFCs, companies, mutual funds, registrars and other specified reporting entities report specified high-value transactions recorded in FY 2025-26 by 31 May 2026.",
+    "applicability": "Reporting persons listed in rule 114E, for transactions recorded up to 31 March 2026.",
+    "audience": [
+      "company",
+      "llp",
+      "firm"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 2
+    },
+    "law": "Section 285BA(1), Income-tax Act, 1961; rule 114E, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Penalty under section 271FA: Rs 500 per day, Rs 1,000 per day after a notice; Rs 50,000 for inaccurate statements (section 271FAA).",
+    "exposure": {
+      "lateFeePerDay": 500,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Rs 1,000/day after a notice",
+        "Rs 50,000 for inaccurate statement (section 271FAA)"
+      ],
+      "basis": "Section 271FA per-day penalty (not a fee) Rs 500, Rs 1,000 after notice"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - Form 61A for FY 2025-26 (due 2026-05-31)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-furnishing-of-statement-of-financial-transaction-in-form-no.-61a-as-required-to-be-furnished-under-sub-section-1-of-section-285ba-income-tax-act-1961-with-respect-to-the-financial-year-2025-26",
+        "kind": "portal"
+      },
+      {
+        "title": "incometaxindia.gov.in - About Form 61A (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-61a",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-sft-form-165",
+    "title": "SFT: Form 165 (old 61A)",
+    "form": "Form 165 (old 61A)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Specified reporting entities report high-value transactions recorded in the financial year by 31 May after the year; first due 31 May 2027. Depositories and RTAs also file half-yearly pre-filling SFTs (31 October and 30 April).",
+    "applicability": "Reporting persons listed in rule 237, from FY 2026-27.",
+    "audience": [
+      "company",
+      "llp",
+      "firm"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 2
+    },
+    "law": "Section 508(1) and (2), Income-tax Act, 2025; rule 237, Income-tax Rules, 2026",
+    "penalty": "Fee Rs 200 per day under section 427(3), up to Rs 1,00,000 (Finance Act, 2026); after a section 508(7) notice, penalty Rs 1,000 per day up to Rs 1,00,000 (section 454); inaccurate statements under section 455.",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": 100000,
+      "fixedPenalty": null,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Rs 1,000/day after a notice, up to Rs 1,00,000 (section 454)"
+      ],
+      "basis": "427(3) fee Rs 200/day capped at Rs 1,00,000; 454 penalty Rs 1,000/day capped at Rs 1,00,000"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "Finance Act, 2026 (4 of 2026, assent 30-03-2026) - full text reproduced by TaxGuru",
+        "url": "https://taxguru.in/income-tax/finance-act-2026.html",
+        "kind": "secondary"
+      },
+      {
+        "title": "TaxGuru - DGIT(S) Notification No. 1 of 2026: SFT-2517 pre-filling statements (half-yearly)",
+        "url": "https://taxguru.in/income-tax/format-procedures-sft-2517-depository-transactions-section-508-1.html",
+        "kind": "secondary"
+      },
+      {
+        "title": "CBDT old-to-new section and form mapping data (incometaxindia.gov.in Act comparison tool)",
+        "url": "https://www.incometaxindia.gov.in/o/c/incometaxactcompares/",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Pre-filling SFT-2517 (depositories) and SFT-2518 (RTAs) are half-yearly under DGIT(S) Notifications 1 and 2 of 2026 (10 September 2026)."
+  },
+  {
+    "id": "income-tax-reportable-account-1961-act",
+    "title": "Reportable accounts Form 61B - FATCA/CRS (1961 Act)",
+    "form": "Form 61B",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Reporting financial institutions file the annual statement of reportable accounts (FATCA/CRS) for calendar year 2025 by 31 May 2026, including nil statements.",
+    "applicability": "Reporting financial institutions under rules 114F to 114H, for calendar years up to 2025.",
+    "audience": [
+      "company"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "calendar",
+      "day": 31,
+      "monthOffset": 5
+    },
+    "law": "Section 285BA(1)(k), Income-tax Act, 1961; rules 114F to 114H, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "Penalty under section 271FA: Rs 500 per day, Rs 1,000 per day after a notice; Rs 50,000 for inaccurate statements (section 271FAA).",
+    "exposure": {
+      "lateFeePerDay": 500,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Rs 1,000/day after a notice",
+        "Rs 50,000 for inaccurate statement (section 271FAA)"
+      ],
+      "basis": "Section 271FA per-day penalty (not a fee) Rs 500, Rs 1,000 after notice"
+    },
+    "effective": {
+      "from": null,
+      "to": "2025-12-31"
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - Form 61B for calendar year 2025 (due 2026-05-31)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-e-filing-of-annual-statement-of-reportable-accounts-as-required-to-be-furnished-under-section-285ba-1-k-income-tax-act-1961-in-form-no.-61b-for-calendar-year-2025-by-reporting-financial-institutions%E2%80%8B",
+        "kind": "portal"
+      },
+      {
+        "title": "incometaxindia.gov.in - About Form 61B (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-61b",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-reportable-account-form-166",
+    "title": "Reportable accounts: Form 166 (old 61B)",
+    "form": "Form 166 (old 61B)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Statement of reportable accounts for each calendar year, including nil statements, by 31 May of the following year; first due 31 May 2027 for calendar year 2026.",
+    "applicability": "Reporting financial institutions under rules 238 to 240 of the Income-tax Rules, 2026.",
+    "audience": [
+      "company"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "calendar",
+      "day": 31,
+      "monthOffset": 5
+    },
+    "law": "Section 508(1)(k), Income-tax Act, 2025; rules 238 to 240, Income-tax Rules, 2026",
+    "penalty": "Fee Rs 200 per day under section 427(3), up to Rs 1,00,000; after a notice, penalty Rs 1,000 per day up to Rs 1,00,000 (section 454).",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": 100000,
+      "fixedPenalty": null,
+      "maxPenalty": 100000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Rs 1,000/day after a notice, up to Rs 1,00,000 (section 454)"
+      ],
+      "basis": "427(3) fee Rs 200/day capped at Rs 1,00,000; 454 penalty Rs 1,000/day capped at Rs 1,00,000"
+    },
+    "effective": {
+      "from": "2026-01-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "Finance Act, 2026 (4 of 2026, assent 30-03-2026) - full text reproduced by TaxGuru",
+        "url": "https://taxguru.in/income-tax/finance-act-2026.html",
+        "kind": "secondary"
+      },
+      {
+        "title": "CBDT old-to-new section and form mapping data (incometaxindia.gov.in Act comparison tool)",
+        "url": "https://www.incometaxindia.gov.in/o/c/incometaxactcompares/",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "medium",
+    "notes": "Calendar year 2026 straddles 1 April 2026; this assumes Form 166 applies from calendar year 2026. Reporting crypto-asset service providers separately file Form 167 by 31 May after each calendar year (section 509; rule 243)."
+  },
+  {
+    "id": "income-tax-form-61-1961-act",
+    "title": "Form 61 - Form 60 declarations statement (1961 Act)",
+    "form": "Form 61",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Persons who receive Form 60 declarations (from people without PAN) in specified transactions file a half-yearly statement: 31 October for April-September and 30 April for October-March. In-window: October 2025-March 2026, due 30 April 2026.",
+    "applicability": "Banks, post offices, companies and other recipients specified in rule 114C, for declarations received up to 31 March 2026.",
+    "audience": [
+      "company"
+    ],
+    "frequency": "half-yearly",
+    "schedule": {
+      "kind": "half-yearly",
+      "basis": "fy",
+      "day": "last",
+      "monthOffset": 1
+    },
+    "law": "Rule 114D, Income-tax Rules, 1962 (section 139A, Income-tax Act, 1961) (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "No dedicated late fee; general penalty provisions may apply (not quantified).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "No dedicated fee or penalty identified"
+      ],
+      "basis": "No specific fee or penalty section identified"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - Form 61 for October 2025-March 2026 (due 2026-04-30)",
+        "url": "https://www.incometaxindia.gov.in/w/due-date-for-e-filing-of-a-declaration-in-form-no.-61-income-tax-rules-1962-containing-particulars-of-form-no.-60-received-during-the-period-october-1-2025-to-march-31-2026-1",
+        "kind": "portal"
+      },
+      {
+        "title": "incometaxindia.gov.in - About Form 61 (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-61",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-form-98-declarations",
+    "title": "Form 98 - Form 97 declarations statement (old 61)",
+    "form": "Form 98 (old 61); declarations in Form 97 (old 60)",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Recipients of Form 97 declarations (people without PAN) file a half-yearly statement: 31 October for April-September and 30 April for October-March.",
+    "applicability": "Persons listed in rule 160(2) (rule 159 table, Sl. Nos. 11-14, and audited persons at Sl. Nos. 15-16), from 1 April 2026.",
+    "audience": [
+      "company"
+    ],
+    "frequency": "half-yearly",
+    "schedule": {
+      "kind": "half-yearly",
+      "basis": "fy",
+      "day": "last",
+      "monthOffset": 1
+    },
+    "law": "Section 262, Income-tax Act, 2025; rules 159 and 160, Income-tax Rules, 2026; DGIT(S) Notification No. 3 of 2026 (procedure)",
+    "penalty": "No dedicated late fee; general penalty provisions may apply (not quantified).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "No dedicated fee or penalty identified"
+      ],
+      "basis": "No specific fee or penalty section identified"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "CBDT tax calendar - Form 98 for April-September 2026 (due 2026-10-31)",
+        "url": "https://www.incometaxindia.gov.in/w/furnishing-of-statement-in-form-no.-98-income-tax-rules-2026-to-the-concerned-director/joint-director-intelligence-and-criminal-investigation-containing-declaration-received-in-form-no.-97-income-tax-rules-2026-during-april-1-2026-to-september-30-2026",
+        "kind": "portal"
+      },
+      {
+        "title": "CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)",
+        "url": "https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "FAQ Q4.7 and Q4.8 confirm the half-yearly dates."
+  },
+  {
+    "id": "income-tax-ftc-form-67-1961-act",
+    "title": "Foreign tax credit Form 67 (1961 Act)",
+    "form": "Form 67",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Residents claiming credit for foreign tax on income of FY 2025-26 file Form 67 by 31 March 2027 (end of AY 2026-27), provided the return was filed under section 139(1) or 139(4); with an updated return, on or before filing it.",
+    "applicability": "Resident taxpayers claiming foreign tax credit under sections 90/91 for income of years up to FY 2025-26.",
+    "audience": [
+      "individual",
+      "company",
+      "foreign"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 12
+    },
+    "law": "Sections 90 and 91, Income-tax Act, 1961; rule 128(8) and (9), Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)",
+    "penalty": "No fee; the foreign tax credit can be denied if Form 67 is late.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Foreign tax credit denied"
+      ],
+      "basis": "No monetary fee; condition for credit"
+    },
+    "effective": {
+      "from": null,
+      "to": "2026-03-31"
+    },
+    "sources": [
+      {
+        "title": "CBDT tax calendar - Form 67 for previous year 2025-26 (due 2027-03-31)",
+        "url": "https://www.incometaxindia.gov.in/w/uploading-of-statement-in-form-no.-67-income-tax-rules-1962-of-foreign-income-offered-to-tax-and-tax-deducted-or-paid-on-such-income-in-the-previous-year-2025-26-to-claim-foreign-tax-credit-if-return-of-income-has-been-furnished-within-the-time-specified-",
+        "kind": "portal"
+      },
+      {
+        "title": "incometaxindia.gov.in - About Form 67 (due date)",
+        "url": "https://www.incometaxindia.gov.in/w/form-67",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high"
+  },
+  {
+    "id": "income-tax-ftc-form-44",
+    "title": "Foreign tax credit: Form 44 (old Form 67)",
+    "form": "Form 44 (old Form 67); Form 45 for settled disputes",
+    "category": "income-tax",
+    "authority": "CBDT / Income Tax Department",
+    "summary": "Residents claiming foreign tax credit file Form 44 within twelve months from the end of the tax year in which the income is taxed, provided the return is filed under section 263(1) or 263(4); first due 31 March 2028.",
+    "applicability": "Resident taxpayers from tax year 2026-27. Accountant verification is needed for companies and where foreign tax is Rs 1 lakh or more (rule 76(16)).",
+    "audience": [
+      "individual",
+      "company",
+      "foreign"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 12
+    },
+    "law": "Sections 159 and 160, Income-tax Act, 2025; rule 76(10) to (17), Income-tax Rules, 2026",
+    "penalty": "No fee; the foreign tax credit can be denied if Form 44 is late.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Foreign tax credit denied"
+      ],
+      "basis": "No monetary fee; condition for credit"
+    },
+    "effective": {
+      "from": "2026-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "Income-tax Rules, 2026 (Notification No. 22/2026, G.S.R. 198(E), 20-03-2026)",
+        "url": "https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/En-Notified-IT-Rules-2026-20-03-2026.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "CBDT old-to-new section and form mapping data (incometaxindia.gov.in Act comparison tool)",
+        "url": "https://www.incometaxindia.gov.in/o/c/incometaxactcompares/",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "With an updated return, Form 44 is due on or before the date the updated return is filed (rule 76(13))."
+  }
+]

@@ -5,19 +5,12 @@ import { delayCost, formatINR, interestNote, turnoverNote } from '../lib/exposur
 import { buildCalendar } from '../lib/ics.ts';
 import { describeSchedule } from '../lib/schedule.ts';
 import type { TeamState } from '../lib/store.ts';
-import { CATEGORY_LABEL } from '../lib/types.ts';
-import { STATE_LABEL, STATE_VAR, categoryIndex, type Row } from '../lib/view.ts';
+import { CATEGORY_LABEL, CATEGORY_SHORT } from '../lib/types.ts';
+import { STATE_LABEL, type Row } from '../lib/view.ts';
 import { Icon } from './Icon.tsx';
 
-export function Strip({ row }: { row: Row }) {
-  const lit = categoryIndex(row.rule.category);
-  return (
-    <span class="strip" style={{ '--state': STATE_VAR[row.state] }} aria-hidden="true">
-      {Array.from({ length: 9 }, (_, i) => (
-        <span class={i === lit ? 'lit' : ''} />
-      ))}
-    </span>
-  );
+export function Law({ row }: { row: Row }) {
+  return <span class="law">{CATEGORY_SHORT[row.rule.category]}</span>;
 }
 
 interface Props {
@@ -95,30 +88,29 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
     <article class="detail" aria-labelledby="detail-code">
       <header class="detail-head">
         <div class="detail-meta">
-          <Strip row={row} />
-          <span class="caps muted">{CATEGORY_LABEL[rule.category]}</span>
-          <span class="caps faint">{rule.authority}</span>
+          <span class="law">{CATEGORY_LABEL[rule.category]}</span>
+          <span class="label">{rule.authority}</span>
         </div>
         <button class="btn btn-quiet detail-close" type="button" onClick={onClose} aria-label="Close details">
           <span class="btn-label"><Icon name="x" /></span>
         </button>
       </header>
 
-      <h2 id="detail-code" class="cat detail-code">{rule.code}</h2>
+      <h2 id="detail-code" class="fig detail-code">{rule.code}</h2>
       <p class="detail-title">{rule.title}</p>
-      <p class="caps muted detail-period">{occ.periodLabel}</p>
+      <p class="label muted detail-period">{occ.periodLabel}</p>
 
       <dl class="detail-due">
         <div>
-          <dt class="caps faint">Due</dt>
+          <dt class="label faint">Due</dt>
           <dd class="num">{formatLong(occ.due)}</dd>
         </div>
         <div>
-          <dt class="caps faint">When</dt>
+          <dt class="label faint">When</dt>
           <dd class={`num state-${row.state}`}>{row.state === 'filed' ? 'Filed' : relativeDays(today, occ.due)}</dd>
         </div>
         <div>
-          <dt class="caps faint">State</dt>
+          <dt class="label faint">State</dt>
           <dd><span class="tag" data-state={row.state === 'upcoming' ? undefined : row.state}>{STATE_LABEL[row.state]}</span></dd>
         </div>
       </dl>
@@ -165,23 +157,23 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
         ) : editing ? (
           <form class="filed-form" onSubmit={save}>
             <div class="field">
-              <label class="caps" for="f-on">Filed on</label>
+              <label class="label" for="f-on">Filed on</label>
               <input id="f-on" class="input num" type="date" required value={form.filedOn} max={today}
                 onInput={(e) => setForm({ ...form, filedOn: (e.target as HTMLInputElement).value })} />
             </div>
             <div class="field">
-              <label class="caps" for="f-ack">Acknowledgement or SRN</label>
+              <label class="label" for="f-ack">Acknowledgement or SRN</label>
               <input id="f-ack" class="input num" type="text" autocomplete="off" value={form.ack} placeholder="ARN, SRN, challan or ack number"
                 onInput={(e) => setForm({ ...form, ack: (e.target as HTMLInputElement).value })} />
             </div>
             <div class="field">
-              <label class="caps" for="f-owner">Owner</label>
+              <label class="label" for="f-owner">Owner</label>
               <input id="f-owner" class="input" type="text" list="owners" value={form.owner} placeholder="Who filed it"
                 onInput={(e) => setForm({ ...form, owner: (e.target as HTMLInputElement).value })} />
               <datalist id="owners">{owners.map((o) => <option value={o} />)}</datalist>
             </div>
             <div class="field">
-              <label class="caps" for="f-note">Note</label>
+              <label class="label" for="f-note">Note</label>
               <input id="f-note" class="input" type="text" value={form.note} placeholder="Optional"
                 onInput={(e) => setForm({ ...form, note: (e.target as HTMLInputElement).value })} />
             </div>
@@ -209,7 +201,7 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
           </div>
         )}
         <div class="field owner-field">
-          <label class="caps faint" for="d-owner">Owner for {rule.code}</label>
+          <label class="label faint" for="d-owner">Owner for {rule.code}</label>
           <input id="d-owner" class="input" type="text" list="owners" placeholder="Unassigned" value={state.owners[rule.id] ?? ''}
             onChange={(e) => setOwner((e.target as HTMLInputElement).value)} />
         </div>
@@ -220,18 +212,18 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
       </section>
 
       <section class="detail-section">
-        <h3 class="caps faint">Who files</h3>
+        <h3 class="label faint">Who files</h3>
         <p>{rule.applicability}</p>
       </section>
 
       <section class="detail-section">
-        <h3 class="caps faint">Cost of a delay</h3>
+        <h3 class="label faint">Cost of a delay</h3>
         <div class="delay">
-          <label class="caps muted" for="d-days">Days late</label>
+          <label class="label muted" for="d-days">Days late</label>
           <input id="d-days" type="range" min={1} max={365} value={days} onInput={(e) => setDays(Number((e.target as HTMLInputElement).value))} />
           <output for="d-days" class="num">{days}</output>
         </div>
-        <p class="cat delay-cost num">{cost !== null ? formatINR(cost) : 'Not fixed by law'}</p>
+        <p class="fig delay-cost num">{cost !== null ? formatINR(cost) : 'Not fixed by law'}</p>
         <ul class="delay-notes">
           {turnover && <li>Penalty of {turnover}</li>}
           {interest && <li>Plus {interest} on the unpaid amount</li>}
@@ -239,41 +231,41 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
         </ul>
         {rule.penalty && (
           <details class="disclose">
-            <summary class="caps">Legal basis of the penalty</summary>
+            <summary class="label">Legal basis of the penalty</summary>
             <p>{rule.penalty}</p>
           </details>
         )}
       </section>
 
       <section class="detail-section">
-        <h3 class="caps faint">Rule</h3>
+        <h3 class="label faint">Rule</h3>
         <p>{describeSchedule(rule)}</p>
         <p class="muted">{rule.law}</p>
       </section>
 
       <section class="detail-section">
-        <h3 class="caps faint">Sources</h3>
+        <h3 class="label faint">Sources</h3>
         <ul class="sources">
           {rule.sources.map((s) => (
             <li>
               <a href={s.url} rel="noopener" target="_blank">{s.title}</a>
-              {s.kind && <span class="caps faint"> {s.kind}</span>}
+              {s.kind && <span class="label faint"> {s.kind}</span>}
             </li>
           ))}
         </ul>
         {rule.verified && (
-          <p class="caps faint verified">
+          <p class="label faint verified">
             Verified {formatDate(rule.verified, { weekday: false })} - confidence {rule.confidence}
           </p>
         )}
         {rule.notes && (
           <details class="disclose">
-            <summary class="caps">Notes and recent changes</summary>
+            <summary class="label">Notes and recent changes</summary>
             <p>{rule.notes}</p>
           </details>
         )}
         <p>
-          <a class="caps" href={`${baseUrl()}o/${rule.id}/`}>Open the full entry</a>
+          <a class="label" href={`${baseUrl()}o/${rule.id}/`}>Open the full entry</a>
         </p>
       </section>
     </article>

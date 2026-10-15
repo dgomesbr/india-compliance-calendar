@@ -1,0 +1,2704 @@
+[
+  {
+    "id": "gst-gstr1-monthly",
+    "title": "GSTR-1 outward supplies (monthly filers)",
+    "form": "GSTR-1",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Statement of outward supplies for the month (B2B invoices, B2C summaries, exports, credit/debit notes, HSN summary). It feeds buyers' GSTR-2B/IMS and auto-populates the supplier's GSTR-3B liability.",
+    "applicability": "Every regular registered person not in the QRMP scheme (mandatory monthly filing once AATO exceeds Rs 5 crore). Not for composition taxpayers, ISD, non-resident persons, OIDAR suppliers, TDS deductors or TCS collectors. A nil statement is required for months with no supplies.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 11,
+      "monthOffset": 1
+    },
+    "law": "Section 37(1), CGST Act 2017; Rule 59, CGST Rules 2017; Notification 83/2020-Central Tax (11th of the following month)",
+    "penalty": "Late fee under Section 47 as limited by Notifications 4/2018-CT and 20/2021-CT: Rs 50 per day combined (Rs 20 if nil), capped at Rs 500 for nil statements, Rs 2,000 (AATO up to Rs 1.5 crore), Rs 5,000 (Rs 1.5-5 crore) and the statutory Rs 10,000 above Rs 5 crore. GSTR-1 cannot be filed while the previous GSTR-3B is pending (Rule 59(6)); two missed periods block e-way bills (Rule 138E(c)); filing is barred three years after the due date (Section 37(5)).",
+    "exposure": {
+      "lateFeePerDay": 50,
+      "lateFeeCap": 10000,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "E-way bill generation blocked after two missed GSTR-1 periods (Rule 138E(c))",
+        "Cannot file GSTR-1 while the preceding GSTR-3B is unfiled (Rule 59(6))",
+        "Buyers do not see the invoices in GSTR-2B, putting their ITC at risk",
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible"
+      ],
+      "basis": "Section 47(1) read with Notifications 4/2018-CT and 20/2021-CT: Rs 25 CGST + Rs 25 SGST per day (Rs 10 + Rs 10 if no outward supplies); total caps Rs 500 (nil) / Rs 2,000 (AATO up to Rs 1.5 crore) / Rs 5,000 (Rs 1.5-5 crore) / Rs 10,000 statutory (above Rs 5 crore). No interest as no tax is paid with GSTR-1."
+    },
+    "overrides": [
+      {
+        "period": "2024-12",
+        "due": "2025-01-13",
+        "originalDue": "2025-01-11",
+        "reason": "Extended by Notification 01/2025-Central Tax dated 10-01-2025",
+        "source": {
+          "title": "CBIC - Notification 01/2025-Central Tax (GSTR-1 December 2024 extension)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010249/ENG/Notifications"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "title": "CBIC - Notification 83/2020-Central Tax (GSTR-1 due dates)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000547/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 59 (GSTR-1, IFF, GSTR-1A)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule59_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 37 (outward supplies)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section37_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Notification 20/2021-Central Tax (GSTR-1 late fee)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000513/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 4/2018-Central Tax (GSTR-1 late fee per day)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000794/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 01/2025-Central Tax (GSTR-1 December 2024 extension)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010249/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "GSTN advisory - Extension of due date for GSTR-1 and GSTR-3B (10-01-2025)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/571",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "QRMP taxpayers use gst-gstr1-quarterly-qrmp and the optional IFF instead. Same-period corrections go in GSTR-1A before GSTR-3B is filed (gst-gstr1a-amendment). Since the July 2025 period the liability that GSTR-1/1A/IFF auto-populates into GSTR-3B is locked, so GSTR-1 accuracy now drives GSTR-3B. The 57th GST Council (8 Oct 2026) recommended GSTR-1/1A/IFF enhancements and an alternate amendment mechanism from the April 2027 return; not notified as of 14 Oct 2026."
+  },
+  {
+    "id": "gst-gstr1-quarterly-qrmp",
+    "title": "GSTR-1 outward supplies (quarterly, QRMP)",
+    "form": "GSTR-1",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Quarterly statement of outward supplies for taxpayers in the QRMP scheme, covering the third month of the quarter plus any first- and second-month invoices not already uploaded through IFF.",
+    "applicability": "Registered persons with AATO up to Rs 5 crore in the preceding FY who have opted for quarterly filing under Rule 61A (QRMP). Nil statement required.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 13,
+      "monthOffset": 1
+    },
+    "law": "Section 37(1) and proviso to Section 39(1), CGST Act 2017; Rules 59 and 61A, CGST Rules 2017; Notifications 83/2020-CT (13th of month after the quarter) and 84/2020-CT",
+    "penalty": "Late fee under Section 47 as limited by Notifications 4/2018-CT and 20/2021-CT: Rs 50 per day combined (Rs 20 if nil), capped at Rs 500 (nil), Rs 2,000 (AATO up to Rs 1.5 crore) or Rs 5,000 (Rs 1.5-5 crore). GSTR-1/IFF is blocked while the previous GSTR-3B is pending (Rule 59(6)); e-way bills blocked after two missed quarters (Rule 138E(c)); barred after three years.",
+    "exposure": {
+      "lateFeePerDay": 50,
+      "lateFeeCap": 5000,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "E-way bill generation blocked after two missed GSTR-1 quarters (Rule 138E(c))",
+        "Cannot file GSTR-1/IFF while the preceding GSTR-3B is unfiled (Rule 59(6))",
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible"
+      ],
+      "basis": "Section 47(1) read with Notifications 4/2018-CT and 20/2021-CT: Rs 25 CGST + Rs 25 SGST per day (Rs 10 + Rs 10 if no outward supplies); total caps Rs 500 (nil) / Rs 2,000 (AATO up to Rs 1.5 crore) / Rs 5,000 (Rs 1.5-5 crore). No interest as no tax is paid with GSTR-1. QRMP is limited to AATO up to Rs 5 crore, so the Rs 5,000 slab is the highest."
+    },
+    "overrides": [
+      {
+        "period": "FY2024-25-Q3",
+        "due": "2025-01-15",
+        "originalDue": "2025-01-13",
+        "reason": "Extended by Notification 01/2025-Central Tax dated 10-01-2025 (Oct-Dec 2024 quarter)",
+        "source": {
+          "title": "CBIC - Notification 01/2025-Central Tax (GSTR-1 December 2024 extension)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010249/ENG/Notifications"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "title": "CBIC - Notification 83/2020-Central Tax (GSTR-1 due dates)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000547/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 84/2020-Central Tax (QRMP class of persons)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000546/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 59 (GSTR-1, IFF, GSTR-1A)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule59_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 61A (QRMP option)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule61a_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Notification 20/2021-Central Tax (GSTR-1 late fee)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000513/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 01/2025-Central Tax (GSTR-1 December 2024 extension)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010249/ENG/Notifications",
+        "kind": "notification"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Due on the 13th of the month after each quarter (13 Jul, 13 Oct, 13 Jan, 13 Apr). IFF is not available for the third month of a quarter; the quarterly GSTR-1 is due instead."
+  },
+  {
+    "id": "gst-iff-qrmp",
+    "title": "IFF - invoice furnishing facility (QRMP, optional)",
+    "form": "IFF",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Optional upload of B2B invoices and notes for the first and second months of a quarter (up to Rs 50 lakh per month) so that buyers get the input tax credit monthly.",
+    "applicability": "QRMP taxpayers (AATO up to Rs 5 crore) with B2B supplies who want buyers to see invoices before the quarterly GSTR-1. Optional.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 13,
+      "monthOffset": 1,
+      "skip": [
+        "6",
+        "9",
+        "12",
+        "3"
+      ]
+    },
+    "law": "Rule 59(2) and 59(3), CGST Rules 2017 (window from the 1st to the 13th of the following month)",
+    "penalty": "No late fee or interest; the window simply closes on the 13th and the invoices must then be reported in the quarterly GSTR-1, delaying the buyer's credit.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Window closes; invoices move to the quarterly GSTR-1 and buyers get ITC later"
+      ],
+      "basis": "Optional facility under Rule 59(2); no late fee or interest applies."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 59 (GSTR-1, IFF, GSTR-1A)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule59_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Notification 84/2020-Central Tax (QRMP class of persons)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000546/ENG/Notifications",
+        "kind": "notification"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Not available for the third month of a quarter. IFF cannot be used while the preceding GSTR-3B is pending (Rule 59(6)(b)). IFF records can be amended in GSTR-1A after the quarterly GSTR-1 is filed."
+  },
+  {
+    "id": "gst-gstr1a-amendment",
+    "title": "GSTR-1A same-period amendment (optional)",
+    "form": "GSTR-1A",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Optional form to add missed supplies or amend records of the current period's GSTR-1/IFF before GSTR-3B is filed; corrected values flow straight into GSTR-3B.",
+    "applicability": "Any GSTR-1 filer (monthly or QRMP) who needs to correct or add records for the same tax period. Optional and can be filed only once per period; no nil filing.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "event",
+    "trigger": "Optional: opens on the later of the GSTR-1 due date or its actual filing date and closes when GSTR-3B for the same period is filed",
+    "law": "First proviso to Rule 59(1) and Rule 59(4A), CGST Rules 2017 (inserted by Notification 12/2024-CT)",
+    "penalty": "No late fee or due date. Once GSTR-3B is filed, records of that period can only be amended in a later GSTR-1, and the locked GSTR-3B liability cannot be edited directly.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "After GSTR-3B is filed, corrections move to a later GSTR-1 and the locked GSTR-3B values stand for that period"
+      ],
+      "basis": "Optional facility; no late fee, interest or penalty for not using it."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 59 (GSTR-1, IFF, GSTR-1A)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule59_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "GST portal FAQ - Form GSTR-1A",
+        "url": "https://tutorial.gst.gov.in/userguide/returns/FAQs_Creation_of_Outward_Supplies_Return_in_GSTR-1A.htm",
+        "kind": "faq"
+      },
+      {
+        "title": "GSTN advisory - Non-editable auto-populated liability in GSTR-3B (07-06-2025)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/606",
+        "kind": "portal"
+      },
+      {
+        "title": "GSTN advisory - Table 3.2 of GSTR-3B non-editable (05-12-2025)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/640",
+        "kind": "portal"
+      },
+      {
+        "title": "CBIC - Notification 12/2024-Central Tax (CGST Amendment Rules 2024)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010097/ENG/Notifications",
+        "kind": "notification"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "GSTR-1A became the only route to fix current-period liability once GSTR-3B Table 3 auto-populated values were locked (July 2025 period) and Table 3.2 values were locked (November 2025 period)."
+  },
+  {
+    "id": "gst-gstr3b-monthly",
+    "title": "GSTR-3B return and tax payment (monthly filers)",
+    "form": "GSTR-3B",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Monthly summary return with payment of GST: outward liability (auto-populated from GSTR-1/1A/IFF), ITC from GSTR-2B as shaped by IMS actions, reversals and interest.",
+    "applicability": "Regular registered persons not in QRMP (compulsory once AATO exceeds Rs 5 crore). Not for composition taxpayers, ISD, non-resident persons, OIDAR suppliers, TDS deductors or TCS collectors. Nil return required.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 20,
+      "monthOffset": 1
+    },
+    "law": "Sections 39(1) and 39(7), CGST Act 2017; Rule 61(1)(i), CGST Rules 2017",
+    "penalty": "Late fee under Section 47 as limited by Notifications 76/2018-CT and 19/2021-CT: Rs 50 per day combined (Rs 20 if nil), capped at Rs 500 (nil), Rs 2,000 (AATO up to Rs 1.5 crore), Rs 5,000 (Rs 1.5-5 crore) and Rs 10,000 (above Rs 5 crore). Interest at 18% p.a. under Section 50(1) on tax paid late. Two missed returns block e-way bills (Rule 138E(b)); six months of non-filing is a ground for cancellation (Rule 21(h)); Section 46 notice and best-judgment assessment under Section 62; barred after three years (Section 39(11)).",
+    "exposure": {
+      "lateFeePerDay": 50,
+      "lateFeeCap": 10000,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": 18,
+      "percentOfTurnover": null,
+      "other": [
+        "E-way bill generation blocked after two missed returns (Rule 138E(b))",
+        "Registration liable to cancellation after six months of non-filing (Section 29(2)(c), Rule 21(h))",
+        "Best-judgment assessment after Section 46 notice (Section 62)",
+        "Next GSTR-1 cannot be filed until this return is filed (Rule 59(6))",
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible"
+      ],
+      "basis": "Section 47(1) read with Notifications 76/2018-CT and 19/2021-CT: Rs 25 CGST + Rs 25 SGST per day (Rs 10 + Rs 10 if nil tax); total caps Rs 500 (nil) / Rs 2,000 (AATO up to Rs 1.5 crore) / Rs 5,000 (Rs 1.5-5 crore) / Rs 10,000 statutory (above Rs 5 crore). Section 50(1) interest 18% p.a. on tax paid late (on the cash-ledger portion, proviso to Section 50(1))."
+    },
+    "overrides": [
+      {
+        "period": "2024-12",
+        "due": "2025-01-22",
+        "originalDue": "2025-01-20",
+        "reason": "Extended by Notification 02/2025-Central Tax dated 10-01-2025",
+        "source": {
+          "title": "CBIC - Notification 02/2025-Central Tax (GSTR-3B December 2024 extension)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010250/ENG/Notifications"
+        }
+      },
+      {
+        "period": "2025-07",
+        "due": "2025-08-27",
+        "originalDue": "2025-08-20",
+        "reason": "Notification 12/2025-Central Tax dated 20-08-2025 (heavy rains): applies ONLY to registered persons whose principal place of business is in Mumbai (City), Mumbai (Suburban), Thane, Raigad or Palghar districts of Maharashtra",
+        "source": {
+          "title": "CBIC - Notification 12/2025-Central Tax (GSTR-3B July 2025, Maharashtra districts)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010424/ENG/Notifications"
+        },
+        "states": [
+          "MH"
+        ]
+      },
+      {
+        "period": "2025-09",
+        "due": "2025-10-25",
+        "originalDue": "2025-10-20",
+        "reason": "Extended by Notification 17/2025-Central Tax dated 18-10-2025",
+        "source": {
+          "title": "CBIC - Notification 17/2025-Central Tax (GSTR-3B September 2025 / Jul-Sep 2025)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010488/ENG/Notifications"
+        }
+      },
+      {
+        "period": "2026-03",
+        "due": "2026-04-21",
+        "originalDue": "2026-04-20",
+        "reason": "Extended by Notification 01/2026-Central Tax dated 21-04-2026 (effective 20-04-2026), monthly filers under Rule 61(1)(i) only",
+        "source": {
+          "title": "CBIC - Notification 01/2026-Central Tax (GSTR-3B March 2026 extension)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010630/ENG/Notifications"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 61 (GSTR-3B, QRMP due dates, PMT-06)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule61_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 39 (returns)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section39_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 47 (late fee)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section47_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 50 (interest)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter10/section50_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Notification 19/2021-Central Tax (GSTR-3B late fee)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000514/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 76/2018-Central Tax (GSTR-3B late fee per day)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000721/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 02/2025-Central Tax (GSTR-3B December 2024 extension)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010250/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 12/2025-Central Tax (GSTR-3B July 2025, Maharashtra districts)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010424/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 17/2025-Central Tax (GSTR-3B September 2025 / Jul-Sep 2025)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010488/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 01/2026-Central Tax (GSTR-3B March 2026 extension)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010630/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "GSTN advisory - GSTR-3B July 2025 extension for Maharashtra districts",
+        "url": "https://www.gst.gov.in/newsandupdates/read/620",
+        "kind": "portal"
+      },
+      {
+        "title": "GSTN advisory - Non-editable auto-populated liability in GSTR-3B",
+        "url": "https://www.gst.gov.in/newsandupdates/read/606",
+        "kind": "portal"
+      },
+      {
+        "title": "GSTN advisory - Interest collection and related enhancements in GSTR-3B (Jan 2026 period)",
+        "url": "https://tutorial.gst.gov.in/downloads/news/final_advisory_on_interest_calculator.pdf",
+        "kind": "portal"
+      },
+      {
+        "title": "GSTN advisory - Tax liability breakup confirmation in GSTR-3B (16-03-2026)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/653",
+        "kind": "portal"
+      },
+      {
+        "title": "GSTN advisory - New changes in IMS (23-09-2025)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/624",
+        "kind": "portal"
+      },
+      {
+        "title": "GST Council 57th meeting recommendations (PIB release, hosted on GST portal)",
+        "url": "https://tutorial.gst.gov.in/downloads/news/press_release.pdf",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "2025-2026 portal changes: liability auto-populated from GSTR-1/1A/IFF is non-editable from the July 2025 period (filed Aug 2025) and Table 3.2 from the November 2025 period; from the January 2026 period system-computed interest in Table 5.1 is auto-populated in the next GSTR-3B and cannot be reduced; from the February 2026 period the 'tax liability breakup' must be confirmed before filing. ITC comes from GSTR-2B (generated on the 14th) after IMS accept/reject/pending actions, which can be taken until GSTR-3B is filed; credit notes may be kept pending for one period from the October 2025 period. The 57th GST Council (8 Oct 2026) recommended waiving the Section 39(1) return late fee for taxpayers with turnover up to Rs 5 crore if the return is filed by the end of the month in which it was due; not notified as of 14 Oct 2026. The 2025-07 override carries a 'states' key because it covered only five Maharashtra districts."
+  },
+  {
+    "id": "gst-gstr3b-qrmp-22",
+    "title": "GSTR-3B quarterly QRMP (22nd - western/southern group)",
+    "form": "GSTR-3B",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Quarterly GSTR-3B for QRMP taxpayers, adjusting the PMT-06 deposits of the first two months against the quarter's liability. The due date depends on the State/UT of the principal place of business.",
+    "applicability": "QRMP taxpayers (AATO up to Rs 5 crore) whose principal place of business is in: Chhattisgarh, Madhya Pradesh, Gujarat, Maharashtra, Karnataka, Goa, Kerala, Tamil Nadu, Telangana, Andhra Pradesh, Dadra and Nagar Haveli and Daman and Diu, Puducherry, Andaman and Nicobar Islands, Lakshadweep. Nil return required.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 22,
+      "monthOffset": 1
+    },
+    "law": "Proviso to Section 39(1), CGST Act 2017; Rule 61(1)(ii) and Table (S. No. 1), CGST Rules 2017 (substituted by Notification 82/2020-CT); Notification 84/2020-CT",
+    "penalty": "Late fee under Section 47 as limited by Notifications 76/2018-CT and 19/2021-CT: Rs 50 per day combined (Rs 20 if nil), capped at Rs 500 (nil), Rs 2,000 (AATO up to Rs 1.5 crore) or Rs 5,000 (Rs 1.5-5 crore). Interest at 18% p.a. under Section 50 on tax paid late. Two missed quarters block e-way bills (Rule 138E(b)); two continuous missed quarters are a cancellation ground (Rule 21(i)); barred after three years.",
+    "exposure": {
+      "lateFeePerDay": 50,
+      "lateFeeCap": 5000,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": 18,
+      "percentOfTurnover": null,
+      "other": [
+        "E-way bill generation blocked after two missed returns (Rule 138E(b))",
+        "Registration liable to cancellation after two continuous missed quarterly returns (Rule 21(i))",
+        "GSTR-1/IFF for the next period blocked (Rule 59(6)(b))",
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible"
+      ],
+      "basis": "Section 47(1) read with Notifications 76/2018-CT and 19/2021-CT: Rs 25 CGST + Rs 25 SGST per day (Rs 10 + Rs 10 if nil tax); total caps Rs 500 (nil) / Rs 2,000 (AATO up to Rs 1.5 crore) / Rs 5,000 (Rs 1.5-5 crore). Section 50(1) interest 18% p.a. on tax paid late (on the cash-ledger portion, proviso to Section 50(1)). QRMP is limited to AATO up to Rs 5 crore."
+    },
+    "states": [
+      "CG",
+      "MP",
+      "GJ",
+      "MH",
+      "KA",
+      "GA",
+      "KL",
+      "TN",
+      "TS",
+      "AP",
+      "DH",
+      "PY",
+      "AN",
+      "LD"
+    ],
+    "overrides": [
+      {
+        "period": "FY2024-25-Q3",
+        "due": "2025-01-24",
+        "originalDue": "2025-01-22",
+        "reason": "Extended by Notification 02/2025-Central Tax dated 10-01-2025 (Oct-Dec 2024 quarter)",
+        "source": {
+          "title": "CBIC - Notification 02/2025-Central Tax (GSTR-3B December 2024 extension)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010250/ENG/Notifications"
+        }
+      },
+      {
+        "period": "FY2025-26-Q2",
+        "due": "2025-10-25",
+        "originalDue": "2025-10-22",
+        "reason": "Extended by Notification 17/2025-Central Tax dated 18-10-2025 (Jul-Sep 2025 quarter, both State groups)",
+        "source": {
+          "title": "CBIC - Notification 17/2025-Central Tax (GSTR-3B September 2025 / Jul-Sep 2025)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010488/ENG/Notifications"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 61 (GSTR-3B, QRMP due dates, PMT-06)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule61_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Notification 84/2020-Central Tax (QRMP class of persons)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000546/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 02/2025-Central Tax (GSTR-3B December 2024 extension)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010250/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 17/2025-Central Tax (GSTR-3B September 2025 / Jul-Sep 2025)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010488/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 19/2021-Central Tax (GSTR-3B late fee)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000514/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "ISO 3166-2:IN subdivision codes (Wikipedia summary)",
+        "url": "https://en.wikipedia.org/wiki/ISO_3166-2:IN",
+        "kind": "secondary"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "State groups copied from the Rule 61(1)(ii) Table on the CBIC portal and confirmed by the identical Table in Notification 02/2025-CT. ISO codes: Telangana TS, Chhattisgarh CG, Uttarakhand UK, Odisha OD, and DH for the merged UT of Dadra and Nagar Haveli and Daman and Diu (the rule still names the two old UTs). Registrations under GST state code 97 (Other Territory) are not named in either group."
+  },
+  {
+    "id": "gst-gstr3b-qrmp-24",
+    "title": "GSTR-3B quarterly QRMP (24th - northern/eastern group)",
+    "form": "GSTR-3B",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Quarterly GSTR-3B for QRMP taxpayers, adjusting the PMT-06 deposits of the first two months against the quarter's liability. The due date depends on the State/UT of the principal place of business.",
+    "applicability": "QRMP taxpayers (AATO up to Rs 5 crore) whose principal place of business is in: Himachal Pradesh, Punjab, Uttarakhand, Haryana, Rajasthan, Uttar Pradesh, Bihar, Sikkim, Arunachal Pradesh, Nagaland, Manipur, Mizoram, Tripura, Meghalaya, Assam, West Bengal, Jharkhand, Odisha, Jammu and Kashmir, Ladakh, Chandigarh, Delhi. Nil return required.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 24,
+      "monthOffset": 1
+    },
+    "law": "Proviso to Section 39(1), CGST Act 2017; Rule 61(1)(ii) and Table (S. No. 2), CGST Rules 2017 (substituted by Notification 82/2020-CT); Notification 84/2020-CT",
+    "penalty": "Late fee under Section 47 as limited by Notifications 76/2018-CT and 19/2021-CT: Rs 50 per day combined (Rs 20 if nil), capped at Rs 500 (nil), Rs 2,000 (AATO up to Rs 1.5 crore) or Rs 5,000 (Rs 1.5-5 crore). Interest at 18% p.a. under Section 50 on tax paid late. Two missed quarters block e-way bills (Rule 138E(b)); two continuous missed quarters are a cancellation ground (Rule 21(i)); barred after three years.",
+    "exposure": {
+      "lateFeePerDay": 50,
+      "lateFeeCap": 5000,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": 18,
+      "percentOfTurnover": null,
+      "other": [
+        "E-way bill generation blocked after two missed returns (Rule 138E(b))",
+        "Registration liable to cancellation after two continuous missed quarterly returns (Rule 21(i))",
+        "GSTR-1/IFF for the next period blocked (Rule 59(6)(b))",
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible"
+      ],
+      "basis": "Section 47(1) read with Notifications 76/2018-CT and 19/2021-CT: Rs 25 CGST + Rs 25 SGST per day (Rs 10 + Rs 10 if nil tax); total caps Rs 500 (nil) / Rs 2,000 (AATO up to Rs 1.5 crore) / Rs 5,000 (Rs 1.5-5 crore). Section 50(1) interest 18% p.a. on tax paid late (on the cash-ledger portion, proviso to Section 50(1)). QRMP is limited to AATO up to Rs 5 crore."
+    },
+    "states": [
+      "HP",
+      "PB",
+      "UK",
+      "HR",
+      "RJ",
+      "UP",
+      "BR",
+      "SK",
+      "AR",
+      "NL",
+      "MN",
+      "MZ",
+      "TR",
+      "ML",
+      "AS",
+      "WB",
+      "JH",
+      "OD",
+      "JK",
+      "LA",
+      "CH",
+      "DL"
+    ],
+    "overrides": [
+      {
+        "period": "FY2024-25-Q3",
+        "due": "2025-01-26",
+        "originalDue": "2025-01-24",
+        "reason": "Extended by Notification 02/2025-Central Tax dated 10-01-2025 (Oct-Dec 2024 quarter)",
+        "source": {
+          "title": "CBIC - Notification 02/2025-Central Tax (GSTR-3B December 2024 extension)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010250/ENG/Notifications"
+        }
+      },
+      {
+        "period": "FY2025-26-Q2",
+        "due": "2025-10-25",
+        "originalDue": "2025-10-24",
+        "reason": "Extended by Notification 17/2025-Central Tax dated 18-10-2025 (Jul-Sep 2025 quarter, both State groups)",
+        "source": {
+          "title": "CBIC - Notification 17/2025-Central Tax (GSTR-3B September 2025 / Jul-Sep 2025)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010488/ENG/Notifications"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 61 (GSTR-3B, QRMP due dates, PMT-06)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule61_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Notification 84/2020-Central Tax (QRMP class of persons)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000546/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 02/2025-Central Tax (GSTR-3B December 2024 extension)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010250/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 17/2025-Central Tax (GSTR-3B September 2025 / Jul-Sep 2025)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010488/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 19/2021-Central Tax (GSTR-3B late fee)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000514/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "ISO 3166-2:IN subdivision codes (Wikipedia summary)",
+        "url": "https://en.wikipedia.org/wiki/ISO_3166-2:IN",
+        "kind": "secondary"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "State groups copied from the Rule 61(1)(ii) Table on the CBIC portal and confirmed by the identical Table in Notification 02/2025-CT. ISO codes: Telangana TS, Chhattisgarh CG, Uttarakhand UK, Odisha OD, and DH for the merged UT of Dadra and Nagar Haveli and Daman and Diu (the rule still names the two old UTs). Registrations under GST state code 97 (Other Territory) are not named in either group."
+  },
+  {
+    "id": "gst-pmt06-qrmp",
+    "title": "PMT-06 monthly tax deposit (QRMP, months 1-2)",
+    "form": "GST PMT-06",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Monthly tax deposit by QRMP taxpayers for the first and second months of each quarter, either on self-assessed liability or under the fixed-sum option (35% of the previous quarter's cash tax).",
+    "applicability": "QRMP taxpayers (AATO up to Rs 5 crore). No deposit needed if the ledger balance covers the liability or the liability is nil (Notification 85/2020-CT).",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 25,
+      "monthOffset": 1,
+      "skip": [
+        "6",
+        "9",
+        "12",
+        "3"
+      ]
+    },
+    "law": "Proviso to Section 39(7), CGST Act 2017; Rule 61(3), CGST Rules 2017; Notification 85/2020-Central Tax",
+    "penalty": "No late fee. Interest at 18% p.a. under Section 50 on tax not deposited by the 25th.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": 18,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Section 50(1) interest 18% p.a. (Notification 13/2017-CT) on the unpaid amount for the period of delay; no late fee for PMT-06."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 61 (GSTR-3B, QRMP due dates, PMT-06)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule61_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Notification 85/2020-Central Tax (QRMP monthly payment)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000545/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 39 (returns)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section39_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 50 (interest)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter10/section50_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Notification 13/2017-Central Tax (interest rates)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000862/ENG/Notifications",
+        "kind": "notification"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Only for months 1 and 2 of a quarter (Apr, May, Jul, Aug, Oct, Nov, Jan, Feb); the third month's tax is paid with the quarterly GSTR-3B. Some secondary calendars wrongly list PMT-06 for quarter-end months."
+  },
+  {
+    "id": "gst-cmp08-composition",
+    "title": "CMP-08 quarterly tax statement (composition)",
+    "form": "GST CMP-08",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Quarterly statement-cum-challan through which composition taxpayers pay the self-assessed composition tax for the quarter in cash.",
+    "applicability": "Persons paying tax under Section 10: goods/restaurant composition with AATO up to Rs 1.5 crore (Rs 75 lakh in Arunachal Pradesh, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim, Tripura, Uttarakhand) and the services scheme under Section 10(2A) up to Rs 50 lakh. Nil statement required.",
+    "audience": [
+      "gst",
+      "firm",
+      "individual",
+      "company"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": 18,
+      "monthOffset": 1
+    },
+    "law": "Section 10 and second proviso to Section 39(7), CGST Act 2017; Rule 62(1)(i), CGST Rules 2017; Notification 14/2019-CT (turnover limits)",
+    "penalty": "No late fee for CMP-08 (GST portal FAQ). Interest at 18% p.a. under Section 50 on tax paid late. Two consecutive missed quarters block e-way bills (Rule 138E(a)).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": 18,
+      "percentOfTurnover": null,
+      "other": [
+        "E-way bill generation blocked after two consecutive missed CMP-08 statements (Rule 138E(a))"
+      ],
+      "basis": "GST portal FAQ: no late fee for CMP-08; Section 50(1) interest 18% p.a. on late tax."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 62 (CMP-08, GSTR-4)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule62_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 10 (composition levy)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter3/section10_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Notification 14/2019-Central Tax (composition turnover limits)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000701/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "GST portal FAQ - Form GST CMP-08 (due date, no late fee)",
+        "url": "https://tutorial.gst.gov.in/userguide/returns/FAQs_CMP02.htm",
+        "kind": "faq"
+      },
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 138E (e-way bill blocking)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter16/rule138e_v1.00.html",
+        "kind": "rules"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Due 18 Jul, 18 Oct, 18 Jan and 18 Apr. The annual composition return is GSTR-4 (gst-gstr4-annual)."
+  },
+  {
+    "id": "gst-gstr4-annual",
+    "title": "GSTR-4 annual return (composition)",
+    "form": "GSTR-4",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Annual return of composition taxpayers covering turnover, inward supplies (including RCM and from unregistered persons) and composition tax paid through CMP-08.",
+    "applicability": "Every person who paid tax under Section 10 for any part of the FY, including those who opted out or whose registration was cancelled during the year.",
+    "audience": [
+      "gst",
+      "firm",
+      "individual",
+      "company"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 3
+    },
+    "law": "Section 39(2), CGST Act 2017; Rule 62(1)(ii) and proviso (30 June from FY 2024-25, inserted by Notification 12/2024-CT), CGST Rules 2017",
+    "penalty": "Late fee under Section 47 as limited by Notifications 73/2017-CT and 21/2021-CT: Rs 50 per day combined (Rs 20 if nil), capped at Rs 500 (nil tax) or Rs 2,000 (others). Barred three years after the due date (Section 39(11)).",
+    "exposure": {
+      "lateFeePerDay": 50,
+      "lateFeeCap": 2000,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Section 29(2)(b): registration of a composition taxpayer may be cancelled if the annual return is more than three months late",
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible"
+      ],
+      "basis": "Section 47(1) read with Notifications 73/2017-CT (Rs 25 CGST/day, Rs 10 if nil) and 21/2021-CT (CGST caps Rs 250 nil / Rs 1,000 others); totals with SGST Rs 50/day, caps Rs 500 / Rs 2,000."
+    },
+    "effective": {
+      "from": "2024-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 62 (CMP-08, GSTR-4)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule62_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Notification 12/2024-Central Tax (CGST Amendment Rules 2024)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010097/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 21/2021-Central Tax (GSTR-4 late fee)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000512/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 73/2017-Central Tax (GSTR-4 late fee per day)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000800/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 39 (returns)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section39_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "GST portal FAQ - GSTR-4 (Annual Return)",
+        "url": "https://tutorial.gst.gov.in/userguide/returns/faq_GSTR4annual.htm",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Due date moved from 30 April to 30 June for FY 2024-25 onwards (Rule 62 proviso). The GST portal FAQ still says '30th of the month succeeding the financial year'; the rule text governs. The rule modelled here applies to FY 2024-25 onwards."
+  },
+  {
+    "id": "gst-gstr5-nonresident",
+    "title": "GSTR-5 return (non-resident taxable persons)",
+    "form": "GSTR-5",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Monthly return of a non-resident taxable person covering imports, inward and outward supplies and tax, filed for every month of the registration period.",
+    "applicability": "Non-resident taxable persons registered for a limited period (Section 24 and 27). Also due within 7 days after the registration validity ends, if that is earlier than the 13th.",
+    "audience": [
+      "gst",
+      "foreign"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 13,
+      "monthOffset": 1
+    },
+    "law": "Section 39(5), CGST Act 2017 ('thirteen days', substituted by Finance Act 2022 w.e.f. 1-10-2022); Rule 63, CGST Rules 2017",
+    "penalty": "Late fee under Section 47 as limited by Notification 5/2018-CT: Rs 25 CGST + Rs 25 SGST per day (Rs 10 + Rs 10 if nil), up to the statutory Rs 5,000 each. Interest at 18% p.a. on late tax. Advance tax deposit is not refunded until all returns for the registration period are filed (Section 54(13)).",
+    "exposure": {
+      "lateFeePerDay": 50,
+      "lateFeeCap": 10000,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": 18,
+      "percentOfTurnover": null,
+      "other": [
+        "Advance tax deposit refund withheld until all returns are filed (Section 54(13))",
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible"
+      ],
+      "basis": "Section 47(1) read with Notification 5/2018-CT: Rs 25 CGST + Rs 25 SGST per day (Rs 20 total if nil), statutory cap Rs 5,000 + Rs 5,000; Section 50 interest 18% p.a."
+    },
+    "overrides": [
+      {
+        "period": "2024-12",
+        "due": "2025-01-15",
+        "originalDue": "2025-01-13",
+        "reason": "Extended by Notification 03/2025-Central Tax dated 10-01-2025",
+        "source": {
+          "title": "CBIC - Notification 03/2025-Central Tax (GSTR-5 December 2024 extension)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010251/ENG/Notifications"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "title": "CBIC - CGST Act 2017, Section 39 (returns)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section39_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 63 (GSTR-5)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule63_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "GST portal FAQ - Form GSTR-5 (13th from October 2022)",
+        "url": "https://tutorial.gst.gov.in/userguide/returns/GSTR-5_FAQ.htm",
+        "kind": "faq"
+      },
+      {
+        "title": "CBIC - Notification 5/2018-Central Tax (GSTR-5 late fee)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000793/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 03/2025-Central Tax (GSTR-5 December 2024 extension)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010251/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 54 (refunds)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter11/section54_v1.00.html",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Current due day is the 13th (not the 20th): Section 39(5) was amended by Finance Act 2022 effective 1 Oct 2022 and the GST portal FAQ confirms 13th from the October 2022 period. Rule 63 as published on the CBIC portal still says 'twenty days'; the Act prevails."
+  },
+  {
+    "id": "gst-gstr5a-oidar",
+    "title": "GSTR-5A return (OIDAR / offshore online gaming)",
+    "form": "GSTR-5A",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Monthly IGST return of a supplier located outside India providing online information and database access or retrieval (OIDAR) services, or online money gaming, to persons in India.",
+    "applicability": "OIDAR suppliers in a non-taxable territory supplying to non-taxable online recipients or registered persons in India, and offshore online money gaming suppliers (Rule 64 as substituted by Notification 51/2023-CT). Nil return required.",
+    "audience": [
+      "gst",
+      "foreign"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 20,
+      "monthOffset": 1
+    },
+    "law": "Section 14, IGST Act 2017; Rule 64, CGST Rules 2017",
+    "penalty": "The GST portal FAQ states that no late fee is currently levied on late GSTR-5A. Interest at 18% p.a. applies to IGST paid late (Section 50 CGST Act read with Section 20 IGST Act).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": 18,
+      "percentOfTurnover": null,
+      "other": [
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible"
+      ],
+      "basis": "GST portal FAQ: no late fee at present (Notification 6/2018-CT would otherwise limit any Section 47 fee to Rs 25 per day, Rs 10 if nil); Section 50 interest 18% p.a."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 64 (GSTR-5A)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule64_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - IGST Act 2017, Section 14 (OIDAR suppliers)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_IGST_Act/active/chapterv/section14_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "GST portal FAQ - Form GSTR-5A (due date, late fee)",
+        "url": "https://tutorial.gst.gov.in/userguide/returns/GSTR-5A_faq.htm",
+        "kind": "faq"
+      },
+      {
+        "title": "CBIC - Notification 6/2018-Central Tax (GSTR-5A late fee)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000792/ENG/Notifications",
+        "kind": "notification"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Due date unchanged at the 20th. Late-fee position is taken from the GST portal FAQ (checked 14-10-2026)."
+  },
+  {
+    "id": "gst-gstr6-isd",
+    "title": "GSTR-6 return (Input Service Distributor)",
+    "form": "GSTR-6",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Monthly return in which an Input Service Distributor reports invoices received for common input services and the credit distributed to branches (distinct persons).",
+    "applicability": "Offices registered as ISD. From 1 April 2025 an office receiving invoices for common input services (including RCM services) on behalf of distinct persons under the same PAN must register as ISD and distribute credit (Section 20 as substituted by the Finance Act 2024).",
+    "audience": [
+      "gst",
+      "company",
+      "llp",
+      "firm"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 13,
+      "monthOffset": 1
+    },
+    "law": "Sections 20 and 39(4), CGST Act 2017; Rules 39 and 65, CGST Rules 2017",
+    "penalty": "Late fee under Section 47 as limited by Notification 7/2018-CT: Rs 25 CGST + Rs 25 SGST per day, up to the statutory Rs 5,000 each (no nil concession). Distributing credit in contravention of Section 20 attracts penalty under Section 122(1)(ix) (higher of Rs 10,000 or the credit involved).",
+    "exposure": {
+      "lateFeePerDay": 50,
+      "lateFeeCap": 10000,
+      "fixedPenalty": 10000,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Branches cannot take the distributed credit until it is reported",
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible"
+      ],
+      "basis": "Section 47(1) read with Notification 7/2018-CT: Rs 25 CGST + Rs 25 SGST per day, statutory cap Rs 5,000 + Rs 5,000; Section 122(1)(ix) penalty minimum Rs 10,000 for wrong distribution."
+    },
+    "overrides": [
+      {
+        "period": "2024-12",
+        "due": "2025-01-15",
+        "originalDue": "2025-01-13",
+        "reason": "Extended by Notification 04/2025-Central Tax dated 10-01-2025",
+        "source": {
+          "title": "CBIC - Notification 04/2025-Central Tax (GSTR-6 December 2024 extension)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010252/ENG/Notifications"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "title": "CBIC - CGST Act 2017, Section 39 (returns)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section39_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 20 (Input Service Distributor)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter5/section20_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 65 (GSTR-6)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule65_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Notification 7/2018-Central Tax (GSTR-6 late fee)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000791/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 04/2025-Central Tax (GSTR-6 December 2024 extension)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010252/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 09/2025-Central Tax (CGST Amendment Rules 2024 commencement)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010314/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 122 (penalties)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter19/section122_v1.00.html",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Mandatory ISD regime from 1 April 2025 (Section 20 substituted w.e.f. 01-04-2025; related rule changes brought into force by Notification 09/2025-CT). Credit must be distributed in the same month it is available (Rule 39)."
+  },
+  {
+    "id": "gst-gstr7-tds",
+    "title": "GSTR-7 GST TDS return (deductors)",
+    "form": "GSTR-7",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Monthly return of GST deducted at source (2%) from payments to suppliers, with invoice-wise details from the September 2025 period; generates GSTR-7A certificates for deductees.",
+    "applicability": "Persons required to deduct tax under Section 51 (government departments, local authorities, governmental agencies and other notified persons). A return is required every month even if no tax was deducted (Section 39(3) as substituted by the Finance (No. 2) Act 2024).",
+    "audience": [
+      "gst"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 10,
+      "monthOffset": 1
+    },
+    "law": "Sections 39(3) and 51, CGST Act 2017; Rule 66(1), CGST Rules 2017 (10th of following month, w.e.f. 1-11-2024 by Notification 20/2024-CT)",
+    "penalty": "Late fee under Section 47 as limited by Notification 23/2024-CT (from 1 Nov 2024): Rs 25 CGST + Rs 25 SGST per day, capped at Rs 1,000 + Rs 1,000; fully waived where no tax was deducted in the month. Interest at 18% p.a. if deducted tax is paid late (Section 51(6)); failure to deduct or pay attracts penalty under Section 122(1)(v).",
+    "exposure": {
+      "lateFeePerDay": 50,
+      "lateFeeCap": 2000,
+      "fixedPenalty": 10000,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": 18,
+      "percentOfTurnover": null,
+      "other": [
+        "Deductees cannot claim the TDS credit until the return is filed",
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible"
+      ],
+      "basis": "Section 47(1) read with Notification 23/2024-CT: Rs 50/day combined, cap Rs 2,000 combined, nil returns waived; Section 51(6) with Section 50(1) interest 18% p.a.; Section 122(1)(v) penalty minimum Rs 10,000 for non-deduction or non-payment."
+    },
+    "overrides": [
+      {
+        "period": "2024-12",
+        "due": "2025-01-12",
+        "originalDue": "2025-01-10",
+        "reason": "Extended by Notification 05/2025-Central Tax dated 10-01-2025",
+        "source": {
+          "title": "CBIC - Notification 05/2025-Central Tax (GSTR-7 December 2024 extension)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010253/ENG/Notifications"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 66 (GSTR-7)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule66_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 39 (returns)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section39_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 51 (TDS)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter10/section51_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Notification 23/2024-Central Tax (GSTR-7 late fee, nil waiver)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010188/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 22/2021-Central Tax (GSTR-7 late fee)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000511/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 05/2025-Central Tax (GSTR-7 December 2024 extension)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010253/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "GSTN advisory - Invoice-wise reporting in GSTR-7 (26-09-2025)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/626",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Invoice-level reporting mandatory from the September 2025 period (GSTN advisory 26-09-2025; form amended per Notification 09/2025-CT). Returns must be filed in sequence (GSTN advisory of 04-12-2024)."
+  },
+  {
+    "id": "gst-gstr8-tcs",
+    "title": "GSTR-8 TCS statement (e-commerce operators)",
+    "form": "GSTR-8",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Monthly statement by an e-commerce operator of supplies made through its platform and the tax collected at source on them, which is credited to the suppliers' cash ledgers.",
+    "applicability": "Electronic commerce operators required to collect tax under Section 52 (compulsorily registered under Section 24).",
+    "audience": [
+      "gst",
+      "company"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 10,
+      "monthOffset": 1
+    },
+    "law": "Sections 52(3) and 52(4), CGST Act 2017; Rule 67, CGST Rules 2017",
+    "penalty": "Late fee under Section 47(1) (which covers Section 52 statements from 1 Oct 2022): Rs 100 CGST + Rs 100 SGST per day up to Rs 5,000 each; no reducing notification was found. Interest at 18% p.a. on TCS paid after the 10th; failure to collect or pay attracts penalty under Section 122(1)(vi).",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": 10000,
+      "fixedPenalty": 10000,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": 18,
+      "percentOfTurnover": null,
+      "other": [
+        "Suppliers cannot claim the TCS credit until the statement is filed",
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible"
+      ],
+      "basis": "Section 47(1): Rs 100 CGST + Rs 100 SGST per day, cap Rs 5,000 + Rs 5,000 (no waiver notification located); Section 50 interest 18% p.a.; Section 122(1)(vi) penalty minimum Rs 10,000."
+    },
+    "overrides": [
+      {
+        "period": "2024-12",
+        "due": "2025-01-12",
+        "originalDue": "2025-01-10",
+        "reason": "Extended by Notification 06/2025-Central Tax dated 10-01-2025",
+        "source": {
+          "title": "CBIC - Notification 06/2025-Central Tax (GSTR-8 December 2024 extension)",
+          "url": "https://taxinformation.cbic.gov.in/view-pdf/1010254/ENG/Notifications"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "title": "CBIC - CGST Act 2017, Section 52 (TCS by e-commerce operators)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter10/section52_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 67 (GSTR-8)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule67_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 47 (late fee)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section47_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Notification 06/2025-Central Tax (GSTR-8 December 2024 extension)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010254/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 122 (penalties)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter19/section122_v1.00.html",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Section 52(5) and Rule 80(2) also require an annual statement (GSTR-9B) by 31 December, but it is not modelled because its availability on the portal was not verified. Late-fee amount is from the statute; confirm against the portal's computation."
+  },
+  {
+    "id": "gst-gstr9-annual",
+    "title": "GSTR-9 annual return",
+    "form": "GSTR-9",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Annual return consolidating the FY's outward supplies, ITC (including prior-year ITC in new Table 6A1), tax paid and late adjustments declared in GSTR-1/GSTR-3B.",
+    "applicability": "Regular registered persons whose aggregate turnover in the FY exceeds Rs 2 crore (exempt up to Rs 2 crore from FY 2024-25 onwards under Notification 15/2025-CT; optional for them). Not for ISD, TDS deductors, TCS collectors, casual or non-resident persons, or composition taxpayers (who file GSTR-4).",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 9
+    },
+    "law": "Section 44, CGST Act 2017; Rule 80(1), CGST Rules 2017; Notification 15/2025-CT (exemption up to Rs 2 crore)",
+    "penalty": "Late fee under Section 47(2) as limited by Notification 07/2023-CT (FY 2022-23 onwards): AATO up to Rs 5 crore - Rs 25 + Rs 25 per day up to 0.02% + 0.02% of State/UT turnover; Rs 5-20 crore - Rs 50 + Rs 50 per day up to 0.02% + 0.02%; above Rs 20 crore - Rs 100 + Rs 100 per day up to 0.25% + 0.25%. Where GSTR-9C is required, the fee runs until both forms are filed (Circular 246/03/2025-GST). Barred three years after the due date (Section 44(2)).",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": 0.5,
+      "other": [
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible",
+        "Last chance to report previous-FY items is 30 November or the GSTR-9 filing date, whichever is earlier"
+      ],
+      "basis": "Section 47(2) with Notification 07/2023-CT, combined CGST+SGST: Rs 50/day capped at 0.04% of turnover (AATO up to Rs 5 crore); Rs 100/day capped at 0.04% (Rs 5-20 crore); Rs 200/day capped at 0.5% (above Rs 20 crore, statutory). Highest slab shown."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 80 (annual return, GSTR-9/9C)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule80_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 44 (annual return)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section44_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 47 (late fee)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section47_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Notification 15/2025-Central Tax (annual return exemption up to Rs 2 crore)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010465/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 07/2023-Central Tax (GSTR-9 late fee)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1009689/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Circular 246/03/2025-GST (late fee for GSTR-9C)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1003263/ENG/Circulars",
+        "kind": "circular"
+      },
+      {
+        "title": "CBIC - Notification 13/2025-Central Tax (CGST Third Amendment Rules 2025)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010462/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "GSTN advisory - GSTR-9/9C for FY 2024-25 enabled (15-10-2025)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/629",
+        "kind": "portal"
+      },
+      {
+        "title": "GSTN - Consolidated FAQs on GSTR-9/9C for FY 2024-25 (17-12-2025)",
+        "url": "https://tutorial.gst.gov.in/downloads/news/combined_faq_on_gstr_9_and_9c_17122025.pdf",
+        "kind": "faq"
+      },
+      {
+        "title": "GSTN advisory - GSTR-9/9C for FY 2025-26 enabled from 08-10-2026",
+        "url": "https://www.gst.gov.in/newsandupdates/read/677",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "FY 2024-25 return (due 31-12-2025): forms revised by the CGST (Third Amendment) Rules 2025 (Notification 13/2025-CT, from 22-09-2025) with Table 6A1/6A2 for ITC of the preceding year and Table 8A drawn from GSTR-2B; portal opened 12-10-2025; no extension was notified. FY 2025-26 return (due 31-12-2026): enabled on 08-10-2026 once all GSTR-1/3B are filed. The Rs 2 crore exemption is now standing (FY 2024-25 onwards) instead of year-by-year."
+  },
+  {
+    "id": "gst-gstr9c-reconciliation",
+    "title": "GSTR-9C self-certified reconciliation statement",
+    "form": "GSTR-9C",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Self-certified statement reconciling turnover and tax in GSTR-9 with the audited financial statements, filed together with GSTR-9.",
+    "applicability": "Registered persons required to file GSTR-9 whose aggregate turnover in the FY exceeds Rs 5 crore.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "audit"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 9
+    },
+    "law": "Section 44(1), CGST Act 2017; Rule 80(3), CGST Rules 2017",
+    "penalty": "No separate late fee: the annual return is incomplete until GSTR-9C is filed, so the GSTR-9 late fee under Section 47(2) continues to accrue (Circular 246/03/2025-GST). Notification 08/2025-CT waived the GSTR-9C-related excess for FY 2017-18 to 2022-23 where GSTR-9C was filed by 31-03-2025.",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": 0.5,
+      "other": [
+        "Annual return treated as not furnished until GSTR-9C is filed",
+        "Return barred three years after its due date (Sections 37(5), 39(11), 44(2), 52(15)); portal unbarring application possible"
+      ],
+      "basis": "Shared with GSTR-9 (not additional): Section 47(2) with Notification 07/2023-CT, highest slab Rs 200/day combined capped at 0.5% of turnover; lower slabs Rs 50 or Rs 100/day capped at 0.04%."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 80 (annual return, GSTR-9/9C)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule80_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 44 (annual return)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section44_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Circular 246/03/2025-GST (late fee for GSTR-9C)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1003263/ENG/Circulars",
+        "kind": "circular"
+      },
+      {
+        "title": "CBIC - Notification 08/2025-Central Tax (GSTR-9C late fee waiver)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010288/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 13/2025-Central Tax (CGST Third Amendment Rules 2025)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010462/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "GSTN - Consolidated FAQs on GSTR-9/9C for FY 2024-25 (17-12-2025)",
+        "url": "https://tutorial.gst.gov.in/downloads/news/combined_faq_on_gstr_9_and_9c_17122025.pdf",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "GSTR-9C format also revised by Notification 13/2025-CT for FY 2024-25 onwards. Do not add this exposure to GSTR-9's when totalling."
+  },
+  {
+    "id": "gst-itc04-halfyearly",
+    "title": "ITC-04 job work statement (AATO above Rs 5 crore)",
+    "form": "GST ITC-04",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Half-yearly statement by a principal of inputs and capital goods sent to, received from or supplied from job workers' premises.",
+    "applicability": "Principals sending goods to job workers under Section 143 whose aggregate turnover in the preceding FY exceeded Rs 5 crore.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp"
+    ],
+    "frequency": "half-yearly",
+    "schedule": {
+      "kind": "half-yearly",
+      "basis": "fy",
+      "day": 25,
+      "monthOffset": 1
+    },
+    "law": "Section 143, CGST Act 2017; Rule 45(3) and Explanation, CGST Rules 2017 (as amended by Notification 35/2021-CT w.e.f. 1-10-2021)",
+    "penalty": "No late fee. Non-filing is punishable under the general penalty of Section 125 (up to Rs 25,000). Inputs not returned within one year (capital goods three years) are deemed supplied on the date sent, with tax and interest (Section 143).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": 25000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Goods not returned in time are deemed supplied with tax and interest (Section 143(3)-(4))"
+      ],
+      "basis": "Section 125 general penalty up to Rs 25,000 (the 57th Council recommended reducing it to Rs 10,000, not yet enacted)."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 45 (job work, ITC-04)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter5/rule45_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 143 (job work)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter21/section143_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 125 (general penalty)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter19/section125_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Notification 35/2021-Central Tax (ITC-04 periodicity)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000498/ENG/Notifications",
+        "kind": "notification"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Due 25 October (April-September) and 25 April (October-March)."
+  },
+  {
+    "id": "gst-itc04-annual",
+    "title": "ITC-04 job work statement (AATO up to Rs 5 crore)",
+    "form": "GST ITC-04",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Annual statement by a principal of inputs and capital goods sent to, received from or supplied from job workers' premises.",
+    "applicability": "Principals sending goods to job workers under Section 143 whose aggregate turnover in the preceding FY was up to Rs 5 crore.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 25,
+      "monthOffset": 1
+    },
+    "law": "Section 143, CGST Act 2017; Rule 45(3) and Explanation, CGST Rules 2017 (as amended by Notification 35/2021-CT)",
+    "penalty": "No late fee. Non-filing is punishable under the general penalty of Section 125 (up to Rs 25,000). Inputs not returned within one year (capital goods three years) are deemed supplied on the date sent, with tax and interest (Section 143).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": 25000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Goods not returned in time are deemed supplied with tax and interest (Section 143(3)-(4))"
+      ],
+      "basis": "Section 125 general penalty up to Rs 25,000."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 45 (job work, ITC-04)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter5/rule45_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 143 (job work)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter21/section143_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 125 (general penalty)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter19/section125_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Notification 35/2021-Central Tax (ITC-04 periodicity)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000498/ENG/Notifications",
+        "kind": "notification"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Due 25 April after the FY."
+  },
+  {
+    "id": "gst-cmp02-opt-in",
+    "title": "CMP-02 opt into composition for next FY",
+    "form": "GST CMP-02",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Intimation by an existing registered person opting to pay tax under the composition scheme for the coming FY; ITC-03 reversing credit on stock follows within 60 days of the FY start.",
+    "applicability": "Registered persons eligible under Section 10 (AATO up to Rs 1.5 crore, Rs 75 lakh in the eight notified States; Rs 50 lakh for the services scheme) who want composition from 1 April.",
+    "audience": [
+      "gst",
+      "firm",
+      "individual",
+      "company"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 0
+    },
+    "law": "Section 10, CGST Act 2017; Rule 3(3), CGST Rules 2017 ('prior to the commencement of the financial year'); Notification 14/2019-CT",
+    "penalty": "No fee or penalty; a late intimation simply means the composition scheme cannot be used for that FY.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Cannot opt into composition for the coming FY; normal GST applies"
+      ],
+      "basis": "No monetary consequence; option lapses for the year."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 3 (composition intimation)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter2/rule3_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 10 (composition levy)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter3/section10_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Notification 14/2019-Central Tax (composition turnover limits)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000701/ENG/Notifications",
+        "kind": "notification"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Modelling convention: the occurrence dated 31 March at the end of FY X is the last day to opt in for FY X+1. ITC-03 is due within 60 days of the start of the new FY (Rule 3(3))."
+  },
+  {
+    "id": "gst-qrmp-option-window",
+    "title": "QRMP opt-in / opt-out cut-off for the quarter",
+    "form": "Opt-in for quarterly return",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Last day to change filing preference (quarterly QRMP or monthly) for the quarter that has just started; the window opens on the 1st day of the second month of the preceding quarter.",
+    "applicability": "Registered persons with AATO up to Rs 5 crore who wish to join or leave QRMP; the last return due on the date of exercising the option must have been filed.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "quarterly",
+    "schedule": {
+      "kind": "quarterly",
+      "basis": "fy",
+      "day": "last",
+      "monthOffset": 1
+    },
+    "law": "Rule 61A, CGST Rules 2017; Notification 84/2020-Central Tax",
+    "penalty": "No penalty; the existing frequency simply continues for the quarter.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Existing filing frequency continues for the quarter"
+      ],
+      "basis": "No monetary consequence."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 61A (QRMP option)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule61a_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Notification 84/2020-Central Tax (QRMP class of persons)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000546/ENG/Notifications",
+        "kind": "notification"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Modelling convention: the occurrence after quarter Qn (e.g., 30 April after Jan-Mar) is the cut-off for quarter Qn+1 (Apr-Jun), whose window ran from 1 February to 30 April. A taxpayer whose AATO crosses Rs 5 crore during the FY must move to monthly filing from the next quarter (Rule 61A(2))."
+  },
+  {
+    "id": "gst-lut-rfd11",
+    "title": "LUT (RFD-11) for zero-rated supplies, new FY",
+    "form": "GST RFD-11",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Letter of Undertaking furnished online for each FY so that exports and supplies to SEZ units/developers can be made without paying IGST.",
+    "applicability": "Exporters of goods or services and suppliers to SEZ units/developers who want to supply without payment of IGST (and claim refund of unutilised ITC instead).",
+    "audience": [
+      "gst",
+      "importer-exporter",
+      "company",
+      "firm",
+      "llp"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 0
+    },
+    "law": "Section 16(3), IGST Act 2017; Rule 96A, CGST Rules 2017",
+    "penalty": "No fee or penalty for filing late, but supplies made without a valid LUT or bond must be made on payment of IGST (refund route). Under the LUT, tax with interest becomes payable within 15 days after three months from the export invoice if the goods are not exported, and for services within 15 days after one year (or the longer FEMA-permitted period) if payment is not received.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": 18,
+      "percentOfTurnover": null,
+      "other": [
+        "Without a valid LUT, zero-rated supplies require upfront IGST payment and a refund claim"
+      ],
+      "basis": "Rule 96A(1): tax with Section 50 interest (18% p.a.) if LUT conditions are breached; no late fee for the LUT itself."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 96A (LUT / bond for exports)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter10/rule96a_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - IGST Act 2017, Section 16 (zero-rated supply, LUT)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_IGST_Act/active/chaptervii/section16_v1.00.html",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "The LUT is valid for one FY and must be in place before the first zero-rated supply of that FY; shown as 31 March of the preceding FY as the practical deadline. A LUT can still be furnished later in the year, but supplies made before it is accepted are not covered."
+  },
+  {
+    "id": "gst-gta-forward-charge-option",
+    "title": "GTA forward-charge option (Annexure V / VI)",
+    "form": "Annexure V / Annexure VI",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Goods Transport Agencies opting to pay GST themselves under forward charge (Annexure V), or reverting to reverse charge (Annexure VI), for the next FY.",
+    "applicability": "Goods Transport Agencies supplying transport of goods by road.",
+    "audience": [
+      "gst",
+      "firm",
+      "company",
+      "individual"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 0
+    },
+    "law": "Notification 11/2017-Central Tax (Rate), entry for GTA services and Annexures V and VI, as amended by Notification 06/2023-Central Tax (Rate)",
+    "penalty": "No penalty; if no declaration is filed the existing position continues (a forward-charge option once exercised continues unless Annexure VI is filed in the window).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Existing forward/reverse charge position continues for the next FY"
+      ],
+      "basis": "No monetary consequence."
+    },
+    "sources": [
+      {
+        "title": "CBIC - Notification 06/2023-Central Tax (Rate) (GTA option window)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1009783/ENG/Notifications",
+        "kind": "notification"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Window: 1 January to 31 March of the preceding FY (Notification 06/2023-CT(Rate) replaced the earlier 15 March deadline). The occurrence dated 31 March of FY X covers FY X+1."
+  },
+  {
+    "id": "gst-specified-premises-declaration",
+    "title": "Hotel 'specified premises' declaration (next FY)",
+    "form": "Annexure VII / Annexure IX",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Declaration by a supplier of hotel accommodation that a premises is a 'specified premises' for the next FY (Annexure VII; opt-out Annexure IX), which decides how restaurant services supplied there are taxed.",
+    "applicability": "Registered suppliers of hotel accommodation (regular taxpayers, including suspended ones) wishing to declare premises; new registrants may use Annexure VIII within 15 days of the registration ARN. Not for composition, TDS/TCS, SEZ, casual or cancelled registrations.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 0
+    },
+    "law": "Notification 11/2017-Central Tax (Rate), para 4(xxxvi) 'specified premises' and Annexures VII-IX, as substituted by Notification 05/2025-Central Tax (Rate)",
+    "penalty": "No penalty; a premises not declared (and not above the Rs 7,500 room-tariff test in the preceding year) is not a specified premises for the FY.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Premises not treated as specified premises for the coming FY"
+      ],
+      "basis": "No monetary consequence."
+    },
+    "sources": [
+      {
+        "title": "CBIC - Notification 05/2025-Central Tax (Rate) (specified premises declaration)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010273/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "GSTN advisory - Opt-in declaration for specified premises (04-01-2026)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/645",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Window 1 January - 31 March of the preceding FY. Online filing enabled in January 2026; declarations filed manually for FY 2025-26 had to be re-filed online for FY 2026-27. The option continues for later years unless an opt-out is filed."
+  },
+  {
+    "id": "gst-itc-credit-note-cutoff",
+    "title": "Previous-FY ITC, credit note and correction cut-off",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Last date to take ITC on invoices and debit notes of the previous FY, declare credit notes for that FY's supplies, and rectify that FY's GSTR-1/GSTR-3B details (or the GSTR-9 filing date, if earlier).",
+    "applicability": "All regular registered persons.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 8
+    },
+    "law": "Sections 16(4), 34(2), 37(3) proviso and 39(9) proviso, CGST Act 2017",
+    "penalty": "ITC not taken by this date is lost permanently; credit notes declared later cannot reduce output tax; previous-FY errors can no longer be rectified through returns.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "ITC for the previous FY lapses",
+        "Late credit notes cannot reduce output tax liability",
+        "Previous-FY errors can no longer be rectified through GSTR-1/GSTR-3B"
+      ],
+      "basis": "Time bar; no fee, but the credit itself is forfeited."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Act 2017, Section 16 (ITC conditions and time limit)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter5/section16_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 34 (credit and debit notes)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter7/section34_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 37 (outward supplies)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section37_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 39 (returns)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section39_v1.00.html",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "From 1 Oct 2025 (Finance Act 2025, Notification 16/2025-CT) the supplier's output tax reduction for a credit note depends on the registered recipient reversing the matching ITC (Section 34(2) proviso), which IMS implements. The 57th Council recommended aligning Sections 37 and 39 with the Section 16(4) time limit; not yet enacted."
+  },
+  {
+    "id": "gst-gstr10-final-return",
+    "title": "GSTR-10 final return after cancellation",
+    "form": "GSTR-10",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Final return by a person whose registration is cancelled, declaring stock and the ITC/tax payable on it under Section 29(5).",
+    "applicability": "Regular taxpayers (required to file under Section 39(1)) whose registration has been cancelled, voluntarily or by the officer. Not for composition, ISD, TDS/TCS, casual or non-resident persons.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "event",
+    "trigger": "Within three months of the effective date of cancellation or the date of the cancellation order, whichever is later",
+    "law": "Sections 29(5) and 45, CGST Act 2017; Rule 81, CGST Rules 2017",
+    "penalty": "Late fee under Section 47(1): Rs 100 CGST + Rs 100 SGST per day, capped at Rs 5,000 each (amnesties under Notifications 68/2020-CT and 08/2023-CT were time-bound and have lapsed). From January 2026, interest on a late final GSTR-3B is collected through GSTR-10. Non-filers face a Section 46 notice and best-judgment assessment (Section 62).",
+    "exposure": {
+      "lateFeePerDay": 200,
+      "lateFeeCap": 10000,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": 18,
+      "percentOfTurnover": null,
+      "other": [
+        "Best-judgment assessment under Section 62 after Section 46 notice"
+      ],
+      "basis": "Section 47(1) statutory: Rs 100 CGST + Rs 100 SGST per day, cap Rs 5,000 + Rs 5,000; Section 50 interest 18% p.a."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Act 2017, Section 45 (final return)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section45_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 81 (final return GSTR-10)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule81_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 47 (late fee)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section47_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 62 (assessment of non-filers)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter12/section62_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "GST portal FAQ - Form GSTR-10",
+        "url": "https://tutorial.gst.gov.in/userguide/returns/FAQs_GSTR-10.htm",
+        "kind": "faq"
+      },
+      {
+        "title": "CBIC - Notification 08/2023-Central Tax (GSTR-10 amnesty)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1009690/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "GSTN advisory - Interest collection and related enhancements in GSTR-3B (Jan 2026 period)",
+        "url": "https://tutorial.gst.gov.in/downloads/news/final_advisory_on_interest_calculator.pdf",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "The 57th Council recommended automatic acceptance of cancellation applications once returns (including GSTR-10 within time) are filed; not yet implemented."
+  },
+  {
+    "id": "gst-gstr11-uin",
+    "title": "GSTR-11 inward supplies statement (UIN holders)",
+    "form": "GSTR-11 / RFD-10",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Statement of inward supplies by UIN holders (UN bodies, embassies, consulates and other notified persons) used to claim refund of GST paid on purchases through RFD-10.",
+    "applicability": "Persons holding a Unique Identity Number under Section 55 who claim refund of tax on inward supplies.",
+    "audience": [
+      "gst",
+      "foreign"
+    ],
+    "frequency": "event",
+    "trigger": "After the end of each quarter in which taxable inward supplies were received, before filing the RFD-10 refund claim; the refund must be claimed within two years from the last day of that quarter",
+    "law": "Sections 54(2) and 55, CGST Act 2017; Rule 82, CGST Rules 2017",
+    "penalty": "No late fee. GSTR-11 itself has no due date, but the refund right lapses two years after the end of the quarter (Section 54(2)).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Refund of GST on purchases time-barred two years after the quarter"
+      ],
+      "basis": "No fee; time bar on the refund under Section 54(2)."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 82 (GSTR-11 for UIN holders)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter8/rule82_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 54 (refunds)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter11/section54_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "GST portal FAQ - Form GSTR-11 (quarterly, no due date)",
+        "url": "https://tutorial.gst.gov.in/userguide/returns/FAQs_GSTR-11.htm",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Many calendars list GSTR-11 on the 28th of the following month. The GST portal FAQ (checked 14-10-2026) says it is filed quarterly, is not needed for quarters without inward supplies, and has no due date."
+  },
+  {
+    "id": "gst-einvoice-30-day-reporting",
+    "title": "E-invoice IRP reporting within 30 days (AATO Rs 10 cr+)",
+    "form": "e-invoice (IRN)",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "Invoices, credit notes and debit notes must be reported to the Invoice Registration Portal within 30 days of the document date; the IRP rejects older documents.",
+    "applicability": "Taxpayers with aggregate annual turnover of Rs 10 crore or more (from 1 April 2025; the limit first applied to AATO of Rs 100 crore and above under a GSTN advisory of 13-09-2023). E-invoicing itself is mandatory once AATO in any FY from 2017-18 exceeds Rs 5 crore (Notification 10/2023-CT).",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp"
+    ],
+    "frequency": "event",
+    "trigger": "Within 30 days of the date of each invoice, credit note or debit note requiring an IRN",
+    "law": "Rule 48(4)-(6), CGST Rules 2017; Notification 13/2020-CT as amended by Notification 10/2023-CT; GSTN advisory dated 05-11-2024 (portal validation)",
+    "penalty": "The IRP rejects documents older than 30 days. An invoice not issued through the IRP is not a valid invoice (Rule 48(5)), so the buyer's ITC is at risk and the supplier faces penalty under Section 122 (higher of Rs 10,000 or the tax involved for supply without a valid invoice; up to Rs 25,000 under Section 122(3)(e)).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 10000,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Invoice invalid without IRN; buyer's ITC denied"
+      ],
+      "basis": "Rule 48(5) invalidity; Section 122(1)(i) penalty of the higher of Rs 10,000 or tax evaded; Section 122(3)(e) up to Rs 25,000."
+    },
+    "effective": {
+      "from": "2025-04-01",
+      "to": null
+    },
+    "sources": [
+      {
+        "title": "GSTN advisory - Time limit for reporting e-invoices, AATO Rs 10 crore and above (05-11-2024)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/543",
+        "kind": "portal"
+      },
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 48 (manner of issuing invoice, e-invoice)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter6/rule48_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Notification 10/2023-Central Tax (e-invoicing above Rs 5 crore)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1009732/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 13/2020-Central Tax (e-invoice class of persons)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1000623/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 122 (penalties)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter19/section122_v1.00.html",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "The 30-day limit is a portal validation announced by GSTN, not a separate notification. No further lowering of the threshold was found as of October 2026. The 57th Council recommended extending e-invoicing to RCM purchases from unregistered persons and to import of services for AATO of Rs 5 crore and above; not yet notified."
+  },
+  {
+    "id": "gst-refund-time-limit",
+    "title": "GST refund claim time limit (2 years)",
+    "form": "GST RFD-01",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "A refund of tax, interest or other amounts (including export and inverted-duty ITC refunds) must be applied for within two years from the relevant date.",
+    "applicability": "Any person claiming a GST refund: exporters, SEZ suppliers, inverted duty structure cases, excess payments, deemed exports and others.",
+    "audience": [
+      "gst",
+      "importer-exporter",
+      "company",
+      "firm",
+      "llp"
+    ],
+    "frequency": "event",
+    "trigger": "Within two years from the relevant date under Section 54 (for example the date the ship or aircraft leaves India for goods exports, receipt of payment for services exports, the due date of the return for SEZ supplies and inverted duty refunds, or the date of payment in other cases)",
+    "law": "Section 54(1) and Explanation 2, CGST Act 2017; Rule 89, CGST Rules 2017",
+    "penalty": "A claim filed after two years is time-barred.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Refund permanently time-barred"
+      ],
+      "basis": "Limitation under Section 54(1); no fee."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Act 2017, Section 54 (refunds)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter11/section54_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 89 (refund application)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter10/rule89_v1.00.html",
+        "kind": "rules"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Finance Act 2026 (in force from a date to be notified) extends provisional refunds to inverted duty cases and removes the Rs 1,000 minimum for exports on payment of tax; the 57th Council recommended system-based automated refunds."
+  },
+  {
+    "id": "gst-bank-account-rule10a",
+    "title": "Bank account details after new GST registration",
+    "form": "REG-14 (non-core amendment)",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "A newly registered person must add bank account details on the GST portal within 30 days of registration or before filing the first GSTR-1/IFF, whichever is earlier.",
+    "applicability": "All new registrants except TDS/TCS registrations and suo moto (temporary) registrations; not mandatory for OIDAR and non-resident taxpayers unless an OIDAR supplier has a representative in India.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "event",
+    "trigger": "Within 30 days of grant of registration, or before furnishing the first GSTR-1/IFF, whichever is earlier",
+    "law": "Rule 10A, CGST Rules 2017; Rule 21(d) (cancellation for breach of Rule 10A)",
+    "penalty": "Since December 2025 the portal automatically suspends the registration when bank details are not furnished within 30 days; the cancellation proceeding is dropped once details are added. Continued default can lead to cancellation (Rule 21(d)).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Automatic suspension of registration (portal, from December 2025)",
+        "Cancellation possible under Rule 21(d)"
+      ],
+      "basis": "Non-monetary: suspension and possible cancellation."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 10A (bank account details)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter3/rule10a_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - CGST Rules 2017, Rule 21 (cancellation grounds)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter3/rule21_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "GSTN advisory - Auto suspension for non-furnishing of bank details (05-12-2025)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/641",
+        "kind": "portal"
+      },
+      {
+        "title": "GSTN advisory - Furnishing of bank account details as per Rule 10A (20-11-2025)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/637",
+        "kind": "portal"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "2025 change: automatic suspension implemented on the portal (GSTN advisory 05-12-2025)."
+  },
+  {
+    "id": "gst-three-year-filing-bar",
+    "title": "Three-year time bar on filing GST returns",
+    "category": "gst",
+    "authority": "CBIC / GSTN",
+    "summary": "A GST return or statement cannot be filed once three years have passed from its due date; the portal locks such returns.",
+    "applicability": "All filers of GSTR-1/IFF/1A, GSTR-3B, GSTR-4, GSTR-5, GSTR-5A, GSTR-6, GSTR-7, GSTR-8 and GSTR-9/9C.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "event",
+    "trigger": "Three years after the original due date of each pending return",
+    "law": "Sections 37(5), 39(11), 44(2) and 52(15), CGST Act 2017 (inserted by Finance Act 2023, in force 1-10-2023 by Notification 28/2023-CT)",
+    "penalty": "The return can no longer be filed. A taxpayer may apply to the officer for unbarring; if approved, all barred returns must be filed within 30 days or they are barred again.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Return permanently barred unless unbarring is approved",
+        "Unbarred returns must be filed within 30 days of approval"
+      ],
+      "basis": "Statutory time bar; no fee, but liability, ITC and refund positions for the period can no longer be regularised through the return."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Act 2017, Section 39 (returns)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section39_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 37 (outward supplies)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section37_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 44 (annual return)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter9/section44_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - CGST Act 2017, Section 52 (TCS by e-commerce operators)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter10/section52_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Notification 28/2023-Central Tax (Finance Act 2023 provisions from 1-10-2023)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1009806/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "GSTN advisory - File pending returns before expiry of three years (29-10-2025)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/633",
+        "kind": "portal"
+      },
+      {
+        "title": "GSTN advisory - Barring of GST return on expiry of three years (07-06-2025)",
+        "url": "https://www.gst.gov.in/newsandupdates/read/607",
+        "kind": "portal"
+      },
+      {
+        "title": "GST portal FAQ - Barring/unbarring of returns",
+        "url": "https://tutorial.gst.gov.in/userguide/returns/FAQs_application_Unbarring.htm",
+        "kind": "faq"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Portal enforcement started with the November 2025 tax period (effective 1 December 2025), when October 2022 monthly returns, July-September 2022 quarterly returns, GSTR-4 for FY 2021-22 and GSTR-9/9C for FY 2020-21 were barred (GSTN advisory 29-10-2025; an earlier June 2025 advisory had said July 2025)."
+  },
+  {
+    "id": "gst-first-appeal",
+    "title": "First appeal to Appellate Authority (APL-01)",
+    "form": "GST APL-01",
+    "category": "gst",
+    "authority": "CBIC / State GST departments",
+    "summary": "Appeal against an adjudication order to the Appellate Authority (Commissioner (Appeals) or State equivalent), with the mandatory pre-deposit.",
+    "applicability": "Any person aggrieved by a decision or order of an adjudicating authority under the CGST/SGST/UTGST Acts.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "event",
+    "trigger": "Within three months from the date the order is communicated (the Appellate Authority may allow one further month for sufficient cause)",
+    "law": "Section 107(1), (4) and (6), CGST Act 2017",
+    "penalty": "Appeal barred beyond the condonable period. Pre-deposit: the admitted amount plus 10% of disputed tax (capped at Rs 20 crore CGST); for penalty-only orders, 10% of the penalty (from 1-10-2025).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Order becomes final if not appealed in time",
+        "Pre-deposit of 10% of disputed tax (cap Rs 20 crore CGST) or 10% of penalty for penalty-only orders"
+      ],
+      "basis": "Limitation under Section 107; pre-deposit under Section 107(6)."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Act 2017, Section 107 (first appeal)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter18/section107_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "CBIC - Notification 16/2025-Central Tax (Finance Act 2025 provisions from 1-10-2025)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010466/ENG/Notifications",
+        "kind": "notification"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "The penalty-only pre-deposit proviso came from the Finance Act 2025 (in force 1-10-2025). The 57th Council recommended a Rs 40 crore (Rs 20 crore CGST + Rs 20 crore SGST) ceiling for penalty-only orders; not yet enacted."
+  },
+  {
+    "id": "gst-gstat-appeal",
+    "title": "Appeal to GST Appellate Tribunal (GSTAT)",
+    "form": "GST APL-05",
+    "category": "gst",
+    "authority": "GSTAT / Department of Revenue",
+    "summary": "Second appeal, filed online on the GSTAT e-filing portal, against an order of the Appellate Authority or Revisional Authority, with the additional pre-deposit.",
+    "applicability": "Taxpayers aggrieved by orders under Section 107 or 108 (the Tribunal may decline cases where tax, ITC, fine, fee or penalty involved is Rs 50,000 or less).",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "event",
+    "trigger": "Within three months from communication of the first-appeal or revision order (cross-objections within 45 days of notice); orders communicated before 1 May 2026 could be appealed until 31 July 2026",
+    "law": "Section 112(1), (5), (6) and (8), CGST Act 2017; GSTAT (Procedure) Rules 2025; Department of Revenue notification under Section 112 dated 30-06-2026 (superseding S.O. 4220(E) dated 17-09-2025)",
+    "penalty": "Late appeals can be admitted only within a further three months for sufficient cause (Section 112(6)). Pre-deposit of 10% of the remaining disputed tax in addition to the first-appeal deposit, capped at Rs 20 crore CGST; 10% of penalty for penalty-only orders (from 1-10-2025).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Order becomes final if not appealed in time",
+        "Additional pre-deposit of 10% of remaining disputed tax (cap Rs 20 crore CGST)"
+      ],
+      "basis": "Limitation and condonation under Section 112(1) and (6); pre-deposit under Section 112(8)."
+    },
+    "sources": [
+      {
+        "title": "CBIC - CGST Act 2017, Section 112 (appeal to GSTAT)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/acts/2017_CGST_act/active/chapter18/section112_v1.00.html",
+        "kind": "act"
+      },
+      {
+        "title": "Department of Revenue notification dated 30-06-2026 under Section 112 (GSTAT outer date 31-07-2026)",
+        "url": "https://efiling.gstat.gov.in/downloads/manual/GSTAT_Due_date_Notification.pdf",
+        "kind": "notification"
+      },
+      {
+        "title": "GSTAT - What's new: GSTAT due date notification (30-06-2026)",
+        "url": "https://gstat.gov.in/whats-new/32",
+        "kind": "portal"
+      },
+      {
+        "title": "CBIC - Notification 13/2025-Central Tax (CGST Third Amendment Rules 2025)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010462/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "CBIC - Notification 02/2026-Central Tax (GSTAT Principal Bench, Section 101B)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010680/ENG/Notifications",
+        "kind": "notification"
+      },
+      {
+        "title": "Taxguru - GSTAT appeal deadlines and S.O. 4220(E) dated 17-09-2025",
+        "url": "https://taxguru.in/goods-and-service-tax/gstat-appeal-deadlines-clarified-backlog-cases-filed-30-june-2026.html",
+        "kind": "secondary"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "GSTAT e-filing opened in September 2025 with a staggered, batch-wise filing schedule (window dates per secondary source). Appeal forms were substituted by Notification 13/2025-CT (from 22-09-2025), including rule 110A for single-member benches. From 1 April 2026 the Principal Bench also hears appeals under Section 101B (Notification 02/2026-CT). See gst-gstat-backlog-deadline for the one-time outer date."
+  },
+  {
+    "id": "gst-gstat-backlog-deadline",
+    "title": "GSTAT backlog appeals outer date (31 Jul 2026)",
+    "form": "GST APL-05",
+    "category": "gst",
+    "authority": "GSTAT / Department of Revenue",
+    "summary": "One-time outer date for filing GSTAT appeals against first-appeal or revision orders communicated before 1 May 2026 (departmental applications: orders passed before 1 February 2026).",
+    "applicability": "Taxpayers with Section 107/108 orders communicated before 1 May 2026 that had not yet been appealed to GSTAT.",
+    "audience": [
+      "gst",
+      "company",
+      "firm",
+      "llp",
+      "individual"
+    ],
+    "frequency": "one-time",
+    "schedule": {
+      "kind": "fixed",
+      "dates": [
+        {
+          "due": "2026-07-31",
+          "period": "Orders communicated before 2026-05-01"
+        }
+      ]
+    },
+    "trigger": "Fixed outer date notified under Section 112(1) and (3)",
+    "law": "Section 112(1) and (3), CGST Act 2017; Department of Revenue notification dated 30-06-2026 (F. No. A-50/7/2025-GSTAT-DoR), superseding S.O. 4220(E) dated 17-09-2025",
+    "penalty": "Appeals after the outer date are time-barred, subject only to condonation within three months under Section 112(6).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Backlog appeal time-barred after the outer date"
+      ],
+      "basis": "Limitation; no fee."
+    },
+    "sources": [
+      {
+        "title": "Department of Revenue notification dated 30-06-2026 under Section 112 (GSTAT outer date 31-07-2026)",
+        "url": "https://efiling.gstat.gov.in/downloads/manual/GSTAT_Due_date_Notification.pdf",
+        "kind": "notification"
+      },
+      {
+        "title": "GSTAT - What's new: GSTAT due date notification (30-06-2026)",
+        "url": "https://gstat.gov.in/whats-new/32",
+        "kind": "portal"
+      },
+      {
+        "title": "Taxguru - GSTAT appeal deadlines and S.O. 4220(E) dated 17-09-2025",
+        "url": "https://taxguru.in/goods-and-service-tax/gstat-appeal-deadlines-clarified-backlog-cases-filed-30-june-2026.html",
+        "kind": "secondary"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "The earlier S.O. 4220(E) (17-09-2025) had set 30-06-2026 for orders communicated before 1-04-2026 (details from secondary source; the S.O. itself was not opened). Orders communicated on or after 1 May 2026 follow the normal three-month limit (gst-gstat-appeal). The GSTAT portal also accepted a recorded 'intent to file' by 31-07-2026 as timely filing where users faced registration or e-filing problems."
+  },
+  {
+    "id": "trade-iec-annual-update",
+    "title": "IEC annual update / confirmation on DGFT portal",
+    "form": "IEC profile update",
+    "category": "trade",
+    "authority": "DGFT",
+    "summary": "Every Importer-Exporter Code holder must update its IEC details electronically on the DGFT portal each year during April-June, and confirm online even if nothing has changed.",
+    "applicability": "All IEC holders (proprietorships, partnerships, LLPs, companies, trusts, HUFs, societies), whether or not they traded in the year.",
+    "audience": [
+      "importer-exporter",
+      "company",
+      "firm",
+      "llp",
+      "individual",
+      "trust"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 30,
+      "monthOffset": 3
+    },
+    "law": "Para 2.05(d) and (e), Foreign Trade Policy 2023 (DGFT)",
+    "penalty": "An IEC not updated within April-June is de-activated; it is re-activated on successful updation and cannot be used for imports or exports until then.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": null,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "IEC de-activated; imports and exports blocked until updated"
+      ],
+      "basis": "Para 2.05(e) FTP 2023: de-activation; no statutory fee found in the FTP text."
+    },
+    "sources": [
+      {
+        "title": "DGFT - Foreign Trade Policy 2023, Chapter 2 (Para 2.05 IEC)",
+        "url": "https://content.dgft.gov.in/Website/Chapter_2_Revised_FTP_v1.2.2.pdf",
+        "kind": "rules"
+      },
+      {
+        "title": "DGFT - IEC profile management (update/modify IEC)",
+        "url": "https://www.dgft.gov.in/CP/?opt=iec-profile-management",
+        "kind": "portal"
+      },
+      {
+        "title": "Taxguru - DGFT annual IEC update (window and legal basis)",
+        "url": "https://taxguru.in/dgft/dgft-annual-iec-update-criticised-due-repeated-compliance-burden-exporters.html",
+        "kind": "secondary"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Modelling convention: the occurrence keyed to FY X falls on 30 June after that FY (window 1 April - 30 June). The requirement dates from DGFT Notification 58/2015-20 dated 12-02-2021 (as reported by secondary sources). A Rs 200 reactivation charge is reported by commentators but was not verified on DGFT."
+  },
+  {
+    "id": "trade-rodtep-annual-return",
+    "title": "Annual RoDTEP Return (ARR) on DGFT portal",
+    "form": "ARR (Appendix 4RR)",
+    "category": "trade",
+    "authority": "DGFT",
+    "summary": "Annual return of the inputs used and the duties and taxes actually incurred on exports for which RoDTEP was claimed during the previous FY.",
+    "applicability": "Exporters (IECs) whose total RoDTEP claims in a FY exceed Rs 1 crore across all 8-digit HS codes.",
+    "audience": [
+      "importer-exporter",
+      "company",
+      "firm",
+      "llp"
+    ],
+    "frequency": "annual",
+    "schedule": {
+      "kind": "annual",
+      "basis": "fy",
+      "day": 31,
+      "monthOffset": 12
+    },
+    "law": "Para 4.94, Handbook of Procedures 2023 (DGFT, July 2026 edition); Para 4.54, Foreign Trade Policy 2023",
+    "penalty": "Composition fee of Rs 10,000 if filed late within the three-month grace period (to 30 June) and Rs 20,000 thereafter. After 30 June, RoDTEP scroll-out for further shipping bills stops until the ARR is filed and the fee paid; scrolls resume within 45 days.",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": 10000,
+      "maxPenalty": 20000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "RoDTEP scrolls for new shipping bills stopped after the grace period",
+        "Excess RoDTEP found on scrutiny must be refunded"
+      ],
+      "basis": "HBP Para 4.94: composition fee Rs 10,000 (late filing up to 30 June) or Rs 20,000 (after 30 June)."
+    },
+    "sources": [
+      {
+        "title": "DGFT - Handbook of Procedures 2023, Chapter 4 (July 2026 edition), Para 4.94 ARR",
+        "url": "https://content.dgft.gov.in/Website/HBP_07_2026_Chapter_04.pdf",
+        "kind": "rules"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "ARR for claims filed in FY X is due 31 March of FY X+1 (e.g., FY 2025-26 claims by 31-03-2027), with a grace period to 30 June on payment of the composition fee. Records must be kept five years."
+  },
+  {
+    "id": "trade-customs-warehouse-monthly-return",
+    "title": "Customs bonded warehouse / MOOWR monthly return",
+    "form": "Monthly return to bond officer",
+    "category": "trade",
+    "authority": "CBIC (Customs)",
+    "summary": "Monthly return to the Customs bond officer of goods received, stored, processed (manufacturing and other operations) and removed from the warehouse.",
+    "applicability": "Licensees of customs bonded warehouses, including units permitted to manufacture or carry on other operations under Section 65 (MOOWR scheme) and warehouses under the Warehouse (Custody and Handling of Goods) Regulations 2016.",
+    "audience": [
+      "importer-exporter",
+      "company"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 10,
+      "monthOffset": 1
+    },
+    "law": "Regulation 17(4), Manufacture and Other Operations in Warehouse (No. 2) Regulations 2019; Regulation 11(4), Warehouse (Custody and Handling of Goods) Regulations 2016; Sections 58, 65 and 158(2)(ii), Customs Act 1962",
+    "penalty": "Contravention of the regulations attracts a penalty of up to Rs 2 lakh (Section 158(2)(ii), Customs Act; Regulation 19 of the MOOWR regulations).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": 200000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [],
+      "basis": "Section 158(2)(ii) Customs Act: penalty up to Rs 2 lakh for contravening a regulation."
+    },
+    "sources": [
+      {
+        "title": "CBIC - Manufacture and Other Operations in Warehouse (No. 2) Regulations 2019, Regulation 17",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/regulations/manufacture_and_other_operations_in_warehouse_no/active/regulation17_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Warehouse (Custody and Handling of Goods) Regulations 2016, Regulation 11",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/regulations/warehouse_custody_and_handling_of_goods_regulations_2016/active/regulation11_v1.00.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Customs Act 1962, Section 158 (penalty for breach of rules/regulations)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/acts/1962_custom_act/active/chapter17/section158_v1.00.html",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Due within ten days after the close of each month. Warehouse licensees must also tell the bond officer by the 10th of the preceding month about goods whose warehousing period expires in a month (Regulation 11(5), 2016 Regulations)."
+  },
+  {
+    "id": "trade-igcr-monthly-statement",
+    "title": "IGCR-3 monthly statement (concessional duty imports)",
+    "form": "IGCR-3",
+    "category": "trade",
+    "authority": "CBIC (Customs)",
+    "summary": "Monthly statement on the customs common portal of goods imported at concessional duty or for specified end use: receipt, consumption, job work, supplies to end-use recipients and stock.",
+    "applicability": "Importers availing concessional customs duty or end-use based exemption notifications under the IGCR Rules 2022.",
+    "audience": [
+      "importer-exporter",
+      "company"
+    ],
+    "frequency": "monthly",
+    "schedule": {
+      "kind": "monthly",
+      "day": 10,
+      "monthOffset": 1
+    },
+    "law": "Rule 6(2), Customs (Import of Goods at Concessional Rate of Duty or for Specified End Use) Rules 2022; Rule 12 read with Section 158(2)(ii), Customs Act 1962",
+    "penalty": "Contravention attracts a penalty of up to Rs 2 lakh (Rule 12 read with Section 158(2)(ii)); duty foregone is recoverable with interest where goods are not used as intended (Rule 11).",
+    "exposure": {
+      "lateFeePerDay": null,
+      "lateFeeCap": null,
+      "fixedPenalty": null,
+      "maxPenalty": 200000,
+      "interestPctPerMonth": null,
+      "interestPctPerAnnum": null,
+      "percentOfTurnover": null,
+      "other": [
+        "Differential duty with interest recoverable if end use is not established"
+      ],
+      "basis": "Rule 12 IGCR Rules read with Section 158(2)(ii) Customs Act: penalty up to Rs 2 lakh."
+    },
+    "sources": [
+      {
+        "title": "CBIC - Customs (IGCR) Rules 2022, Rule 6 (records and monthly statement)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/rules/customs_import_of_goods_at_concessional_rate_of_duty_or_for_specified_end_use_rules_2022/active/rule6.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Customs (IGCR) Rules 2022, Rule 12 (penalty)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/rules/customs_import_of_goods_at_concessional_rate_of_duty_or_for_specified_end_use_rules_2022/active/rule12.html",
+        "kind": "rules"
+      },
+      {
+        "title": "CBIC - Customs Act 1962, Section 158 (penalty for breach of rules/regulations)",
+        "url": "https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/acts/1962_custom_act/active/chapter17/section158_v1.00.html",
+        "kind": "act"
+      }
+    ],
+    "verified": "2026-10-14",
+    "confidence": "high",
+    "notes": "Consumption may also be reported any time in IGCR-3A for immediate re-credit of the bond; it then forms part of the next monthly statement."
+  }
+]

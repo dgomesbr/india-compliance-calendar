@@ -1,5 +1,5 @@
 // Icon path data from Lucide (https://lucide.dev, ISC licence), drawn at the
-// sleeve's hairline weight by the .icon class. The pulse mark is our own.
+// product's 1.75 stroke by the .icon class. The calendar mark is our own.
 
 export const ICONS = {
   search: '<circle cx="11" cy="11" r="7.5"/><path d="m20.5 20.5-4.2-4.2"/>',
@@ -30,7 +30,7 @@ export const ICONS = {
   github:
     '<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/>',
   trash: '<path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
-  pulse: '<path d="M2 8h5l1.6-4 2 8 1.4-4H22"/><path d="M2 13h7l1-2.5 1.8 5.5 1.2-3H22"/><path d="M2 18h9l1-2 1 3 1-1H22"/>',
+  mark: '<rect x="3" y="4.5" width="18" height="16.5" rx="2"/><path d="M8 2.5v4"/><path d="M16 2.5v4"/><path d="M3 9.5h18"/><path d="m8.5 15.25 2.4 2.4 4.6-4.9"/>',
 } as const;
 
 export type IconName = keyof typeof ICONS;

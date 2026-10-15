@@ -1,0 +1,1623 @@
+# state obligations. See docs/DATA_MODEL.md for the schema.
+# Every rule cites its sources; edit with care and keep prose ASCII.
+rules:
+  - id: state-lwf-ap
+    title: Andhra Pradesh LWF annual contribution
+    form: Form F
+    category: state
+    authority: Andhra Pradesh Labour Welfare Board
+    summary: Annual contribution of Rs 30 per employee (employee share) and Rs 70 per employee (employer share) for employees on the register as of 31 December, paid to the Welfare Commissioner with a Form F statement by 31 January of the next year.
+    applicability: Factories (including places notified under s.85 Factories Act), motor transport undertakings, and shops or establishments (including societies and trusts) employing 20 or more persons on any day in the preceding 12 months; Government establishments other than factories are excluded.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: calendar
+      day: 31
+      monthOffset: 1
+    law: Section 10(1), Andhra Pradesh Labour Welfare Fund Act 1987 (rates substituted by AP Act 7 of 2015, in force 23 Apr 2015); Rule 6, Andhra Pradesh Labour Welfare Fund Rules 1988
+    penalty: No specific late-payment interest on contributions in the Act (S.9 penal interest of 1 percent then 1.5 percent per month covers unpaid accumulations and fines); after a 15-day demand notice under Rule 8 dues are recoverable as arrears of land revenue (S.24); records offences under S.25, with compounding under S.30-A.
+    exposure:
+      other:
+        - Rule 8 demand notice - pay within 15 days
+        - Recoverable as arrears of land revenue (S.24)
+        - Fine up to Rs 500 or 3 months imprisonment for obstruction or non-production of records (S.25); compoundable (S.30-A)
+      basis: AP LWF Act 1987 S.24 land-revenue recovery after a Rule 8 notice; S.9 interest covers unpaid accumulations and fines only.
+    states:
+      - AP
+    sources:
+      - title: India Code - Andhra Pradesh Labour Welfare Fund Act 1987 (as amended by Act 7 of 2015)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/2d3f5af9-1af6-438f-aaf7-c09b3ea839e2/content
+        kind: act
+      - title: AP Labour Department - A.P. Labour Welfare Fund Rules 1988 (archived copy, Rule 6)
+        url: https://web.archive.org/web/20180508131138id_/http://labour.ap.gov.in:80/documents/APLabourWelfareFundRules1988.pdf
+        kind: rules
+      - title: AP Gazette No. 120, 23 Apr 2015 - commencement of AP LWF (Amendment) Act 2015 (G.O. Ms. No. 7)
+        url: https://web.archive.org/web/20151227232302id_/http://labour.ap.gov.in:80/documents/Notification_of_commencing_date_for_APLWF_Amendment_2015.pdf
+        kind: notification
+    verified: 2026-10-14
+    confidence: medium
+    notes: Rates Rs 30 / Rs 70 per year since 23 Apr 2015; the Act lets the Government revise them by notification, and no later notification was found, but labour.ap.gov.in was unreachable so a current official rate page could not be checked (one 2026 commercial table shows Rs 31 / Rs 69, which could not be corroborated). Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found).
+    code: LWF AP
+  - id: state-lwf-cg
+    title: Chhattisgarh LWF half-yearly contribution
+    category: state
+    authority: Chhattisgarh Shram Kalyan Mandal (Labour Welfare Board)
+    summary: "Half-yearly contribution collected in January and July: Rs 15 per worker employee share and Rs 45 per worker employer share, with a minimum employer contribution of Rs 1500; payable by 15 January and 15 July."
+    applicability: Factories and establishments with more than 9 workers (10 or more); managerial staff excluded.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: calendar
+      day: 15
+      monthOffset: 1
+    law: Section 9, Chhattisgarh Shram Kalyan Nidhi Adhiniyam 1982 (MP Act of 1982 as adapted for Chhattisgarh) and rules made under it
+    penalty: Not verified for Chhattisgarh; the parent 1982 Act (as applied in MP) makes default punishable under S.31(2).
+    exposure:
+      other:
+        - Penalty and interest provisions not verified for Chhattisgarh
+      basis: Not verified; see S.31 of the 1982 Adhiniyam.
+    states:
+      - CG
+    sources:
+      - title: Chhattisgarh Labour Department - Shram Kalyan Mandal terms and contribution page (archived Sep 2024)
+        url: https://web.archive.org/web/20240913210155id_/https://cglabour.nic.in/ShramKalyanMandal/abhidayrashi.aspx
+        kind: portal
+      - title: Zoho Payroll - Labour Welfare Fund state guide (Chhattisgarh Rs 15 / Rs 45 half-yearly, 15 July and 15 January)
+        url: https://www.zoho.com/in/payroll/academy/taxes-and-compliance/guide-to-lwf.html
+        kind: secondary
+      - title: India Code - Chhattisgarh Shram Kalyan Nidhi Adhiniyam 1982 (Hindi)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/6b75fe86-ff8a-429f-87b7-0851c34b4572/content
+        kind: act
+    verified: 2026-10-14
+    confidence: medium
+    notes: Rates and the January/July collection come from the archived official Labour Department page (Sep 2024); the exact 15th-day deadline is taken from the parent 1982 Act as applied in MP and from payroll sources, because the Hindi Act text on India Code is not machine-readable and cglabour.nic.in was unreachable. MP raised its rates from January 2026; whether Chhattisgarh made a similar 2025-2026 change was not found. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found).
+    code: LWF CG
+  - id: state-lwf-ch
+    title: Chandigarh LWF contribution (half-yearly deposit)
+    category: state
+    authority: Labour Department, UT Chandigarh (Welfare Commissioner, Punjab LWF Act as extended)
+    summary: Monthly contribution of Rs 5 per employee (employee share) and Rs 20 per employee (employer share) for each employee on the register on the last working day of the month, deposited before 15 October for April-September and before 15 April for October-March.
+    applicability: Establishments in UT Chandigarh covered by the Punjab Labour Welfare Fund Act 1965 as in force there (factories, motor omnibus services and establishments employing more than 20 persons under the Punjab definition).
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: fy
+      day: 15
+      monthOffset: 1
+    law: Section 9-A, Punjab Labour Welfare Fund Act 1965 as extended to UT Chandigarh under s.87 Punjab Reorganisation Act 1966 (MHA notifications of 28 May 2009, G.S.R. 885(E) of 10 Dec 2012 and G.S.R. 353(E) of 10 Apr 2018)
+    penalty: No late-payment interest clause; unpaid sums are recoverable as arrears of land revenue under S.20 of the Punjab Act as in force in Chandigarh.
+    exposure:
+      other:
+        - Recoverable as arrears of land revenue (S.20)
+        - No statutory interest rate for late contributions found
+      basis: "Punjab LWF Act 1965 as extended to Chandigarh, S.20: recovery as arrears of land revenue."
+    states:
+      - CH
+    sources:
+      - title: MHA notification G.S.R. 353(E), 10 Apr 2018 - Punjab LWF (Amendment) Act 2014 extended to Chandigarh (Rs 5 / Rs 20)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/4763d595-3b9e-4dae-bd36-9b4c7350d511/content
+        kind: notification
+      - title: MHA notification of 28 May 2009 - Punjab LWF (Amendment) Act 2005 extended to Chandigarh (S.9-A, due 15 October and 15 April)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/adb47a99-ed4e-4466-8408-5c3e34c319cd/content
+        kind: notification
+      - title: MHA notification G.S.R. 885(E), 10 Dec 2012 - Punjab LWF (Second Amendment) Act 2010 extended to Chandigarh
+        url: https://indiacode.gov.in/server/api/core/bitstreams/29b8cb54-ec65-44d9-b854-72ea95461521/content
+        kind: notification
+    verified: 2026-10-14
+    confidence: high
+    notes: Rates moved from Rs 1/2 (2009) to Rs 2/4 (2012) to Rs 5/20 (extension of Punjab Act 32 of 2014 on 10 Apr 2018); no 2024-2026 change found. Coverage threshold taken from the Punjab definition; a Chandigarh-specific consolidated text was not reviewed. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found).
+    code: LWF CH
+  - id: state-lwf-dl
+    title: Delhi LWF half-yearly contribution
+    form: Form A
+    category: state
+    authority: Delhi Labour Welfare Board
+    summary: For each employee on the register on 30 June and 31 December, 75 paise employee share and Rs 2.25 employer share per half-year, remitted to the Delhi Labour Welfare Board before 15 July and 15 January (Form A statement by 31 July and 31 January).
+    applicability: Factories, tramway, motor omnibus or motor transport undertakings, and establishments under the Delhi Shops and Establishments Act 1954 that employed 5 or more persons in the preceding 12 months.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: calendar
+      day: 15
+      monthOffset: 1
+    law: Section 6BB(2)-(3), Bombay Labour Welfare Fund Act 1953 as extended to Delhi (MHA notification of 15 Dec 1986); Rule 3(4), Delhi Labour Welfare Fund Rules 1997
+    penalty: "S.6B: after a demand notice is not complied with, simple interest of 1 percent per completed month for the first three months after the due date and 1.5 percent per month thereafter."
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Interest rises to 1.5 percent per month after the first three months
+        - Only after a demand notice is ignored
+      basis: "S.6B Bombay LWF Act 1953 as extended to Delhi: 1 then 1.5 percent per completed month after notice."
+    states:
+      - DL
+    sources:
+      - title: India Code - Bombay Labour Welfare Fund Act 1953 as extended to Delhi (MHA notification 15 Dec 1986)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/c1161426-1eec-4d63-8d89-dbcdf91dcd5a/content
+        kind: act
+      - title: India Code - Delhi Labour Welfare Fund Rules 1997
+        url: https://indiacode.gov.in/server/api/core/bitstreams/0a67264b-6c86-4903-9948-f6d9c4d75de8/content
+        kind: rules
+      - title: Zoho Payroll - Labour Welfare Fund state guide (Delhi Rs 0.75 / Rs 2.25 half-yearly)
+        url: https://www.zoho.com/in/payroll/academy/taxes-and-compliance/guide-to-lwf.html
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: The 1986 extension text and the 1997 Rules are primary, but labour.delhi.gov.in was unreachable so the current collection practice and any later rate change could not be confirmed; secondary sources still show 75 paise / Rs 2.25. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found).
+    code: LWF DL
+  - id: state-lwf-ga
+    title: Goa LWF half-yearly contribution
+    form: Form A
+    category: state
+    authority: Goa Labour Welfare Board
+    summary: "Contribution of Rs 10 per month employee share and Rs 30 per month employer share (Rs 60 and Rs 180 per half-year; government adds Rs 20 a month), remitted half-yearly: January-June by 31 July and July-December by 31 January."
+    applicability: "Very broad coverage: factories, motor transport undertakings and services, shops and establishments, contractors' establishments, scheduled employments, plantations, ports and docks, and other listed establishments; employees with 30 days continuous service in 12 months, excluding managerial staff."
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: calendar
+      day: 31
+      monthOffset: 1
+    law: Section 14(1), Goa Labour Welfare Fund Act 1986 (amended till Feb 2026); Rule 4, Goa, Daman and Diu Labour Welfare Fund Rules 1990
+    penalty: Unpaid sums are recoverable as arrears of land revenue (S.24). The S.13 penal interest (2 percent then 4.5 percent per month) is written for unpaid accumulations and amounts realised from employees; offences were converted to monetary penalties by the Goa Jan Vishwas (Laws Amendment) Act 2026 (for example up to Rs 25000, repeat Rs 50000, for ignoring Board directions).
+    exposure:
+      other:
+        - Recoverable as arrears of land revenue (S.24)
+        - S.13 interest of 2 percent then 4.5 percent per month applies to unpaid accumulations and amounts realised from employees
+        - Monetary penalties up to Rs 25000 (Rs 50000 repeat) for non-compliance with Board directions (S.26, Goa Act 2 of 2026)
+      basis: Goa LWF Act 1986 S.24 land-revenue recovery; S.13 interest and S.26 penalties as amended by Goa Act 2 of 2026.
+    states:
+      - GA
+    sources:
+      - title: Office of the Commissioner, Labour and Employment, Goa - Labour Welfare Board (rates and half-yearly due dates)
+        url: https://labour.goa.gov.in/labour-welfare-board/
+        kind: portal
+      - title: India Code - Goa Labour Welfare Fund Act 1986 (amended till Feb 2026)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/026fcc74-96da-4184-b833-ade28c762673/content
+        kind: act
+      - title: India Code - Goa, Daman and Diu Labour Welfare Fund Act 1986 and Rules 1990 (Rule 4)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/7850df3d-4399-4f33-952d-a3b6b710d979/content
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    notes: The Act states yearly amounts (Rs 120 employee, Rs 360 employer, Rs 240 government); the Board page expresses them as Rs 10 / Rs 30 / Rs 20 and collects half-yearly, so each half-year remittance is Rs 60 + Rs 180 per employee. No rate change in 2024-2026; the 2026 Jan Vishwas amendment changed penalties, not contributions. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found).
+    code: LWF GA
+  - id: state-lwf-gj
+    title: Gujarat LWF half-yearly contribution
+    category: state
+    authority: Gujarat Labour Welfare Board
+    summary: Half-yearly contribution for every employee on the register in June and December (employee share deducted from June and December wages, employer pays twice the employee share), remitted to the Gujarat Labour Welfare Board before 15 July and 15 January; the notified rate generally applied is Rs 6 employee and Rs 12 employer per half-year.
+    applicability: Factories, tramway or motor omnibus services, and shops or establishments that employed 10 or more persons in the preceding 12 months; managerial staff and supervisors drawing over Rs 3500 a month are excluded.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: calendar
+      day: 15
+      monthOffset: 1
+    law: Section 6B(2)-(5), Gujarat Labour Welfare Fund Act 1953 (Bombay Act XL of 1953, as modified up to 31 Oct 2012); Gujarat Labour Welfare Fund Rules
+    penalty: "S.6C: if dues are not paid within a demand notice period of at least 30 days, simple interest of 12 percent p.a. for the first three months after expiry of the notice and 18 percent p.a. thereafter, without prejudice to other penalties; the Welfare Commissioner may remit interest."
+    exposure:
+      interestPctPerAnnum: 12
+      other:
+        - Interest rises to 18 percent p.a. after the first three months
+        - Runs from expiry of a demand notice of at least 30 days; may be remitted
+      basis: "S.6C Gujarat LWF Act 1953: 12 then 18 percent p.a. simple interest after an unheeded demand notice."
+    states:
+      - GJ
+    sources:
+      - title: India Code - Gujarat Labour Welfare Fund Act 1953 (as modified up to 31 Oct 2012)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/9f8cbbf7-a09e-4728-b668-a4f1680320bd/content
+        kind: act
+      - title: Zoho Payroll - Labour Welfare Fund state guide (Gujarat Rs 6 / Rs 12 half-yearly, 15 July and 15 January)
+        url: https://www.zoho.com/in/payroll/academy/taxes-and-compliance/guide-to-lwf.html
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: The Act sets a base of Rs 3 employee / Rs 6 employer per half-year and lets the State raise the employee rate up to Rs 6 by notification with the employer paying double; the Rs 6 / Rs 12 figure in use was confirmed only from secondary sources because glwb.gujarat.gov.in was unreachable. No 2024-2026 revision was found. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found).
+    code: LWF GJ
+  - id: state-lwf-hr
+    title: Haryana LWF contribution (yearly deposit)
+    category: state
+    authority: Haryana Labour Welfare Board
+    summary: Each month the employee contributes 0.2 percent of wages subject to a CPI-indexed cap (Rs 31 when introduced in 2019; about Rs 35 reported for 2026) and the employer twice that; the employer must deposit both shares online for the year before 31 December.
+    applicability: Factories and industrial premises, and shops or commercial establishments in which 10 or more employees are or were employed in the preceding 12 months; contribution is due for each employee on the register on the last working day of the month.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: calendar
+      day: 31
+      monthOffset: 0
+    law: Section 9A(1)-(4), Punjab Labour Welfare Fund Act 1965 as applicable to Haryana (S.9A(1) substituted by Haryana Act 18 of 2019, 14 Mar 2019); Punjab Labour Welfare Fund Rules 1966 as applicable to Haryana
+    penalty: "S.9A(4): if not paid within one month of the 31 December due date, interest at 12 percent p.a. from that date until payment. S.26A: contravention of the Act or rules - fine of Rs 2000 to Rs 5000 for a first offence; repeat offences up to 3 months imprisonment or a higher fine."
+    exposure:
+      fixedPenalty: 2000
+      maxPenalty: 5000
+      interestPctPerAnnum: 12
+      other:
+        - Interest starts if dues remain unpaid one month after the due date (S.9A(4))
+        - "Repeat offences: imprisonment up to 3 months or a higher fine (S.26A)"
+      basis: "S.9A(4) and S.26A Punjab LWF Act 1965 as applicable to Haryana: 12 percent p.a. interest; Rs 2000-5000 fine for a first offence."
+    states:
+      - HR
+    sources:
+      - title: India Code - Punjab Labour Welfare Fund Act 1965 as applicable to Haryana (amended up to 14 Mar 2019)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/15b68799-6485-4f81-bc14-22e5a195305d/content
+        kind: act
+      - title: HR Informative - Haryana LWF calculator 2026 (cap Rs 35 employee, Rs 70 employer)
+        url: https://hrinformative.com/haryana-labour-welfare-fund-calculator/
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: The statute says the deposit is due 'before the 31st December of every year' (modelled as 31 December); payroll guides describe the deduction as monthly, but the statutory deposit deadline is the yearly one. The Rs 31 cap is indexed to the consumer price index every 1 January, so the cap for each year must be checked with the Board (hrylabour.gov.in was unreachable); the 2026 figure of Rs 35 / Rs 70 comes from a secondary source. Post-2019 amendments to S.9A could not be ruled out. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found).
+    code: LWF HR
+  - id: state-lwf-ka
+    title: Karnataka LWF annual contribution
+    category: state
+    authority: Karnataka Labour Welfare Board
+    summary: "Annual contribution for every employee on the register on 31 December: Rs 50 employee share (deducted from December wages) plus Rs 100 employer share, paid online to the Karnataka Labour Welfare Board by 15 January of the next year."
+    applicability: Factories, motor omnibus services, plantations and workshops, and any establishment (including societies and trusts) carrying on business that employed 10 or more persons on any day in the preceding 12 months (threshold cut from 50 to 10 with effect from 7 Jan 2026); Central and State Government establishments other than factories are excluded.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: calendar
+      day: 15
+      monthOffset: 1
+    law: Section 7A(2)-(4), Karnataka Labour Welfare Fund Act 1965 (rates substituted by Karnataka Act 05 of 2025 w.e.f. 10 Jan 2025; online payment and 10-person threshold by Karnataka Act 05 of 2026 w.e.f. 7 Jan 2026); Karnataka Labour Welfare Fund Rules 1968
+    penalty: "S.7B: after a demand notice (up to 30 days) is ignored, simple interest of 12 percent p.a. for the first three months and 18 percent p.a. thereafter; S.17 recovery as arrears of land revenue; S.17B wilful contravention - fine up to Rs 500 or up to 3 months imprisonment (repeat: up to Rs 1000 or 1 year); prosecution needs Welfare Commissioner sanction (S.17C)."
+    exposure:
+      maxPenalty: 500
+      interestPctPerAnnum: 12
+      other:
+        - Interest rises to 18 percent p.a. after the first three months
+        - Interest applies after a demand notice is not complied with
+        - "Repeat contravention: fine up to Rs 1000 or imprisonment up to 1 year (S.17B)"
+        - Recoverable as arrears of land revenue (S.17)
+      basis: "S.7B and S.17B Karnataka LWF Act 1965: 12 then 18 percent p.a. interest after notice; fine up to Rs 500 for first wilful contravention."
+    states:
+      - KA
+    sources:
+      - title: India Code - Karnataka Labour Welfare Fund Act 1965, as amended by Acts 05 of 2025 and 05 of 2026
+        url: https://indiacode.gov.in/server/api/core/bitstreams/f21912be-cf04-4bf9-b7d3-cb23f94d42ac/content
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    notes: "2025 change: Act 05 of 2025 (gazette 10 Jan 2025) raised the yearly rates from Rs 20 / Rs 40 / Rs 20 to Rs 50 employee, Rs 100 employer and Rs 50 State Government. Because it took effect on 10 Jan 2025 (after the 31 Dec 2024 register date) the rate used for calendar year 2024 (due 15 Jan 2025) was not confirmed; from calendar year 2025 the new rates apply. 2026 change: Act 05 of 2026 (gazette 7 Jan 2026) mandates online payment (net banking, NEFT, RTGS, UPI or demand draft) and extends coverage to establishments with 10 or more persons, so many smaller employers become liable from calendar year 2026 (first payment due 15 Jan 2027). Official Board and Labour Department sites (klwb.karnataka.gov.in) could not be reached from this machine; the consolidated Act on India Code was used. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found)."
+    code: LWF KA
+  - id: state-lwf-kl
+    title: Kerala Labour Welfare Fund half-yearly contribution
+    category: state
+    authority: Kerala Labour Welfare Fund Board
+    summary: Rs 4 employee share and Rs 8 employer share per employee per half-year under the Kerala Labour Welfare Fund Act 1975, paid by the employer before 15 July and 15 January.
+    applicability: Factories, motor transport undertakings, plantations (tea, rubber, coffee, cardamom, oil palm, cocoa) employing 10 or more persons, and shops or commercial establishments covered by the Act; employees with at least 30 days of service in the preceding 12 months, excluding managerial staff, apprentices and part-timers.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: calendar
+      day: 15
+      monthOffset: 1
+    law: Section 15, Kerala Labour Welfare Fund Act 1975 (Act 11 of 1977); Kerala Labour Welfare Fund Rules
+    penalty: "S.14: if contributions are not paid within a demand notice period of at least 30 days, penal simple interest at 9 percent p.a. from the date the amount fell due; the Government may remit it."
+    exposure:
+      interestPctPerAnnum: 9
+      other:
+        - Counted from the original due date once a demand notice of at least 30 days is ignored
+        - May be remitted by Government
+      basis: "S.14 Kerala LWF Act 1975: 9 percent p.a. simple interest after an unheeded demand notice."
+    states:
+      - KL
+    sources:
+      - title: India Code - Kerala Labour Welfare Fund Act 1975 (Act 11 of 1977)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/48840e17-c54c-4065-a42f-79dfaf16d769/content
+        kind: act
+    verified: 2026-10-14
+    confidence: medium
+    notes: Kerala also runs separate monthly welfare funds (for example the Kerala Shops and Commercial Establishments Workers Welfare Fund) that are not covered by this rule. The India Code copy is undated and the Board site was unreachable, so the Rs 4 / Rs 8 rate could not be checked against a current official page (a 2026 secondary table shows the same figures). Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found).
+    code: LWF KL
+  - id: state-lwf-mh
+    title: Maharashtra LWF contribution (June and December)
+    form: Form A-1
+    category: state
+    authority: Maharashtra Labour Welfare Board
+    summary: Employer deducts the employee share from the June and December wages, adds the employer share (currently Rs 25 employee + Rs 75 employer per employee per half-year) and remits both to the Maharashtra Labour Welfare Board by 15 July and 15 January.
+    applicability: Factories, motor transport undertakings and shops or establishments that employed 5 or more persons on any day in the preceding 12 months; contribution is due for every employee on the register on 30 June and 31 December (managerial staff, supervisors drawing over Rs 3500 a month and apprentices are excluded).
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: calendar
+      day: 15
+      monthOffset: 1
+    law: Section 6BB(2)-(4), Maharashtra Labour Welfare Fund Act 1953 (S.6BB(2) substituted by Mah. Act XXV of 2024, MGG 18 Mar 2024); Rule 3-A, Maharashtra Labour Welfare Fund Rules 1953 (Form A-1 statement by 31 July / 31 January)
+    penalty: "S.6B: if a demand notice (at least 30 days) is not complied with, simple interest of 1.5 percent of the dues for each completed month for the first three months after the 15 July / 15 January due date and 2 percent per month thereafter; the Welfare Commissioner may remit it. Dues are recoverable as arrears of land revenue (S.17); obstructing inspection or not producing records attracts a fine up to Rs 1 lakh (Rs 2 lakh for repeat) under S.17-A."
+    exposure:
+      interestPctPerMonth: 1.5
+      other:
+        - Interest rises to 2 percent per completed month after the first three months
+        - Interest applies only after a demand notice of at least 30 days is ignored; may be remitted
+        - Recoverable as arrears of land revenue (S.17)
+        - Fine up to Rs 100000 (Rs 200000 repeat) for obstructing inspection or not producing records (S.17-A)
+      basis: "S.6B Maharashtra LWF Act 1953: 1.5 percent per completed month for 3 months then 2 percent, after an unheeded demand notice."
+    states:
+      - MH
+    sources:
+      - title: Maharashtra Labour Welfare Board - LWF Act 1953 and Rules (English, updated with 2024 amendment)
+        url: https://mlwb.in/react-static-files/pdf/homepage/Quick-Links/MLWB-Fund-Act-and-Rules-english-version.pdf
+        kind: act
+      - title: Maharashtra Government Gazette 18 Mar 2024 - LWF (Amendment) Act 2024 substituting Section 6BB(2)
+        url: https://mlwb.in/react-static-files/pdf/homepage/Quick-Links/Notification-6BB.pdf
+        kind: notification
+      - title: Maharashtra Labour Welfare Board - official website, Labours' Welfare Fund page (revised rates from June 2024)
+        url: https://www.mlwb.in/
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    notes: "Contribution is computed only on the wages of June and December (S.6BB(4)), so it is modelled as two calendar half-years (Jan-Jun due 15 July, Jul-Dec due 15 January). The statute says 'before the 15th day of July and 15th day of January'; paying a day early is prudent. Revision: the 2024 amendment replaced the old slabs (Rs 6/18 up to Rs 3000 wages, Rs 12/36 above) with a flat Rs 25 employee and Rs 75 employer (government Rs 50), applied by the Board from the June 2024 contribution; the State may raise the employee rate once every three years by up to 30 percent by notification (none found as of Oct 2026). The Board's FAQ page (updated Sep 2025) still quotes the old Rs 12/36 figures - rely on the Act text. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found)."
+    code: LWF MH
+  - id: state-lwf-mp
+    title: Madhya Pradesh LWF half-yearly contribution
+    category: state
+    authority: Madhya Pradesh Shram Kalyan Mandal (Labour Welfare Board)
+    summary: "Half-yearly contribution for each worker for the June and December sessions: Rs 10 employee share and Rs 50 employer share per worker, with a minimum employer contribution of Rs 2500 per half-year, paid online to the Shram Kalyan Mandal before 15 July and 15 January."
+    applicability: All factories, and establishments (including contractors, unit-wise) that employed more than 9 workers on any day in the preceding 12 months; workers whose names are on the rolls for 30 working days in the calendar year; managerial staff excluded.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: calendar
+      day: 15
+      monthOffset: 1
+    law: Section 9(1)-(3), Madhya Pradesh Shram Kalyan Nidhi Adhiniyam 1982; Madhya Pradesh Shram Kalyan Nidhi Niyam 1984
+    penalty: Per the Board's employer guidelines, default in paying contributions contravenes S.31(2)(a)/(b) and is punishable with imprisonment up to 1 year or fine up to Rs 20000 or both; any interest provision was not verified.
+    exposure:
+      maxPenalty: 20000
+      other:
+        - Imprisonment up to 1 year possible (S.31(2))
+        - Late-payment interest not verified
+      basis: "S.31(2) MP Shram Kalyan Nidhi Adhiniyam 1982 as summarised by the Board: up to 1 year or fine up to Rs 20000 or both."
+    states:
+      - MP
+    sources:
+      - title: "MP Shram Kalyan Mandal portal - contribution rates page (S.9(2)(3)): Rs 50 employer, Rs 10 worker, Rs 2500 minimum per half-year"
+        url: https://shramkalyanmandal.mp.gov.in/SKM/
+        kind: portal
+      - title: MP Shram Kalyan Mandal portal - pay contribution module rate history (Jan 2013-Dec 2025 Rs 10/30, from Jan 2026 Rs 10/50)
+        url: https://shramkalyanmandal.mp.gov.in/SKM/assets/PayContribution-Bnl3Sq4O.js
+        kind: portal
+      - title: "MP Shram Kalyan Mandal - guidelines for employers (archived May 2025): payment before 15 July and 15 January; S.31(2) penalty"
+        url: https://web.archive.org/web/20250513231303id_/https://shramkalyanmandal.mponline.gov.in/Home/GuidelinesForEmployers
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    notes: "2026 change: from the January 2026 session the employer share rose from Rs 30 to Rs 50 per worker and the employer minimum from Rs 1500 to Rs 2500 per half-year (employee share stays Rs 10), per the Board's new portal; so the Jan-Jun 2026 contribution due 15 July 2026 is the first at the new rate. The underlying gazette notification (referred to in a Board notice of 4 Feb 2026) could not be read. The statute says 'before 15 July and 15 January'. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found)."
+    code: LWF MP
+  - id: state-lwf-pb
+    title: Punjab LWF contribution (half-yearly deposit)
+    category: state
+    authority: Punjab Labour Welfare Board
+    summary: Monthly contribution of Rs 5 per employee (employee share) and Rs 20 per employee (employer share) for each employee on the register on the last working day of the month, deposited before 15 October for April-September and before 15 April for October-March.
+    applicability: Factories, motor omnibus services, and establishments (including societies and trusts) carrying on business that employed more than 20 persons on any working day in the preceding 12 months.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: fy
+      day: 15
+      monthOffset: 1
+    law: Section 9-A(1)-(3), Punjab Labour Welfare Fund Act 1965 (inserted by Punjab Act 18 of 2006; rates by Punjab Act 32 of 2014); Punjab Labour Welfare Fund Rules 1966
+    penalty: The Act has no late-payment interest clause; unpaid sums are recoverable as arrears of land revenue (S.20), and not having deducted the employee share is no defence for non-payment (S.9-A(3)).
+    exposure:
+      other:
+        - Recoverable as arrears of land revenue (S.20)
+        - No statutory interest rate for late contributions found
+      basis: "Punjab LWF Act 1965 S.20: recovery as arrears of land revenue; no interest clause."
+    states:
+      - PB
+    sources:
+      - title: India Code - Punjab Labour Welfare Fund Act 1965 (as amended up to 2 Feb 2026)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/b2c9a549-99d2-465f-a56a-7f133a2ae5d6/content
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    notes: Payment periods follow the financial year (H1 Apr-Sep due 15 October, H2 Oct-Mar due 15 April); the statute says 'before the fifteenth day'. Rates Rs 5 / Rs 20 per month have applied since the 2014 amendment and are unchanged in the text consolidated to 2 Feb 2026. pblabour.gov.in was unreachable. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found).
+    code: LWF PB
+  - id: state-lwf-tn
+    title: Tamil Nadu LWF annual contribution
+    category: state
+    authority: Tamil Nadu Labour Welfare Board
+    summary: "Annual contribution for each employee on the register on 31 December: Rs 20 employee share (recovered from the December or last wages) and Rs 40 employer share, paid to the Tamil Nadu Labour Welfare Board before 31 January of the next year."
+    applicability: Factories, motor transport undertakings, plantations, catering establishments and other establishments (including societies and trusts) employing 5 or more persons on any day in the preceding 12 months; employees who worked at least 30 days in the year, excluding managerial staff, supervisors drawing over Rs 15000 a month, apprentices and part-time workers.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: calendar
+      day: 31
+      monthOffset: 1
+    law: Section 15, Tamil Nadu Labour Welfare Fund Act 1972; Rules 11-A and 12(1), Tamil Nadu Labour Welfare Fund Rules 1973 (Rule 11-A rates amended by G.O. Ms. No. 161, Labour Welfare and Skill Development (G2), 2 Dec 2022)
+    penalty: The Act copy reviewed has no specific late-payment interest on contributions (the S.14 penal interest of 1 percent then 1.5 percent per month covers unpaid accumulations and fines); unpaid sums are recoverable as arrears of land revenue under S.28, and obstruction or non-production of records is an offence under S.29.
+    exposure:
+      other:
+        - Recoverable as arrears of land revenue (S.28)
+        - Prosecution possible for obstructing inspection or not producing records (S.29)
+      basis: "TN LWF Act 1972: S.28 land-revenue recovery; S.14 interest applies to unpaid accumulations and fines, not expressly to contributions."
+    states:
+      - TN
+    sources:
+      - title: Tamil Nadu Government Gazette Extraordinary No. 538, 2 Dec 2022 - G.O. Ms. No. 161 amending Rule 11-A (archived from lwb.tn.gov.in)
+        url: https://web.archive.org/web/20230219001457id_/https://www.lwb.tn.gov.in/gos/Gazette_538.pdf
+        kind: notification
+      - title: India Code - Tamil Nadu Labour Welfare Fund Rules 1973 (Rule 12 payment before 31 January)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/4260b472-2ff0-4f0d-9e6a-0fd022254242/content
+        kind: rules
+      - title: India Code - Tamil Nadu Labour Welfare Fund Act 1972
+        url: https://indiacode.gov.in/server/api/core/bitstreams/77adbed9-f26b-4673-8307-7ee25ada58db/content
+        kind: act
+      - title: Tamil Nadu Labour Welfare Board homepage, archived May 2026 (lists G.O. 161 and Gazette 538 as the current rate documents)
+        url: https://web.archive.org/web/20260519120059id_/https://www.lwb.tn.gov.in/
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    notes: Rule 12(1) says payment is due 'before the 31st January' of the succeeding year; paying by 30 January is safest. Rates were doubled with effect from 2 Dec 2022 (employee Rs 10 to Rs 20, employer Rs 20 to Rs 40, government Rs 10 to Rs 20); the Board's site (last updated 13 May 2026) still links that G.O. as the current rate, so no 2024-2026 revision was found. India Code's Rules and Act copies predate the 2022 change and still show Rs 10/20. lwb.tn.gov.in itself was unreachable; archived copies were used. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found).
+    code: LWF TN
+  - id: state-lwf-ts
+    title: Telangana LWF annual contribution
+    form: Form F
+    category: state
+    authority: Telangana Labour Welfare Board
+    summary: Annual contribution of Rs 2 per employee (employee share) and Rs 5 per employee (employer share) for employees on the register as of 31 December, paid to the Welfare Commissioner with a Form F statement by 31 January of the next year.
+    applicability: Factories, motor transport undertakings, and shops or establishments (including societies and trusts) employing 20 or more persons on any day in the preceding 12 months; employees engaged for 30 days in 12 months, excluding managerial staff and supervisors drawing over Rs 1600 a month.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: calendar
+      day: 31
+      monthOffset: 1
+    law: Section 10, Telangana Labour Welfare Fund Act 1987 (AP Act 34 of 1987 as adapted by G.O.Ms.No.6, LET&F (Labour), 1 Feb 2016); Rule 6, Telangana Labour Welfare Fund Rules 1988
+    penalty: No specific late-payment interest on contributions in the Act (S.9 penal interest of 1 percent then 1.5 percent per month covers unpaid accumulations and fines). Under Rule 8 the Welfare Commissioner can serve a 15-day demand notice, and dues are recoverable as arrears of land revenue (S.24); obstruction or non-production of records is punishable under S.25.
+    exposure:
+      other:
+        - Rule 8 demand notice - pay within 15 days
+        - Recoverable as arrears of land revenue (S.24)
+        - Fine up to Rs 500 or 3 months imprisonment for obstruction or non-production of records (S.25)
+      basis: Telangana LWF Act 1987 S.24 land-revenue recovery after a Rule 8 notice; S.9 interest covers unpaid accumulations and fines only.
+    states:
+      - TS
+    sources:
+      - title: India Code - Telangana Labour Welfare Fund Act 1987
+        url: https://indiacode.gov.in/server/api/core/bitstreams/417d344a-0abe-4722-9349-2589e8a17d77/content
+        kind: act
+      - title: India Code - Telangana Labour Welfare Fund Rules 1988 (updated 20 Jul 2019)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/f71c3eaa-a51e-4451-a8c2-000b7af8ff72/content
+        kind: rules
+    verified: 2026-10-14
+    confidence: medium
+    notes: State code is TS (ISO 3166-2:IN changed TG to TS). The Act and Rules on India Code are primary texts but are dated 2016/2019; no 2024-2026 revision of the Rs 2 / Rs 5 yearly rates was found, and labour.telangana.gov.in returned 403 so a current official rate page could not be checked. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found).
+    code: LWF TS
+  - id: state-lwf-wb
+    title: West Bengal LWF half-yearly contribution
+    category: state
+    authority: West Bengal Labour Welfare Board
+    summary: For each employee on the register, Rs 3 employee share and Rs 30 employer share (Rs 33 in all) for each half-year ending 30 June and 31 December, paid online on the Board portal (lwf.wblabour.gov.in) before 15 July and 15 January.
+    applicability: Factories, tramway or motor transport undertakings, commercial establishments that employed 10 or more persons in the preceding 12 months, and other notified classes (the Board lists plantations, hotels, restaurants and entertainment establishments); managerial staff and higher-paid supervisors are excluded.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: calendar
+      day: 15
+      monthOffset: 1
+    law: Section 9(2)-(6), West Bengal Labour Welfare Fund Act 1974 (S.9(2) substituted by WB Act XLVI of 2017 - rates notified by the State; S.9(6) online payment by WB Act XI of 2023); West Bengal Labour Welfare Fund Rules 1976
+    penalty: "S.10: after a demand notice, simple interest of 1 percent of the dues per complete month for the first three months and 1.5 percent per month thereafter (remittable). S.21(2): failure to pay contribution is punishable - imprisonment up to 1 year or fine up to Rs 2000 in the original text; WB Act XI of 2023 replaces this with a fine up to Rs 50000 once notified."
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Interest rises to 1.5 percent per month after the first three months; only after a demand notice
+        - "S.21(2) original text: imprisonment up to 1 year or fine up to Rs 2000 for failing to pay contribution"
+        - "WB Act XI of 2023 (commencement by notification, not confirmed): fine up to Rs 25000 first offence and Rs 50000 repeat"
+      basis: "S.10 and S.21 West Bengal LWF Act 1974: 1 then 1.5 percent per month interest after notice; criminal fine for non-payment."
+    states:
+      - WB
+    sources:
+      - title: "West Bengal Labour Welfare Board - Income of the Board page (archived Mar 2025): Rs 30 employer + Rs 3 employee per six months"
+        url: https://web.archive.org/web/20250321144028id_/https://wblwb.org/html/boards_income.php
+        kind: portal
+      - title: India Code - West Bengal Labour Welfare Fund Act 1974 (S.9(3) due 15 July and 15 January)
+        url: https://indiacode.gov.in/server/api/core/bitstreams/f84da071-c301-4a7c-a7f1-0fdbd0e1afa0/content
+        kind: act
+      - title: India Code - West Bengal Labour Welfare Fund (Amendment) Act 2017
+        url: https://indiacode.gov.in/server/api/core/bitstreams/f5da0025-59c5-4c74-ae00-399fb80d249a/content
+        kind: act
+      - title: India Code - West Bengal Labour Welfare Fund (Amendment) Act 2023
+        url: https://indiacode.gov.in/server/api/core/bitstreams/fbb96629-2393-41b1-b4ef-d76b50e6a8b1/content
+        kind: act
+      - title: "West Bengal Labour Welfare Board - Income of the Board page (archived Jul 2024): earlier Rs 15 + Rs 3"
+        url: https://web.archive.org/web/20240705104649id_/https://www.wblwb.org/html/boards_income.php
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    notes: "Change: the employer share doubled from Rs 15 to Rs 30 per half-year (employee share unchanged at Rs 3) between the Jul 2024 and Mar 2025 versions of the Board page; the Board lists a gazette notification No. Labr/576641/2024-LC-LW-MW dated 19 Nov 2024 which could not be opened, so the first half-year at the new rate is assumed to be Jul-Dec 2024 (due 15 Jan 2025). The 2023 Amendment Act (supervisor wage limit Rs 10000, portal-only payment, higher fines) commences on a notified date that was not confirmed. The wblwb.org domain now serves unrelated content, so archived copies were used. Not affected by the four Labour Codes (state welfare-fund Act; no notification folding LWF into the Codes was found)."
+    code: LWF WB
+  - id: state-pt-ap-enrolment
+    title: Andhra Pradesh PT - annual enrolment tax payment
+    form: Enrolment certificate tax payment (APCT portal)
+    category: state
+    authority: Commercial Taxes Department, Andhra Pradesh (Profession Tax)
+    summary: Enrolled persons (companies, directors, firms, professionals, traders and others in the First Schedule) pay the annual tax shown in their enrolment certificate before 30 June.
+    applicability: Persons enrolled before the year begins or by 31 May of the year; those enrolled after 31 May pay within one month of enrolment. Maximum Rs 2,500 per annum (e.g. company directors Rs 2,500).
+    audience:
+      - company
+      - llp
+      - firm
+      - individual
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: -9
+    law: Section 10, Andhra Pradesh Tax on Professions, Trades, Callings and Employments Act 1987; Rule 14, AP PT Rules 1987
+    penalty: Interest on late payment (2% per month under the common 1987 Rules); penalty of 25% to 50% of tax due on unpaid demands (Section 12). AP-specific amendments not verified.
+    exposure:
+      interestPctPerMonth: 2
+      other:
+        - Penalty of 25% to 50% of the tax due if a demand notice is not paid in time (Section 12)
+      basis: Based on the common 1987 Act and Rules as published by Telangana; not confirmed on the AP portal.
+    states:
+      - AP
+    sources:
+      - title: Zoho Payroll - Professional tax in Andhra Pradesh (April 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/andhra-pradesh/professional-tax.html
+        kind: secondary
+      - title: "Zoho Payroll - Professional tax: state-wise slab and due dates (September 2025)"
+        url: https://www.zoho.com/in/payroll/academy/taxes-and-compliance/professional-tax-rules.html
+        kind: secondary
+      - title: Telangana PT Act 1987 - Section 10 (Payment of tax by certain assessees)
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/APPTAct/10Payment.html
+        kind: act
+    verified: 2026-10-14
+    confidence: medium
+    notes: The due date falls inside the period (June of the financial year). Zoho Payroll states the 30 June / 31 May rule for AP; the linked Telangana Section 10 is the same 1987 provision. AP primary sources were unreachable.
+    code: PT EC AP
+  - id: state-pt-ap-monthly
+    title: Andhra Pradesh PT - employer monthly return and payment
+    form: Monthly return with payment (Form V under the 1987 Rules; shown as Form I on the APCT portal)
+    category: state
+    authority: Commercial Taxes Department, Andhra Pradesh (Profession Tax)
+    summary: Registered employers file the monthly profession tax return with payment of the tax deducted from salaries by the 10th of the following month.
+    applicability: Employers registered under the Andhra Pradesh Tax on Professions, Trades, Callings and Employments Act 1987. Employees earning Rs 15,001-20,000 a month pay Rs 150 and those above Rs 20,000 pay Rs 200 a month.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 10
+      monthOffset: 1
+    law: Sections 5, 7, 11 and 12, Andhra Pradesh Tax on Professions, Trades, Callings and Employments Act 1987; Rules 12, 13 and 24, AP PT Rules 1987
+    penalty: Interest on unpaid tax at the Rule 24 rate (2% per month in the common 1987 Rules); late return penalty of Rs 5 to Rs 100 per day (Section 7(3)); penalty of 25% to 50% of tax due on unpaid demands (Section 12). AP-specific amendments since 2014 not verified.
+    exposure:
+      lateFeePerDay: 100
+      interestPctPerMonth: 2
+      other:
+        - Late return penalty ranges from Rs 5 to Rs 100 per day of delay (Section 7(3))
+        - Penalty of 25% to 50% of the tax due if a demand notice is not paid in time (Section 12)
+      basis: Based on the common 1987 Act and Rules as published by Telangana; not confirmed on the AP portal.
+    states:
+      - AP
+    sources:
+      - title: Zoho Payroll - Professional tax in Andhra Pradesh (April 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/andhra-pradesh/professional-tax.html
+        kind: secondary
+      - title: Setindiabiz - October 2026 compliance calendar (professional tax table)
+        url: https://www.setindiabiz.com/blog/october-2026-due-date-compliance-calendar
+        kind: secondary
+      - title: Setindiabiz - September 2026 compliance calendar (professional tax table)
+        url: https://www.setindiabiz.com/blog/september-2026-due-date-compliance-calendar
+        kind: secondary
+      - title: Telangana PT Act 1987 - Section 7 (Returns)
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/APPTAct/07Returns.html
+        kind: act
+      - title: Form V - monthly return of tax payable by employer (Rule 12)
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/forms/form5.html
+        kind: rules
+    verified: 2026-10-14
+    confidence: medium
+    notes: apct.gov.in refused connections, so AP-specific primary text was not opened. Telangana's Act and Rules (linked) are the 1987 AP statute adapted in 2015, and its Form V still carries the AP title. The 10th-of-next-month date is from Setindiabiz; Zoho Payroll describes a monthly Form I return with payment and an annual Form II on the AP portal. AP amended the Act in 2019 and 2020 (PRS-listed bills are scanned images and could not be read).
+    code: PT AP
+  - id: state-pt-as-monthly
+    title: Assam PT - employer monthly Form III return and payment
+    form: Form III
+    category: state
+    authority: Commissioner of Taxes, Assam (Profession Tax)
+    summary: Registered employers pay the profession tax deducted from the previous month's salaries and file the Form III monthly return on or before the last day of the month.
+    applicability: "Employers registered (or deemed registered under Section 5B, e.g. GST registrants) under the Assam Professions, Trades, Callings and Employments Taxation Act 1947. Rates from 15-10-2014: Rs 150 (above Rs 10,000 to below Rs 15,000), Rs 180 (Rs 15,000 to below Rs 25,000), Rs 208 (Rs 25,000 and above) a month; a rate modification was notified on 1 April 2025 (details not readable)."
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: last
+      monthOffset: 1
+    law: Sections 5B and 7, Assam Professions, Trades, Callings and Employments Taxation Act 1947 (as amended 2021); Rule 12, Assam PT Rules 1947
+    penalty: Late return penalty of Rs 100 per day, capped at Rs 5,000 (Section 7(3) as amended in 2021); interest and non-payment penalties not verified (secondary sources cite 2% per month).
+    exposure:
+      lateFeePerDay: 100
+      lateFeeCap: 5000
+      other:
+        - Interest or penalty for late payment not verified (secondary sources cite 2% per month)
+      basis: "Section 7(3) as amended by the Assam PT (Amendment) Act 2021: Rs 100 per day of delay or Rs 5,000, whichever is less."
+    states:
+      - AS
+    sources:
+      - title: Assam Professions, Trades, Callings and Employments Taxation Rules 1947 (Rule 12 as substituted w.e.f. 30-09-1992)
+        url: https://tax.assam.gov.in/circular/circular/apt/rules/apt.pdf
+        kind: rules
+      - title: Assam PT (Amendment) Bill 2021 (enacted; Act notified 16-09-2021) - copy on PRS
+        url: https://prsindia.org/files/bills_acts/bills_states/assam/2021/Assam_Professions_Trades_Callings_and_Employments_Taxation_(A)-Bill_2021.pdf
+        kind: act
+      - title: Assam Commissioner of Taxes - Assam Professional Tax notifications
+        url: https://tax.assam.gov.in/AssamTimsInfo/content/assam_professional_tax.html
+        kind: portal
+      - title: Assam Gazette Extraordinary No. 139 dated 02-04-2025 - modification of PT rate (notification of 01-04-2025)
+        url: https://tax.assam.gov.in/AssamTimsInfo/GST/FORMATS/No.%20139%20169350-124%20Dated%2001-04-25.pdf
+        kind: notification
+      - title: Zoho Payroll - Assam professional tax (May 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/assam/professional-tax.html
+        kind: secondary
+      - title: Setindiabiz - March 2026 compliance calendar (professional tax table)
+        url: https://www.setindiabiz.com/blog/march-2026-due-date-compliance-calendar
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: Rule 12(1) on the Commissioner of Taxes site (substituted from 30-09-1992) fixes the last day of the month for the preceding month's salaries, with tax paid before the return; employers may get permission for quarterly, half-yearly or annual returns with advance payment. Zoho Payroll and Setindiabiz instead give the 28th of each month and no later amendment to Rule 12 appears in the portal's notification list - paying by the 28th satisfies both readings.
+    code: PT AS
+  - id: state-pt-gj-enrolment
+    title: Gujarat PT - annual enrolment tax payment
+    form: Enrolment certificate (EC) payment
+    category: state
+    authority: Municipal corporations (within their limits) and State Tax Department, Gujarat (Profession Tax)
+    summary: Enrolled persons (professionals, traders, companies and other entities) pay their annual profession tax by 30 September.
+    applicability: Persons holding an enrolment certificate under the Gujarat PT Act 1976 who were enrolled before the year or by 31 August; those enrolled after 31 August pay within one month of enrolment.
+    audience:
+      - company
+      - llp
+      - firm
+      - individual
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: -6
+    law: Gujarat State Tax on Professions, Trades, Callings and Employments Act 1976 (payment by enrolled persons); Section 9(1) for interest
+    penalty: Interest of 1% per month on late payment (Section 9(1), notified October 2023).
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Other penalties not verified
+      basis: 1% per month interest under Section 9(1), notified in October 2023 for both EC and RC holders.
+    states:
+      - GJ
+    sources:
+      - title: Gujarat Finance Department notification (GHN-77) PFT-2023-S.9(1)(2)-TH - interest 1% per month (copy on Surat Municipal Corporation site)
+        url: https://www.suratmunicipal.gov.in/Content/Documents/Departments/ProfessionalTax/ghpt77.pdf
+        kind: notification
+      - title: Surat Municipal Corporation - Professional Tax department (Gujarat PT notifications)
+        url: https://www.suratmunicipal.gov.in/Departments/ProfessionalTaxHome
+        kind: portal
+      - title: "Zoho Payroll - Professional tax: state-wise slab and due dates (September 2025)"
+        url: https://www.zoho.com/in/payroll/academy/taxes-and-compliance/professional-tax-rules.html
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: The due date falls inside the period (30 September). The date comes from Zoho Payroll only; the interest rate is from the Finance Department notification, whose title on the Surat Municipal Corporation site reads 'Revised Interest Rate of Profession Tax EC & RC'.
+    code: PT EC GJ
+  - id: state-pt-gj-monthly
+    title: Gujarat PT - employer monthly return and payment
+    form: Form 5 (return of tax payable by employer)
+    category: state
+    authority: Municipal corporations (within their limits) and State Tax Department, Gujarat (Profession Tax)
+    summary: Employers on monthly periodicity pay the profession tax deducted from salaries and file the Form 5 return by the 15th of the following month.
+    applicability: Employers registered under the Gujarat State Tax on Professions, Trades, Callings and Employments Act 1976 that fall in the monthly class (the dividing line is 20 employees - see notes). Employees earning Rs 12,000 or more a month pay Rs 200 a month (notification GHN-35 of 2022).
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 15
+      monthOffset: 1
+    law: Gujarat State Tax on Professions, Trades, Callings and Employments Act 1976 (employer returns); Gujarat PT Rules 1976, Form 5
+    penalty: Interest of 1% per month on unpaid tax (Section 9(1); rate notified by Finance Department notification (GHN-77) PFT-2023-S.9(1)(2)-TH in October 2023); late payment and late return penalties not verified.
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Late payment and late return penalties under the Act not verified
+      basis: 1% per month interest under Section 9(1) of the Gujarat PT Act 1976, notified in October 2023.
+    states:
+      - GJ
+    sources:
+      - title: Gujarat Finance Department notification (GHN-77) PFT-2023-S.9(1)(2)-TH - interest 1% per month (copy on Surat Municipal Corporation site)
+        url: https://www.suratmunicipal.gov.in/Content/Documents/Departments/ProfessionalTax/ghpt77.pdf
+        kind: notification
+      - title: Surat Municipal Corporation - Professional Tax department (Gujarat PT notifications)
+        url: https://www.suratmunicipal.gov.in/Departments/ProfessionalTaxHome
+        kind: portal
+      - title: Zoho Payroll - Gujarat professional tax (April 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/gujarat/professional-tax.html
+        kind: secondary
+      - title: Setindiabiz - October 2026 compliance calendar (professional tax table)
+        url: https://www.setindiabiz.com/blog/october-2026-due-date-compliance-calendar
+        kind: secondary
+    verified: 2026-10-14
+    confidence: low
+    notes: "Sources conflict on which employers file monthly: Zoho Payroll (April 2025) says employers with fewer than 20 employees file monthly by the 15th and those with 20 or more file quarterly; other payroll references describe the reverse. The Gujarat Commercial Tax and Ahmedabad Municipal Corporation PT pages could not be opened to settle it. Inside the eight municipal corporations PT is paid to the corporation; elsewhere to the State Tax department. The 15-day deadline itself is consistent across sources."
+    code: PT GJ
+  - id: state-pt-gj-quarterly
+    title: Gujarat PT - employer quarterly return and payment
+    form: Form 5 (return of tax payable by employer)
+    category: state
+    authority: Municipal corporations (within their limits) and State Tax Department, Gujarat (Profession Tax)
+    summary: Employers on quarterly periodicity pay the profession tax deducted during the quarter and file the Form 5 return within 15 days after the quarter ends (15 July, 15 October, 15 January, 15 April).
+    applicability: Employers registered under the Gujarat PT Act 1976 that fall in the quarterly class (the dividing line is 20 employees - see notes). Employees earning Rs 12,000 or more a month pay Rs 200 a month.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: quarterly
+    schedule:
+      kind: quarterly
+      basis: fy
+      day: 15
+      monthOffset: 1
+    law: Gujarat State Tax on Professions, Trades, Callings and Employments Act 1976 (employer returns); Gujarat PT Rules 1976, Form 5
+    penalty: Interest of 1% per month on unpaid tax (Section 9(1); rate notified by Finance Department notification (GHN-77) PFT-2023-S.9(1)(2)-TH in October 2023); late payment and late return penalties not verified.
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Late payment and late return penalties under the Act not verified
+      basis: 1% per month interest under Section 9(1) of the Gujarat PT Act 1976, notified in October 2023.
+    states:
+      - GJ
+    sources:
+      - title: Gujarat Finance Department notification (GHN-77) PFT-2023-S.9(1)(2)-TH - interest 1% per month (copy on Surat Municipal Corporation site)
+        url: https://www.suratmunicipal.gov.in/Content/Documents/Departments/ProfessionalTax/ghpt77.pdf
+        kind: notification
+      - title: Surat Municipal Corporation - Professional Tax department (Gujarat PT notifications)
+        url: https://www.suratmunicipal.gov.in/Departments/ProfessionalTaxHome
+        kind: portal
+      - title: Zoho Payroll - Gujarat professional tax (April 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/gujarat/professional-tax.html
+        kind: secondary
+    verified: 2026-10-14
+    confidence: low
+    notes: "Sources conflict on which employers file monthly: Zoho Payroll (April 2025) says employers with fewer than 20 employees file monthly by the 15th and those with 20 or more file quarterly; other payroll references describe the reverse. The Gujarat Commercial Tax and Ahmedabad Municipal Corporation PT pages could not be opened to settle it. Inside the eight municipal corporations PT is paid to the corporation; elsewhere to the State Tax department."
+    code: PT GJ QTR
+  - id: state-pt-ka-enrolment
+    title: Karnataka PT - annual enrolment tax payment
+    form: PT e-payment on ptax.karnataka.gov.in (enrolment certificate)
+    category: state
+    authority: Commercial Taxes Department, Karnataka (Profession Tax)
+    summary: Enrolled persons pay their annual profession tax (Rs 2,500 for most classes) for the year before 30 April; from FY 2026-27 paying the tax is treated as filing the annual return.
+    applicability: "Persons enrolled under the Act before the start of the year: GST-registered persons, self-employed professionals with over two years' standing, companies, co-operative societies, private educational and medical institutions, employers of shops and establishments with more than five employees, transport operators and others in the Schedule. Persons enrolled during the year pay within one month of enrolment."
+    audience:
+      - company
+      - llp
+      - firm
+      - individual
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: -11
+    law: Section 10(1) and 10(2), Karnataka Tax on Professions, Trades, Callings and Employments Act 1976 (provisos added by Karnataka Act 22 of 2026); Schedule entries 2-10
+    penalty: Late payment by enrolled persons attracts the Section 10(6) rate of 1.5% per month (reduced from 2% by Karnataka Act 14 of 2023); penalty equal to 10% of tax due for non-payment (Section 12).
+    exposure:
+      interestPctPerMonth: 1.5
+      other:
+        - Penalty equal to 10% of the tax due for non-payment (Section 12)
+      basis: Section 10(6) rate of 1.5% per month and Section 12 penalty of 10% of tax due, as amended by Karnataka Act 14 of 2023.
+    states:
+      - KA
+    overrides:
+      - period: FY2026-27
+        due: 2026-05-05
+        originalDue: 2026-04-30
+        reason: "Extended by the Karnataka PT (Removal of Difficulties) Order 01/2026, No. FD 14 CSL 2026 dated 02-05-2026, owing to portal glitches (order text: payment 'before 5th day of May, 2026'; CTD notice: till 5 May 2026)"
+        source:
+          title: Karnataka PT (Removal of Difficulties) Order 01/2026
+          url: https://gst.karnataka.gov.in/latestupdates/ptrod4426.pdf
+    sources:
+      - title: Karnataka PT (Removal of Difficulties) Order 01/2026, No. FD 14 CSL 2026 dated 02-05-2026
+        url: https://gst.karnataka.gov.in/latestupdates/ptrod4426.pdf
+        kind: notification
+      - title: Karnataka Act 22 of 2026 - PT (Amendment) Act 2026, Karnataka Gazette 27-03-2026
+        url: https://gst.karnataka.gov.in/latestupdates/PTRules01426.pdf
+        kind: act
+      - title: Karnataka Gazette - Karnataka Act 33 of 2025 and Karnataka Act 14 of 2023 (PT amendments)
+        url: https://gst.karnataka.gov.in/Documents/General/ptnotificationact29323.pdf
+        kind: act
+      - title: Karnataka Commercial Taxes Department - latest updates (PT payment date extension, portal upgrade)
+        url: https://gst.karnataka.gov.in/
+        kind: portal
+      - title: Karnataka Commercial Taxes Department - Profession Tax notifications
+        url: https://gst.karnataka.gov.in/Profession.aspx
+        kind: portal
+      - title: Karnataka Professional Tax portal
+        url: https://ptax.karnataka.gov.in/
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    notes: Section 10(2) reads 'before the 30th April'; this rule uses 30 April. The due date falls inside the period (first month of the financial year). Karnataka Act 22 of 2026 (from 1 April 2026) deems the return filed once the year's tax is paid and lets the Commissioner exempt classes from returns. Similar removal-of-difficulties extensions were issued for 2020, 2021 (30 June), 2023 (31 May) and 2024 (31 May), which is why some payroll guides wrongly cite 31 May as the regular date.
+    code: PT EC KA
+  - id: state-pt-ka-monthly
+    title: Karnataka PT - employer monthly payment (Form 5-A)
+    form: Form 5-A statement; e-payment on ptax.karnataka.gov.in
+    category: state
+    authority: Commercial Taxes Department, Karnataka (Profession Tax)
+    summary: Registered employers pay the profession tax deducted from salaries for a month, with the Form 5-A statement, by the 20th of the following month.
+    applicability: Every employer registered under the Karnataka PT Act 1976. From FY 2025-26 employees whose monthly salary is Rs 25,000 or more pay Rs 200 a month and Rs 300 in February (Rs 2,500 a year); below Rs 25,000 nil.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 20
+      monthOffset: 1
+    law: Sections 4 and 6-A, Karnataka Tax on Professions, Trades, Callings and Employments Act 1976; Rules 11-A and 15 and Form 5-A, Karnataka PT Rules 1976; Schedule entry 1 as amended by Karnataka Act 33 of 2025
+    penalty: Interest of 1.5% per month on unpaid tax (Section 11(2) as amended by Karnataka Act 14 of 2023); penalty equal to 10% of the tax due for non-payment (Section 12 as amended in 2023).
+    exposure:
+      interestPctPerMonth: 1.5
+      other:
+        - Penalty equal to 10% of the tax due for non-payment (Section 12)
+      basis: 1.5% monthly interest under Section 11(2) and a 10% penalty under Section 12, both as amended by Karnataka Act 14 of 2023.
+    states:
+      - KA
+    sources:
+      - title: Karnataka Tax on Professions, Trades, Callings and Employments Rules 1976 (as on 31-03-2019) - Rules 11, 11-A, Forms 5 and 5-A
+        url: https://gst.karnataka.gov.in/Othertaxlaws/PTRULES27012020ason31032019.pdf
+        kind: rules
+      - title: Karnataka Gazette - Karnataka Act 33 of 2025 and Karnataka Act 14 of 2023 (PT amendments)
+        url: https://gst.karnataka.gov.in/Documents/General/ptnotificationact29323.pdf
+        kind: act
+      - title: Karnataka Commercial Taxes Department - Profession Tax notifications
+        url: https://gst.karnataka.gov.in/Profession.aspx
+        kind: portal
+      - title: RazorpayX Payroll FAQ - Karnataka PT payments by the 20th
+        url: https://razorpay.com/docs/payroll/faqs/
+        kind: secondary
+      - title: Zoho Payroll - Professional tax in Karnataka (May 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/karnataka/professional-tax.html
+        kind: secondary
+      - title: Setindiabiz - October 2026 compliance calendar (professional tax table)
+        url: https://www.setindiabiz.com/blog/october-2026-due-date-compliance-calendar
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: Form 5-A and the 2023/2025 amendments were confirmed on gst.karnataka.gov.in, but the text of Section 6-A that fixes the payment day could not be opened; the 20th-of-next-month date comes from RazorpayX, Zoho Payroll and Setindiabiz. Form 5 is a separate annual employer return under Section 6(1) and Rule 11 whose due date was not verified. The employer portal has required OTP-based 2FA since September 2024. pt.kar.nic.in no longer resolves; the current portal is ptax.karnataka.gov.in.
+    code: PT KA
+  - id: state-pt-kl-halfyearly
+    title: Kerala PT - employer half-yearly remittance to local body
+    form: Half-yearly employee statement and payment (LSGD profession tax portal)
+    category: state
+    authority: Local Self Government Department, Kerala (municipal corporations, municipalities and panchayats)
+    summary: Employers deduct the half-yearly profession tax from employees' salaries and remit it to the local body by 31 August for April-September and by the end of February for October-March.
+    applicability: "Employers in Kerala local body areas with employees whose half-yearly salary is Rs 12,000 or more. Rates revised by G.O.(Rt) No.1149/2024/LSGD dated 27-06-2024: Rs 320 (12,000-17,999), Rs 450 (18,000-29,999), Rs 600 (30,000-44,999), Rs 750 (45,000-99,999), Rs 1,000 (1,00,000-1,24,999), Rs 1,250 (1,25,000 and above) per half-year. Companies and other enrolled entities also pay half-yearly."
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: fy
+      day: last
+      monthOffset: -1
+    law: Kerala Panchayat Raj Act 1994 and Kerala Municipality Act 1994 (profession tax provisions); Kerala Panchayat Raj (Profession Tax) Rules 1996 and the corresponding municipal profession tax rules
+    penalty: Interest of 1% per month on delayed payment and a fine of up to Rs 5,000 for non-payment (secondary source; sections not verified).
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Fine of up to Rs 5,000 for non-payment (secondary source)
+      basis: 1% per month on delayed payment and Rs 5,000 fine as reported by Zoho Payroll; statutory sections not verified.
+    states:
+      - KL
+    sources:
+      - title: Kerala LSGD G.O.(Rt) No.1149/2024/LSGD dated 27-06-2024 - revised profession tax rates
+        url: https://go.lsgkerala.gov.in/files/go20240627_37169.pdf
+        kind: notification
+      - title: Kerala LSGD profession tax portal - FAQ
+        url: https://professiontax.lsgkerala.gov.in/faq.php
+        kind: faq
+      - title: Zoho Payroll - Professional tax in Kerala (August 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/kerala/professional-tax.html
+        kind: secondary
+      - title: "Zoho Payroll - Professional tax: state-wise slab and due dates (September 2025)"
+        url: https://www.zoho.com/in/payroll/academy/taxes-and-compliance/professional-tax-rules.html
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: Due dates fall inside each half-year (31 August and 28/29 February, one month before the half-year ends). The rule text was not opened; dates come from Zoho Payroll only, and local bodies may issue their own demand dates. The LSGD FAQ confirms semi-annual payment by employers; the 2024 G.O. confirms the new rates.
+    code: PT KL
+  - id: state-pt-mh-ptec
+    title: Maharashtra PTEC - annual enrolment tax payment
+    form: PTEC payment (MTR-6 challan, GRAS)
+    category: state
+    authority: Maharashtra GST Department (Profession Tax)
+    summary: Holders of a Profession Tax Enrolment Certificate (companies, firms, LLPs, directors, professionals and other enrolled persons) pay their own annual profession tax for the year by 30 June.
+    applicability: Every person enrolled under the Act (Schedule I entries, typically Rs 2,500 per annum for companies, LLPs and firms). Persons enrolled after 31 May pay within one month of enrolment; where the rate is revised, within one month of the revision; arrears shown in the certificate are payable immediately.
+    audience:
+      - company
+      - llp
+      - firm
+      - individual
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: -9
+    law: Maharashtra State Tax on Professions, Trades, Callings and Employments Act 1975 - provision on payment of tax by enrolled persons and Schedule I; Section 5(5) for late enrolment
+    penalty: Simple interest of 1.25% per month on late payment; penalty of Rs 2 per day for late enrolment (Section 5(5)). Interest rate confirmed only via secondary sources.
+    exposure:
+      interestPctPerMonth: 1.25
+      other:
+        - Penalty for late enrolment of Rs 2 per day of delay (Section 5(5))
+      basis: 1.25% monthly simple interest on late payment (secondary sources) and Section 5(5) enrolment-delay penalty (department FAQ).
+    states:
+      - MH
+    sources:
+      - title: Maharashtra Sales Tax Department - Profession Tax FAQs (copy hosted by steasy.com)
+        url: https://steasy.com/pdf/PROFESSION%20TAX%20FAQs.pdf
+        kind: secondary
+      - title: Zoho Payroll - Maharashtra professional tax (April 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/maharashtra/professional-tax.html
+        kind: secondary
+      - title: AN Bhutada & Co - Maharashtra professional tax return due dates and penalty
+        url: https://anbca.com/professional-tax-return-filing-pt/
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: The due date falls inside the period (30 June of the financial year). The 30 June date comes from the Act, so the February 2026 amendment of Rule 11(3) is not expected to change it; one secondary article ambiguously labels the new 15 March annual date as 'PTEC' - treat that as the annual PTRC return. Section number of the payment provision not verified because mahagst.gov.in could not be opened.
+    code: PTEC MH
+  - id: state-pt-mh-ptrc-annual
+    title: Maharashtra PTRC - annual payment and e-return
+    form: Form III-B e-return; MTR-6 challan (GRAS)
+    category: state
+    authority: Maharashtra GST Department (Profession Tax)
+    summary: Employers on annual periodicity pay the year's profession tax and file a single Form III-B e-return by 15 March of the financial year (31 March before the February 2026 amendment); the return covers salaries for March of the previous year to February of the current year.
+    applicability: Employers holding PTRC whose profession tax liability in the previous year was below Rs 50,000, other than employers in their first year of registration (who file monthly).
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 15
+      monthOffset: 0
+    law: Sections 4, 5 and 6, Maharashtra State Tax on Professions, Trades, Callings and Employments Act 1975; Rules 11(3) (as amended by Finance Department notification dated 28-02-2026) and 11A, Maharashtra State Tax on Professions, Trades, Callings and Employments Rules 1975; Trade Circular 48T of 2017
+    penalty: Late fee of Rs 1,000 per late PTRC return; simple interest of 1.25% per month on tax paid late (Section 9); penalty of Rs 5 per day for late registration as employer (Section 5(5)). Amounts confirmed only via secondary sources.
+    exposure:
+      fixedPenalty: 1000
+      interestPctPerMonth: 1.25
+      other:
+        - Penalty for late registration of Rs 5 per day of delay (Section 5(5))
+        - Further penalty for non-payment possible under the Act (amount not verified)
+      basis: Rs 1,000 late fee per late return and 1.25% monthly simple interest under Section 9, as reported by secondary sources; Section 5(5) registration-delay penalty from the department FAQ.
+    states:
+      - MH
+    sources:
+      - title: Maharashtra PT (Amendment) Bill 2023, L.A. Bill XIII of 2023 - Maharashtra Government Gazette copy on PRS
+        url: https://prsindia.org/files/bills_acts/bills_states/maharashtra/2023/Bill13of2023MH.pdf
+        kind: act
+      - title: Maharashtra GST Department - Profession Tax notifications list (archived 8 Mar 2026) showing the notification of 28 Feb 2026 amending Rule 11(3)
+        url: https://web.archive.org/web/20260308000203/https://www.mahagst.gov.in/mr/profession-tax-and-allied-acts-notifications
+        kind: portal
+      - title: "Tax-O-Smart - PTRC and PTEC: Maharashtra due dates revised (17 March 2026)"
+        url: https://www.taxosmart.com/blogDetails/ptrc-ptec-maharashtra-due-dates-revised
+        kind: secondary
+      - title: Maharashtra Sales Tax Department - Profession Tax FAQs (copy hosted by steasy.com)
+        url: https://steasy.com/pdf/PROFESSION%20TAX%20FAQs.pdf
+        kind: secondary
+      - title: Zoho Payroll - Maharashtra professional tax (April 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/maharashtra/professional-tax.html
+        kind: secondary
+      - title: AN Bhutada & Co - Maharashtra professional tax return due dates and penalty
+        url: https://anbca.com/professional-tax-return-filing-pt/
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: The due date falls inside the period (15 March, before the financial year ends). Tax-O-Smart (March 2026) reports the annual date moved from 31 March to 15 March under the 28 February 2026 notification amending Rule 11(3); its table labels this row 'PTEC', which appears to mean annual PTRC because PTEC is due 30 June. A CA firm page also lists 15 March 2026 for the FY 2025-26 annual return. Annual filers may pay in instalments during the year by selecting the yearly period (FAQ). The department's notifications list (archived 8 Mar 2026) confirms the 28 Feb 2026 amendment of Rule 11(3); its text was not opened, so treat the 15 March date as provisional.
+    code: PTRC MH
+  - id: state-pt-mh-ptrc-monthly
+    title: Maharashtra PTRC - monthly payment and e-return
+    form: Form III-B e-return; MTR-6 challan (GRAS)
+    category: state
+    authority: Maharashtra GST Department (Profession Tax)
+    summary: Employers on monthly periodicity pay the profession tax deducted from salaries and upload the Form III-B e-return by the 15th of the month after the salary month (by the last day of that month before the March 2026 amendment).
+    applicability: "Employers holding a Profession Tax Registration Certificate (PTRC) whose tax liability in the previous year was Rs 50,000 or more, and every employer for the financial year in which it first obtained PTRC (Rule 11A). Rates from 1 April 2023: men earning over Rs 10,000 a month and women earning over Rs 25,000 a month pay Rs 200 a month and Rs 300 in February (Rs 175 for men earning Rs 7,501-10,000)."
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 15
+      monthOffset: 1
+    law: Sections 4, 5 and 6, Maharashtra State Tax on Professions, Trades, Callings and Employments Act 1975; Rules 11(3) (as amended by Finance Department notification dated 28-02-2026) and 11A, Maharashtra State Tax on Professions, Trades, Callings and Employments Rules 1975; Trade Circular 48T of 2017
+    penalty: Late fee of Rs 1,000 per late PTRC return; simple interest of 1.25% per month on tax paid late (Section 9); penalty of Rs 5 per day for late registration as employer (Section 5(5)). Amounts confirmed only via secondary sources.
+    exposure:
+      fixedPenalty: 1000
+      interestPctPerMonth: 1.25
+      other:
+        - Penalty for late registration of Rs 5 per day of delay (Section 5(5))
+        - Further penalty for non-payment possible under the Act (amount not verified)
+      basis: Rs 1,000 late fee per late return and 1.25% monthly simple interest under Section 9, as reported by secondary sources; Section 5(5) registration-delay penalty from the department FAQ.
+    states:
+      - MH
+    sources:
+      - title: Maharashtra PT (Amendment) Bill 2023, L.A. Bill XIII of 2023 - Maharashtra Government Gazette copy on PRS
+        url: https://prsindia.org/files/bills_acts/bills_states/maharashtra/2023/Bill13of2023MH.pdf
+        kind: act
+      - title: Maharashtra GST Department - Profession Tax notifications list (archived 8 Mar 2026) showing the notification of 28 Feb 2026 amending Rule 11(3)
+        url: https://web.archive.org/web/20260308000203/https://www.mahagst.gov.in/mr/profession-tax-and-allied-acts-notifications
+        kind: portal
+      - title: "Tax-O-Smart - PTRC and PTEC: Maharashtra due dates revised (17 March 2026)"
+        url: https://www.taxosmart.com/blogDetails/ptrc-ptec-maharashtra-due-dates-revised
+        kind: secondary
+      - title: Setindiabiz - October 2026 compliance calendar (professional tax table)
+        url: https://www.setindiabiz.com/blog/october-2026-due-date-compliance-calendar
+        kind: secondary
+      - title: Setindiabiz - September 2026 compliance calendar (professional tax table)
+        url: https://www.setindiabiz.com/blog/september-2026-due-date-compliance-calendar
+        kind: secondary
+      - title: Maharashtra Sales Tax Department - Profession Tax FAQs (copy hosted by steasy.com)
+        url: https://steasy.com/pdf/PROFESSION%20TAX%20FAQs.pdf
+        kind: secondary
+      - title: Zoho Payroll - Maharashtra professional tax (April 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/maharashtra/professional-tax.html
+        kind: secondary
+      - title: AN Bhutada & Co - Maharashtra professional tax return due dates and penalty
+        url: https://anbca.com/professional-tax-return-filing-pt/
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: Period here is the salary month. On the mahagst.gov.in payment and return utility the period to select is the month after the salary month (e.g. select June for tax deducted from May salary - FAQ citing Rule 11 and Trade Circular 48T of 2017). Two secondary sources (Tax-O-Smart, March 2026; Setindiabiz, September and October 2026) report a Finance Department notification dated 28 February 2026 amending Rule 11(3) so that the monthly return and payment are due by the 15th of that return month instead of its last day, from the March 2026 return period. The department's own notifications list (archived 8 Mar 2026) confirms a notification dated 28 Feb 2026 amending Rule 11(3), but its PDF could not be opened (mahagst.gov.in refuses connections and the file is not archived), so the new day rests on the secondary sources. The department publishes each year's monthly/annual periodicity list on mahagst.gov.in. One CA firm page cites a Rs 1,00,000 threshold (unverified); the department FAQ and Zoho Payroll say Rs 50,000.
+    code: PTRC MH
+  - id: state-pt-mp-enrolment
+    title: Madhya Pradesh PT - annual tax by registered persons
+    form: Treasury challan / e-payment on mptax.mp.gov.in
+    category: state
+    authority: Commercial Tax Department, Madhya Pradesh (Profession Tax)
+    summary: Persons other than employers who are liable under the Schedule (companies, firms, professionals, traders) pay the year's profession tax before 30 September.
+    applicability: Persons registered before the start of the year or on or before 31 August; those registered after 31 August pay within thirty days of registration.
+    audience:
+      - company
+      - llp
+      - firm
+      - individual
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: -6
+    law: Sections 12(3) and 13, Madhya Pradesh Professional Tax Act 1995
+    penalty: Penalty equal to 2% per month of the tax due, up to two-thirds of the tax due (Section 13); late annual return by such persons Rs 5 per day up to Rs 500 (Section 10(4)).
+    exposure:
+      interestPctPerMonth: 2
+      other:
+        - Section 13 penalty is capped at two-thirds of the tax due
+        - "Late return under Section 10(1) (due 30 June): up to Rs 5 per day, maximum Rs 500 (Section 10(4))"
+      basis: Section 13 penalty of 2% per month up to two-thirds of the tax; Section 10(4) daily penalty for late returns by registered persons.
+    states:
+      - MP
+    sources:
+      - title: Madhya Pradesh Professional Tax Act 1995 and Rules (English) - MP Commercial Tax Department
+        url: https://mptax.mp.gov.in/mpvatweb/download/act/pdf/PTACTRules.pdf
+        kind: act
+      - title: "Zoho Payroll - Professional tax: state-wise slab and due dates (September 2025)"
+        url: https://www.zoho.com/in/payroll/academy/taxes-and-compliance/professional-tax-rules.html
+        kind: secondary
+    verified: 2026-10-14
+    confidence: high
+    notes: The Act says 'before 30th September'; this rule uses 30 September (inside the period). Section 10(1) of the compiled Act also requires such persons to file an annual return by 30 June; it is not a separate rule here because its current use could not be confirmed.
+    code: PT EC MP
+  - id: state-pt-mp-monthly
+    title: Madhya Pradesh PT - employer monthly payment
+    form: Treasury challan / e-payment on mptax.mp.gov.in
+    category: state
+    authority: Commercial Tax Department, Madhya Pradesh (Profession Tax)
+    summary: Employers pay the profession tax deducted from salaries for a month within ten days of the end of that month.
+    applicability: "Employers registered under the Madhya Pradesh Professional Tax Act 1995 (current salary slabs under amendment Act 20 of 2018: from Rs 1,500 a year above Rs 2.25 lakh annual salary up to Rs 2,500 a year)."
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 10
+      monthOffset: 1
+    law: Sections 12(2) and 13, Madhya Pradesh Professional Tax Act 1995 (Vritti Kar Adhiniyam); MP Professional Tax Rules 1995
+    penalty: Penalty equal to 2% per month of the tax due, up to two-thirds of the tax due, where tax is not paid in time without reasonable cause (Section 13).
+    exposure:
+      interestPctPerMonth: 2
+      other:
+        - Section 13 penalty is computed at 2% per month and capped at two-thirds of the tax due
+      basis: Section 13 penalty of 2% per month of the unpaid tax, subject to a maximum of two-thirds of the tax due.
+    states:
+      - MP
+    sources:
+      - title: Madhya Pradesh Professional Tax Act 1995 and Rules (English) - MP Commercial Tax Department
+        url: https://mptax.mp.gov.in/mpvatweb/download/act/pdf/PTACTRules.pdf
+        kind: act
+      - title: MP Commercial Tax Department - Profession Tax Act page (amendment Act 20 of 2018 is current schedule)
+        url: https://mptax.mp.gov.in/mpvatweb/requestRedirect.do?dispatch=displayPTActDetails
+        kind: portal
+      - title: Setindiabiz - October 2026 compliance calendar (professional tax table)
+        url: https://www.setindiabiz.com/blog/october-2026-due-date-compliance-calendar
+        kind: secondary
+    verified: 2026-10-14
+    confidence: high
+    notes: Section 12(2) says within ten days of the end of the month for which the deduction was made. The 2018 slab description is a summary from payroll sources; the 2023 MP PT Amendment Bill on PRS is a scanned image and was not read.
+    code: PT MP
+  - id: state-pt-mp-quarterly-return
+    title: Madhya Pradesh PT - employer quarterly return (Form 7)
+    form: Form 7
+    category: state
+    authority: Commercial Tax Department, Madhya Pradesh (Profession Tax)
+    summary: Registered employers file a quarterly Form 7 return of salaries paid and tax deducted, with the payment challans, by the 15th of the month after each quarter, even if no tax was payable.
+    applicability: Every employer registered under the MP Professional Tax Act 1995; an employer may apply in Form 8 for permission to file an annual return instead.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: quarterly
+    schedule:
+      kind: quarterly
+      basis: fy
+      day: 15
+      monthOffset: 1
+    law: Section 9, Madhya Pradesh Professional Tax Act 1995; Rule 11, MP Professional Tax Rules 1995
+    penalty: Penalty of up to Rs 20 per day of delay for a late return (Section 9(3)).
+    exposure:
+      lateFeePerDay: 20
+      other:
+        - Late return penalty is up to Rs 20 per day of delay (Section 9(3))
+      basis: Section 9(3) penalty of up to Rs 20 for each day of delay in filing the return.
+    states:
+      - MP
+    sources:
+      - title: Madhya Pradesh Professional Tax Act 1995 and Rules (English) - MP Commercial Tax Department
+        url: https://mptax.mp.gov.in/mpvatweb/download/act/pdf/PTACTRules.pdf
+        kind: act
+      - title: MP Commercial Tax Department - Profession Tax Act page (amendment Act 20 of 2018 is current schedule)
+        url: https://mptax.mp.gov.in/mpvatweb/requestRedirect.do?dispatch=displayPTActDetails
+        kind: portal
+    verified: 2026-10-14
+    confidence: high
+    notes: Salary for a month of one quarter paid after the quarter ends may be reported in the return of the quarter in which it is paid (Rule 11(1) proviso). The Act and Rules PDF on mptax.mp.gov.in is a compilation; later amendments to Rule 11 could not be checked.
+    code: PT MP QTR
+  - id: state-pt-od-annual-return
+    title: Odisha PT - annual return Form V (final year FY 2025-26)
+    form: Form V (employers); Form XII (enrolled persons)
+    category: state
+    authority: Commissionerate of CT and GST, Odisha (Profession Tax)
+    summary: Registered employers file one online annual return in Form V (enrolled persons in Form XII) within three months after the year ends; FY 2025-26, due 30 June 2026, is the last year before the repeal.
+    applicability: Employers registered and persons enrolled under the Odisha PT Act 2000, for FY 2025-26 and earlier years.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+      - individual
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: 3
+    law: Section 7, Odisha State Tax on Professions, Trades, Callings and Employments Act 2000; Rule 13, Odisha PT Rules 2000 (as amended 2010 and 2014); Odisha Ordinance 02 of 2026 savings clause
+    penalty: Penalty of up to Rs 5 per day of delay in filing the return (Section 7(3)).
+    exposure:
+      lateFeePerDay: 5
+      other:
+        - Late return penalty is up to Rs 5 per day of delay (Section 7(3))
+      basis: Section 7(3) penalty of up to Rs 5 for each day of delay, preserved for pre-repeal obligations by the savings clause.
+    states:
+      - OD
+    effective:
+      from: null
+      to: 2026-03-31
+    sources:
+      - title: Odisha CT and GST Organisation - Professional Tax page
+        url: https://odishatax.gov.in/professional_tax.php
+        kind: portal
+      - title: Odisha Ordinance 02 of 2026 - Odisha State Tax on Professions, Trades, Callings and Employment (Repeal) Ordinance 2026, Odisha Gazette No. 1496 dated 21-04-2026
+        url: https://odishatax.gov.in/document/upload_img/975618-1496-LAW%20DEPTT.pdf
+        kind: act
+      - title: Odisha State Tax on Professions, Trades, Callings and Employments Act 2000 (Odisha Act 7 of 2000)
+        url: https://odishatax.gov.in/document/upload_img/354609-333927-ptact.pdf
+        kind: act
+      - title: Odisha State Tax on Professions, Trades, Callings and Employments Rules 2000
+        url: https://odishatax.gov.in/document/upload_img/170133-Profession%20Tax%20Rule%202000.pdf
+        kind: rules
+      - title: Odisha PT (Amendment) Rules 2010 - S.R.O. No. 180/2010 dated 14-05-2010
+        url: https://odishatax.gov.in/document/upload_img/620607-NOT232072010.pdf
+        kind: rules
+      - title: PRS Legislative Research - state bills list showing the Odisha State Tax on Professions, Trades, Callings and Employment (Repeal) Ordinance, 2026
+        url: https://prsindia.org/bills/states?state=Odisha
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: The CT and GST page says all employers and enrolled persons file an online return once a year within three months of year end (the 2010 rule amendment had prescribed monthly Form V returns; the 2014 amendment PDF is a scanned image). Treating the FY 2025-26 return as still due after the 1 April 2026 repeal relies on the savings clause; confirm with the department. Enrolment tax (Rs 2,500) is not payable for FY 2026-27 onwards because of the repeal. The last monthly employer payment (March 2026 salaries) fell due on 30 Apr 2026 under Rule 13(1). PRS lists the Repeal Ordinance but, as at 14 Oct 2026, no replacing Repeal Bill; an ordinance lapses six weeks after the Assembly reassembles unless replaced, which would revive the levy, so confirm before treating Odisha PT as abolished.
+    code: PT OD ANNUAL
+  - id: state-pt-tn-employer-halfyearly
+    title: Tamil Nadu PT - employer half-yearly remittance (Form 14)
+    form: Form 14 (return for recovery of profession tax)
+    category: state
+    authority: Urban local bodies (e.g. Greater Chennai Corporation), Municipal Administration Department, Tamil Nadu
+    summary: Employers deduct the half-yearly profession tax from the August and January salaries and pay it to the municipality with Form 14 by 30 September (April-September) and 31 March (October-March).
+    applicability: "Every employer with employees in a Tamil Nadu urban local body area (corporations and municipalities). Greater Chennai Corporation half-yearly rates from the second half of 2024-25: nil up to Rs 21,000; Rs 180 (21,001-30,000); Rs 425 (30,001-45,000); Rs 930 (45,001-60,000); Rs 1,025 (60,001-75,000); Rs 1,250 above Rs 75,000 of half-yearly income."
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: fy
+      day: last
+      monthOffset: 0
+    law: Sections 117-B, 117-C, 117-D and 117-F, Tamil Nadu Urban Local Bodies Act 1998; Rules 277 and 286, Tamil Nadu Urban Local Bodies Rules 2023
+    penalty: Simple interest of 1% per month on unpaid half-yearly tax (Section 117-F(2), Rule 286); penalty of 100% of the tax difference for an incorrect or incomplete return (Section 117-F(1)).
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Penalty of 100% of the difference between tax assessed and tax paid where the return is incorrect or incomplete (Section 117-F(1))
+      basis: Simple interest of 1% per month for the whole period of default under Section 117-F(2) and Rule 286; Section 117-F(1) penalty for incorrect returns.
+    states:
+      - TN
+    sources:
+      - title: Tamil Nadu Urban Local Bodies Rules 2023 - Rules 275 to 286 (profession tax)
+        url: https://www.tnurbantree.tn.gov.in/wp-content/uploads/2023/07/Rules-2023.pdf
+        kind: rules
+      - title: Tamil Nadu Urban Local Bodies Act 1998 - Sections 117-A to 117-I (profession tax)
+        url: https://www.tnurbantree.tn.gov.in/wp-content/uploads/2023/07/Act-2023.pdf
+        kind: act
+      - title: Greater Chennai Corporation - Press release R.D. PT C.No/3555/2026 dated 04-08-2026
+        url: https://chennaicorporation.gov.in/gcc/pdf/PT_Press_Release.pdf
+        kind: circular
+      - title: Zoho Payroll - Professional tax in Tamil Nadu (April 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/tamil-nadu/professional-tax.html
+        kind: secondary
+      - title: Setindiabiz - September 2026 compliance calendar (professional tax table)
+        url: https://www.setindiabiz.com/blog/september-2026-due-date-compliance-calendar
+        kind: secondary
+    verified: 2026-10-14
+    confidence: high
+    notes: The due date is the last day of each half-year, inside the period. If August or January pay is drawn later, the tax is deducted then and remitted with Form 14 within 15 days of recovery (Rule 277(5)); monthly recovery is allowed but the half-yearly amount must be remitted in one lump sum (Rule 277(6)). GCC also asks for employee-wise details in its Form 15 format by e-mail (press release of 4 August 2026). Rates are fixed by each council. Village panchayat areas fall under the Tamil Nadu Panchayats Act and are not covered here.
+    code: PT TN
+  - id: state-pt-tn-entity-halfyearly
+    title: Tamil Nadu PT - companies and professionals, half-yearly
+    form: Form 15 (return and self-assessment)
+    category: state
+    authority: Urban local bodies (e.g. Greater Chennai Corporation), Municipal Administration Department, Tamil Nadu
+    summary: Companies transacting business and persons in a profession, trade or calling in an urban local body area pay their own half-yearly profession tax, self-assessed on average half-yearly income, before 30 September and before 31 March.
+    applicability: Every company that transacts business and every person engaged in a profession, trade or calling within a Tamil Nadu municipal area on the first day of the half-year (salary earners are covered by employer deduction). A Form 15 return with the first half-year's tax is due within 30 days of starting the activity and remains valid until the next general revision.
+    audience:
+      - company
+      - llp
+      - firm
+      - individual
+    frequency: half-yearly
+    schedule:
+      kind: half-yearly
+      basis: fy
+      day: last
+      monthOffset: 0
+    law: Sections 117-B and 117-F, Tamil Nadu Urban Local Bodies Act 1998; Rules 278 and 286, Tamil Nadu Urban Local Bodies Rules 2023
+    penalty: Simple interest of 1% per month on unpaid half-yearly tax (Section 117-F(2), Rule 286); penalty of 100% of the tax difference for an incorrect or incomplete return (Section 117-F(1)).
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Penalty of 100% of the difference between tax assessed and tax paid where the return is incorrect or incomplete (Section 117-F(1))
+      basis: Simple interest of 1% per month for the whole period of default under Section 117-F(2) and Rule 286; Section 117-F(1) penalty for incorrect returns.
+    states:
+      - TN
+    sources:
+      - title: Tamil Nadu Urban Local Bodies Rules 2023 - Rules 275 to 286 (profession tax)
+        url: https://www.tnurbantree.tn.gov.in/wp-content/uploads/2023/07/Rules-2023.pdf
+        kind: rules
+      - title: Tamil Nadu Urban Local Bodies Act 1998 - Sections 117-A to 117-I (profession tax)
+        url: https://www.tnurbantree.tn.gov.in/wp-content/uploads/2023/07/Act-2023.pdf
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    notes: Rule 278(4) says 'before' 30 September and 'before' 31 March, so paying a day earlier avoids any argument; the schedule shows the last day of each half-year (inside the period).
+    code: PT TN SELF
+  - id: state-pt-ts-enrolment
+    title: Telangana PT - annual enrolment tax payment
+    form: Enrolment certificate tax payment (TGCT PT portal)
+    category: state
+    authority: Commercial Taxes Department, Telangana (Profession Tax)
+    summary: Enrolled persons (companies, firms, professionals, traders, directors and others in the First Schedule) pay the annual tax shown in their enrolment certificate before 30 June.
+    applicability: Persons enrolled under Section 6(2) before the year begins or on or before 31 May of the year; persons enrolled after 31 May pay within one month of enrolment. Maximum Rs 2,500 per annum.
+    audience:
+      - company
+      - llp
+      - firm
+      - individual
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: -9
+    law: Sections 10, 11(2) and 12, Telangana Tax on Professions, Trades, Callings and Employments Act 1987; Rules 14 and 24, Telangana PT Rules 1987
+    penalty: Interest at 2% per month on late payment (Section 11(2), Rule 24); penalty of 25% to 50% of tax due if a demand is not paid in time (Section 12).
+    exposure:
+      interestPctPerMonth: 2
+      other:
+        - Penalty of 25% to 50% of the tax due if a demand notice is not paid in time (Section 12)
+      basis: Section 11(2) interest at the Rule 24 rate of 2% per month and Section 12 penalty on unpaid demands.
+    states:
+      - TS
+    sources:
+      - title: Telangana PT Act 1987 - Section 10 (Payment of tax by certain assessees)
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/APPTAct/10Payment.html
+        kind: act
+      - title: Telangana PT Act 1987 - Section 11 (Consequences of failure to deduct or pay)
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/APPTAct/11Consequences.html
+        kind: act
+      - title: Telangana PT Act 1987 - Section 12 (Penalty for non-payment)
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/APPTAct/12Penalty.html
+        kind: act
+      - title: Telangana PT Rules 1987 - Rules 12, 13, 14 and 24
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/APPTRules.aspx
+        kind: rules
+      - title: Telangana Commercial Taxes Department - FAQs on Profession Tax
+        url: https://www.tgct.gov.in/tgportal/faqs/FAQsProfessionTax.doc
+        kind: faq
+      - title: Zoho Payroll - Professional tax in Telangana (April 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/telangana/professional-tax.html
+        kind: secondary
+    verified: 2026-10-14
+    confidence: high
+    notes: The Act says 'before 30th June'; this rule uses 30 June. The due date falls inside the period (June of the financial year). The department FAQ (2015) cites a 1.25 per month interest figure that conflicts with Rule 24 (2%).
+    code: PT EC TS
+  - id: state-pt-ts-monthly
+    title: Telangana PT - employer monthly Form V return and payment
+    form: Form V (monthly return of tax payable by employer) with payment
+    category: state
+    authority: Commercial Taxes Department, Telangana (Profession Tax)
+    summary: Registered employers file the monthly Form V return, accompanied by payment of the tax deducted from salaries, by the 10th of the following month.
+    applicability: Employers registered under the Telangana Tax on Professions, Trades, Callings and Employments Act 1987. Employees earning Rs 15,001-20,000 a month pay Rs 150 and those above Rs 20,000 pay Rs 200 a month.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 10
+      monthOffset: 1
+    law: Sections 5, 7, 11 and 12, Telangana Tax on Professions, Trades, Callings and Employments Act 1987; Rules 12, 13 and 24 and Form V, Telangana PT Rules 1987
+    penalty: Interest at 2% per month on unpaid tax (Section 11, Rule 24); late return penalty of Rs 5 to Rs 100 per day (Section 7(3)); penalty of 25% to 50% of tax due if a demand is not paid in time (Section 12).
+    exposure:
+      lateFeePerDay: 100
+      interestPctPerMonth: 2
+      other:
+        - Late return penalty ranges from Rs 5 to Rs 100 per day of delay (Section 7(3))
+        - Penalty of 25% to 50% of the tax due if a demand notice is not paid in time (Section 12)
+      basis: Section 7(3) daily penalty for late returns, Section 11 interest at the Rule 24 rate of 2% per month, and Section 12 penalty on unpaid demands.
+    states:
+      - TS
+    sources:
+      - title: Telangana Tax on Professions, Trades, Callings and Employments Act 1987 - Commercial Taxes Department
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/APPTAct.aspx
+        kind: act
+      - title: Telangana PT Act 1987 - Section 7 (Returns)
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/APPTAct/07Returns.html
+        kind: act
+      - title: Telangana PT Act 1987 - Section 11 (Consequences of failure to deduct or pay)
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/APPTAct/11Consequences.html
+        kind: act
+      - title: Telangana PT Act 1987 - Section 12 (Penalty for non-payment)
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/APPTAct/12Penalty.html
+        kind: act
+      - title: Telangana PT Rules 1987 - Rules 12, 13, 14 and 24
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/APPTRules.aspx
+        kind: rules
+      - title: Form V - monthly return of tax payable by employer (Rule 12)
+        url: https://www.tgct.gov.in/tgportal/AllActs/APPT/forms/form5.html
+        kind: rules
+      - title: Zoho Payroll - Professional tax in Telangana (April 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/telangana/professional-tax.html
+        kind: secondary
+      - title: Setindiabiz - October 2026 compliance calendar (professional tax table)
+        url: https://www.setindiabiz.com/blog/october-2026-due-date-compliance-calendar
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: The Act and Rules on tgct.gov.in confirm a monthly Form V return that must carry proof of payment, but the published Rule 12 text does not state the day; the 10th of the following month comes from Zoho Payroll and Setindiabiz. The department FAQ (2015) mentions interest of 1.25 per month, while Rule 24 and Form V show 2% - the rule text is used here. Returns and payments are made on the TGCT PT portal (tgpt_dealer).
+    code: PT TS
+  - id: state-pt-wb-enrolment
+    title: West Bengal PT - annual enrolment tax payment
+    form: PT e-payment (GRIPS) by enrolment number
+    category: state
+    authority: Directorate of Commercial Taxes, West Bengal (Profession Tax)
+    summary: Enrolled persons (companies, firms, directors, professionals, traders and other entities) pay their annual profession tax for the year by 31 July.
+    applicability: Persons enrolled under the West Bengal PT Act 1979; Rs 2,500 per annum for companies, with turnover or income-based slabs for other classes.
+    audience:
+      - company
+      - llp
+      - firm
+      - individual
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 31
+      monthOffset: -8
+    law: West Bengal State Tax on Professions, Trades, Callings and Employments Act 1979 (payment by enrolled persons) and Schedule
+    penalty: Interest of 1% per month on late payment (secondary sources); unpaid tax for up to the three preceding years may be demanded with interest.
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Arrears for the previous three years can be demanded with interest
+      basis: 1% per month interest on late payment as reported by payroll secondary sources; section not verified.
+    states:
+      - WB
+    sources:
+      - title: e-Startup (Kolkata) - Professional Tax in West Bengal
+        url: https://e-startup.in/professional-tax-wb
+        kind: secondary
+      - title: Zoho Payroll - Professional tax in West Bengal (May 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/west-bengal/professional-tax.html
+        kind: secondary
+      - title: CMS IndusLaw - Employment newsletter July-August 2026 (WB draft PT Schedule of 18-08-2026)
+        url: https://cms-induslaw.com/en/ind/publication/employment-newsletter-july-august-2026
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: The due date falls inside the period (31 July of the financial year). Two secondary sources agree on 31 July; the state portal could not be reached. The 18 August 2026 draft Schedule would put companies, directors, consultants, hospitals and several digital professions at Rs 2,500 a year if notified.
+    code: PT EC WB
+  - id: state-pt-wb-monthly
+    title: West Bengal PT - employer monthly payment
+    form: PT e-payment (GRIPS) on the WB profession tax portal
+    category: state
+    authority: Directorate of Commercial Taxes, West Bengal (Profession Tax)
+    summary: Registered employers pay the profession tax deducted from employees' salaries for a month by the 21st of the following month.
+    applicability: Employers registered under the West Bengal State Tax on Professions, Trades, Callings and Employments Act 1979 with employees above the salary exemption limit in the Schedule.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 21
+      monthOffset: 1
+    law: West Bengal State Tax on Professions, Trades, Callings and Employments Act 1979 and Rules 1979 (employer deduction and payment provisions; section numbers not verified)
+    penalty: Interest of 1% per month on late payment (secondary sources); other penalty provisions not verified.
+    exposure:
+      interestPctPerMonth: 1
+      other:
+        - Statutory penalty provisions not verified
+      basis: 1% per month interest on late payment as reported by payroll secondary sources; section not verified.
+    states:
+      - WB
+    sources:
+      - title: e-Startup (Kolkata) - Professional Tax in West Bengal
+        url: https://e-startup.in/professional-tax-wb
+        kind: secondary
+      - title: Setindiabiz - October 2026 compliance calendar (professional tax table)
+        url: https://www.setindiabiz.com/blog/october-2026-due-date-compliance-calendar
+        kind: secondary
+      - title: Setindiabiz - September 2026 compliance calendar (professional tax table)
+        url: https://www.setindiabiz.com/blog/september-2026-due-date-compliance-calendar
+        kind: secondary
+      - title: Zoho Payroll - Professional tax in West Bengal (May 2025)
+        url: https://www.zoho.com/in/payroll/academy/payroll-laws/west-bengal/professional-tax.html
+        kind: secondary
+      - title: CMS IndusLaw - Employment newsletter July-August 2026 (WB draft PT Schedule of 18-08-2026)
+        url: https://cms-induslaw.com/en/ind/publication/employment-newsletter-july-august-2026
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: wbprofessiontax.gov.in and all other West Bengal government sites were unreachable from this machine. The 21st is given by a Kolkata compliance firm and by Setindiabiz's 2026 calendars; Zoho Payroll instead says within 15 days of the following month, so treat the day as not confirmed by a primary source. A draft notification dated 18 August 2026 proposes a new Schedule (employees above Rs 20,000 a month, Rs 100 to Rs 208 a month); it changes rates, not the reported due date. Whether employers must also file an annual return (and its date) was not verified.
+    code: PT WB

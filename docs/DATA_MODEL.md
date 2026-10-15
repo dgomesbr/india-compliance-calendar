@@ -38,7 +38,7 @@ site expands rules into dated occurrences for any window up to 24 months ahead.
 | `law` | yes | sections and rules |
 | `penalty` | no | prose: late fee, interest, penalty with sections |
 | `exposure` | no | structured penalty, see below |
-| `states` | no | ISO 3166-2:IN codes without `IN-` for state rules (`MH`, `KA`, `TG`...) |
+| `states` | no | ISO 3166-2:IN codes without `IN-` for state rules (`MH`, `KA`, `TS`...) |
 | `effective` | no | `{from, to}`: applies to periods starting in this window |
 | `overrides` | no | notified extensions, see below |
 | `sources` | yes | `{title, url, kind}`; primary government sources first |

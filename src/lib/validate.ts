@@ -5,7 +5,7 @@ import { AUDIENCES, CATEGORIES, FREQUENCIES, type EventType, type HolidayList, t
 
 export const STATE_CODES = [
   'AN', 'AP', 'AR', 'AS', 'BR', 'CH', 'CG', 'DH', 'DL', 'GA', 'GJ', 'HP', 'HR', 'JH', 'JK', 'KA', 'KL', 'LA',
-  'LD', 'MH', 'ML', 'MN', 'MP', 'MZ', 'NL', 'OD', 'PB', 'PY', 'RJ', 'SK', 'TG', 'TN', 'TR', 'UK', 'UP', 'WB',
+  'LD', 'MH', 'ML', 'MN', 'MP', 'MZ', 'NL', 'OD', 'PB', 'PY', 'RJ', 'SK', 'TN', 'TR', 'TS', 'UK', 'UP', 'WB',
 ];
 
 export const STATE_NAME: Record<string, string> = {
@@ -14,7 +14,7 @@ export const STATE_NAME: Record<string, string> = {
   GJ: 'Gujarat', HP: 'Himachal Pradesh', HR: 'Haryana', JH: 'Jharkhand', JK: 'Jammu and Kashmir', KA: 'Karnataka',
   KL: 'Kerala', LA: 'Ladakh', LD: 'Lakshadweep', MH: 'Maharashtra', ML: 'Meghalaya', MN: 'Manipur',
   MP: 'Madhya Pradesh', MZ: 'Mizoram', NL: 'Nagaland', OD: 'Odisha', PB: 'Punjab', PY: 'Puducherry',
-  RJ: 'Rajasthan', SK: 'Sikkim', TG: 'Telangana', TN: 'Tamil Nadu', TR: 'Tripura', UK: 'Uttarakhand',
+  RJ: 'Rajasthan', SK: 'Sikkim', TN: 'Tamil Nadu', TR: 'Tripura', TS: 'Telangana', UK: 'Uttarakhand',
   UP: 'Uttar Pradesh', WB: 'West Bengal',
 };
 
@@ -53,7 +53,8 @@ function checkSchedule(s: Schedule, where: string, errors: string[]): void {
   if (s.day !== undefined && s.day !== 'last' && !(Number.isInteger(s.day) && s.day >= 1 && s.day <= 31)) {
     errors.push(`${where}: bad day "${String(s.day)}"`);
   }
-  if (s.monthOffset !== undefined && !(Number.isInteger(s.monthOffset) && s.monthOffset >= 0 && s.monthOffset <= 24)) {
+  // Negative offsets place a due date inside its own period (e.g. state enrolment tax due in June of the FY).
+  if (s.monthOffset !== undefined && !(Number.isInteger(s.monthOffset) && s.monthOffset >= -12 && s.monthOffset <= 72)) {
     errors.push(`${where}: bad monthOffset "${String(s.monthOffset)}"`);
   }
   if (s.basis && s.basis !== 'fy' && s.basis !== 'calendar') errors.push(`${where}: bad basis "${s.basis}"`);

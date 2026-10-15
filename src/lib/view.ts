@@ -19,12 +19,12 @@ export const STATE_LABEL: Record<RowState, string> = {
 };
 
 export const STATE_VAR: Record<RowState, string> = {
-  filed: 'var(--code-filed)',
-  overdue: 'var(--code-overdue)',
-  soon: 'var(--code-soon)',
-  extended: 'var(--code-extended)',
-  upcoming: 'var(--code-upcoming)',
-  past: 'var(--code-past)',
+  filed: 'var(--filed)',
+  overdue: 'var(--overdue)',
+  soon: 'var(--soon)',
+  extended: 'var(--extended)',
+  upcoming: 'var(--upcoming)',
+  past: 'var(--past)',
 };
 
 export interface Row {
@@ -226,6 +226,13 @@ export function countStates(rows: Row[]): Record<RowState, number> {
   const c: Record<RowState, number> = { filed: 0, overdue: 0, soon: 0, extended: 0, upcoming: 0, past: 0 };
   for (const r of rows) c[r.state]++;
   return c;
+}
+
+/** "CBDT / Income Tax Department" -> "CBDT"; "EPFO (Employees' ...)" -> "EPFO". */
+export function shortAuthority(a: string): string {
+  const first = a.split(/\s+\/\s+|;\s*/)[0];
+  const bare = first.replace(/\s*\([^)]*\)/g, '').trim();
+  return bare || a;
 }
 
 export function matchesQuery(row: Row, q: string): boolean {

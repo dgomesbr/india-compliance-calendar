@@ -20,9 +20,10 @@ rules, with no content copied from any commercial site.
 - **Order by fine.** Sort by due date, by penalty exposure (the fixed cost of a
   30-day delay: late fees and flat penalties, with interest shown separately),
   or by law.
-- **The pulse.** Months stacked, days across; each due date rises as a pulse
-  whose height tracks its penalty exposure, so the 7th-11th-15th-20th rhythm and
-  the heavy days are visible at a glance. Keyboard and screen-reader accessible.
+- **The timeline.** One lane per law across the horizon; each due date is a
+  mark sized by its penalty exposure and coloured by its state, so it is clear
+  which law is heavy when. Select a mark to filter the table. Keyboard and
+  screen-reader accessible.
 - **Our obligations only.** An entity profile (type, GST mode, TDS, employees,
   audit, transfer pricing, foreign investment, import/export, states) filters
   everything, including state professional tax and labour welfare fund.
@@ -108,9 +109,10 @@ can publish elsewhere with `ICC_SITE` and `ICC_BASE`.
 ## Design
 
 Designed with the Impeccable process: product context in [PRODUCT.md](PRODUCT.md),
-the visual system in [DESIGN.md](DESIGN.md). The world is a record-label catalog
-identity: matte black, hairline rules, every obligation a numbered catalog entry,
-a five-colour code where position names the law and colour names the state.
+the visual system in [DESIGN.md](DESIGN.md). The world is a listed company's
+annual report: a navy masthead over white working pages, ruled tables with
+tabular figures, one cobalt for actions, state tints only where state is the
+message, and one chart (the timeline) that tells the year.
 
 ## Licence
 

@@ -30,8 +30,8 @@ const verified = rule.verified ? formatDate(rule.verified, { weekday: false }) :
 <Shell title={`${rule.code} - ${rule.title}`} active="none" description={`${rule.title}: ${describeSchedule(rule)}. ${rule.summary}`}>
   <article class="page read entry">
     <header class="entry-head">
-      <p class="caps muted">{CATEGORY_LABEL[rule.category]} - {rule.authority}</p>
-      <h1 class="cat entry-code">{rule.code}</h1>
+      <p class="label muted">{CATEGORY_LABEL[rule.category]} - {rule.authority}</p>
+      <h1 class="fig entry-code">{rule.code}</h1>
       <p class="entry-title">{rule.title}</p>
       <div class="form-actions">
         {
@@ -51,18 +51,18 @@ const verified = rule.verified ? formatDate(rule.verified, { weekday: false }) :
     <div class="entry-grid">
       <div>
         <dl class="entry-facts">
-          <div><dt class="caps faint">What</dt><dd>{rule.summary}</dd></div>
-          <div><dt class="caps faint">Who files</dt><dd>{rule.applicability}</dd></div>
+          <div><dt class="label faint">What</dt><dd>{rule.summary}</dd></div>
+          <div><dt class="label faint">Who files</dt><dd>{rule.applicability}</dd></div>
           <div>
-            <dt class="caps faint">Applies to</dt>
+            <dt class="label faint">Applies to</dt>
             <dd>{rule.audience.map((a) => AUDIENCE_LABEL[a]).join(', ')}{rule.states?.length ? ` - ${rule.states.map((s) => STATE_NAME[s] ?? s).join(', ')}` : ''}</dd>
           </div>
-          <div><dt class="caps faint">When</dt><dd>{describeSchedule(rule)}</dd></div>
-          {rule.trigger && <div><dt class="caps faint">Trigger</dt><dd>{rule.trigger}</dd></div>}
-          {rule.form && <div><dt class="caps faint">Form</dt><dd>{rule.form}</dd></div>}
-          <div><dt class="caps faint">Law</dt><dd>{rule.law}</dd></div>
+          <div><dt class="label faint">When</dt><dd>{describeSchedule(rule)}</dd></div>
+          {rule.trigger && <div><dt class="label faint">Trigger</dt><dd>{rule.trigger}</dd></div>}
+          {rule.form && <div><dt class="label faint">Form</dt><dd>{rule.form}</dd></div>}
+          <div><dt class="label faint">Law</dt><dd>{rule.law}</dd></div>
           <div>
-            <dt class="caps faint">Cost of a delay</dt>
+            <dt class="label faint">Cost of a delay</dt>
             <dd>
               {cost30 ? <p>{formatINR(cost30)} fixed cost at 30 days late.</p> : null}
               {turnover && <p>Penalty of {turnover}.</p>}
@@ -71,14 +71,14 @@ const verified = rule.verified ? formatDate(rule.verified, { weekday: false }) :
               {rule.penalty && <p class="muted">{rule.penalty}</p>}
             </dd>
           </div>
-          {rule.notes && <div><dt class="caps faint">Notes</dt><dd>{rule.notes}</dd></div>}
+          {rule.notes && <div><dt class="label faint">Notes</dt><dd>{rule.notes}</dd></div>}
           <div>
-            <dt class="caps faint">Sources</dt>
+            <dt class="label faint">Sources</dt>
             <dd>
               <ul class="sources">
-                {rule.sources.map((s) => <li><a href={s.url} rel="noopener">{s.title}</a>{s.kind && <span class="caps faint"> {s.kind}</span>}</li>)}
+                {rule.sources.map((s) => <li><a href={s.url} rel="noopener">{s.title}</a>{s.kind && <span class="label faint"> {s.kind}</span>}</li>)}
               </ul>
-              {verified && <p class="caps faint verified">Verified {verified} - confidence {rule.confidence}</p>}
+              {verified && <p class="label faint verified">Verified {verified} - confidence {rule.confidence}</p>}
             </dd>
           </div>
         </dl>
@@ -86,7 +86,7 @@ const verified = rule.verified ? formatDate(rule.verified, { weekday: false }) :
 
       <aside>
         <section class="aside-list">
-          <h2 class="caps faint">Next due dates</h2>
+          <h2 class="label faint">Next due dates</h2>
           {
             next.length ? (
               <ul class="next-list">
@@ -105,7 +105,7 @@ const verified = rule.verified ? formatDate(rule.verified, { weekday: false }) :
         {
           extended.length > 0 && (
             <section class="aside-list">
-              <h2 class="caps faint">Notified extensions</h2>
+              <h2 class="label faint">Notified extensions</h2>
               <ul class="next-list">
                 {extended.map((o) => (
                   <li>
@@ -118,7 +118,7 @@ const verified = rule.verified ? formatDate(rule.verified, { weekday: false }) :
           )
         }
         <section class="aside-list">
-          <h2 class="caps faint">Machine-readable</h2>
+          <h2 class="label faint">Machine-readable</h2>
           <p class="aside-empty"><a href={`${base}api/v1/rules.json`}>rules.json</a> - id <code>{rule.id}</code></p>
         </section>
       </aside>

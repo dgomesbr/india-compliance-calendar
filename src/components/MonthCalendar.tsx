@@ -14,7 +14,7 @@ import {
 import { formatINRCompact } from '../lib/exposure.ts';
 import { CATEGORIES, CATEGORY_LABEL, type Category } from '../lib/types.ts';
 import { buildRows, closedDays, STATE_LABEL, sortRows, type Row } from '../lib/view.ts';
-import Detail, { Strip } from './Detail.tsx';
+import Detail, { Law } from './Detail.tsx';
 import { Icon } from './Icon.tsx';
 
 const DOW = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -110,7 +110,7 @@ export default function MonthCalendar() {
   return (
     <div class="page cal">
       <header class="cal-head">
-        <h1 class="cat cal-title">
+        <h1 class="fig cal-title">
           {MONTHS_LONG[cursor.m - 1]} <span class="num">{cursor.y}</span>
         </h1>
         <div class="cal-nav">
@@ -128,11 +128,10 @@ export default function MonthCalendar() {
       </header>
 
       <div class="laws cal-laws" role="group" aria-label="Laws">
-        {CATEGORIES.map((c, i) => (
+        {CATEGORIES.map((c) => (
           <button type="button" class={`law-btn${laws.includes(c) ? ' is-on' : ''}`} aria-pressed={laws.includes(c)}
             onClick={() => setLaws(laws.includes(c) ? laws.filter((x) => x !== c) : [...laws, c])}>
-            <span class="strip" aria-hidden="true">{Array.from({ length: 9 }, (_, j) => <span class={j === i ? 'lit' : ''} />)}</span>
-            <span class="caps">{CATEGORY_LABEL[c]}</span>
+            <span>{CATEGORY_LABEL[c]}</span>
           </button>
         ))}
       </div>
@@ -140,7 +139,7 @@ export default function MonthCalendar() {
       <div class="cal-body">
         <div class="cal-grid" role="grid" aria-label={`${MONTHS_LONG[cursor.m - 1]} ${cursor.y}`} onKeyDown={onGridKey}>
           <div class="cal-row cal-dow" role="row">
-            {DOW.map((d, i) => <div role="columnheader" class={`caps faint${i > 4 ? ' is-weekend' : ''}`}>{d}</div>)}
+            {DOW.map((d, i) => <div role="columnheader" class={`label faint${i > 4 ? ' is-weekend' : ''}`}>{d}</div>)}
           </div>
           {Array.from({ length: cells.length / 7 }, (_, w) => (
             <div class="cal-row" role="row">
@@ -165,7 +164,7 @@ export default function MonthCalendar() {
                       onClick={() => setDay(date)}
                       aria-label={`${formatLong(date)}${holiday ? `, ${holiday}` : ''}: ${list.length} ${list.length === 1 ? 'obligation' : 'obligations'}`}
                     >
-                      <span class="cal-num cat num">{parts(date).d}</span>
+                      <span class="cal-num fig num">{parts(date).d}</span>
                       {holiday && <span class="cal-holiday">{holiday}</span>}
                       <span class="cal-codes">
                         {list.slice(0, 4).map((r) => (
@@ -183,7 +182,7 @@ export default function MonthCalendar() {
         </div>
 
         <section class="cal-day-list" aria-labelledby="cal-day-title">
-          <h2 id="cal-day-title" class="caps">
+          <h2 id="cal-day-title" class="label">
             {formatDate(day)}
             {holidays.get(day) && <span class="faint"> - {holidays.get(day)}</span>}
           </h2>
@@ -195,8 +194,8 @@ export default function MonthCalendar() {
                 <li>
                   <button type="button" class="aside-item cal-item" onClick={() => setSelected(r.occ.key)}>
                     <span class="cal-item-top">
-                      <Strip row={r} />
-                      <span class="aside-code cat">{r.rule.code}</span>
+                      <Law row={r} />
+                      <span class="aside-code fig">{r.rule.code}</span>
                       {r.state !== 'upcoming' && <span class="tag" data-state={r.state}>{STATE_LABEL[r.state]}</span>}
                     </span>
                     <span class="aside-title">{r.rule.title}</span>

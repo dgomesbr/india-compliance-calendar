@@ -617,7 +617,7 @@ lists:
   - id: bank-tg-2026
     title: Bank holidays 2026 - Telangana (RBI Hyderabad centre)
     kind: bank
-    scope: TG
+    scope: TS
     year: 2026
     authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
     source:

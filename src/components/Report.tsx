@@ -98,7 +98,7 @@ export default function Report() {
   return (
     <div class="page report">
       <header class="report-head no-print">
-        <h1 class="cat report-title">Board report</h1>
+        <h1 class="fig report-title">Board report</h1>
         <p class="muted">
           Compliance status for a period, ready to print for the board or audit committee. Filing status comes from what the
           team recorded in this browser or imported from a teammate.
@@ -112,16 +112,16 @@ export default function Report() {
               ['last-fy', 'Last FY'],
               ['custom', 'Custom'],
             ] as [PeriodKey, string][]).map(([k, l]) => (
-              <button type="button" aria-pressed={period === k} class={`seg-btn caps${period === k ? ' is-on' : ''}`} onClick={() => setPeriod(k)}>
+              <button type="button" aria-pressed={period === k} class={`seg-btn label${period === k ? ' is-on' : ''}`} onClick={() => setPeriod(k)}>
                 {l}
               </button>
             ))}
           </div>
           {period === 'custom' && (
             <div class="report-custom">
-              <label class="caps faint" for="r-from">From</label>
+              <label class="label faint" for="r-from">From</label>
               <input id="r-from" class="input num" type="date" value={custom.from} onChange={(e) => setCustom({ ...custom, from: (e.target as HTMLInputElement).value })} />
-              <label class="caps faint" for="r-to">To</label>
+              <label class="label faint" for="r-to">To</label>
               <input id="r-to" class="input num" type="date" value={custom.to} min={custom.from} onChange={(e) => setCustom({ ...custom, to: (e.target as HTMLInputElement).value })} />
             </div>
           )}
@@ -136,19 +136,19 @@ export default function Report() {
 
       <article class="report-sheet">
         <header class="report-sheet-head">
-          <p class="caps faint">Statutory compliance status</p>
-          <h2 class="cat report-period">{range.label}</h2>
+          <p class="label faint">Statutory compliance status</p>
+          <h2 class="fig report-period">{range.label}</h2>
           <p>{entity}</p>
           <p class="faint num">
             {formatDate(range.from)} to {formatDate(range.to)} - prepared {formatDate(today)}
           </p>
         </header>
         <dl class="report-summary num">
-          <div><dt class="caps faint">Obligations</dt><dd class="cat">{rows.length}</dd></div>
-          <div><dt class="caps faint">Filed</dt><dd class="cat">{counts.Filed}</dd></div>
-          <div><dt class="caps faint">Overdue</dt><dd class={`cat${counts.Overdue ? ' state-overdue' : ''}`}>{counts.Overdue}</dd></div>
-          <div><dt class="caps faint">Pending</dt><dd class="cat">{counts.Pending}</dd></div>
-          <div><dt class="caps faint">Not recorded</dt><dd class="cat">{counts['Not recorded']}</dd></div>
+          <div><dt class="label faint">Obligations</dt><dd class="fig">{rows.length}</dd></div>
+          <div><dt class="label faint">Filed</dt><dd class="fig">{counts.Filed}</dd></div>
+          <div><dt class="label faint">Overdue</dt><dd class={`fig${counts.Overdue ? ' state-overdue' : ''}`}>{counts.Overdue}</dd></div>
+          <div><dt class="label faint">Pending</dt><dd class="fig">{counts.Pending}</dd></div>
+          <div><dt class="label faint">Not recorded</dt><dd class="fig">{counts['Not recorded']}</dd></div>
         </dl>
         {rows.length === 0 ? (
           <p class="muted">No obligations for this profile in the period.</p>
@@ -156,13 +156,13 @@ export default function Report() {
           <table class="report-table">
             <thead>
               <tr>
-                <th scope="col" class="caps">Due</th>
-                <th scope="col" class="caps">Obligation</th>
-                <th scope="col" class="caps">Period</th>
-                <th scope="col" class="caps">Status</th>
-                <th scope="col" class="caps">Filed on</th>
-                <th scope="col" class="caps">Acknowledgement</th>
-                <th scope="col" class="caps">Owner</th>
+                <th scope="col" class="label">Due</th>
+                <th scope="col" class="label">Obligation</th>
+                <th scope="col" class="label">Period</th>
+                <th scope="col" class="label">Status</th>
+                <th scope="col" class="label">Filed on</th>
+                <th scope="col" class="label">Acknowledgement</th>
+                <th scope="col" class="label">Owner</th>
               </tr>
             </thead>
             <tbody>
@@ -171,7 +171,7 @@ export default function Report() {
                 return (
                   <tr class={`report-row status-${s.replace(' ', '-').toLowerCase()}`}>
                     <td class="num">{formatDate(r.occ.due, { weekday: false })}{r.occ.originalDue && <span class="faint"> (ext.)</span>}</td>
-                    <td><span class="cat report-code">{r.rule.code}</span> {r.rule.title}</td>
+                    <td><span class="fig report-code">{r.rule.code}</span> {r.rule.title}</td>
                     <td class="muted">{r.occ.periodLabel}</td>
                     <td>{s}</td>
                     <td class="num">{r.filed ? formatDate(r.filed.filedOn, { weekday: false }) : ''}</td>

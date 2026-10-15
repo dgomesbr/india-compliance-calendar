@@ -33,7 +33,7 @@ const mcpConfig = JSON.stringify(
 <Shell title="Feeds, API and MCP" active="subscribe" description="Calendar subscriptions, a JSON API and an MCP server for AI agents, all from the same source-cited data.">
   <div class="page read">
     <header class="read-head">
-      <h1 class="cat read-title">Feeds, API and MCP</h1>
+      <h1 class="fig read-title">Feeds, API and MCP</h1>
       <p class="read-lede muted">
         The same rules feed people and machines. Subscribe in Google Calendar or Outlook, pull JSON into your own tools, or let
         an AI agent query the calendar over MCP.
@@ -49,13 +49,13 @@ const mcpConfig = JSON.stringify(
           calendar, From internet, and paste the https link.
         </p>
       </div>
-      <h3 class="caps faint">By law</h3>
+      <h3 class="label faint">By law</h3>
       <div class="sub-grid">
         {
           feeds.map((f) => (
             <div class="sub-item">
-              <span><span class="cat">{f.name}</span> <span class="faint num">{f.count} {f.count === 1 ? 'rule' : 'rules'}</span></span>
-              <span class="sub-links caps">
+              <span><span class="fig">{f.name}</span> <span class="faint num">{f.count} {f.count === 1 ? 'rule' : 'rules'}</span></span>
+              <span class="sub-links label">
                 <a href={webcal(f.id)}>Subscribe</a>
                 <a href={google(f.id)} rel="noopener">Google Calendar</a>
                 <a href={https(f.id)}>Download</a>
@@ -64,13 +64,13 @@ const mcpConfig = JSON.stringify(
           ))
         }
       </div>
-      <h3 class="caps faint">By who files</h3>
+      <h3 class="label faint">By who files</h3>
       <div class="sub-grid">
         {
           audienceFeeds.map((f) => (
             <div class="sub-item">
-              <span><span class="cat">{f.name}</span> <span class="faint num">{f.count} {f.count === 1 ? 'rule' : 'rules'}</span></span>
-              <span class="sub-links caps">
+              <span><span class="fig">{f.name}</span> <span class="faint num">{f.count} {f.count === 1 ? 'rule' : 'rules'}</span></span>
+              <span class="sub-links label">
                 <a href={webcal(f.id)}>Subscribe</a>
                 <a href={google(f.id)} rel="noopener">Google Calendar</a>
                 <a href={https(f.id)}>Download</a>
@@ -94,7 +94,7 @@ const mcpConfig = JSON.stringify(
       </div>
       <div class="data-table-wrap">
         <table class="data-table">
-          <thead><tr><th class="caps">Endpoint</th><th class="caps">Contents</th></tr></thead>
+          <thead><tr><th class="label">Endpoint</th><th class="label">Contents</th></tr></thead>
           <tbody>
             {
               endpoints.map(([file, what]) => (

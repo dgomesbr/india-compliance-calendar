@@ -19,13 +19,13 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 <Shell title="Regulator updates" active="updates" description="Latest circulars, notifications and press releases collected daily from Indian regulators.">
   <div class="page read">
     <header class="read-head">
-      <h1 class="cat read-title">Regulator updates</h1>
+      <h1 class="fig read-title">Regulator updates</h1>
       <p class="read-lede muted">
         Circulars, notifications and press releases collected each day from the regulators' own feeds, plus every due-date
         extension the calendar has applied.
         {updates.fetched ? ` Last collected ${formatDate(updates.fetched.slice(0, 10))}.` : ' The first collection runs on the next scheduled build.'}
       </p>
-      <p><a class="caps" href={`${base}updates.xml`}>RSS feed of these updates</a></p>
+      <p><a class="label" href={`${base}updates.xml`}>RSS feed of these updates</a></p>
     </header>
 
     <section class="read-section" aria-labelledby="changes">
@@ -37,7 +37,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
               <li class="feed-item">
                 <span class="num faint">{formatDate(o.due, { weekday: false })}</span>
                 <span>
-                  <a href={`${base}o/${r.id}/`}><span class="cat">{r.code}</span> {o.periodLabel}</a>: moved from {formatDate(o.originalDue ?? o.due, { weekday: false })}. {o.extended?.reason}
+                  <a href={`${base}o/${r.id}/`}><span class="fig">{r.code}</span> {o.periodLabel}</a>: moved from {formatDate(o.originalDue ?? o.due, { weekday: false })}. {o.extended?.reason}
                   {o.extended?.source && <span class="feed-meta"><a href={o.extended.source.url} rel="noopener">{o.extended.source.title}</a></span>}
                 </span>
               </li>
@@ -69,7 +69,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
                 <span class="num faint">{formatDate(u.date, { weekday: false })}</span>
                 <span>
                   <a href={u.url} rel="noopener">{u.title}</a>
-                  <span class="feed-meta caps faint">{u.sourceName}</span>
+                  <span class="feed-meta label faint">{u.sourceName}</span>
                 </span>
               </li>
             ))}
@@ -83,7 +83,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     <section class="read-section" aria-labelledby="feed-sources">
       <h2 id="feed-sources">Feeds we collect</h2>
       <table class="data-table">
-        <thead><tr><th class="caps">Source</th><th class="caps">Feed</th><th class="caps">Last run</th></tr></thead>
+        <thead><tr><th class="label">Source</th><th class="label">Feed</th><th class="label">Last run</th></tr></thead>
         <tbody>
           {
             feeds.map((f) => {

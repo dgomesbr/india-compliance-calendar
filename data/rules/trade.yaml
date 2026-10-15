@@ -1,0 +1,148 @@
+# trade obligations. See docs/DATA_MODEL.md for the schema.
+# Every rule cites its sources; edit with care and keep prose ASCII.
+rules:
+  - id: trade-customs-warehouse-monthly-return
+    title: Customs bonded warehouse / MOOWR monthly return
+    form: Monthly return to bond officer
+    category: trade
+    authority: CBIC (Customs)
+    summary: Monthly return to the Customs bond officer of goods received, stored, processed (manufacturing and other operations) and removed from the warehouse.
+    applicability: Licensees of customs bonded warehouses, including units permitted to manufacture or carry on other operations under Section 65 (MOOWR scheme) and warehouses under the Warehouse (Custody and Handling of Goods) Regulations 2016.
+    audience:
+      - importer-exporter
+      - company
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 10
+      monthOffset: 1
+    law: Regulation 17(4), Manufacture and Other Operations in Warehouse (No. 2) Regulations 2019; Regulation 11(4), Warehouse (Custody and Handling of Goods) Regulations 2016; Sections 58, 65 and 158(2)(ii), Customs Act 1962
+    penalty: Contravention of the regulations attracts a penalty of up to Rs 2 lakh (Section 158(2)(ii), Customs Act; Regulation 19 of the MOOWR regulations).
+    exposure:
+      maxPenalty: 200000
+      basis: "Section 158(2)(ii) Customs Act: penalty up to Rs 2 lakh for contravening a regulation."
+    sources:
+      - title: CBIC - Manufacture and Other Operations in Warehouse (No. 2) Regulations 2019, Regulation 17
+        url: https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/regulations/manufacture_and_other_operations_in_warehouse_no/active/regulation17_v1.00.html
+        kind: rules
+      - title: CBIC - Warehouse (Custody and Handling of Goods) Regulations 2016, Regulation 11
+        url: https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/regulations/warehouse_custody_and_handling_of_goods_regulations_2016/active/regulation11_v1.00.html
+        kind: rules
+      - title: CBIC - Customs Act 1962, Section 158 (penalty for breach of rules/regulations)
+        url: https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/acts/1962_custom_act/active/chapter17/section158_v1.00.html
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    notes: Due within ten days after the close of each month. Warehouse licensees must also tell the bond officer by the 10th of the preceding month about goods whose warehousing period expires in a month (Regulation 11(5), 2016 Regulations).
+    code: MOOWR
+  - id: trade-iec-annual-update
+    title: IEC annual update / confirmation on DGFT portal
+    form: IEC profile update
+    category: trade
+    authority: DGFT
+    summary: Every Importer-Exporter Code holder must update its IEC details electronically on the DGFT portal each year during April-June, and confirm online even if nothing has changed.
+    applicability: All IEC holders (proprietorships, partnerships, LLPs, companies, trusts, HUFs, societies), whether or not they traded in the year.
+    audience:
+      - importer-exporter
+      - company
+      - firm
+      - llp
+      - individual
+      - trust
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: 3
+    law: Para 2.05(d) and (e), Foreign Trade Policy 2023 (DGFT)
+    penalty: An IEC not updated within April-June is de-activated; it is re-activated on successful updation and cannot be used for imports or exports until then.
+    exposure:
+      other:
+        - IEC de-activated; imports and exports blocked until updated
+      basis: "Para 2.05(e) FTP 2023: de-activation; no statutory fee found in the FTP text."
+    sources:
+      - title: DGFT - Foreign Trade Policy 2023, Chapter 2 (Para 2.05 IEC)
+        url: https://content.dgft.gov.in/Website/Chapter_2_Revised_FTP_v1.2.2.pdf
+        kind: rules
+      - title: DGFT - IEC profile management (update/modify IEC)
+        url: https://www.dgft.gov.in/CP/?opt=iec-profile-management
+        kind: portal
+      - title: Taxguru - DGFT annual IEC update (window and legal basis)
+        url: https://taxguru.in/dgft/dgft-annual-iec-update-criticised-due-repeated-compliance-burden-exporters.html
+        kind: secondary
+    verified: 2026-10-14
+    confidence: high
+    notes: "Modelling convention: the occurrence keyed to FY X falls on 30 June after that FY (window 1 April - 30 June). The requirement dates from DGFT Notification 58/2015-20 dated 12-02-2021 (as reported by secondary sources). A Rs 200 reactivation charge is reported by commentators but was not verified on DGFT."
+    code: IEC UPDATE
+  - id: trade-igcr-monthly-statement
+    title: IGCR-3 monthly statement (concessional duty imports)
+    form: IGCR-3
+    category: trade
+    authority: CBIC (Customs)
+    summary: "Monthly statement on the customs common portal of goods imported at concessional duty or for specified end use: receipt, consumption, job work, supplies to end-use recipients and stock."
+    applicability: Importers availing concessional customs duty or end-use based exemption notifications under the IGCR Rules 2022.
+    audience:
+      - importer-exporter
+      - company
+    frequency: monthly
+    schedule:
+      kind: monthly
+      day: 10
+      monthOffset: 1
+    law: Rule 6(2), Customs (Import of Goods at Concessional Rate of Duty or for Specified End Use) Rules 2022; Rule 12 read with Section 158(2)(ii), Customs Act 1962
+    penalty: Contravention attracts a penalty of up to Rs 2 lakh (Rule 12 read with Section 158(2)(ii)); duty foregone is recoverable with interest where goods are not used as intended (Rule 11).
+    exposure:
+      maxPenalty: 200000
+      other:
+        - Differential duty with interest recoverable if end use is not established
+      basis: "Rule 12 IGCR Rules read with Section 158(2)(ii) Customs Act: penalty up to Rs 2 lakh."
+    sources:
+      - title: CBIC - Customs (IGCR) Rules 2022, Rule 6 (records and monthly statement)
+        url: https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/rules/customs_import_of_goods_at_concessional_rate_of_duty_or_for_specified_end_use_rules_2022/active/rule6.html
+        kind: rules
+      - title: CBIC - Customs (IGCR) Rules 2022, Rule 12 (penalty)
+        url: https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/rules/customs_import_of_goods_at_concessional_rate_of_duty_or_for_specified_end_use_rules_2022/active/rule12.html
+        kind: rules
+      - title: CBIC - Customs Act 1962, Section 158 (penalty for breach of rules/regulations)
+        url: https://taxinformation.cbic.gov.in/content/html/tax_repository/customs/acts/1962_custom_act/active/chapter17/section158_v1.00.html
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    notes: Consumption may also be reported any time in IGCR-3A for immediate re-credit of the bond; it then forms part of the next monthly statement.
+    code: IGCR-3
+  - id: trade-rodtep-annual-return
+    title: Annual RoDTEP Return (ARR) on DGFT portal
+    form: ARR (Appendix 4RR)
+    category: trade
+    authority: DGFT
+    summary: Annual return of the inputs used and the duties and taxes actually incurred on exports for which RoDTEP was claimed during the previous FY.
+    applicability: Exporters (IECs) whose total RoDTEP claims in a FY exceed Rs 1 crore across all 8-digit HS codes.
+    audience:
+      - importer-exporter
+      - company
+      - firm
+      - llp
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 31
+      monthOffset: 12
+    law: Para 4.94, Handbook of Procedures 2023 (DGFT, July 2026 edition); Para 4.54, Foreign Trade Policy 2023
+    penalty: Composition fee of Rs 10,000 if filed late within the three-month grace period (to 30 June) and Rs 20,000 thereafter. After 30 June, RoDTEP scroll-out for further shipping bills stops until the ARR is filed and the fee paid; scrolls resume within 45 days.
+    exposure:
+      fixedPenalty: 10000
+      maxPenalty: 20000
+      other:
+        - RoDTEP scrolls for new shipping bills stopped after the grace period
+        - Excess RoDTEP found on scrutiny must be refunded
+      basis: "HBP Para 4.94: composition fee Rs 10,000 (late filing up to 30 June) or Rs 20,000 (after 30 June)."
+    sources:
+      - title: DGFT - Handbook of Procedures 2023, Chapter 4 (July 2026 edition), Para 4.94 ARR
+        url: https://content.dgft.gov.in/Website/HBP_07_2026_Chapter_04.pdf
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    notes: ARR for claims filed in FY X is due 31 March of FY X+1 (e.g., FY 2025-26 claims by 31-03-2027), with a grace period to 30 June on payment of the composition fee. Records must be kept five years.
+    code: RODTEP ARR

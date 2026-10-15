@@ -41,7 +41,7 @@ const built = new Date().toISOString().slice(0, 10);
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="theme-color" content="#0b0b0b" />
+    <meta name="theme-color" content="#0e2a47" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -57,15 +57,15 @@ const built = new Date().toISOString().slice(0, 10);
     <header class="masthead no-print">
       <div class="page masthead-row">
         <a class="wordmark" href={base} aria-label="India Compliance Calendar, overview">
-          <Icon name="pulse" class="wordmark-mark" />
-          <span class="caps wordmark-text">India Compliance Calendar</span>
+          <Icon name="mark" class="wordmark-mark" />
+          <span class="wordmark-text">India Compliance Calendar</span>
         </a>
         <nav class="primary-nav" aria-label="Primary">
           <ul>
             {
               nav.map((item) => (
                 <li>
-                  <a href={item.href} class="caps" aria-current={item.key === active ? 'page' : undefined}>
+                  <a href={item.href} aria-current={item.key === active ? 'page' : undefined}>
                     {item.label}
                   </a>
                 </li>
@@ -87,13 +87,13 @@ const built = new Date().toISOString().slice(0, 10);
           Information only, not legal advice. Every date links to the official source it was taken from; confirm on
           the portal before you file.
         </p>
-        <ul class="footer-links caps">
+        <ul class="footer-links">
           <li><a href={`${base}sources/`}>Method and sources</a></li>
           <li><a href={`${base}subscribe/`}>Feeds, API and MCP</a></li>
           <li><a href={`${repo}/issues/new?labels=correction&title=Correction:%20`}>Report a correction</a></li>
           <li><a href={repo}>Source code</a></li>
         </ul>
-        <p class="caps faint footer-built">Built {built}</p>
+        <p class="faint footer-built">Built {built}</p>
       </div>
     </footer>
   </body>
@@ -104,33 +104,37 @@ const built = new Date().toISOString().slice(0, 10);
     position: sticky;
     top: 0;
     z-index: 20;
-    background: var(--ground);
-    border-bottom: 1px solid var(--rule);
+    background: var(--navy);
+    color: var(--navy-ink);
+    box-shadow: 0 1px 0 rgba(16, 24, 40, 0.18);
   }
   .masthead-row {
     display: flex;
     align-items: center;
-    gap: var(--s-5);
-    min-height: 56px;
+    gap: var(--s-6);
+    min-height: 64px;
   }
   .wordmark {
     display: inline-flex;
     align-items: center;
-    gap: var(--s-3);
+    gap: 10px;
+    color: var(--navy-ink);
     text-decoration: none;
     flex: none;
   }
+  .wordmark:hover {
+    color: var(--navy-ink);
+  }
   .wordmark :global(.wordmark-mark) {
-    width: 22px;
-    height: 22px;
-    stroke: var(--ink);
-    fill: none;
-    stroke-width: 1.1;
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 1.75;
   }
   .wordmark-text {
-    font-size: var(--t-xs);
-    letter-spacing: 0.22em;
-    font-stretch: 125%;
+    font-size: var(--t-md);
+    font-weight: 650;
+    letter-spacing: -0.01em;
   }
   .primary-nav {
     flex: 1;
@@ -138,7 +142,7 @@ const built = new Date().toISOString().slice(0, 10);
   }
   .primary-nav ul {
     display: flex;
-    gap: 0;
+    gap: var(--s-1);
     margin: 0;
     padding: 0;
     list-style: none;
@@ -151,37 +155,45 @@ const built = new Date().toISOString().slice(0, 10);
   .primary-nav a {
     position: relative;
     display: block;
-    padding: 19px var(--s-3) 18px;
-    color: var(--ink-2);
+    padding: 22px var(--s-3) 21px;
+    color: var(--navy-ink-2);
+    font-size: var(--t-sm);
+    font-weight: 600;
     text-decoration: none;
     white-space: nowrap;
-    transition: color 160ms var(--ease-out);
+    transition: color 150ms var(--ease-out);
   }
   .primary-nav a:hover {
-    color: var(--ink);
+    color: var(--navy-ink);
   }
   .primary-nav a[aria-current='page'] {
-    color: var(--ink);
+    color: var(--navy-ink);
   }
   .primary-nav a[aria-current='page']::after {
     content: '';
     position: absolute;
     left: var(--s-3);
     right: var(--s-3);
-    bottom: -1px;
-    height: 2px;
-    background: var(--ink);
+    bottom: 0;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+    background: #8fb0ff;
+  }
+  .primary-nav a:focus-visible {
+    outline-color: #fff;
+    outline-offset: -4px;
   }
   .masthead-tools {
     flex: none;
   }
   main {
-    min-height: calc(100vh - 200px);
+    min-height: calc(100vh - 220px);
     outline: none;
   }
   .footer {
     margin-top: var(--s-8);
     border-top: 1px solid var(--rule);
+    background: var(--layer-1);
   }
   .footer-row {
     display: grid;
@@ -191,7 +203,7 @@ const built = new Date().toISOString().slice(0, 10);
     padding-bottom: var(--s-6);
   }
   .footer-note {
-    max-width: 60ch;
+    max-width: 62ch;
     color: var(--ink-2);
     font-size: var(--t-sm);
   }
@@ -202,16 +214,19 @@ const built = new Date().toISOString().slice(0, 10);
     margin: 0;
     padding: 0;
     list-style: none;
+    font-size: var(--t-sm);
+    font-weight: 600;
   }
   .footer-links a {
     color: var(--ink-2);
     text-decoration: none;
   }
   .footer-links a:hover {
-    color: var(--ink);
+    color: var(--accent);
   }
   .footer-built {
     grid-column: 1 / -1;
+    font-size: var(--t-xs);
   }
   @media (max-width: 900px) {
     .masthead-row {
@@ -221,7 +236,7 @@ const built = new Date().toISOString().slice(0, 10);
     }
     .wordmark {
       flex: 1;
-      min-height: 40px;
+      min-height: 44px;
     }
     .primary-nav {
       order: 3;

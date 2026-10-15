@@ -72,7 +72,7 @@ export default function ProfileButton() {
         {draft && team && (
           <form class="profile-form" onSubmit={save}>
             <header class="sheet-head">
-              <h2 id="profile-title" class="caps">Entity profile</h2>
+              <h2 id="profile-title" class="label">Entity profile</h2>
               <button type="button" class="btn btn-quiet" onClick={() => dialog.current?.close()} aria-label="Close">
                 <span class="btn-label"><Icon name="x" /></span>
               </button>
@@ -83,21 +83,21 @@ export default function ProfileButton() {
             </p>
 
             <div class="field">
-              <label class="caps" for="p-name">Name</label>
+              <label class="label" for="p-name">Name</label>
               <input id="p-name" class="input" type="text" value={draft.name === DEFAULT_PROFILE.name ? '' : draft.name}
                 placeholder="Our company" onInput={(e) => set({ name: (e.target as HTMLInputElement).value })} />
             </div>
 
             <div class="field-row">
               <div class="field">
-                <label class="caps" for="p-entity">Entity type</label>
+                <label class="label" for="p-entity">Entity type</label>
                 <select id="p-entity" class="select" value={draft.entity}
                   onChange={(e) => set({ entity: (e.target as HTMLSelectElement).value as Profile['entity'] })}>
                   {ENTITY_TYPES.map((t) => <option value={t}>{ENTITY_LABEL[t]}</option>)}
                 </select>
               </div>
               <div class="field">
-                <label class="caps" for="p-gst">GST</label>
+                <label class="label" for="p-gst">GST</label>
                 <select id="p-gst" class="select" value={draft.gst}
                   onChange={(e) => set({ gst: (e.target as HTMLSelectElement).value as GstMode })}>
                   {(Object.keys(GST_LABEL) as GstMode[]).map((g) => <option value={g}>{GST_LABEL[g]}</option>)}
@@ -106,7 +106,7 @@ export default function ProfileButton() {
             </div>
 
             <fieldset class="switches">
-              <legend class="caps">Activities</legend>
+              <legend class="label">Activities</legend>
               {SWITCHES.map((s) => (
                 <label class="switch">
                   <input type="checkbox" checked={Boolean(draft[s.key])}
@@ -120,7 +120,7 @@ export default function ProfileButton() {
             </fieldset>
 
             <fieldset class="states">
-              <legend class="caps">States where we operate</legend>
+              <legend class="label">States where we operate</legend>
               <p class="faint">Used for professional tax, labour welfare fund and the GST quarterly due-date groups. None selected shows every state.</p>
               <div class="state-grid">
                 {STATE_CODES.map((c) => (
@@ -134,7 +134,7 @@ export default function ProfileButton() {
             </fieldset>
 
             <fieldset class="team-data">
-              <legend class="caps">Team records</legend>
+              <legend class="label">Team records</legend>
               <p class="faint">
                 {Object.keys(team.filed).length} filed records - tracking since {team.trackingSince}. Overdue items count only from
                 that date.

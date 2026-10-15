@@ -59,7 +59,7 @@ export default function Planner() {
   return (
     <div class="page planner">
       <header class="planner-head">
-        <h1 class="cat planner-title">Event planner</h1>
+        <h1 class="fig planner-title">Event planner</h1>
         <p class="muted planner-lede">
           Some deadlines run from something that happened, not from the calendar. Pick the event and its date to get every
           filing that follows from it, then add them to the overview.
@@ -68,17 +68,17 @@ export default function Planner() {
 
       <form class="planner-form" onSubmit={(e) => { e.preventDefault(); add(); }}>
         <div class="field">
-          <label class="caps" for="pl-event">Event</label>
+          <label class="label" for="pl-event">Event</label>
           <select id="pl-event" class="select" value={ev.id} onChange={(e) => { setEventId((e.target as HTMLSelectElement).value); setSaved(''); }}>
             {events.map((x) => <option value={x.id}>{x.title}</option>)}
           </select>
         </div>
         <div class="field">
-          <label class="caps" for="pl-date">Date of the event</label>
+          <label class="label" for="pl-date">Date of the event</label>
           <input id="pl-date" class="input num" type="date" required value={date} onInput={(e) => { setDate((e.target as HTMLInputElement).value); setSaved(''); }} />
         </div>
         <div class="field">
-          <label class="caps" for="pl-label">Label</label>
+          <label class="label" for="pl-label">Label</label>
           <input id="pl-label" class="input" type="text" placeholder="Optional, e.g. AGM 2026" value={label} onInput={(e) => setLabel((e.target as HTMLInputElement).value)} />
         </div>
         <div class="form-actions planner-actions">
@@ -91,17 +91,17 @@ export default function Planner() {
       </form>
 
       <section class="planner-result" aria-labelledby="pl-result">
-        <h2 id="pl-result" class="caps faint">
+        <h2 id="pl-result" class="label faint">
           {ev.title} - {CATEGORY_LABEL[ev.category]}
         </h2>
         <p class="muted">{ev.description}</p>
         <table class="obl planner-table">
           <thead>
             <tr>
-              <th scope="col" class="caps">Due</th>
-              <th scope="col" class="caps">Obligation</th>
-              <th scope="col" class="caps">Time limit</th>
-              <th scope="col" class="caps">Law</th>
+              <th scope="col" class="label">Due</th>
+              <th scope="col" class="label">Obligation</th>
+              <th scope="col" class="label">Time limit</th>
+              <th scope="col" class="label">Law</th>
             </tr>
           </thead>
           <tbody>
@@ -115,7 +115,7 @@ export default function Planner() {
                     <span class={`due-left${left < 0 ? ' state-overdue' : left <= 7 ? ' state-soon' : ''}`}>{relativeDays(today, o.due)}</span>
                   </td>
                   <td class="col-code">
-                    <span class="obl-code cat">{step.code}</span>
+                    <span class="obl-code fig">{step.code}</span>
                     <span class="obl-title">{step.title}</span>
                     {step.note && <span class="obl-period faint">{step.note}</span>}
                   </td>
@@ -132,7 +132,7 @@ export default function Planner() {
       </section>
 
       <section class="planner-saved" aria-labelledby="pl-saved">
-        <h2 id="pl-saved" class="caps faint">Planned events</h2>
+        <h2 id="pl-saved" class="label faint">Planned events</h2>
         {team.planned.length === 0 ? (
           <p class="faint">Nothing planned yet. Events you add appear here and their deadlines join the overview.</p>
         ) : (
@@ -145,7 +145,7 @@ export default function Planner() {
                 return (
                   <li class="planned-item">
                     <span>
-                      <span class="cat">{p.label || pe?.title || p.eventId}</span>
+                      <span class="fig">{p.label || pe?.title || p.eventId}</span>
                       <span class="faint num"> - {formatDate(p.date)}{pe ? ` - ${pe.steps.length} deadlines` : ''}</span>
                     </span>
                     <button type="button" class="btn btn-quiet" onClick={() => remove(p.id)} aria-label={`Remove ${p.label || pe?.title}`}>

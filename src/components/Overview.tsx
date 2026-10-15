@@ -23,11 +23,12 @@ import {
   STATE_LABEL,
   type Row,
   type RowState,
+  shortAuthority,
   type SortKey,
 } from '../lib/view.ts';
-import Detail, { Strip } from './Detail.tsx';
+import Detail, { Law } from './Detail.tsx';
 import { Icon } from './Icon.tsx';
-import PulsePlot from './PulsePlot.tsx';
+import Timeline from './Timeline.tsx';
 
 const READOUT: RowState[] = ['overdue', 'soon', 'extended', 'upcoming', 'filed'];
 const SORT_LABEL: Record<SortKey, string> = { due: 'Due date', exposure: 'Penalty exposure', law: 'Law' };
@@ -146,7 +147,7 @@ export default function Overview() {
   if (data.status === 'error') {
     return (
       <div class="page ov-error" role="alert">
-        <p class="cat">No data</p>
+        <p class="fig">No data</p>
         <p>{data.message} Check your connection and reload. The same data is also published as JSON and calendar feeds on the Subscribe page.</p>
         <button class="btn" type="button" onClick={() => location.reload()}><span class="btn-label">Reload</span></button>
       </div>
@@ -180,7 +181,7 @@ export default function Overview() {
     <div class="ov">
       <section class="page ov-head" aria-labelledby="ov-title">
         <div class="ov-title-row">
-          <h1 id="ov-title" class="cat ov-title num">{describeRange(range).replace(' - ', ' - ')}</h1>
+          <h1 id="ov-title" class="fig ov-title num">{describeRange(range).replace(' - ', ' - ')}</h1>
           <p class="ov-sub muted">
             {profileName}
             {team && team.trackingSince && (
@@ -195,7 +196,7 @@ export default function Overview() {
               <button
                 type="button"
                 aria-pressed={horizon === h}
-                class={`seg-btn caps${horizon === h ? ' is-on' : ''}`}
+                class={`seg-btn label${horizon === h ? ' is-on' : ''}`}
                 onClick={() => {
                   setHorizon(h);
                   setDay(null);
@@ -206,7 +207,7 @@ export default function Overview() {
             ))}
           </div>
           <div class="ov-sort">
-            <label class="caps faint" for="ov-sort">Order by</label>
+            <label class="label faint" for="ov-sort">Order by</label>
             <select id="ov-sort" class="select" value={sort} onChange={(e) => setSort((e.target as HTMLSelectElement).value as SortKey)}>
               {(Object.keys(SORT_LABEL) as SortKey[]).map((k) => (
                 <option value={k}>{SORT_LABEL[k]}</option>
@@ -229,7 +230,7 @@ export default function Overview() {
 
         {horizon === 'custom' && (
           <div class="ov-custom">
-            <label class="caps faint" for="ov-months">Months ahead</label>
+            <label class="label faint" for="ov-months">Months ahead</label>
             <input
               id="ov-months"
               type="range"
@@ -239,7 +240,7 @@ export default function Overview() {
               onInput={(e) => setCustomEnd(addMonths(today, Number((e.target as HTMLInputElement).value)))}
             />
             <output class="num" for="ov-months">{monthsBetween(today, range.to)} months</output>
-            <label class="caps faint" for="ov-end">Until</label>
+            <label class="label faint" for="ov-end">Until</label>
             <input
               id="ov-end"
               class="input num"
@@ -255,21 +256,18 @@ export default function Overview() {
 
         <div class="ov-filters">
           <div class="laws" role="group" aria-label="Laws">
-            {CATEGORIES.map((c, i) => (
+            {CATEGORIES.map((c) => (
               <button
                 type="button"
                 class={`law-btn${laws.includes(c) ? ' is-on' : ''}`}
                 aria-pressed={laws.includes(c)}
                 onClick={() => setLaws(toggle(laws, c))}
               >
-                <span class="strip" aria-hidden="true">
-                  {Array.from({ length: 9 }, (_, j) => <span class={j === i ? 'lit' : ''} />)}
-                </span>
-                <span class="caps">{CATEGORY_LABEL[c]}</span>
+                {CATEGORY_LABEL[c]}
               </button>
             ))}
             {laws.length > 0 && (
-              <button type="button" class="law-clear caps" onClick={() => setLaws([])}>All laws</button>
+              <button type="button" class="law-clear" onClick={() => setLaws([])}>Show all laws</button>
             )}
           </div>
         </div>
@@ -286,7 +284,7 @@ export default function Overview() {
             >
               <span class="readout-block" aria-hidden="true" />
               <span class="num readout-n">{loading ? '-' : counts[s]}</span>
-              <span class="caps">{STATE_LABEL[s]}</span>
+              <span class="label">{STATE_LABEL[s]}</span>
             </button>
           ))}
           <p class="readout-total faint num">
@@ -295,20 +293,22 @@ export default function Overview() {
         </div>
       </section>
 
-      <section class="ov-pulse" aria-label="Pulse plot">
-        <div class="page">
-          {loading ? (
-            <div class="skeleton pulse-skeleton" />
-          ) : (
-            <PulsePlot rows={wideRows.filter((r) => matchesQuery(r, query))} today={today} to={range.to} selected={day} onPick={setDay} />
-          )}
+      <section class="page ov-timeline" aria-labelledby="tl-title">
+        <div class="tl-head">
+          <h2 id="tl-title" class="tl-title">By law</h2>
+          <p class="faint tl-note">Each mark is a due date; its size shows the fixed cost of a 30-day delay. Select one to filter the table.</p>
         </div>
+        {loading ? (
+          <div class="skeleton tl-skeleton" />
+        ) : (
+          <Timeline rows={wideRows.filter((r) => matchesQuery(r, query))} today={today} to={range.to} selected={day} onPick={setDay} />
+        )}
       </section>
 
       <div class="page ov-main">
         <section class="ov-list" aria-labelledby="ov-list-title">
           <div class="ov-list-head">
-            <h2 id="ov-list-title" class="caps">
+            <h2 id="ov-list-title" class="label">
               {loading ? 'Loading obligations' : `${rows.length} ${rows.length === 1 ? 'obligation' : 'obligations'}`}
               {day && <> on {formatDate(day)}</>}
             </h2>
@@ -353,7 +353,7 @@ export default function Overview() {
                 {atRisk.filter((r) => r.exposure > 0).map((r) => (
                   <li>
                     <button type="button" class="aside-item" onClick={() => setSelected(r.occ.key)}>
-                      <span class="aside-code cat">{r.rule.code}</span>
+                      <span class="aside-code fig">{r.rule.code}</span>
                       <span class="aside-meta num">{formatDate(r.occ.due, { year: false })} - {formatINRCompact(r.exposure)}</span>
                     </button>
                   </li>
@@ -363,7 +363,7 @@ export default function Overview() {
                 {moved.map((r) => (
                   <li>
                     <button type="button" class="aside-item" onClick={() => setSelected(r.occ.key)}>
-                      <span class="aside-code cat">{r.rule.code}</span>
+                      <span class="aside-code fig">{r.rule.code}</span>
                       <span class="aside-meta num">
                         {formatDate(r.occ.originalDue ?? r.occ.due, { year: false })} to {formatDate(r.occ.due, { year: false })}
                       </span>
@@ -375,7 +375,7 @@ export default function Overview() {
                 {closedDays.map((r) => (
                   <li>
                     <button type="button" class="aside-item" onClick={() => setSelected(r.occ.key)}>
-                      <span class="aside-code cat">{r.rule.code}</span>
+                      <span class="aside-code fig">{r.rule.code}</span>
                       <span class="aside-meta num">{formatDate(r.occ.due, { year: false })} - {r.closed?.join(', ')}</span>
                     </button>
                   </li>
@@ -386,7 +386,7 @@ export default function Overview() {
                   <li>
                     <a class="aside-item" href={u.url} rel="noopener" target="_blank">
                       <span class="aside-title">{u.title}</span>
-                      <span class="aside-meta caps faint">{u.sourceName} - {formatDate(u.date, { weekday: false })}</span>
+                      <span class="aside-meta label faint">{u.sourceName} - {formatDate(u.date, { weekday: false })}</span>
                     </a>
                   </li>
                 ))}
@@ -409,7 +409,7 @@ function AsideList({ title, empty, children }: { title: string; empty: string; c
   const items = Array.isArray(children) ? children.filter(Boolean) : children ? [children] : [];
   return (
     <section class="aside-list">
-      <h2 class="caps faint">{title}</h2>
+      <h2 class="label faint">{title}</h2>
       {items.length ? <ul>{items}</ul> : <p class="faint aside-empty">{empty}</p>}
     </section>
   );
@@ -436,15 +436,14 @@ function Table({ rows, sort, today, selected, onSelect, onFile, onUnfile }: Tabl
   } else groups.push({ date: null, rows });
 
   return (
-    <table class="obl">
+    <table class={`obl${sort === 'due' ? ' is-grouped' : ''}`}>
       <thead>
         <tr>
-          <th scope="col" class="caps col-strip"><span class="visually-hidden">Law and state</span></th>
-          <th scope="col" class="caps col-due">Due</th>
-          <th scope="col" class="caps col-code">Obligation</th>
-          <th scope="col" class="caps col-auth">Authority</th>
-          <th scope="col" class="caps col-exp">At 30 days</th>
-          <th scope="col" class="caps col-state">State</th>
+          <th scope="col" class="label col-due">{sort === 'due' ? 'When' : 'Due'}</th>
+          <th scope="col" class="label col-code">Obligation</th>
+          <th scope="col" class="label col-auth">Authority</th>
+          <th scope="col" class="label col-exp">At 30 days</th>
+          <th scope="col" class="label col-state">State</th>
           <th scope="col" class="col-act"><span class="visually-hidden">Filed</span></th>
         </tr>
       </thead>
@@ -452,7 +451,7 @@ function Table({ rows, sort, today, selected, onSelect, onFile, onUnfile }: Tabl
         <tbody>
           {g.date && (
             <tr class="obl-group">
-              <th scope="colgroup" colSpan={7} class="caps">
+              <th scope="colgroup" colSpan={6}>
                 <span class="num">{formatDate(g.date)}</span>
                 <span class="faint num"> - {relativeDays(today, g.date)}</span>
                 {g.rows.length > 1 && <span class="faint num"> - {g.rows.length} obligations</span>}
@@ -467,7 +466,6 @@ function Table({ rows, sort, today, selected, onSelect, onFile, onUnfile }: Tabl
                 class={`obl-row state-${r.state}${selected === r.occ.key ? ' is-selected' : ''}`}
                 onClick={() => onSelect(r.occ.key)}
               >
-                <td class="col-strip"><Strip row={r} /></td>
                 <td class="col-due num">
                   <span class="due-date">{formatDate(r.occ.due, { year: false })}</span>
                   <span class={`due-left state-${r.state}`}>{r.state === 'filed' ? 'Filed' : left === 0 ? 'Today' : left < 0 ? `${-left}d late` : `${left}d`}</span>
@@ -482,15 +480,18 @@ function Table({ rows, sort, today, selected, onSelect, onFile, onUnfile }: Tabl
                       onSelect(r.occ.key);
                     }}
                   >
-                    <span class="obl-code cat">{r.rule.code}</span>
+                    <span class="obl-code-row">
+                      <span class="obl-code fig">{r.rule.code}</span>
+                      <Law row={r} />
+                    </span>
                     <span class="obl-title">{r.rule.title}</span>
                   </button>
-                  <span class="obl-period caps faint">
+                  <span class="obl-period label faint">
                     {r.occ.periodLabel}
                     {r.occ.projected && ' - projected'}
                   </span>
                 </td>
-                <td class="col-auth muted">{r.rule.authority}</td>
+                <td class="col-auth muted" title={r.rule.authority}>{shortAuthority(r.rule.authority)}</td>
                 <td class="col-exp num">
                   {r.exposure ? formatINRCompact(r.exposure) : <span class="faint">-</span>}
                   {interest && <span class="exp-int faint">+ interest</span>}

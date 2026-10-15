@@ -1,0 +1,516 @@
+# other obligations. See docs/DATA_MODEL.md for the schema.
+# Every rule cites its sources; edit with care and keep prose ASCII.
+rules:
+  - id: other-battery-epr-annual-return
+    title: Battery EPR annual return (Form 3) and Form 1(C)
+    form: Form 3 (annual return); Form 1(C) (return on batteries placed on the market)
+    category: other
+    authority: CPCB / SPCBs (MoEFCC)
+    summary: Battery producers file Form 3 on waste batteries collected and recycled or refurbished against their EPR obligation (including pre-consumer waste batteries), and Form 1(C) on batteries manufactured, assembled or imported, for the previous financial year.
+    applicability: Producers registered with CPCB on the battery EPR portal under the Battery Waste Management Rules 2022, for portable, automotive, industrial and electric vehicle batteries.
+    audience:
+      - company
+      - llp
+      - firm
+      - importer-exporter
+    frequency: annual
+    schedule:
+      kind: annual
+      day: 30
+      monthOffset: 3
+    law: Rules 4(2), 4(7) and 4(11), Battery Waste Management Rules 2022 (S.O. 3984(E)), as amended by S.O. 4669(E) dated 25-10-2023; rule 14(6) (relaxation); rule 13 (environmental compensation)
+    penalty: Environmental compensation under rule 13 and CPCB EC guidelines (75, 60 or 40 percent returned if the shortfall is met within one, two or three years); EPR certificate prices are banded at 30 to 100 percent of the EC (2024 amendment); penalty under Section 15 EP Act (Rs 10,000 to Rs 15 lakh plus Rs 10,000 per day while continuing).
+    exposure:
+      lateFeePerDay: 10000
+      fixedPenalty: 10000
+      maxPenalty: 1500000
+      other:
+        - Environmental compensation per CPCB EC guidelines under rule 13 (partly refundable within three years)
+        - Suspension or cancellation of producer registration by CPCB (rule 11)
+      basis: Rule 13 Battery Waste Management Rules 2022; Section 15 EP Act as substituted by Jan Vishwas Act 2023.
+    sources:
+      - title: Battery Waste Management Rules 2022 (CPCB copy)
+        url: https://cpcb.nic.in/uploads/hwmd/Battery-WasteManagementRules-2022.pdf
+        kind: rules
+      - title: Battery Waste Management (Amendment) Rules 2023, S.O. 4669(E) dated 25-10-2023
+        url: https://cpcb.nic.in/uploads/hwmd/Battery-WasteManagementRules-2023.pdf
+        kind: notification
+      - title: Battery Waste Management (Amendment) Rules 2024, G.S.R. 190(E) dated 14-03-2024
+        url: https://cpcb.nic.in/uploads/hwmd/Battery-WasteManagementRules-2024.pdf
+        kind: notification
+      - title: Battery Waste Management Amendment Rules 2025, S.O. 958(E) dated 24-02-2025
+        url: https://cpcb.nic.in/uploads/hwmd/Battery-WasteManagementRules-2025.pdf
+        kind: notification
+      - title: Vincular - CPCB extends FY 2025-26 EPR deadlines (e-waste, tyre, battery)
+        url: https://www.vincular.in/cpcb-extends-fy-2025-26-epr-deadlines-for-waste-categories
+        kind: secondary
+    verified: 2026-10-14
+    confidence: high
+    notes: Form 1(C) was an EPR plan until the October 2023 amendment turned it into a return on batteries placed on the market, also due 30 June. Rule 14(6) (2023) lets the Central Government relax return timelines by up to nine months. Amendments of 14-03-2024, 20-06-2024, 3-12-2024 and 24-02-2025 (labelling and QR codes) did not change the dates. Only the FY 2025-26 extension rests on a secondary source. A consultancy report (Vincular, 12 Sep 2026) says the FY 2025-26 annual return was extended to 30 Nov 2026; the official order was not located, so no override is set - check the CPCB portal.
+    code: EPR BATTERY
+  - id: other-bmw-annual-report-form-iv
+    title: Bio-medical waste annual report (Form IV)
+    form: Form IV
+    category: other
+    authority: SPCBs / PCCs (prescribed authority)
+    summary: Health care facilities and common bio-medical waste treatment facilities submit an annual report on bio-medical waste generated, treated and disposed of, training given and accidents for the preceding calendar year.
+    applicability: Every occupier of a health care facility generating bio-medical waste (hospitals, nursing homes, clinics, dispensaries, laboratories, blood banks, veterinary institutions and similar) and every operator of a common bio-medical waste treatment facility.
+    audience:
+      - company
+      - trust
+      - firm
+      - llp
+      - individual
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: calendar
+      day: 30
+      monthOffset: 6
+    law: Rule 13(1) and Form IV, Bio-Medical Waste Management Rules 2016 (G.S.R. 343(E), 28-03-2016), as amended in 2018, 2019 and by G.S.R. 293(E) dated 17-04-2026; rule 18
+    penalty: Rule 18 makes occupiers and facility operators liable to action under Sections 5 and 15 EP Act; the Section 15 penalty is Rs 10,000 to Rs 15 lakh, plus Rs 10,000 per day while the contravention continues.
+    exposure:
+      lateFeePerDay: 10000
+      fixedPenalty: 10000
+      maxPenalty: 1500000
+      other:
+        - Directions under Section 5 EP Act, including closure
+        - Liability for environmental damage (rule 18(1))
+      basis: Rule 18 BMW Rules 2016 read with Sections 5 and 15 EP Act as substituted by Jan Vishwas Act 2023.
+    sources:
+      - title: Bio-Medical Waste Management Rules 2016 (CPCB copy)
+        url: https://cpcb.nic.in/uploads/Projects/Bio-Medical-Waste/Bio-medical_Waste_Management_Rules_2016.pdf
+        kind: rules
+      - title: Bio-Medical Waste Management (Amendment) Rules 2026, G.S.R. 293(E) dated 17-04-2026
+        url: https://cpcb.nic.in/uploads/Projects/Bio-Medical-Waste/BMW_Amended_17-04-2026.pdf
+        kind: notification
+      - title: Jan Vishwas Act 2023 amendments to the EP Act 1986 (Haryana SPCB copy)
+        url: https://hspcb.org.in/uploads/ep_act_rules/Amendment_in_ep_act_1986.pdf
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    notes: Form IV covers January to December of the preceding year and is due 30 June. Occupiers must also publish the annual report on their website (rule 4(p)). The April 2026 amendment only adds Ayush representation to committees.
+    code: BMW FORM IV
+  - id: other-env-statement-form-v
+    title: Environmental Statement (Form V) to SPCB
+    form: Form V
+    category: other
+    authority: SPCBs / PCCs (MoEFCC)
+    summary: Industrial units file an environmental statement for the financial year ended 31 March covering water and raw material consumption, pollutants discharged, hazardous and solid waste and pollution control measures.
+    applicability: Every person carrying on an industry, operation or process that requires consent under Section 25 of the Water Act 1974 or Section 21 of the Air Act 1981 (or both), or an authorisation under the hazardous waste rules.
+    audience:
+      - company
+      - llp
+      - firm
+      - individual
+      - trust
+    frequency: annual
+    schedule:
+      kind: annual
+      day: 30
+      monthOffset: 6
+    law: Rule 14 and Form V, Environment (Protection) Rules 1986 (inserted by G.S.R. 329(E) dated 13-03-1992; substituted by G.S.R. 386(E) dated 22-04-1993); Section 15, Environment (Protection) Act 1986
+    penalty: "Penalty under Section 15 EP Act as substituted by the Jan Vishwas (Amendment of Provisions) Act 2023: Rs 10,000 to Rs 15 lakh per contravention, plus Rs 10,000 per day while it continues (Section 15A sets Rs 1 lakh to Rs 15 lakh for companies contravening the Act)."
+    exposure:
+      lateFeePerDay: 10000
+      fixedPenalty: 10000
+      maxPenalty: 1500000
+      other:
+        - Penalty is imposed by an adjudicating officer under Section 15C EP Act
+      basis: Rule 14 EP Rules 1986 read with Section 15 EP Act as substituted by Jan Vishwas Act 2023.
+    sources:
+      - title: Environment (Protection) Rules 1986, rule 14 and Form V (Haryana SPCB copy)
+        url: https://hspcb.org.in/uploads/ep_act_rules/eprotect_rules_1986.pdf
+        kind: rules
+      - title: Jan Vishwas Act 2023 amendments to the EP Act 1986 (Haryana SPCB copy)
+        url: https://hspcb.org.in/uploads/ep_act_rules/Amendment_in_ep_act_1986.pdf
+        kind: act
+      - title: Jan Vishwas (Amendment of Provisions) Act 2023 (PRS copy)
+        url: https://prsindia.org/files/bills_acts/bills_parliament/2022/Jan%20Vishwas%20(Amendment%20of%20Provisions)%20Act,%202023.pdf
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    notes: Rule text still refers to the Hazardous Wastes (Management and Handling) Rules 1989, now replaced by the HOWM Rules 2016. Submission mode (online consent portal or physical) is set by each SPCB.
+    code: ENV STATEMENT
+  - id: other-epr-plastic-annual-return
+    title: Plastic packaging EPR annual return (PIBOs)
+    form: Annual return on CPCB centralised EPR portal for plastic packaging
+    category: other
+    authority: CPCB / SPCBs (MoEFCC)
+    summary: Producers, importers and brand owners of plastic packaging file an annual return on the CPCB EPR portal on plastic packaging placed on the market and plastic packaging waste collected and processed against their EPR targets, including recycled content and EPR certificates used.
+    applicability: PIBOs registered under the Plastic Waste Management Rules 2016 - with CPCB if operating in more than two States/UTs, otherwise with the SPCB/PCC - for all categories of plastic packaging.
+    audience:
+      - company
+      - llp
+      - firm
+      - importer-exporter
+    frequency: annual
+    schedule:
+      kind: annual
+      day: 30
+      monthOffset: 3
+    law: Para 10.6, Guidelines on Extended Producer Responsibility for Plastic Packaging (Schedule II, Plastic Waste Management Rules 2016), inserted by the PWM (Amendment) Rules 2022, G.S.R. 133(E) dated 16-02-2022; Section 15, Environment (Protection) Act 1986
+    penalty: Environmental compensation under para 9 of the EPR Guidelines and CPCB EC guidelines for unmet targets or non-compliance (75, 60 or 40 percent refundable if the shortfall is cleared within one, two or three years); penalty under Section 15 EP Act as substituted by the Jan Vishwas Act 2023 - Rs 10,000 to Rs 15 lakh, plus Rs 10,000 per day while the contravention continues.
+    exposure:
+      lateFeePerDay: 10000
+      fixedPenalty: 10000
+      maxPenalty: 1500000
+      other:
+        - Environmental compensation per CPCB EC guidelines for unfulfilled EPR obligation (partly refundable within three years)
+        - Registration may be suspended or revoked; closure of operations for unregistered PIBOs
+      basis: Para 9 EPR Guidelines (Schedule II PWM Rules 2016); Section 15 EP Act as substituted by Jan Vishwas Act 2023 (Rs 10,000 to Rs 15 lakh plus Rs 10,000 per day continuing; Section 15A sets Rs 1 lakh to Rs 15 lakh for companies contravening the Act).
+    overrides:
+      - period: FY2025-26
+        due: 2026-12-31
+        originalDue: 2026-06-30
+        reason: Extended for registered PIBOs as a special case by MoEFCC (HSM Division) Office Memorandum F.No. 12/64/2023-HSM Part (1) dated 28-08-2026
+        source:
+          title: MoEFCC OM dated 28-08-2026 on FY 2025-26 plastic annual returns (copy hosted by Vincular)
+          url: https://wp.vincular.in/wp-content/uploads/2026/09/AR_extension_FY25-26.pdf
+    sources:
+      - title: PWM (Amendment) Rules 2022 with Guidelines on EPR for Plastic Packaging (CPCB copy)
+        url: https://cpcb.nic.in/uploads/plasticwaste/PWM-Amendment-Rules-2022.pdf
+        kind: rules
+      - title: CPCB notice dated 14-03-2024 - registration of PIBOs and PWPs on the EPR portal
+        url: https://cpcb.nic.in/openpdffile.php?id=TGF0ZXN0RmlsZS80MDhfMTcxMDQxODc5N19tZWRpYXBob3RvNDM0NC5wZGY=
+        kind: circular
+      - title: MoEFCC OM dated 28-08-2026 - FY 2025-26 annual return extension for PWPs and PIBOs (copy hosted by Vincular)
+        url: https://wp.vincular.in/wp-content/uploads/2026/09/AR_extension_FY25-26.pdf
+        kind: secondary
+      - title: Vincular - MoEFCC extends plastic EPR return deadline for FY 2025-26
+        url: https://www.vincular.in/moefcc-extends-plastic-epr-return-deadline-for-fy-2025-26
+        kind: secondary
+      - title: Vincular - plastic annual return FY 2025-26 update (AR module delay)
+        url: https://www.vincular.in/plastic-waste-annual-return-ar-filing-fy-2025-26-update
+        kind: secondary
+      - title: LegalBuddy - summary of PWM (Amendment) Rules 2026, G.S.R. 237(E) dated 31-03-2026
+        url: https://legalbuddy.in/knowledge-hub/plastic-waste-rules-2026-amendment-notification-india
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: The 30 June date comes from the 2022 EPR Guidelines as hosted by CPCB. Later amendments - PWM (Second Amendment) Rules 2023, PWM (Amendment) Rules 2024 (14-03-2024) and PWM (Amendment) Rules 2026 (G.S.R. 237(E), 31-03-2026, recycled content, reuse and labelling) - could not be opened in gazette form here; the summaries seen do not mention a new return date. FY 2024-25 returns were reportedly extended to 30-11-2025 (CPCB communication of 18-09-2025). For FY 2025-26 the annual-return module on the new common EPR portal was delayed; a consultancy note says no environmental compensation applies until the module works and CPCB notifies the timeline, and the old plastic portal was reportedly discontinued from 28-06-2026. The FY 2025-26 override rests on a scanned copy of the MoEFCC memorandum hosted on a consultancy site.
+    code: EPR PLASTIC
+  - id: other-ewaste-annual-return
+    title: E-waste EPR annual return (CPCB portal)
+    form: Annual return on CPCB E-Waste EPR portal
+    category: other
+    authority: CPCB (MoEFCC)
+    summary: Registered manufacturers, producers, refurbishers and recyclers of electrical and electronic equipment file an annual return on the E-Waste EPR portal for the previous financial year.
+    applicability: "Entities that must register on the E-Waste EPR portal under the E-Waste (Management) Rules 2022 for equipment listed in Schedule I: manufacturers, producers (including importers and brand owners), refurbishers and recyclers."
+    audience:
+      - company
+      - llp
+      - firm
+      - importer-exporter
+    frequency: annual
+    schedule:
+      kind: annual
+      day: last
+      monthOffset: 1
+    law: Rules 5(3), 6(4), 7(4) and 9(6), E-Waste (Management) Rules 2022 (G.S.R. 801(E), 2-11-2022); rule 9A inserted by the E-Waste (Management) Amendment Rules 2024 (G.S.R. 164(E), 8-03-2024); rules 22 and 23
+    penalty: Environmental compensation under rule 22 and the CPCB EC guidelines (85, 60 or 30 percent returned if the EPR shortfall is met after one, two or three years); registration may be suspended or revoked for false information; rule 23 refers false information to Section 15 EP Act, now a penalty of Rs 10,000 to Rs 15 lakh plus Rs 10,000 per day while continuing.
+    exposure:
+      lateFeePerDay: 10000
+      fixedPenalty: 10000
+      maxPenalty: 1500000
+      other:
+        - Environmental compensation per CPCB EC guidelines under rule 22 (partly refundable)
+        - Suspension or revocation of registration (rule 4)
+      basis: Rule 22 E-Waste (Management) Rules 2022; Section 15 EP Act as substituted by Jan Vishwas Act 2023.
+    sources:
+      - title: E-Waste (Management) Rules 2022 (CPCB copy)
+        url: https://cpcb.nic.in/uploads/Projects/E-Waste/e-waste_rules_2022.pdf
+        kind: rules
+      - title: E-Waste (Management) Amendment Rules 2024, G.S.R. 164(E) - rule 9A relaxation
+        url: https://cpcb.nic.in/uploads/Projects/E-Waste/E-waste-Third-Amendment-Rules-2024.pdf
+        kind: notification
+      - title: MoEFCC OM dated 15-01-2025 - FY 2023-24 e-waste returns extended to 31-01-2025
+        url: https://cpcb.nic.in/openpdffile.php?id=TGF0ZXN0RmlsZS80MzRfMTczNzA4OTQ0OV9tZWRpYXBob3RvMzQ1My5wZGY=
+        kind: circular
+      - title: CPCB notice dated 14-07-2025 - FY 2024-25 e-waste returns extended to 15-08-2025
+        url: https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg==
+        kind: circular
+      - title: Vincular - CPCB extends FY 2025-26 EPR deadlines (e-waste, tyre, battery)
+        url: https://www.vincular.in/cpcb-extends-fy-2025-26-epr-deadlines-for-waste-categories
+        kind: secondary
+    verified: 2026-10-14
+    confidence: high
+    notes: "Statutory due date is the end of the month after the financial year (30 April). Since rule 9A (March 2024) the Central Government may relax return timelines by up to nine months, and it has done so every year: FY 2023-24 returns to 31-01-2025 (MoEFCC OM 15-01-2025); FY 2024-25 returns to 30-06-2025 and then 15-08-2025 (CPCB notice 14-07-2025). Only the FY 2025-26 extension rests on a secondary source. The 2024 amendment also lets CPCB fix EPR certificate prices between 30 and 100 percent of the environmental compensation. A consultancy report (Vincular, 12 Sep 2026) says the FY 2025-26 annual return was extended to 30 Sep 2026; the official order was not located, so no override is set - check the CPCB portal."
+    code: EPR E-WASTE
+  - id: other-ewaste-quarterly-return
+    title: E-waste EPR quarterly return (CPCB portal)
+    form: Quarterly return on CPCB E-Waste EPR portal
+    category: other
+    authority: CPCB (MoEFCC)
+    summary: Registered e-waste entities file a quarterly return on the portal; producers submit the EPR certificates bought for the quarter and all certificate transactions are recorded with the return.
+    applicability: Manufacturers, producers (including importers and brand owners), refurbishers and recyclers registered under the E-Waste (Management) Rules 2022.
+    audience:
+      - company
+      - llp
+      - firm
+      - importer-exporter
+    frequency: quarterly
+    schedule:
+      kind: quarterly
+      day: last
+      monthOffset: 1
+    law: Rules 5(3), 6(4), 7(4), 9(6), 13 and 15(2) and (6), E-Waste (Management) Rules 2022 (G.S.R. 801(E)); rule 9A (G.S.R. 164(E), 2024)
+    penalty: Environmental compensation under rule 22 and CPCB EC guidelines; suspension or revocation of registration; penalty under Section 15 EP Act (Rs 10,000 to Rs 15 lakh plus Rs 10,000 per day while continuing).
+    exposure:
+      lateFeePerDay: 10000
+      fixedPenalty: 10000
+      maxPenalty: 1500000
+      other:
+        - Environmental compensation per CPCB EC guidelines under rule 22
+        - Suspension or revocation of registration
+      basis: Rule 22 E-Waste (Management) Rules 2022; Section 15 EP Act as substituted by Jan Vishwas Act 2023.
+    sources:
+      - title: E-Waste (Management) Rules 2022 (CPCB copy)
+        url: https://cpcb.nic.in/uploads/Projects/E-Waste/e-waste_rules_2022.pdf
+        kind: rules
+      - title: E-Waste (Management) Amendment Rules 2024, G.S.R. 164(E)
+        url: https://cpcb.nic.in/uploads/Projects/E-Waste/E-waste-Third-Amendment-Rules-2024.pdf
+        kind: notification
+      - title: CPCB notice dated 14-07-2025 - FY 2024-25 quarterly and annual returns extended to 15-08-2025
+        url: https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg==
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: Due by the end of the month after each quarter (31 Jul, 31 Oct, 31 Jan, 30 Apr). Producers are expected to buy EPR certificates proportionately every quarter. Extensions are normally granted for quarterly and annual returns together (FY 2024-25 both moved to 15-08-2025); the reported FY 2025-26 extension to 30-09-2026 probably covers the last quarter too but this was not confirmed, so no override is set.
+    code: EPR E-WASTE Q
+  - id: other-fssai-annual-return-d1
+    title: FSSAI annual return (Form D-1) on FoSCoS
+    form: Form D-1 (Annual Return)
+    category: other
+    authority: FSSAI / State Food Safety Commissioners
+    summary: Licensed food manufacturers and importers file an online annual return on FoSCoS, separately for each licence, covering every class of food product handled in the previous financial year.
+    applicability: Holders of a State or Central FSSAI licence who manufacture (including repackers and relabellers), import, or manufacture for export. Registration (basic) holders are not covered. From 1 April 2026 FSSAI revised the thresholds (registration up to Rs 1.5 crore turnover, State licence above Rs 1.5 crore up to Rs 50 crore, Central licence above Rs 50 crore), so manufacturers that migrate to registration should fall outside D-1.
+    audience:
+      - company
+      - llp
+      - firm
+      - individual
+      - importer-exporter
+    frequency: annual
+    schedule:
+      kind: annual
+      day: 31
+      monthOffset: 2
+    law: Regulation 2.1.13, Food Safety and Standards (Licensing and Registration of Food Businesses) Regulations 2011, as applied by FSSAI orders dated 18-12-2020 and 10-11-2022; Regulation 2.1.7(2) as substituted by the FSS (Licensing and Registration of Food Businesses) Amendment Regulations 2026 (notified 10-03-2026)
+    penalty: Rs 100 per day from 1 June until filing, capped at 5 times the annual licence fee (FSSAI order dated 10-11-2022, applicable from FY 2021-22); FSSAI has said waiver requests will not be considered. Under regulation 2.1.7(2) as substituted on 10-03-2026, a licence is deemed suspended while the return is outstanding after the due date, no food business may be carried on during suspension, and the suspension ends once the return is filed with the penalty.
+    exposure:
+      lateFeePerDay: 100
+      other:
+        - Late fee capped at 5 times the annual licence fee (FSSAI order 10-11-2022)
+        - Licence deemed suspended until the return is filed with the late fee (reg 2.1.7(2), from 10-03-2026)
+        - Revised return after 31 May costs one or two years of licence fee plus GST (FSSAI order 08-01-2024)
+      basis: Reg 2.1.13(3) FSS Licensing and Registration Regulations 2011 as modified by FSSAI order of 10-11-2022; reg 2.1.7(2) as substituted in March 2026.
+    sources:
+      - title: FSSAI - Compendium of FSS (Licensing and Registration of Food Businesses) Regulations 2011, reg 2.1.13
+        url: https://www.fssai.gov.in/upload/uploadfiles/files/Compendium_Licensing_Regulations.pdf
+        kind: rules
+      - title: FSSAI order 10-11-2022 - capping of penalty for delayed annual returns
+        url: https://www.fssai.gov.in/docs/whatsnew/advisories-orders/636c99269f006Order_Annual_Return_10_11_2022.pdf
+        kind: circular
+      - title: FSSAI advisory 16-04-2024 - annual return submission by food businesses
+        url: https://www.fssai.gov.in/docs/whatsnew/advisories-orders/661e73c35373eRevised%20annual%20return.pdf
+        kind: circular
+      - title: FSSAI order 18-12-2020 - mandatory online annual return, Form D-2 discontinued
+        url: https://www.fssai.gov.in/docs/food-law/advisory/5fe1c2422c4beOrder_Mandatory_Annual_Return_FBO_21_12_2020.pdf
+        kind: circular
+      - title: FSSAI order 08-01-2024 - updated or revised annual return on FoSCoS
+        url: https://www.fssai.gov.in/docs/whatsnew/advisories-orders/659d37a4645f0order_09.01.pdf
+        kind: circular
+      - title: FSS (Licensing and Registration of Food Businesses) Amendment Regulations 2026, notification dated 10-03-2026
+        url: https://www.fssai.gov.in/docs/whatsnew/gazette/69b2a2c804123Notification%20dt%2010.03.2026.pdf
+        kind: notification
+      - title: FSSAI FAQs dated 27-03-2026 on the 2026 licensing amendment (perpetual licences, new thresholds)
+        url: https://www.fssai.gov.in/docs/whatsnew/advisories-orders/69c6a23234827order_27032026.pdf
+        kind: faq
+    verified: 2026-10-14
+    confidence: high
+    notes: The half-yearly Form D-2 for milk and milk products was discontinued by the FSSAI order of 18-12-2020 (milk units now file the D-1 manufacturer return), although the proviso is still printed in regulation 2.1.13. Filing is online only on FoSCoS since FY 2020-21. A revised return is allowed free up to 31 May and, for a fee, until 31 March of the following year. FSSAI has granted one-off extensions at the end of May in some years (FY 2023-24 moved to 30-06-2024); none was found for FY 2025-26. Licences are perpetual from 2026 (no renewal), but the annual licence fee and the annual return remain. The Second Amendment Regulations of 23-06-2026 changed record keeping and FIFO/FEFO storage only, not the return.
+    code: FSSAI D-1
+  - id: other-hazardous-waste-annual-return
+    title: Hazardous waste annual return (Form 4) to SPCB
+    form: Form 4
+    category: other
+    authority: SPCBs / PCCs
+    summary: Authorised occupiers handling hazardous and other wastes, importers of such wastes and operators of treatment, storage and disposal facilities file an annual return in Form 4 on wastes generated, stored, recycled, imported or disposed of in the previous financial year.
+    applicability: Occupiers holding an authorisation under rule 6 of the HOWM Rules 2016 (generation, collection, storage, recycling, pre-processing, co-processing, utilisation, disposal), importers of hazardous and other wastes, operators of common or captive disposal facilities, and (from 2024) deposition centres for domestic hazardous waste.
+    audience:
+      - company
+      - llp
+      - firm
+      - importer-exporter
+    frequency: annual
+    schedule:
+      kind: annual
+      day: 30
+      monthOffset: 3
+    law: Rules 6(5), 13(8), 16(6) and 20(2), Hazardous and Other Wastes (Management and Transboundary Movement) Rules 2016 (G.S.R. 395(E), 4-04-2016); rule 40 as substituted by G.S.R. 698(E) dated 12-11-2024
+    penalty: "Since the HOWM Second Amendment Rules 2024 (12-11-2024), contraventions attract penalty under Section 15 EP Act: Rs 10,000 to Rs 15 lakh, plus Rs 10,000 per day while continuing; the authorisation can also be suspended or cancelled."
+    exposure:
+      lateFeePerDay: 10000
+      fixedPenalty: 10000
+      maxPenalty: 1500000
+      other:
+        - Suspension or cancellation of authorisation by the SPCB
+        - Liability for environmental damage (rule 23)
+      basis: Rule 40 HOWM Rules 2016 as substituted on 12-11-2024, pointing to Section 15 EP Act as substituted by Jan Vishwas Act 2023.
+    sources:
+      - title: HOWM Rules 2016 (CPCB copy)
+        url: https://cpcb.nic.in/uploads/hwmd/HWM_Rules_2016.pdf
+        kind: rules
+      - title: HOWM Second Amendment Rules 2024, G.S.R. 698(E) dated 12-11-2024 - penalty under Section 15 EP Act
+        url: https://cpcb.nic.in/uploads/hwmd/HOWM-Tenth-Amendment-Rules-2024.pdf
+        kind: notification
+      - title: HOWM (Amendment) Rules 2024, G.S.R. 177(E) dated 12-03-2024 - deposition centres file Form 4
+        url: https://cpcb.nic.in/uploads/hwmd/HOWM-Ninth-Amendment-Rules-2024.pdf
+        kind: notification
+      - title: Jan Vishwas Act 2023 amendments to the EP Act 1986 (Haryana SPCB copy)
+        url: https://hspcb.org.in/uploads/ep_act_rules/Amendment_in_ep_act_1986.pdf
+        kind: act
+    verified: 2026-10-14
+    confidence: high
+    notes: Due 30 June after the financial year to which the return relates; the mode of filing (online or physical) is set by each SPCB. No HOWM amendment after 12-11-2024 was listed on the CPCB rules page.
+    code: HW FORM 4
+  - id: other-posh-ic-annual-report
+    title: POSH Internal Committee annual report
+    form: Internal Committee annual report (contents under Rule 14)
+    category: other
+    authority: District Officer (State Women and Child Development Department)
+    summary: The Internal Committee prepares an annual report for each calendar year on sexual harassment complaints received, disposed of and pending for over 90 days, awareness workshops held and action taken, and submits it to the employer and the District Officer.
+    applicability: Every employer that must constitute an Internal Committee (workplaces with 10 or more employees), in any sector. The employer must also disclose the number of cases and their disposal in its own annual report (for companies, the Board's report) or, where no report is prepared, intimate them to the District Officer.
+    audience:
+      - employer
+      - company
+      - llp
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: calendar
+      day: 31
+      monthOffset: 1
+    law: Sections 21, 22 and 26, Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Act 2013; Rule 14, Sexual Harassment of Women at Workplace (Prevention, Prohibition and Redressal) Rules 2013
+    penalty: Fine up to Rs 50,000 under Section 26 for contravening the Act or rules; on a repeat conviction, up to twice the punishment and possible cancellation, withdrawal or non-renewal of the licence or registration needed to carry on the business.
+    exposure:
+      maxPenalty: 50000
+      other:
+        - "Repeat offence: up to twice the punishment"
+        - "Repeat offence: cancellation, withdrawal or non-renewal of business licence or registration"
+      basis: Section 26 POSH Act 2013 - fine up to Rs 50,000 for contravening the Act or rules.
+    sources:
+      - title: MWCD - Sexual Harassment of Women at Workplace Act 2013
+        url: https://www.wcd.gov.in/documents/uploaded/1710219823.pdf
+        kind: act
+      - title: MWCD - Sexual Harassment of Women at Workplace Rules 2013 (rule 14)
+        url: https://www.wcd.gov.in/documents/uploaded/1719914401_2NUqe91gql.pdf
+        kind: rules
+      - title: MWCD legislations page (SHe-Box live notice)
+        url: https://www.wcd.gov.in/documents/legislations
+        kind: portal
+      - title: eLearnPOSH - annual report deadline and checklist
+        url: https://elearnposh.com/posh-annual-report-2025-updates-deadlines-checklist/
+        kind: secondary
+    verified: 2026-10-14
+    confidence: medium
+    notes: The Act and central rules fix the calendar-year basis but no submission date. 31 January of the following year is the date commonly used and demanded by District Officers, but no state order prescribing it could be opened in this pass, so treat the date as indicative and check the local District Officer's notice (some districts, e.g. Gurugram, reportedly also ask for a compliance checklist). MWCD's SHe-Box portal is live; consultancy notes say employers are expected to record Internal Committee details and filing status there from 2025, but no official mandate was located.
+    code: POSH
+  - id: other-rera-annual-audit-form5
+    title: RERA annual audited statement of accounts (Form 5)
+    form: Annual statement of accounts certified by a CA (called Form 5 in several states)
+    category: other
+    authority: State RERA
+    summary: Promoters get their project accounts audited by a practising chartered accountant within six months after the financial year and upload a CA-certified statement confirming that amounts collected were used for the project and withdrawals matched the percentage of completion.
+    applicability: Promoters of ongoing registered real estate projects maintaining the designated project account under Section 4(2)(l)(D).
+    audience:
+      - company
+      - llp
+      - firm
+      - individual
+    frequency: annual
+    schedule:
+      kind: annual
+      day: 30
+      monthOffset: 6
+    law: Section 4(2)(l)(D), Real Estate (Regulation and Development) Act 2016, read with state RERA rules; e.g. Goa RERA circular F.No.3/RERA/Off.Matters/2019/40 dated 10-01-2020
+    penalty: Penalty under Section 60 RERA Act of up to 5 percent of the estimated cost of the project for contravening Section 4.
+    exposure:
+      other:
+        - Penalty up to 5 percent of estimated project cost (Section 60 RERA Act)
+      basis: Section 60 RERA Act 2016 for contravention of Section 4, as cited in the Goa RERA circular of 10-01-2020.
+    sources:
+      - title: Goa RERA circular dated 10-01-2020 - annual statement of accounts by 30 September
+        url: https://rera.goa.gov.in/Commonimage?IMG_PATH=5/0WkPfo5LroVL2qNvJBHg==
+        kind: circular
+    verified: 2026-10-14
+    confidence: high
+    notes: Six months after 31 March gives 30 September, and Goa RERA expressly requires upload on or before that date. Form names (Form 5 in states such as Maharashtra) and upload procedures vary, and some authorities have given one-off extensions (Goa did for FY 2019-20); MahaRERA rules were not checked in this pass.
+    code: RERA FORM 5
+  - id: other-rera-quarterly-update
+    title: RERA quarterly project update by promoter
+    form: Quarterly progress report (QPR) on the state RERA portal
+    category: other
+    authority: State RERA
+    summary: Promoters of registered real estate projects update the project webpage every quarter with units and garages booked, construction status with photographs, approvals received or pending, and related financial progress.
+    applicability: Promoters of every real estate project registered with a state or union territory RERA, until project completion.
+    audience:
+      - company
+      - llp
+      - firm
+      - individual
+    frequency: quarterly
+    schedule:
+      kind: quarterly
+      daysAfter: 15
+    law: Section 11(1), Real Estate (Regulation and Development) Act 2016, read with state RERA rules and regulations (e.g. rule 14, Haryana Real Estate (Regulation and Development) Rules 2017 and HRERA Gurugram (Quarterly Progress Report) Regulations 2018)
+    penalty: Penalty under Section 61 RERA Act of up to 5 percent of the estimated cost of the project for contravening the Act (Section 11 duties).
+    exposure:
+      other:
+        - Penalty up to 5 percent of estimated project cost (Section 61 RERA Act)
+      basis: Section 61 RERA Act 2016 for contravention of Section 11 obligations.
+    sources:
+      - title: HRERA Gurugram (Quarterly Progress Report) Regulations 2018
+        url: https://haryanarera.gov.in/regulations/Quarterly_Progress_ReportGURUGRAMRegulations2018.pdf
+        kind: rules
+    verified: 2026-10-14
+    confidence: medium
+    notes: Timeline varies by state. Haryana requires the update within fifteen days of the end of each quarter, used here as the default. MahaRERA and most other state portals could not be reached to confirm their windows or any late fees; Section 61 was not re-read in this pass. Confirm with the relevant authority.
+    code: RERA QPR
+  - id: other-swm-bulk-waste-generator-annual-return
+    title: Bulk waste generator annual return (SWM Rules 2026)
+    form: Annual return on the centralised solid waste portal
+    category: other
+    authority: Local bodies / SPCBs (MoEFCC, CPCB portal)
+    summary: Bulk waste generators file an annual return on the centralised online portal on their Extended Bulk Waste Generator Responsibility (EBWGR) obligation, including EBWGR certificates procured for the solid waste they generate.
+    applicability: Bulk waste generators under the Solid Waste Management Rules 2026 - institutional and other listed users such as government departments, PSUs, private companies and educational institutions - whose premises have a floor area of 20,000 sq m or more, or water use of 40,000 litres per day, or waste generation of 100 kg per day. They must also register with the local body on the portal.
+    audience:
+      - company
+      - llp
+      - firm
+      - trust
+    frequency: annual
+    schedule:
+      kind: annual
+      day: 30
+      monthOffset: 3
+    law: Rule 6(a) and 6(h), Solid Waste Management Rules 2026 (S.O. 388(E) dated 27-01-2026), in force 1-04-2026; rule 17 (environmental compensation)
+    penalty: Environmental compensation levied by the SPCB/PCC on the polluter-pays principle under rule 17 and CPCB guidelines; rule 17(5) keeps action under the EP Act available in addition.
+    exposure:
+      other:
+        - Environmental compensation per CPCB guidelines under rule 17
+        - Action under the Environment (Protection) Act 1986 in addition (rule 17(5))
+      basis: Rule 17 Solid Waste Management Rules 2026.
+    effective:
+      from: 2026-04-01
+      to: null
+    sources:
+      - title: Solid Waste Management Rules 2026, S.O. 388(E) dated 27-01-2026 (CPCB copy)
+        url: https://cpcb.nic.in/uploads/MSW/SWM_2026.pdf
+        kind: rules
+    verified: 2026-10-14
+    confidence: high
+    notes: New obligation. The rule says only 'by 30th June every year'; since the rules took effect on 1-04-2026, the first return should cover FY 2026-27 and fall due on 30-06-2027 (inference - confirm on the portal). Bulk waste generators that cannot process wet waste on site must buy EBWGR certificates from the local body. The same rules set quarterly returns (by the 15th of the first month of the next quarter) for certain other entities, not modelled here.
+    code: SWM BULK
