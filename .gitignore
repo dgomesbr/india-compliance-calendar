@@ -28,3 +28,4 @@ pnpm-debug.log*
 .impeccable/review/
 .impeccable/quality-bar/
 .impeccable/mocks/
+.impeccable/questions/

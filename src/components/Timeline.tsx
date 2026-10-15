@@ -306,7 +306,7 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
               <circle cx={m.x} cy={y} r={Math.max(m.r, 12)} class="tl-hit" />
               <circle cx={m.x} cy={y} r={m.r} fill={FILL[m.state]} class="tl-dot" />
               {m.count > 1 && (
-                <text x={m.x} y={y + 3.5} text-anchor="middle" class={`tl-count${m.count > 9 ? ' is-wide' : ''}`}>
+                <text x={m.x} y={y + 3.5} text-anchor="middle" class={`tl-count${m.count > 9 ? ' is-wide' : ''}${m.state === 'soon' ? ' on-amber' : ''}`}>
                   {m.count}
                 </text>
               )}

@@ -349,6 +349,9 @@
   font-weight: 700;
   pointer-events: none;
 }
+.tl-count.on-amber {
+  fill: var(--ink);
+}
 .tl-count.is-wide {
   font-size: 8.5px;
   letter-spacing: -0.02em;

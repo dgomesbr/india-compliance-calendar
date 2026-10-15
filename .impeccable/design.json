@@ -1,0 +1,854 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-15T02:34:45Z",
+  "title": "Design System: India Compliance Calendar",
+  "extensions": {
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "Report White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0f1f33",
+          "#3f4f63",
+          "#5f6e80",
+          "#93a0b0",
+          "#ccd4de",
+          "#e2e7ee",
+          "#ecf0f5",
+          "#f5f7fa"
+        ]
+      },
+      "layer-1": {
+        "role": "neutral",
+        "displayName": "Cool Panel Grey",
+        "canonical": "#f5f7fa",
+        "tonalRamp": [
+          "#0f1f33",
+          "#3f4f63",
+          "#5f6e80",
+          "#93a0b0",
+          "#ccd4de",
+          "#e2e7ee",
+          "#ecf0f5",
+          "#f5f7fa"
+        ]
+      },
+      "layer-2": {
+        "role": "neutral",
+        "displayName": "Tag Grey",
+        "canonical": "#ecf0f5",
+        "tonalRamp": [
+          "#0f1f33",
+          "#3f4f63",
+          "#5f6e80",
+          "#93a0b0",
+          "#ccd4de",
+          "#e2e7ee",
+          "#ecf0f5",
+          "#f5f7fa"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ledger Ink",
+        "canonical": "#0f1f33",
+        "tonalRamp": [
+          "#0f1f33",
+          "#3f4f63",
+          "#5f6e80",
+          "#93a0b0",
+          "#ccd4de",
+          "#e2e7ee",
+          "#ecf0f5",
+          "#f5f7fa"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Slate Ink",
+        "canonical": "#3f4f63",
+        "tonalRamp": [
+          "#0f1f33",
+          "#3f4f63",
+          "#5f6e80",
+          "#93a0b0",
+          "#ccd4de",
+          "#e2e7ee",
+          "#ecf0f5",
+          "#f5f7fa"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Caption Slate",
+        "canonical": "#5f6e80",
+        "tonalRamp": [
+          "#0f1f33",
+          "#3f4f63",
+          "#5f6e80",
+          "#93a0b0",
+          "#ccd4de",
+          "#e2e7ee",
+          "#ecf0f5",
+          "#f5f7fa"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline Rule",
+        "canonical": "#e2e7ee",
+        "tonalRamp": [
+          "#0f1f33",
+          "#3f4f63",
+          "#5f6e80",
+          "#93a0b0",
+          "#ccd4de",
+          "#e2e7ee",
+          "#ecf0f5",
+          "#f5f7fa"
+        ]
+      },
+      "rule-2": {
+        "role": "neutral",
+        "displayName": "Control Rule",
+        "canonical": "#ccd4de",
+        "tonalRamp": [
+          "#0f1f33",
+          "#3f4f63",
+          "#5f6e80",
+          "#93a0b0",
+          "#ccd4de",
+          "#e2e7ee",
+          "#ecf0f5",
+          "#f5f7fa"
+        ]
+      },
+      "rule-3": {
+        "role": "neutral",
+        "displayName": "Hover Rule",
+        "canonical": "#93a0b0",
+        "tonalRamp": [
+          "#0f1f33",
+          "#3f4f63",
+          "#5f6e80",
+          "#93a0b0",
+          "#ccd4de",
+          "#e2e7ee",
+          "#ecf0f5",
+          "#f5f7fa"
+        ]
+      },
+      "navy": {
+        "role": "secondary",
+        "displayName": "Masthead Navy",
+        "canonical": "#0e2a47",
+        "tonalRamp": [
+          "#000b1d",
+          "#0a2643",
+          "#284463",
+          "#466484",
+          "#6685a8",
+          "#88a8cc",
+          "#accdf2",
+          "#e3f0ff"
+        ]
+      },
+      "navy-2": {
+        "role": "secondary",
+        "displayName": "Raised Navy",
+        "canonical": "#173b60",
+        "tonalRamp": [
+          "#000b1d",
+          "#012549",
+          "#204469",
+          "#3f648c",
+          "#6086af",
+          "#81a9d4",
+          "#a5cdfa",
+          "#e3f0ff"
+        ]
+      },
+      "navy-ink": {
+        "role": "secondary",
+        "displayName": "Masthead White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0f1f33",
+          "#3f4f63",
+          "#5f6e80",
+          "#93a0b0",
+          "#ccd4de",
+          "#e2e7ee",
+          "#ecf0f5",
+          "#f5f7fa"
+        ]
+      },
+      "navy-ink-2": {
+        "role": "secondary",
+        "displayName": "Masthead Muted White",
+        "canonical": "rgba(255, 255, 255, 0.72)",
+        "tonalRamp": [
+          "#0f1f33",
+          "#3f4f63",
+          "#5f6e80",
+          "#93a0b0",
+          "#ccd4de",
+          "#e2e7ee",
+          "#ecf0f5",
+          "#f5f7fa"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Cobalt",
+        "canonical": "#1d4ed8",
+        "tonalRamp": [
+          "#000036",
+          "#01007b",
+          "#0326b2",
+          "#1e50da",
+          "#3f76ff",
+          "#77a2ff",
+          "#afc9ff",
+          "#e7efff"
+        ]
+      },
+      "accent-hover": {
+        "role": "primary",
+        "displayName": "Deep Cobalt",
+        "canonical": "#1e40af",
+        "tonalRamp": [
+          "#010035",
+          "#05007a",
+          "#1431a0",
+          "#2f56c6",
+          "#4e7aed",
+          "#7aa1ff",
+          "#b0c9ff",
+          "#e7efff"
+        ]
+      },
+      "accent-weak": {
+        "role": "primary",
+        "displayName": "Cobalt Wash",
+        "canonical": "#eff4ff",
+        "tonalRamp": [
+          "#080b12",
+          "#21252d",
+          "#3e424b",
+          "#5d616a",
+          "#7e828c",
+          "#a0a5af",
+          "#c4c9d4",
+          "#eaeef9"
+        ]
+      },
+      "accent-line": {
+        "role": "primary",
+        "displayName": "Cobalt Line",
+        "canonical": "#b2c7ff",
+        "tonalRamp": [
+          "#02042d",
+          "#15214c",
+          "#303f6e",
+          "#4e5f90",
+          "#6e80b4",
+          "#8fa3d9",
+          "#b3c8ff",
+          "#e8eeff"
+        ]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Focus Cobalt",
+        "canonical": "#1d4ed8",
+        "tonalRamp": [
+          "#000036",
+          "#01007b",
+          "#0326b2",
+          "#1e50da",
+          "#3f76ff",
+          "#77a2ff",
+          "#afc9ff",
+          "#e7efff"
+        ]
+      },
+      "overdue": {
+        "role": "tertiary",
+        "displayName": "Overdue Red",
+        "canonical": "#c0392b",
+        "tonalRamp": [
+          "#1f0000",
+          "#4d0100",
+          "#800300",
+          "#ae261a",
+          "#d64e3e",
+          "#ff7461",
+          "#ffb3a6",
+          "#ffe9e5"
+        ]
+      },
+      "overdue-text": {
+        "role": "tertiary",
+        "displayName": "Overdue Red Text",
+        "canonical": "#a33223",
+        "tonalRamp": [
+          "#1e0100",
+          "#4c0300",
+          "#7f0a00",
+          "#a63526",
+          "#cd5947",
+          "#f57d69",
+          "#ffb3a5",
+          "#ffe9e4"
+        ]
+      },
+      "overdue-tint": {
+        "role": "tertiary",
+        "displayName": "Overdue Tint",
+        "canonical": "#fbefed",
+        "tonalRamp": [
+          "#100908",
+          "#2b2321",
+          "#493f3e",
+          "#695f5d",
+          "#8a807e",
+          "#ada2a0",
+          "#d2c6c4",
+          "#f7ebe9"
+        ]
+      },
+      "overdue-line": {
+        "role": "tertiary",
+        "displayName": "Overdue Line",
+        "canonical": "#f0c7c0",
+        "tonalRamp": [
+          "#1b0302",
+          "#391b17",
+          "#593833",
+          "#7a5751",
+          "#9d7872",
+          "#c19a94",
+          "#e7beb7",
+          "#ffe9e5"
+        ]
+      },
+      "soon": {
+        "role": "tertiary",
+        "displayName": "Due-Soon Amber",
+        "canonical": "#c47c06",
+        "tonalRamp": [
+          "#140800",
+          "#371f00",
+          "#5d3900",
+          "#875400",
+          "#b47200",
+          "#df9224",
+          "#ffb965",
+          "#ffebd5"
+        ]
+      },
+      "soon-text": {
+        "role": "tertiary",
+        "displayName": "Amber Text",
+        "canonical": "#8a5300",
+        "tonalRamp": [
+          "#140800",
+          "#381e00",
+          "#5f3800",
+          "#8a5300",
+          "#ae7431",
+          "#d39756",
+          "#f9bb7a",
+          "#ffebd7"
+        ]
+      },
+      "soon-tint": {
+        "role": "tertiary",
+        "displayName": "Amber Tint",
+        "canonical": "#fdf5e4",
+        "tonalRamp": [
+          "#100a02",
+          "#2a2418",
+          "#484134",
+          "#676052",
+          "#898272",
+          "#aca494",
+          "#d0c8b8",
+          "#f6eedd"
+        ]
+      },
+      "soon-line": {
+        "role": "tertiary",
+        "displayName": "Amber Line",
+        "canonical": "#efd9a8",
+        "tonalRamp": [
+          "#110a00",
+          "#302300",
+          "#523f0f",
+          "#725f31",
+          "#948052",
+          "#b8a373",
+          "#ddc796",
+          "#ffedc4"
+        ]
+      },
+      "extended": {
+        "role": "tertiary",
+        "displayName": "Extension Blue",
+        "canonical": "#3478c6",
+        "tonalRamp": [
+          "#000b1e",
+          "#00244c",
+          "#00417f",
+          "#1a61ad",
+          "#4084d3",
+          "#64a8fa",
+          "#a4cdff",
+          "#e4f0ff"
+        ]
+      },
+      "extended-text": {
+        "role": "tertiary",
+        "displayName": "Extension Blue Text",
+        "canonical": "#1f5ea8",
+        "tonalRamp": [
+          "#000b1f",
+          "#00244e",
+          "#004082",
+          "#2261ab",
+          "#4684d1",
+          "#68a7f8",
+          "#a5ccff",
+          "#e4f0ff"
+        ]
+      },
+      "extended-tint": {
+        "role": "tertiary",
+        "displayName": "Extension Tint",
+        "canonical": "#edf4fc",
+        "tonalRamp": [
+          "#070c11",
+          "#20262b",
+          "#3d4349",
+          "#5c6269",
+          "#7d838a",
+          "#9fa6ad",
+          "#c3cad2",
+          "#e8eff7"
+        ]
+      },
+      "extended-line": {
+        "role": "tertiary",
+        "displayName": "Extension Line",
+        "canonical": "#c2d8f0",
+        "tonalRamp": [
+          "#000c1c",
+          "#152638",
+          "#314457",
+          "#506378",
+          "#70859a",
+          "#92a7be",
+          "#b6cce3",
+          "#e3f0ff"
+        ]
+      },
+      "filed": {
+        "role": "tertiary",
+        "displayName": "Filed Green",
+        "canonical": "#287a4f",
+        "tonalRamp": [
+          "#000f05",
+          "#002e18",
+          "#00502d",
+          "#0c7445",
+          "#3c9666",
+          "#62ba87",
+          "#87e0ab",
+          "#c4ffd9"
+        ]
+      },
+      "filed-text": {
+        "role": "tertiary",
+        "displayName": "Filed Green Text",
+        "canonical": "#1c6a43",
+        "tonalRamp": [
+          "#000f06",
+          "#002e18",
+          "#00502e",
+          "#25724a",
+          "#4b946a",
+          "#6eb88c",
+          "#92ddb0",
+          "#c4ffda"
+        ]
+      },
+      "filed-tint": {
+        "role": "tertiary",
+        "displayName": "Filed Tint",
+        "canonical": "#ebf6f0",
+        "tonalRamp": [
+          "#060d09",
+          "#1f2723",
+          "#3c4440",
+          "#5a645f",
+          "#7b8580",
+          "#9ea8a2",
+          "#c1ccc6",
+          "#e7f2ec"
+        ]
+      },
+      "filed-line": {
+        "role": "tertiary",
+        "displayName": "Filed Line",
+        "canonical": "#bddfcb",
+        "tonalRamp": [
+          "#000f06",
+          "#0e2c1d",
+          "#2c4939",
+          "#4b6958",
+          "#6b8b79",
+          "#8dae9b",
+          "#b1d3bf",
+          "#d6f8e4"
+        ]
+      },
+      "upcoming": {
+        "role": "secondary",
+        "displayName": "Upcoming Navy",
+        "canonical": "#0e2a47",
+        "tonalRamp": [
+          "#000b1d",
+          "#0a2643",
+          "#284463",
+          "#466484",
+          "#6685a8",
+          "#88a8cc",
+          "#accdf2",
+          "#e3f0ff"
+        ]
+      },
+      "past": {
+        "role": "tertiary",
+        "displayName": "Past Grey",
+        "canonical": "#9aa6b4",
+        "tonalRamp": [
+          "#040c15",
+          "#1c2631",
+          "#39434f",
+          "#57626f",
+          "#788491",
+          "#9aa6b4",
+          "#becbd9",
+          "#e3f0ff"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Range headline, page titles, the detail panel's code and the report period; 1.75rem below 720px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Reading-page section heads in navy with a hairline beneath, and sheet titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "An obligation's name under its code; ledes use the size at 400 and 1.5, block headings at 600."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text; prose capped at 70ch at a 1.6 line height."
+      },
+      "body-sm": {
+        "displayName": "Body small",
+        "purpose": "Tables, detail sections, notes and the footer."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "The figure voice: obligation codes in navy and headline counts, tabular figures."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Buttons, segmented options, masthead tabs, footer links and disclosure summaries."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Column heads, field labels, list headings, meta lines and pills; sentence case, never uppercase."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Fragment Mono for code identifiers only, on a Tag Grey chip; never for numbers."
+      }
+    },
+    "shadows": [
+      {
+        "name": "control-lift",
+        "value": "0 1px 2px rgba(16, 24, 40, 0.06)",
+        "purpose": "Resting lift on buttons, inputs, selects and the file check; dropped by quiet and disabled buttons and in print."
+      },
+      {
+        "name": "segment-on",
+        "value": "0 1px 2px rgba(16, 24, 40, 0.06), 0 0 0 1px #e2e7ee",
+        "purpose": "Current segment of the segmented control: the control lift plus a Hairline ring."
+      },
+      {
+        "name": "float",
+        "value": "0 4px 12px -2px rgba(16, 24, 40, 0.1), 0 2px 4px -2px rgba(16, 24, 40, 0.06)",
+        "purpose": "The timeline tooltip and the report sheet on screen."
+      },
+      {
+        "name": "sheet",
+        "value": "0 18px 40px -12px rgba(16, 24, 40, 0.22)",
+        "purpose": "Right-hand dialogs, over a rgba(16, 24, 40, 0.42) backdrop."
+      },
+      {
+        "name": "masthead-edge",
+        "value": "0 1px 0 rgba(16, 24, 40, 0.18)",
+        "purpose": "A 1px edge under the sticky masthead; a rule, not depth."
+      },
+      {
+        "name": "input-focus-halo",
+        "value": "0 0 0 3px rgba(29, 78, 216, 0.16)",
+        "purpose": "Focus state of text inputs, with a Cobalt border; a state signal, not depth."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The only easing: every transition and the sheet entrance."
+      },
+      {
+        "name": "duration-control",
+        "value": "150ms",
+        "purpose": "Color, border and shadow changes on buttons, inputs, chips, segmented options and tabs."
+      },
+      {
+        "name": "duration-file-check",
+        "value": "140ms",
+        "purpose": "Border, color and fill on the file check."
+      },
+      {
+        "name": "duration-row",
+        "value": "120ms",
+        "purpose": "Hover fill on table rows and calendar days."
+      },
+      {
+        "name": "sheet-in",
+        "value": "220ms, from translateX(24px) and opacity 0.5",
+        "purpose": "The one entrance: right-hand dialogs slide in."
+      },
+      {
+        "name": "skeleton",
+        "value": "1.4s linear infinite",
+        "purpose": "Loading shimmer from Cool Panel Grey through Tag Grey."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms",
+        "purpose": "prefers-reduced-motion collapses every animation and transition."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "split",
+        "value": "1099px",
+        "purpose": "max-width: the table and aside stack; the detail opens as a sheet."
+      },
+      {
+        "name": "masthead-wrap",
+        "value": "900px",
+        "purpose": "max-width: tabs take their own row and scroll behind a right-edge fade."
+      },
+      {
+        "name": "phone",
+        "value": "720px",
+        "purpose": "max-width: titles step down, rows stack, the month grid shows dots."
+      },
+      {
+        "name": "timeline-narrow",
+        "value": "640px",
+        "purpose": "Chart container width: short lane names, smaller marks, two-digit years, no callout."
+      },
+      {
+        "name": "profile-compact",
+        "value": "600px",
+        "purpose": "max-width: the profile button keeps only its icon."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one cobalt action in a group: Mark filed, Print, Save profile, Subscribe to this obligation.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\"><svg class=\"ds-btn-primary-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M20 6 9 17l-5-5\"/></svg>Mark filed</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 36px; padding: 0 14px; border-radius: var(--radius, 6px); font-family: var(--font, 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif); font-size: 0.8125rem; font-weight: 600; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), border-color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-btn-primary:focus-visible { outline: 2px solid var(--focus, #1d4ed8); outline-offset: 2px; } .ds-btn-primary { border: 1px solid var(--accent, #1d4ed8); background: var(--accent, #1d4ed8); color: #fff; box-shadow: var(--shadow-sm, 0 1px 2px rgba(16, 24, 40, 0.06)); } .ds-btn-primary:hover { border-color: var(--accent-hover, #1e40af); background: var(--accent-hover, #1e40af); } .ds-btn-primary-icon { width: 16px; height: 16px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "The default button: white, Control Rule border, control lift; hover Cool Panel Grey, pressed Tag Grey. A disabled one sits beside it.",
+      "html": "<div class=\"ds-btn-secondary-row\"><button class=\"ds-btn-secondary\" type=\"button\"><svg class=\"ds-btn-secondary-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M8 2v4\"/><path d=\"M16 2v4\"/><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"1\"/><path d=\"M3 10h18\"/></svg>Add to calendar</button><button class=\"ds-btn-secondary\" type=\"button\" disabled><svg class=\"ds-btn-secondary-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"/><polyline points=\"7 10 12 15 17 10\"/><line x1=\"12\" x2=\"12\" y1=\"15\" y2=\"3\"/></svg>Export records</button></div>",
+      "css": ".ds-btn-secondary-row { display: flex; flex-wrap: wrap; gap: 8px; } .ds-btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 36px; padding: 0 14px; border-radius: var(--radius, 6px); font-family: var(--font, 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif); font-size: 0.8125rem; font-weight: 600; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), border-color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--focus, #1d4ed8); outline-offset: 2px; } .ds-btn-secondary { border: 1px solid var(--rule-2, #ccd4de); background: var(--ground, #fff); color: var(--ink, #0f1f33); box-shadow: var(--shadow-sm, 0 1px 2px rgba(16, 24, 40, 0.06)); } .ds-btn-secondary:hover { border-color: var(--rule-3, #93a0b0); background: var(--layer-1, #f5f7fa); } .ds-btn-secondary:active { background: var(--layer-2, #ecf0f5); } .ds-btn-secondary[disabled] { border-color: var(--rule, #e2e7ee); background: var(--layer-1, #f5f7fa); color: var(--ink-3, #5f6e80); box-shadow: none; cursor: not-allowed; } .ds-btn-secondary-icon { width: 16px; height: 16px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Borderless text button for close, cancel, Copy link, Clear date and Show everything.",
+      "html": "<button class=\"ds-btn-quiet\" type=\"button\"><svg class=\"ds-btn-quiet-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71\"/><path d=\"M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71\"/></svg>Copy link</button>",
+      "css": ".ds-btn-quiet { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 36px; padding: 0 14px; border-radius: var(--radius, 6px); font-family: var(--font, 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif); font-size: 0.8125rem; font-weight: 600; line-height: 1; white-space: nowrap; cursor: pointer; transition: background-color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), border-color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-btn-quiet:focus-visible { outline: 2px solid var(--focus, #1d4ed8); outline-offset: 2px; } .ds-btn-quiet { border: 1px solid transparent; background: transparent; color: var(--ink-2, #3f4f63); box-shadow: none; } .ds-btn-quiet:hover { background: var(--layer-2, #ecf0f5); color: var(--ink, #0f1f33); } .ds-btn-quiet-icon { width: 16px; height: 16px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "38px field with a Control Rule border and the control lift; Hover Rule on hover; Cobalt border and a 16% Cobalt halo on focus.",
+      "html": "<div class=\"ds-search\"><svg class=\"ds-search-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><circle cx=\"11\" cy=\"11\" r=\"7.5\"/><path d=\"m20.5 20.5-4.2-4.2\"/></svg><input class=\"ds-search-input\" type=\"search\" aria-label=\"Search obligations\" placeholder=\"Search form, law or authority\"></div>",
+      "css": ".ds-search { position: relative; width: 320px; max-width: 100%; font-family: var(--font, 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif); } .ds-search-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-3, #5f6e80); pointer-events: none; } .ds-search-input { width: 100%; min-height: 38px; padding: 7px 11px 7px 34px; border: 1px solid var(--rule-2, #ccd4de); border-radius: var(--radius, 6px); background: var(--ground, #fff); color: var(--ink, #0f1f33); font-family: inherit; font-size: 0.8125rem; caret-color: var(--accent, #1d4ed8); box-shadow: var(--shadow-sm, 0 1px 2px rgba(16, 24, 40, 0.06)); transition: border-color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), box-shadow 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-search-input::placeholder { color: var(--ink-3, #5f6e80); } .ds-search-input:hover { border-color: var(--rule-3, #93a0b0); } .ds-search-input:focus { border-color: var(--accent, #1d4ed8); outline: none; box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.16); } .ds-search-icon { width: 16px; height: 16px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Masthead Navigation",
+      "kind": "nav",
+      "refersTo": "masthead",
+      "description": "Sticky 64px navy bar: drawn calendar-check mark and wordmark, tabs with the #8fb0ff current bar, profile button. Focus on navy is white, as on the built tabs; the built wordmark and profile button still inherit the cobalt ring.",
+      "html": "<header class=\"ds-masthead\"><a class=\"ds-masthead-mark\" href=\"#\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><rect x=\"3\" y=\"4.5\" width=\"18\" height=\"16.5\" rx=\"2\"/><path d=\"M8 2.5v4\"/><path d=\"M16 2.5v4\"/><path d=\"M3 9.5h18\"/><path d=\"m8.5 15.25 2.4 2.4 4.6-4.9\"/></svg><span>India Compliance Calendar</span></a><nav class=\"ds-masthead-tabs\" aria-label=\"Primary\"><a href=\"#\" aria-current=\"page\">Overview</a><a href=\"#\">Calendar</a><a href=\"#\">Planner</a><a href=\"#\">Report</a><a href=\"#\">Updates</a></nav><button class=\"ds-masthead-profile\" type=\"button\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2\"/><circle cx=\"12\" cy=\"7\" r=\"4\"/></svg><span>All obligations</span></button></header>",
+      "css": ".ds-masthead { display: flex; align-items: center; gap: 32px; min-height: 64px; padding: 0 24px; background: var(--navy, #0e2a47); color: var(--navy-ink, #fff); font-family: var(--font, 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif); box-shadow: 0 1px 0 rgba(16, 24, 40, 0.18); } .ds-masthead-mark { display: inline-flex; align-items: center; gap: 10px; flex: none; color: var(--navy-ink, #fff); font-size: 0.9375rem; font-weight: 650; letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; } .ds-masthead-tabs { display: flex; flex: 1; gap: 4px; min-width: 0; overflow-x: auto; scrollbar-width: none; } .ds-masthead-tabs a { position: relative; display: block; padding: 22px 12px 21px; color: var(--navy-ink-2, rgba(255, 255, 255, 0.72)); font-size: 0.8125rem; font-weight: 600; text-decoration: none; white-space: nowrap; transition: color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-masthead-tabs a:hover, .ds-masthead-tabs a[aria-current='page'] { color: var(--navy-ink, #fff); } .ds-masthead-tabs a[aria-current='page']::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; background: #8fb0ff; } .ds-masthead-tabs a:focus-visible { outline: 2px solid #fff; outline-offset: -4px; } .ds-masthead-profile { display: inline-flex; align-items: center; gap: 8px; flex: none; min-height: 36px; padding: 0 14px; border: 1px solid rgba(255, 255, 255, 0.28); border-radius: var(--radius, 6px); background: transparent; color: var(--navy-ink, #fff); font-family: inherit; font-size: 0.8125rem; font-weight: 600; line-height: 1; cursor: pointer; transition: background-color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), border-color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-masthead-profile:hover { border-color: rgba(255, 255, 255, 0.6); background: var(--navy-2, #173b60); } .ds-masthead-mark:focus-visible, .ds-masthead-profile:focus-visible { outline: 2px solid #fff; outline-offset: 2px; } .ds-masthead-mark svg { width: 24px; height: 24px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; } .ds-masthead-profile svg { width: 16px; height: 16px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Horizon Segmented Control",
+      "kind": "custom",
+      "refersTo": "segmented",
+      "description": "Horizon and report-period picker: a Cool Panel Grey track whose current value is a raised white segment in navy text.",
+      "html": "<div class=\"ds-seg\" role=\"group\" aria-label=\"Horizon\"><button type=\"button\" class=\"ds-seg-btn\" aria-pressed=\"false\">1 week</button><button type=\"button\" class=\"ds-seg-btn\" aria-pressed=\"false\">2 weeks</button><button type=\"button\" class=\"ds-seg-btn ds-seg-on\" aria-pressed=\"true\">1 month</button><button type=\"button\" class=\"ds-seg-btn\" aria-pressed=\"false\">1 quarter</button><button type=\"button\" class=\"ds-seg-btn\" aria-pressed=\"false\">Year end</button><button type=\"button\" class=\"ds-seg-btn\" aria-pressed=\"false\">FY end</button><button type=\"button\" class=\"ds-seg-btn\" aria-pressed=\"false\">Custom</button></div>",
+      "css": ".ds-seg { display: inline-flex; flex-wrap: wrap; padding: 3px; border: 1px solid var(--rule-2, #ccd4de); border-radius: 8px; background: var(--layer-1, #f5f7fa); font-family: var(--font, 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif); } .ds-seg-btn { min-height: 30px; padding: 0 12px; border: 0; border-radius: var(--radius, 6px); background: transparent; color: var(--ink-2, #3f4f63); font-family: inherit; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.01em; white-space: nowrap; cursor: pointer; transition: background-color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), box-shadow 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-seg-btn:hover { color: var(--ink, #0f1f33); } .ds-seg-btn.ds-seg-on { background: var(--ground, #fff); color: var(--navy, #0e2a47); box-shadow: var(--shadow-sm, 0 1px 2px rgba(16, 24, 40, 0.06)), 0 0 0 1px var(--rule, #e2e7ee); } .ds-seg-btn:focus-visible { outline: 2px solid var(--focus, #1d4ed8); outline-offset: 2px; }"
+    },
+    {
+      "name": "Law Filter Chips",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "Law filters as 30px full pills; on is a Cobalt border over Cobalt Wash with Deep Cobalt text; a Cobalt text button clears them.",
+      "html": "<div class=\"ds-laws\" role=\"group\" aria-label=\"Laws\"><button type=\"button\" class=\"ds-law\" aria-pressed=\"false\">Income tax</button><button type=\"button\" class=\"ds-law ds-law-on\" aria-pressed=\"true\">GST</button><button type=\"button\" class=\"ds-law\" aria-pressed=\"false\">MCA and LLP</button><button type=\"button\" class=\"ds-law\" aria-pressed=\"false\">SEBI</button><button type=\"button\" class=\"ds-law\" aria-pressed=\"false\">RBI and FEMA</button><button type=\"button\" class=\"ds-law-clear\">Show all laws</button></div>",
+      "css": ".ds-laws { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-family: var(--font, 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif); } .ds-law { min-height: 30px; padding: 0 12px; border: 1px solid var(--rule-2, #ccd4de); border-radius: 999px; background: var(--ground, #fff); color: var(--ink-2, #3f4f63); font-family: inherit; font-size: 0.8125rem; font-weight: 500; white-space: nowrap; cursor: pointer; transition: border-color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), background-color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), color 150ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-law:hover { border-color: var(--rule-3, #93a0b0); color: var(--ink, #0f1f33); } .ds-law.ds-law-on { border-color: var(--accent, #1d4ed8); background: var(--accent-weak, #eff4ff); color: var(--accent-hover, #1e40af); } .ds-law-clear { border: 0; background: none; color: var(--accent, #1d4ed8); font-family: inherit; font-size: 0.8125rem; font-weight: 600; cursor: pointer; } .ds-law-clear:hover { text-decoration: underline; } .ds-law:focus-visible, .ds-law-clear:focus-visible { outline: 2px solid var(--focus, #1d4ed8); outline-offset: 2px; }"
+    },
+    {
+      "name": "Status Pills and Law Tag",
+      "kind": "chip",
+      "refersTo": "status-pill",
+      "description": "State in a full pill (6px dot, tint, line, text tone); projected is dashed with a hollow dot; the 4px law tag sits beside a code. Upcoming items carry no pill in tables and lists.",
+      "html": "<div class=\"ds-pills\"><span class=\"ds-pill\" data-state=\"overdue\">Overdue</span><span class=\"ds-pill\" data-state=\"soon\">Due within 7 days</span><span class=\"ds-pill\" data-state=\"extended\">Extended</span><span class=\"ds-pill\" data-state=\"filed\">Filed</span><span class=\"ds-pill\" data-state=\"projected\">Projected</span><span class=\"ds-law-tag\">Income tax</span></div>",
+      "css": ".ds-pills { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-family: var(--font, 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif); } .ds-pill { display: inline-flex; align-items: center; gap: 6px; padding: 1px 8px 1px 7px; border: 1px solid var(--rule, #e2e7ee); border-radius: 999px; background: var(--layer-1, #f5f7fa); color: var(--ink-2, #3f4f63); font-size: 0.75rem; font-weight: 600; line-height: 1.5; white-space: nowrap; } .ds-pill::before { content: ''; box-sizing: border-box; width: 6px; height: 6px; border-radius: 50%; background: var(--ds-state, var(--ink-3, #5f6e80)); } .ds-pill[data-state='overdue'] { --ds-state: var(--overdue, #c0392b); border-color: var(--overdue-line, #f0c7c0); background: var(--overdue-tint, #fbefed); color: var(--overdue-text, #a33223); } .ds-pill[data-state='soon'] { --ds-state: var(--soon, #c47c06); border-color: var(--soon-line, #efd9a8); background: var(--soon-tint, #fdf5e4); color: var(--soon-text, #8a5300); } .ds-pill[data-state='extended'] { --ds-state: var(--extended, #3478c6); border-color: var(--extended-line, #c2d8f0); background: var(--extended-tint, #edf4fc); color: var(--extended-text, #1f5ea8); } .ds-pill[data-state='filed'] { --ds-state: var(--filed, #287a4f); border-color: var(--filed-line, #bddfcb); background: var(--filed-tint, #ebf6f0); color: var(--filed-text, #1c6a43); } .ds-pill[data-state='projected'] { --ds-state: transparent; border-style: dashed; border-color: var(--rule-3, #93a0b0); background: var(--ground, #fff); } .ds-pill[data-state='projected']::before { border: 1px solid var(--ink-3, #5f6e80); } .ds-law-tag { display: inline-flex; align-items: center; padding: 1px 6px; border-radius: 4px; background: var(--layer-2, #ecf0f5); color: var(--ink-2, #3f4f63); font-size: 0.75rem; font-weight: 600; line-height: 1.5; white-space: nowrap; }"
+    },
+    {
+      "name": "Obligations Table",
+      "kind": "custom",
+      "refersTo": "table-row",
+      "description": "Ruled, tabular, sticky-headed table: a date group line, navy codes with law tags, the cost at 30 days, state pills and the file check. Hover Cool Panel Grey, selected Cobalt Wash, filed rows fade.",
+      "html": "<table class=\"ds-obl\"><thead><tr><th>When</th><th>Obligation</th><th>Authority</th><th class=\"ds-obl-num\">At 30 days</th><th>State</th><th><span class=\"ds-obl-vh\">Filed</span></th></tr></thead><tbody><tr class=\"ds-obl-group\"><th colspan=\"6\">Thu 15 Oct 2026<span> - Today - 14 obligations</span></th></tr><tr class=\"ds-obl-row ds-obl-selected\"><td class=\"ds-obl-when\">Today</td><td><span class=\"ds-obl-code\">FORM 132</span><span class=\"ds-obl-law\">Income tax</span><span class=\"ds-obl-title\">Form 132 TDS certificate (old 16B/16C/16D/16E)</span><span class=\"ds-obl-period\">Aug 2026</span></td><td class=\"ds-obl-auth\">CBDT</td><td class=\"ds-obl-exp\">Rs 15,000</td><td><span class=\"ds-obl-pill\" data-state=\"soon\">Due within 7 days</span></td><td class=\"ds-obl-act\"><button type=\"button\" class=\"ds-obl-file\" aria-pressed=\"false\" aria-label=\"Mark filed: FORM 132 Aug 2026\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M20 6 9 17l-5-5\"/></svg></button></td></tr><tr class=\"ds-obl-row\"><td class=\"ds-obl-when\">Today</td><td><span class=\"ds-obl-code\">PF ECR</span><span class=\"ds-obl-law\">Labour</span><span class=\"ds-obl-title\">EPF ECR filing and contribution payment</span><span class=\"ds-obl-period\">Sep 2026</span></td><td class=\"ds-obl-auth\">EPFO</td><td class=\"ds-obl-exp\">Rs 15,000<small>+ interest</small></td><td><span class=\"ds-obl-pill\" data-state=\"soon\">Due within 7 days</span></td><td class=\"ds-obl-act\"><button type=\"button\" class=\"ds-obl-file\" aria-pressed=\"false\" aria-label=\"Mark filed: PF ECR Sep 2026\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M20 6 9 17l-5-5\"/></svg></button></td></tr><tr class=\"ds-obl-row ds-obl-done\"><td class=\"ds-obl-when\">Today</td><td><span class=\"ds-obl-code\">FORM GRN</span><span class=\"ds-obl-law\">FEMA</span><span class=\"ds-obl-title\">Form GRN - cross-border guarantees (quarterly)</span><span class=\"ds-obl-period\">Q2 FY 2026-27 (Jul-Sep)</span></td><td class=\"ds-obl-auth\">RBI</td><td class=\"ds-obl-exp\">Rs 7,500</td><td><span class=\"ds-obl-pill\" data-state=\"filed\">Filed</span></td><td class=\"ds-obl-act\"><button type=\"button\" class=\"ds-obl-file ds-obl-filed\" aria-pressed=\"true\" aria-label=\"Undo filed: FORM GRN Q2 FY 2026-27 (Jul-Sep)\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M20 6 9 17l-5-5\"/></svg></button></td></tr></tbody></table>",
+      "css": ".ds-obl { width: 100%; border-collapse: collapse; color: var(--ink, #0f1f33); font-family: var(--font, 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif); font-size: 0.8125rem; line-height: 1.5; font-variant-numeric: tabular-nums; } .ds-obl thead th { padding: 10px 12px; border-top: 1px solid var(--rule, #e2e7ee); border-bottom: 1px solid var(--rule-2, #ccd4de); background: var(--layer-1, #f5f7fa); color: var(--ink-3, #5f6e80); text-align: left; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.01em; } .ds-obl thead th.ds-obl-num { text-align: right; } .ds-obl-group th { padding: 16px 12px 8px; border-bottom: 1px solid var(--rule-2, #ccd4de); text-align: left; font-size: 0.8125rem; font-weight: 600; } .ds-obl-group span { color: var(--ink-3, #5f6e80); font-weight: 500; } .ds-obl-row { cursor: pointer; transition: background-color 120ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-obl-row td { padding: 12px; border-bottom: 1px solid var(--rule, #e2e7ee); vertical-align: top; } .ds-obl-row:hover { background: var(--layer-1, #f5f7fa); } .ds-obl-row.ds-obl-selected { background: var(--accent-weak, #eff4ff); } .ds-obl-when { font-weight: 600; white-space: nowrap; } .ds-obl-code { color: var(--navy, #0e2a47); font-size: 0.9375rem; font-weight: 650; letter-spacing: -0.015em; line-height: 1.1; } .ds-obl-law { display: inline-flex; margin-left: 8px; padding: 1px 6px; border-radius: 4px; background: var(--layer-2, #ecf0f5); color: var(--ink-2, #3f4f63); font-size: 0.75rem; font-weight: 600; line-height: 1.5; vertical-align: 1px; } .ds-obl-title { display: block; margin-top: 3px; color: var(--ink-2, #3f4f63); line-height: 1.4; } .ds-obl-period { display: block; margin-top: 4px; color: var(--ink-3, #5f6e80); font-size: 0.75rem; font-weight: 600; } .ds-obl-done .ds-obl-code, .ds-obl-done .ds-obl-title, .ds-obl-done .ds-obl-when { color: var(--ink-3, #5f6e80); } .ds-obl-auth { color: var(--ink-2, #3f4f63); font-size: 0.75rem; } .ds-obl-exp { text-align: right; font-weight: 600; white-space: nowrap; } .ds-obl-exp small { display: block; margin-top: 2px; color: var(--ink-3, #5f6e80); font-size: 0.75rem; font-weight: 400; } .ds-obl-pill { display: inline-flex; align-items: center; gap: 6px; padding: 1px 8px 1px 7px; border: 1px solid var(--soon-line, #efd9a8); border-radius: 999px; background: var(--soon-tint, #fdf5e4); color: var(--soon-text, #8a5300); font-size: 0.75rem; font-weight: 600; line-height: 1.5; white-space: nowrap; } .ds-obl-pill::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--soon, #c47c06); } .ds-obl-pill[data-state='filed'] { border-color: var(--filed-line, #bddfcb); background: var(--filed-tint, #ebf6f0); color: var(--filed-text, #1c6a43); } .ds-obl-pill[data-state='filed']::before { background: var(--filed, #287a4f); } .ds-obl-act { width: 52px; text-align: right; } .ds-obl-file { display: inline-grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 1px solid var(--rule-2, #ccd4de); border-radius: var(--radius, 6px); background: var(--ground, #fff); color: var(--ink-3, #5f6e80); cursor: pointer; box-shadow: var(--shadow-sm, 0 1px 2px rgba(16, 24, 40, 0.06)); transition: border-color 140ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), color 140ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)), background-color 140ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-obl-file:hover { border-color: var(--filed, #287a4f); color: var(--filed-text, #1c6a43); } .ds-obl-file.ds-obl-filed { border-color: var(--filed, #287a4f); background: var(--filed, #287a4f); color: #fff; } .ds-obl-file:focus-visible { outline: 2px solid var(--focus, #1d4ed8); outline-offset: 2px; } .ds-obl-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } .ds-obl-file svg { width: 16px; height: 16px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Swimlane Timeline",
+      "kind": "custom",
+      "description": "The one chart: a lane per law, marks sized by the fixed 30-day penalty and filled by state (navy when ordinary), a cobalt Today line, the selected date as a Cobalt Wash band, and the horizon's edge in Cool Panel Grey.",
+      "html": "<figure class=\"ds-tl\"><div class=\"ds-tl-head\"><h3>By law</h3><p>Each mark is a due date, sized by the fixed cost of a 30-day delay.</p></div><div class=\"ds-tl-key\" aria-hidden=\"true\"><span><i class=\"ds-tl-k1\"></i>Under Rs 1,000</span><span><i class=\"ds-tl-k2\"></i>Rs 10,000</span><span><i class=\"ds-tl-k3\"></i>Rs 1 lakh or more</span></div><svg class=\"ds-tl-svg\" viewBox=\"0 0 640 137\" role=\"img\" aria-label=\"Obligations by law over the horizon\" tabindex=\"0\"><rect class=\"ds-tl-beyond\" x=\"560\" y=\"28\" width=\"80\" height=\"109\"/><g class=\"ds-tl-tick\"><line x1=\"260\" x2=\"260\" y1=\"28\" y2=\"131\"/><text x=\"264\" y=\"20\">19 Oct</text></g><g class=\"ds-tl-tick\"><line x1=\"380\" x2=\"380\" y1=\"28\" y2=\"131\"/><text x=\"384\" y=\"20\">26 Oct</text></g><g class=\"ds-tl-tick ds-tl-major\"><line x1=\"500\" x2=\"500\" y1=\"28\" y2=\"131\"/><text x=\"504\" y=\"20\">2 Nov</text></g><g class=\"ds-tl-lane\"><line x1=\"150\" x2=\"624\" y1=\"49.5\" y2=\"49.5\"/><text class=\"ds-tl-lane-label\" x=\"0\" y=\"53.5\">Income tax</text><text class=\"ds-tl-lane-count\" x=\"138\" y=\"53.5\" text-anchor=\"end\">14</text></g><g class=\"ds-tl-lane\"><line x1=\"150\" x2=\"624\" y1=\"80.5\" y2=\"80.5\"/><text class=\"ds-tl-lane-label\" x=\"0\" y=\"84.5\">GST</text><text class=\"ds-tl-lane-count\" x=\"138\" y=\"84.5\" text-anchor=\"end\">13</text></g><g class=\"ds-tl-lane\"><line x1=\"150\" x2=\"624\" y1=\"111.5\" y2=\"111.5\"/><text class=\"ds-tl-lane-label\" x=\"0\" y=\"115.5\">Foreign trade</text><text class=\"ds-tl-lane-count\" x=\"138\" y=\"115.5\" text-anchor=\"end\">2</text></g><rect class=\"ds-tl-selected\" x=\"412\" y=\"28\" width=\"16\" height=\"103\" rx=\"3\"/><g class=\"ds-tl-today\"><line x1=\"160\" x2=\"160\" y1=\"26\" y2=\"131\"/><text x=\"164\" y=\"20\">Today</text></g><circle class=\"ds-tl-dot ds-tl-soon\" cx=\"164\" cy=\"49.5\" r=\"6.0\"/><circle class=\"ds-tl-dot ds-tl-up\" cx=\"330\" cy=\"49.5\" r=\"6.7\"/><circle class=\"ds-tl-dot ds-tl-up ds-tl-on\" cx=\"420\" cy=\"49.5\" r=\"8.5\"/><text class=\"ds-tl-count\" x=\"420\" y=\"53.0\" text-anchor=\"middle\">4</text><circle class=\"ds-tl-dot ds-tl-up ds-tl-dim\" cx=\"596\" cy=\"49.5\" r=\"4.5\"/><circle class=\"ds-tl-dot ds-tl-soon\" cx=\"214\" cy=\"80.5\" r=\"4.5\"/><circle class=\"ds-tl-dot ds-tl-soon\" cx=\"290\" cy=\"80.5\" r=\"7.5\"/><circle class=\"ds-tl-dot ds-tl-ext\" cx=\"395\" cy=\"80.5\" r=\"6.0\"/><circle class=\"ds-tl-dot ds-tl-up\" cx=\"520\" cy=\"80.5\" r=\"8.5\"/><text class=\"ds-tl-count\" x=\"520\" y=\"84.0\" text-anchor=\"middle\">3</text><circle class=\"ds-tl-dot ds-tl-up\" cx=\"470\" cy=\"111.5\" r=\"10.0\"/><text class=\"ds-tl-count\" x=\"470\" y=\"115.0\" text-anchor=\"middle\">2</text><text class=\"ds-tl-callout\" x=\"486\" y=\"115.5\">MOOWR +1 - Rs 4 L</text></svg></figure>",
+      "css": ".ds-tl { max-width: 640px; margin: 0; color: var(--ink, #0f1f33); font-family: var(--font, 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif); } .ds-tl-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; padding-top: 12px; border-top: 2px solid var(--navy, #0e2a47); } .ds-tl-head h3 { margin: 0; font-size: 0.9375rem; font-weight: 600; letter-spacing: -0.01em; } .ds-tl-head p { margin: 0; color: var(--ink-3, #5f6e80); font-size: 0.8125rem; } .ds-tl-key { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 4px 16px; margin: 8px 0 4px; color: var(--ink-2, #3f4f63); font-size: 0.75rem; } .ds-tl-key span { display: inline-flex; align-items: center; gap: 6px; } .ds-tl-key i { display: inline-block; border-radius: 50%; background: var(--upcoming, #0e2a47); } .ds-tl-k1 { width: 9px; height: 9px; } .ds-tl-k2 { width: 13px; height: 13px; } .ds-tl-k3 { width: 17px; height: 17px; } .ds-tl-svg { display: block; width: 100%; height: auto; overflow: visible; font-family: inherit; } .ds-tl-svg:focus { outline: none; } .ds-tl-svg:focus-visible { outline: 2px solid var(--focus, #1d4ed8); outline-offset: 6px; border-radius: 4px; } .ds-tl-beyond { fill: var(--layer-1, #f5f7fa); } .ds-tl-tick line { stroke: var(--rule, #e2e7ee); } .ds-tl-tick.ds-tl-major line { stroke: var(--rule-2, #ccd4de); } .ds-tl-tick text { fill: var(--ink-3, #5f6e80); font-size: 11px; font-weight: 500; } .ds-tl-tick.ds-tl-major text { fill: var(--ink-2, #3f4f63); font-weight: 600; } .ds-tl-lane line { stroke: var(--rule, #e2e7ee); stroke-dasharray: 2 4; } .ds-tl-lane-label { fill: var(--ink, #0f1f33); font-size: 12.5px; font-weight: 600; } .ds-tl-lane-count { fill: var(--ink-3, #5f6e80); font-size: 11px; font-variant-numeric: tabular-nums; } .ds-tl-today line { stroke: var(--accent, #1d4ed8); stroke-width: 1.5; } .ds-tl-today text { fill: var(--accent, #1d4ed8); font-size: 11px; font-weight: 700; } .ds-tl-selected { fill: var(--accent-weak, #eff4ff); stroke: var(--accent-line, #b2c7ff); } .ds-tl-dot { stroke: #fff; stroke-width: 1.5; cursor: pointer; transition: stroke 120ms var(--ease-out, cubic-bezier(0.16, 1, 0.3, 1)); } .ds-tl-dot:hover, .ds-tl-dot.ds-tl-on { stroke: var(--ink, #0f1f33); stroke-width: 2; } .ds-tl-dot.ds-tl-dim { opacity: 0.38; } .ds-tl-up { fill: var(--upcoming, #0e2a47); } .ds-tl-soon { fill: var(--soon, #c47c06); } .ds-tl-ext { fill: var(--extended, #3478c6); } .ds-tl-count { fill: #fff; font-size: 9.5px; font-weight: 700; pointer-events: none; } .ds-tl-callout { fill: var(--navy, #0e2a47); font-size: 11.5px; font-weight: 650; paint-order: stroke; stroke: #fff; stroke-width: 4px; stroke-linejoin: round; pointer-events: none; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Blue-Chip Annual Report",
+    "overview": "The compliance year is typeset the way a listed company sets its annual report. A deep navy masthead sits over white working pages, and the content below it is ruled tables with tabular figures, short lists under section rules, and a single chart that shows how the horizon's deadlines fall law by law. The register is corporate and clean: a document the board would accept, read at a desk and equally at home on a phone between meetings. Density is high but calm. One working page carries a headline, a row of controls, a full-width chart and a long table without crowding, because separation comes from hairlines, tonal bands and generous section spacing rather than from boxes.\n\nColor is held back so that it can carry meaning. Navy is the ink of record: the masthead, every obligation code, the headline figures, the rule that opens each section, and every ordinary due date on the chart. A single cobalt marks what can be acted on or what is selected. Four muted state hues (overdue red, due-soon amber, extension blue, filed green) appear only where the state itself is the message. Type is one family, Archivo at its normal width, separated into roles by weight: semibold headings, a heavier figure voice for codes and figures, regular prose. Depth is nearly absent; surfaces are flat and tonal, and shadow only lifts a control by a hair or floats a transient layer.\n\nThe system replaces a dark catalog look the user tried and rejected, and it refuses the pastel SaaS dashboard of count tiles. The product's confirmed rejections carry into the visual system: no alarm red everywhere, no walls of legal text, nothing playful or gamified.",
+    "keyCharacteristics": [
+      "Navy masthead over white working pages and cool grey panels; light only.",
+      "Ruled tables with tabular figures; hairlines, not boxes, separate content.",
+      "A 2px navy rule opens every working section.",
+      "One cobalt for action and selection; state hues only where state is the message.",
+      "One family (Archivo, normal width) with a 650 figure voice for codes and figures.",
+      "One chart: the swimlane timeline, its marks sized by the cost of filing late.",
+      "Flat surfaces; shadow only for control lift, floating layers and dialogs."
+    ],
+    "rules": [
+      {
+        "name": "The One Cobalt Rule",
+        "body": "Cobalt is the only hue that means act or selected: primary buttons, links, toggled filters, the selected row, day and range, focus, and Today on the chart. Nothing decorative is cobalt. Two places mark selection differently, and both are deliberate: the segmented control shows its current value as a raised white segment with navy text, and on navy the current tab uses the lighter #8fb0ff bar.",
+        "section": "colors"
+      },
+      {
+        "name": "The State Is the Message Rule",
+        "body": "Red, amber, extension blue and green appear only on an element whose message is that state: status pills, timeline marks and the status-count dots that serve as their legend, calendar code chips, the file check, the extension note, and status cells and figures in the report. Never as a section color, heading color, row stripe or page wash.",
+        "section": "colors"
+      },
+      {
+        "name": "The Quiet Red Rule",
+        "body": "Red means overdue and nothing else. The Overdue count turns red only when it is above zero, and so does the report's Overdue figure; with nothing overdue, the only red left on screen is the legend dot of the Overdue filter.",
+        "section": "colors"
+      },
+      {
+        "name": "The Figure Voice Rule",
+        "body": "Codes, counts and headline figures take the figure voice (650, -0.015em, tabular); dates and amounts in tables take 600 with tabular figures, and every table is tabular by default. Obligation codes are navy unless a state chip recolors them or a filed row fades them.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence-Case Label Rule",
+        "body": "Labels are 12px semibold at +0.01em, in sentence case, in Caption Slate (Slate Ink for field labels). No uppercase, no wide tracking, no small caps.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Archivo at normal width carries every role from the 3rem entry code to the 9.5px chart counts. Do not reach for its condensed or expanded widths or add a second display face, and do not set numbers in Fragment Mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ruled Section Rule",
+        "body": "A working section opens with a 2px navy rule across its full width (the chart, each aside list, the detail panel, the calendar's day list, the report's key figures), and its rows are divided by 1px Hairline Rules. Boxes are the exception, never the container.",
+        "section": "layout"
+      },
+      {
+        "name": "The Paper Flat Rule",
+        "body": "Content does not float. Tables, lists, panels and the chart lie flat on the page; only controls (by a hair), the tooltip, the on-screen report sheet and dialogs carry shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Round Ends Rule",
+        "body": "Full pills belong to statuses and law filters. Buttons that do something (file, print, export, subscribe, save) are 6px rectangles.",
+        "section": "shapes"
+      },
+      {
+        "name": "The One Chart Rule",
+        "body": "The swimlane timeline is the system's only chart. Other surfaces show the same data as ruled tables, the month grid and lists; no sparklines, rings or secondary charts.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do open every working section with the 2px navy rule and divide its rows with 1px Hairline Rules (#e2e7ee).",
+      "Do keep Cobalt (#1d4ed8) for the primary action, links, toggled filters, selection, focus and Today, with at most one primary button per action group.",
+      "Do set codes, counts and headline figures in the figure voice (650, -0.015em, tabular figures), and keep codes navy.",
+      "Do show state with a pill or a mark in the state's color, and use the state's text tone (overdue-text, soon-text, extended-text, filed-text) for any state-colored text.",
+      "Do leave an ordinary upcoming item navy and pill-less in tables and lists; color is for exceptions.",
+      "Do put legal text, penalty bases and change notes behind a disclosure, and show every rule's sources with its verified date.",
+      "Do draw icons from the Lucide set at 16px with a 1.75 stroke, round caps and joins, in the current text color; the calendar-check mark is the product's own.",
+      "Do theme the browser's own surfaces from the palette: #d6e2ff selection, a thin #c3cbd6 scrollbar, a Cobalt caret, 1px Cobalt Line underlines offset 0.2em, and Cobalt checkboxes and sliders.",
+      "Do move state changes on the system ease-out (cubic-bezier(0.16, 1, 0.3, 1)) at 120 to 150ms, keep the sheet's 220ms slide as the one entrance, and honor reduced motion."
+    ],
+    "donts": [
+      "Don't bring back a dark ground or the dark catalog look this system replaced; it is light only.",
+      "Don't build count tiles or hero metrics on working surfaces; counts are compact filter buttons, and the large-figure strip belongs to the printable report.",
+      "Don't use red for anything but overdue, and don't color a count red at zero.",
+      "Don't add a second accent hue, or use a state hue as decoration, a section color, a row stripe or a page wash.",
+      "Don't make cards the page structure or nest boxes; working content lives in ruled sections and hairline rows, and bordered panels stay limited to the cases under Cards / Containers.",
+      "Don't add a second chart, sparklines or progress rings.",
+      "Don't uppercase or letter-space labels, and don't set numbers in Fragment Mono; it is for code identifiers only.",
+      "Don't use Archivo's condensed or expanded widths, or a second display face.",
+      "Don't lift content with shadow; only controls, the tooltip, the on-screen report sheet and dialogs carry it.",
+      "Don't add gradient fills, gradient text, glass or blur; the only gradients in the system are functional (the select caret, the loading shimmer, the masthead's scroll fade).",
+      "Don't add playful or gamified touches such as illustrations, emoji or celebrations on filing; a filed item simply turns green and goes quiet.",
+      "Don't set white text on the amber due-soon solid; amber carries text only as soon-text on its tint."
+    ]
+  }
+}

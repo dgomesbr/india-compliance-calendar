@@ -186,6 +186,9 @@ const built = new Date().toISOString().slice(0, 10);
   .masthead-tools {
     flex: none;
   }
+  .masthead :global(:focus-visible) {
+    outline-color: #fff;
+  }
   main {
     min-height: calc(100vh - 220px);
     outline: none;
