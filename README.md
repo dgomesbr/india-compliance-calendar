@@ -39,6 +39,10 @@ rules, with no content copied from any commercial site.
   filed, overdue, pending, not recorded, with CSV export.
 - **Regulator feed.** A daily GitHub Actions job collects official RSS feeds into
   an updates page and an RSS feed of its own.
+- **Holidays abroad.** Canada federal statutory holidays, Ontario public and bank
+  holidays, and US federal and Federal Reserve holidays sit beside the Indian
+  ones in the month calendar and the overview, for teams that pay, file or meet
+  across borders, with ICS feeds of their own. They never move an Indian due date.
 - **Subscribe and export.** ICS feeds for everything, per law and per audience,
   with reminders 7 days and 1 day before; single-event downloads; CSV.
 - **Built for agents too.** A static JSON API, `llms.txt`, and an MCP server so
@@ -106,7 +110,12 @@ and the MCP server.
 
 `.github/workflows/deploy.yml` validates, tests, collects feeds and deploys to
 GitHub Pages on every push to `main` and daily at 06:00 IST, so date windows and
-feeds stay current. `check-sources.yml` reports dead source links weekly. Forks
+feeds stay current. `refresh-sources.yml` runs every other day: it compares the
+Income Tax e-Filing tax calendar and the GST portal's current dates with the
+rules, checks the holiday calendars abroad against their statutory rules and
+open datasets (drafting a coming year from the rule until its authority
+publishes it), checks every cited link, and commits the results to
+`data/source-status.json`, which the Sources page shows. Forks
 can publish elsewhere with `ICC_SITE` and `ICC_BASE`.
 
 ## Design

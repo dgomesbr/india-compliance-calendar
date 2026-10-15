@@ -1,6 +1,6 @@
 // Build-time data, loaded once per build for pages and endpoints.
 
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { addDays, addMonths, fyStartYear, iso, todayIST, type ISODate } from './dates.ts';
@@ -38,6 +38,43 @@ export function getBundle(): Bundle {
 export function getUpdates(): UpdatesFile {
   if (!updates || import.meta.env.DEV) updates = loadUpdatesFile(ROOT);
   return updates;
+}
+
+/** What the every-other-day source refresher found on its last run (data/source-status.json). */
+export interface SourceStatus {
+  checked: string;
+  runner: string;
+  official?: {
+    source: string;
+    window: string;
+    items: number;
+    unmatched: { date: string; items: string[] }[];
+    calendarOnly: { date: string; codes: string[] }[];
+    error?: string;
+  }[];
+  links: {
+    total: number;
+    answered: number;
+    refused: number;
+    unreachable: { url: string; detail: string; citedBy: string[] }[];
+    notFound: { url: string; detail: string; citedBy: string[] }[];
+  } | null;
+  holidays: {
+    checked: string[];
+    drafted: string[];
+    mismatches: { id: string; missing: string[]; extra: string[] }[];
+    crossChecks: { source: string; year: number; list: string; missing: string[]; extra: string[]; error?: string }[];
+  };
+}
+
+export function getSourceStatus(): SourceStatus | null {
+  const file = join(ROOT, 'data', 'source-status.json');
+  if (!existsSync(file)) return null;
+  try {
+    return JSON.parse(readFileSync(file, 'utf8')) as SourceStatus;
+  } catch {
+    return null;
+  }
 }
 
 export function buildDate(): ISODate {

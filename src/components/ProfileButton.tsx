@@ -10,6 +10,7 @@ import {
   type GstMode,
   type Profile,
 } from '../lib/profile.ts';
+import { ABROAD, ABROAD_LABEL } from '../lib/abroad.ts';
 import { exportState, importState, type TeamState } from '../lib/store.ts';
 import { STATE_CODES, STATE_NAME } from '../lib/validate.ts';
 import { Icon } from './Icon.tsx';
@@ -128,6 +129,20 @@ export default function ProfileButton() {
                     <input type="checkbox" checked={draft.states.includes(c)}
                       onChange={(e) => set({ states: (e.target as HTMLInputElement).checked ? [...draft.states, c] : draft.states.filter((x) => x !== c) })} />
                     <span title={STATE_NAME[c]}>{STATE_NAME[c]}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset class="abroad">
+              <legend class="label">Holidays abroad</legend>
+              <p class="faint">Shown beside the Indian holidays in the calendar and the overview. They never move an Indian due date.</p>
+              <div class="state-grid">
+                {ABROAD.map((s) => (
+                  <label class="state-chip">
+                    <input type="checkbox" checked={(draft.abroad ?? []).includes(s)}
+                      onChange={(e) => set({ abroad: (e.target as HTMLInputElement).checked ? [...(draft.abroad ?? []), s] : (draft.abroad ?? []).filter((x) => x !== s) })} />
+                    <span>{ABROAD_LABEL[s]}</span>
                   </label>
                 ))}
               </div>

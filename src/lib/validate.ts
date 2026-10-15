@@ -1,5 +1,6 @@
 // Data checks run by the test suite, `npm run validate` and CI.
 
+import { ABROAD } from './abroad.ts';
 import { isISODate } from './dates.ts';
 import { AUDIENCES, CATEGORIES, FREQUENCIES, type EventType, type HolidayList, type Rule, type Schedule } from './types.ts';
 
@@ -113,6 +114,9 @@ export function validateRules(rules: Rule[]): string[] {
   return errors;
 }
 
+const HOLIDAY_KINDS = ['gazetted', 'restricted', 'bank', 'exchange-trading', 'exchange-settlement', 'statutory'];
+const HOLIDAY_SCOPES = ['IN', 'NSE', 'BSE', ...STATE_CODES, ...ABROAD];
+
 export function validateHolidays(lists: HolidayList[]): string[] {
   const errors: string[] = [];
   const ids = new Set<string>();
@@ -120,8 +124,13 @@ export function validateHolidays(lists: HolidayList[]): string[] {
     if (ids.has(l.id)) errors.push(`holidays ${l.id}: duplicate id`);
     ids.add(l.id);
     if (!l.source?.url) errors.push(`holidays ${l.id}: source required`);
+    if (!HOLIDAY_KINDS.includes(l.kind)) errors.push(`holidays ${l.id}: unknown kind "${l.kind}"`);
+    if (!HOLIDAY_SCOPES.includes(l.scope)) errors.push(`holidays ${l.id}: unknown scope "${l.scope}"`);
+    if (l.kind === 'statutory' && !(ABROAD as readonly string[]).includes(l.scope)) errors.push(`holidays ${l.id}: statutory lists are for Canada, Ontario or the US`);
+    if (!isISODate(l.verified)) errors.push(`holidays ${l.id}: verified must be YYYY-MM-DD`);
     for (const h of l.holidays ?? []) {
       if (!isISODate(h.date)) errors.push(`holidays ${l.id}: bad date "${h.date}"`);
+      if (h.actual !== undefined && !isISODate(h.actual)) errors.push(`holidays ${l.id}: bad actual date "${h.actual}"`);
       else if (Number(h.date.slice(0, 4)) !== l.year) errors.push(`holidays ${l.id}: ${h.date} outside ${l.year}`);
     }
     for (const p of nonAsciiPaths(l)) errors.push(`holidays ${l.id}: non-ASCII text in ${p}`);

@@ -535,6 +535,11 @@
   font-size: var(--t-md);
   transition: color var(--dur-fast) var(--ease-out);
 }
+.aside-country {
+  color: var(--ink-2);
+  font-size: var(--t-xs);
+  font-weight: 650;
+}
 .aside-amount {
   color: var(--ink);
   font-size: var(--t-sm);

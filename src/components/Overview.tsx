@@ -1,6 +1,7 @@
 import type { ComponentChildren } from 'preact';
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
-import { fetchUpdates, useBundle, useTeamState, useToday } from '../lib/client.ts';
+import { abroadDays, abroadMeaning, COUNTRY_LABEL, type AbroadHoliday } from '../lib/abroad.ts';
+import { baseUrl, fetchUpdates, useBundle, useTeamState, useToday } from '../lib/client.ts';
 import { addMonths, diffDays, formatDate, lastDayOfMonth, parts, relativeDays, shiftMonth, type ISODate } from '../lib/dates.ts';
 import { formatINRCompact, interestNote } from '../lib/exposure.ts';
 import {
@@ -203,6 +204,17 @@ export default function Overview() {
   }, [allRows, query, states, day, sort]);
 
   const selectedRow = selected ? allRows.find((r) => r.occ.key === selected) ?? null : null;
+
+  // Banks and offices closed abroad within the horizon, for teams that pay or meet across borders.
+  const closedAbroad = useMemo(() => {
+    if (data.status !== 'ready' || !team) return [] as { date: ISODate; h: AbroadHoliday }[];
+    const days = abroadDays(data.data, team.profile.abroad ?? []);
+    return [...days.entries()]
+      .filter(([d]) => d >= today && d <= range.to)
+      .sort(([a], [b]) => (a < b ? -1 : 1))
+      .flatMap(([date, hs]) => hs.map((h) => ({ date, h })))
+      .slice(0, 6);
+  }, [data, team, today, range.to]);
   const thumb = useThumb(segRef, '.seg-btn.is-on', [horizon]);
 
   useEffect(() => {
@@ -474,6 +486,22 @@ export default function Overview() {
                   </li>
                 ))}
               </AsideList>
+              {(team?.profile.abroad ?? []).length > 0 && (
+                <AsideList title="Closed abroad" empty="No holiday in Canada, Ontario or the US falls in this horizon.">
+                  {closedAbroad.map(({ date, h }, i) => (
+                    <li style={{ '--i': i }}>
+                      <a class="aside-item" href={`${baseUrl()}calendar/?d=${date}`}>
+                        <span class="aside-row">
+                          <span class="aside-code fig num">{formatDate(date, { year: false })}</span>
+                          <span class="aside-country">{COUNTRY_LABEL[h.country]}</span>
+                        </span>
+                        <span class="aside-title">{h.name}</span>
+                        <span class="aside-meta">{abroadMeaning(h)}</span>
+                      </a>
+                    </li>
+                  ))}
+                </AsideList>
+              )}
               <AsideList title="From the regulators" empty="The regulator feed has not been collected yet.">
                 {updates.map((u, i) => (
                   <li style={{ '--i': i }}>

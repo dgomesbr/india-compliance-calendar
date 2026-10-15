@@ -1,10 +1,22 @@
 ---
 import Shell from '../layouts/Shell.astro';
 import PageBand from '../components/PageBand.astro';
+import { abroadDays } from '../lib/abroad.ts';
+import { HOLIDAY_FEEDS, type HolidayFeed } from '../lib/feeds.ts';
 import { getBundle, SITE_URL } from '../lib/site-data.ts';
 import { AUDIENCES, AUDIENCE_LABEL, CATEGORIES, CATEGORY_LABEL } from '../lib/types.ts';
 
-const { rules } = getBundle();
+const bundle = getBundle();
+const { rules } = bundle;
+const years = [...new Set(bundle.holidays.map((l) => l.year))].sort();
+const holidayFeeds = (Object.keys(HOLIDAY_FEEDS) as HolidayFeed[]).map((id) => ({
+  id: `holidays/${id}`,
+  name: HOLIDAY_FEEDS[id].name,
+  count:
+    id === 'in'
+      ? bundle.holidays.filter((l) => l.kind === 'gazetted' && l.scope === 'IN').reduce((n, l) => n + l.holidays.length, 0)
+      : abroadDays(bundle, HOLIDAY_FEEDS[id].scopes).size,
+}));
 const scheduled = rules.filter((r) => r.schedule);
 const feeds = [
   { id: 'all', name: 'Everything', count: scheduled.length },
@@ -18,7 +30,7 @@ const endpoints = [
   ['bundle.json', 'Rules, holidays, planner events and metadata in one file. What the site itself loads.'],
   ['rules.json', 'Every obligation as a structured rule: schedule, applicability, law, penalty exposure, sources.'],
   ['occurrences.json', 'Every dated occurrence from the start of the current financial year to 25 months ahead.'],
-  ['holidays.json', 'Central gazetted and restricted holidays, exchange and bank holidays where published.'],
+  ['holidays.json', 'Central gazetted and restricted holidays, exchange and bank holidays where published, and the Canadian, Ontario and US holiday calendars.'],
   ['events.json', 'Event types for the planner and the deadlines that follow each one.'],
   ['updates.json', 'The latest regulator updates collected by the daily job.'],
   ['sources.json', 'The catalogue of open datasets and official sources behind the calendar.'],
@@ -67,6 +79,21 @@ const mcpConfig = JSON.stringify(
           audienceFeeds.map((f) => (
             <div class="sub-item">
               <span><span class="fig">{f.name}</span> <span class="faint num">{f.count} {f.count === 1 ? 'rule' : 'rules'}</span></span>
+              <span class="sub-links label">
+                <a href={webcal(f.id)}>Subscribe</a>
+                <a href={google(f.id)} rel="noopener">Google Calendar</a>
+                <a href={https(f.id)}>Download</a>
+              </span>
+            </div>
+          ))
+        }
+      </div>
+      <h3 class="label faint">Holiday calendars</h3>
+      <div class="sub-grid">
+        {
+          holidayFeeds.map((f) => (
+            <div class="sub-item">
+              <span><span class="fig">{f.name}</span> <span class="faint num">{f.count} dates, {years[0]}-{years[years.length - 1]}</span></span>
               <span class="sub-links label">
                 <a href={webcal(f.id)}>Subscribe</a>
                 <a href={google(f.id)} rel="noopener">Google Calendar</a>

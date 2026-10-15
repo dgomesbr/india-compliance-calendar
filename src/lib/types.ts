@@ -201,13 +201,16 @@ export interface Occurrence {
 export interface Holiday {
   date: string;
   name: string;
+  /** The holiday's own date, when the list gives the observed or closure date instead. */
+  actual?: string;
   note?: string;
 }
 
 export interface HolidayList {
   id: string;
   title: string;
-  kind: 'gazetted' | 'restricted' | 'bank' | 'exchange-trading' | 'exchange-settlement';
+  /** "statutory" covers public and federal holidays abroad (Canada, Ontario, United States). */
+  kind: 'gazetted' | 'restricted' | 'bank' | 'exchange-trading' | 'exchange-settlement' | 'statutory';
   scope: string;
   year: number;
   authority: string;

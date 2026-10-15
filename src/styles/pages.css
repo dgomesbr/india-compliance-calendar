@@ -112,6 +112,50 @@
   font-weight: 500;
   line-height: 1.3;
 }
+/* holidays abroad: quieter than India's own, the country set in ink */
+.cal-abroad {
+  color: var(--ink-3);
+  font-size: var(--t-xs);
+  line-height: 1.3;
+}
+.cal-abroad-country {
+  color: var(--ink);
+  font-weight: 650;
+}
+.abroad-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--s-3);
+}
+.abroad-chips > .label {
+  margin-right: var(--s-1);
+}
+.cal-abroad-list {
+  display: grid;
+  gap: var(--s-2);
+  margin: var(--s-2) 0 var(--s-3);
+  padding: var(--s-2) 0 var(--s-3);
+  border-bottom: 1px solid var(--rule);
+  list-style: none;
+  font-size: var(--t-sm);
+}
+.cal-abroad-list li {
+  display: grid;
+  grid-template-columns: 4.5em minmax(0, 1fr);
+  gap: var(--s-2);
+}
+.cal-abroad-list .cal-abroad-country {
+  font-size: var(--t-xs);
+  line-height: 1.7;
+}
+.cal-abroad-note {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-3);
+  font-size: var(--t-xs);
+}
 .cal-codes {
   display: grid;
   gap: 3px;
@@ -738,8 +782,32 @@
     padding: 6px 2px;
   }
   .cal-holiday,
+  .cal-abroad,
   .cal-codes {
     display: none;
+  }
+  /* on phones a short bar under the day number marks a holiday: solid for India, open for abroad */
+  .cal-cell.is-holiday .cal-num,
+  .cal-cell.has-abroad .cal-num {
+    position: relative;
+  }
+  .cal-cell.is-holiday .cal-num::after,
+  .cal-cell.has-abroad .cal-num::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 12px;
+    height: 3px;
+    border-radius: 2px;
+    transform: translateX(-50%);
+  }
+  .cal-cell.has-abroad .cal-num::after {
+    box-shadow: inset 0 0 0 1px var(--ink-3);
+  }
+  .cal-cell.is-holiday .cal-num::after {
+    background: var(--navy);
+    box-shadow: none;
   }
   .cal-dots {
     display: flex;

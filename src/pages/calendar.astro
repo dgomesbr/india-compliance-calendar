@@ -8,7 +8,7 @@ const now = parts(buildDate());
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
-<Shell title="Calendar" active="calendar" preloadData description="Month view of Indian statutory due dates, with central holidays.">
+<Shell title="Calendar" active="calendar" preloadData description="Month view of Indian statutory due dates, with central holidays and the holiday calendars of Canada, Ontario and the US.">
   <MonthCalendar client:only="preact">
     <div slot="fallback" class="cal">
       <section class="band cal-band" aria-labelledby="cal-title">

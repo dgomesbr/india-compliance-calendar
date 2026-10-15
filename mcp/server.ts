@@ -142,14 +142,14 @@ const TOOLS = [
   {
     name: 'list_holidays',
     title: 'List holidays',
-    description: 'Holidays between two dates from the published lists (central gazetted and restricted, bank, exchange).',
+    description: 'Holidays between two dates from the published lists: India (central gazetted and restricted, state bank, exchange), and Canada federal, Ontario public and bank, and US federal and Federal Reserve holidays.',
     inputSchema: {
       type: 'object',
       properties: {
         from: dateStr,
         to: dateStr,
-        kind: { type: 'string', enum: ['gazetted', 'restricted', 'bank', 'exchange-trading', 'exchange-settlement'] },
-        scope: { ...str, description: 'IN, a state code, NSE or BSE' },
+        kind: { type: 'string', enum: ['gazetted', 'restricted', 'bank', 'exchange-trading', 'exchange-settlement', 'statutory'] },
+        scope: { ...str, description: 'IN, an Indian state code, NSE or BSE; or CA, CA-ON or US for the calendars abroad' },
       },
       additionalProperties: false,
     },

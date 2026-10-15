@@ -4,6 +4,7 @@ import {
   daysInMonth,
   formatDate,
   formatLong,
+  isISODate,
   iso,
   MONTHS_LONG,
   parts,
@@ -14,6 +15,7 @@ import {
 import { formatINRCompact } from '../lib/exposure.ts';
 import { CATEGORIES, CATEGORY_LABEL, type Category } from '../lib/types.ts';
 import { buildRows, closedDays, STATE_LABEL, sortRows, type Row } from '../lib/view.ts';
+import { ABROAD, ABROAD_LABEL, COUNTRY_LABEL, abroadDays, abroadMeaning } from '../lib/abroad.ts';
 import { useInView } from '../lib/motion.ts';
 import Detail, { Law } from './Detail.tsx';
 import { Icon } from './Icon.tsx';
@@ -24,11 +26,15 @@ export default function MonthCalendar() {
   const data = useBundle();
   const [team, saveTeam] = useTeamState();
   const today = useToday();
+  const [start] = useState(() => {
+    const d = typeof location === 'undefined' ? null : new URLSearchParams(location.search).get('d');
+    return d && isISODate(d) ? d : today;
+  });
   const [cursor, setCursor] = useState(() => {
-    const p = parts(today);
+    const p = parts(start);
     return { y: p.y, m: p.m };
   });
-  const [day, setDay] = useState<ISODate>(today);
+  const [day, setDay] = useState<ISODate>(start);
   const [laws, setLaws] = useState<Category[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   // Direction of the last month change; the new month slides in from that side.
@@ -59,6 +65,16 @@ export default function MonthCalendar() {
     () => (data.status === 'ready' ? closedDays(data.data, team?.profile.states ?? []) : new Map<string, string>()),
     [data, team],
   );
+  const abroadScopes = team?.profile.abroad ?? [];
+  const abroad = useMemo(
+    () => (data.status === 'ready' ? abroadDays(data.data, abroadScopes) : new Map()),
+    [data, abroadScopes.join(',')],
+  );
+  const toggleAbroad = (scope: string) => {
+    if (!team) return;
+    const next = abroadScopes.includes(scope) ? abroadScopes.filter((s) => s !== scope) : [...abroadScopes, scope];
+    saveTeam({ ...team, profile: { ...team.profile, abroad: next } });
+  };
   const byDay = useMemo(() => {
     const m = new Map<ISODate, Row[]>();
     for (const r of sortRows(rows, 'exposure')) {
@@ -150,6 +166,14 @@ export default function MonthCalendar() {
             </button>
           ))}
         </div>
+        <div class="abroad-chips" role="group" aria-label="Holidays abroad">
+          <span class="label">Holidays abroad</span>
+          {ABROAD.map((s) => (
+            <button type="button" class="chip" aria-pressed={abroadScopes.includes(s)} onClick={() => toggleAbroad(s)} disabled={!team}>
+              {ABROAD_LABEL[s]}
+            </button>
+          ))}
+        </div>
 
         <div class="cal-body">
           <div class="cal-grid" role="grid" key={monthStart} data-dir={dir || undefined} aria-label={`${MONTHS_LONG[cursor.m - 1]} ${cursor.y}`} onKeyDown={onGridKey}>
@@ -162,12 +186,14 @@ export default function MonthCalendar() {
                   if (!date) return <div class="cal-cell is-blank" role="gridcell" aria-hidden="true" />;
                   const list = byDay.get(date) ?? [];
                   const holiday = holidays.get(date);
+                  const away = abroad.get(date) ?? [];
                   const cls = [
                     'cal-cell',
                     date === today ? 'is-today' : '',
                     date === day ? 'is-selected' : '',
                     i > 4 ? 'is-weekend' : '',
                     holiday ? 'is-holiday' : '',
+                    away.length ? 'has-abroad' : '',
                   ].join(' ');
                   return (
                     <div class={cls} role="gridcell" aria-selected={date === day}>
@@ -177,10 +203,15 @@ export default function MonthCalendar() {
                         data-day={date}
                         tabIndex={date === day ? 0 : -1}
                         onClick={() => setDay(date)}
-                        aria-label={`${formatLong(date)}${holiday ? `, ${holiday}` : ''}: ${list.length} ${list.length === 1 ? 'obligation' : 'obligations'}`}
+                        aria-label={`${formatLong(date)}${holiday ? `, ${holiday}` : ''}${away.map((h) => `, ${COUNTRY_LABEL[h.country]}: ${h.name}`).join('')}: ${list.length} ${list.length === 1 ? 'obligation' : 'obligations'}`}
                       >
                         <span class="cal-num fig num">{parts(date).d}</span>
                         {holiday && <span class="cal-holiday">{holiday}</span>}
+                        {away.map((h) => (
+                          <span class="cal-abroad">
+                            <span class="cal-abroad-country">{COUNTRY_LABEL[h.country]}</span> {h.name}
+                          </span>
+                        ))}
                         <span class="cal-codes">
                           {list.slice(0, 4).map((r) => (
                             <span class="cal-code" data-state={r.state}>{r.rule.code}</span>
@@ -201,6 +232,19 @@ export default function MonthCalendar() {
               {formatDate(day)}
               {holidays.get(day) && <span class="faint"> - {holidays.get(day)}</span>}
             </h2>
+            {(abroad.get(day) ?? []).length > 0 && (
+              <ul class="cal-abroad-list" aria-label="Holidays abroad">
+                {(abroad.get(day) ?? []).map((h) => (
+                  <li>
+                    <span class="cal-abroad-country">{COUNTRY_LABEL[h.country]}</span>
+                    <span>
+                      <strong>{h.name}</strong> - {abroadMeaning(h)}
+                      {h.notes.length > 0 && <span class="cal-abroad-note">{h.notes.join(' ')}</span>}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
             {dayRows.length === 0 ? (
               <p class="faint cal-empty">Nothing due on this day.</p>
             ) : (

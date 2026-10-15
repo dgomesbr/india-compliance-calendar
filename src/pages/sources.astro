@@ -2,7 +2,8 @@
 import Shell from '../layouts/Shell.astro';
 import PageBand from '../components/PageBand.astro';
 import { formatDate } from '../lib/dates.ts';
-import { getBundle, getSources } from '../lib/site-data.ts';
+import { getBundle, getSourceStatus, getSources } from '../lib/site-data.ts';
+import { isAbroad } from '../lib/abroad.ts';
 import { CATEGORIES, CATEGORY_LABEL } from '../lib/types.ts';
 
 const { rules, holidays, meta } = getBundle();
@@ -23,6 +24,12 @@ const GROUP_LABEL: Record<string, string> = {
 const byConfidence = { high: 0, medium: 0, low: 0 } as Record<string, number>;
 for (const r of rules) byConfidence[r.confidence] = (byConfidence[r.confidence] ?? 0) + 1;
 const used = sources.filter((s) => s.used).length;
+const status = getSourceStatus();
+const indian = holidays.filter((h) => !isAbroad(h));
+const abroadLists = holidays.filter(isAbroad);
+const crossChecks = status?.holidays.crossChecks ?? [];
+const crossErrors = crossChecks.filter((r) => r.error);
+const crossDiffs = crossChecks.filter((r) => !r.error && (r.missing.length || r.extra.length));
 ---
 
 <Shell title="Method and sources" active="sources" description="How the calendar's dates are compiled and verified, and the catalogue of open datasets and official sources behind it.">
@@ -87,7 +94,75 @@ const used = sources.filter((s) => s.used).length;
       </div>
       <div class="prose">
         <p>
-          Holidays: {holidays.length} published lists ({holidays.map((h) => h.title).join('; ') || 'none yet'}).
+          Holidays in India: {indian.length} published lists ({indian.map((h) => h.title).join('; ') || 'none yet'}).
+        </p>
+        <p>
+          Holidays abroad, shown beside them for teams that pay, file or meet across borders and never used to move an Indian
+          due date: {abroadLists.map((h) => `${h.title} (${h.authority}${h.confidence === 'medium' ? ', drafted from the rule' : ''})`).join('; ') || 'none yet'}.
+        </p>
+      </div>
+    </section>
+
+    <section class="read-section" aria-labelledby="refresher">
+      <h2 id="refresher">Source refresher</h2>
+      <div class="prose">
+        <p>
+          Every other day a GitHub Actions job rechecks the sources: the official due-date feeds that answer from outside India
+          (the Income Tax e-Filing tax calendar for the financial year and the GST portal's current-period dates) against the
+          dates the rules produce, each holiday list for Canada, Ontario and the United States against its statutory rule and
+          against the feeds its authority publishes (OPM's holiday feed and Federal Register closure orders, the Labour
+          Program's dated list, Payments Canada's closure schedule), and every cited link. A year whose list is not yet published
+          is drafted from the rule and marked as such; a disagreement is reported for a person to resolve, never applied on its
+          own. Regulator feeds are collected separately, every day.
+        </p>
+        {
+          status ? (
+            <ul>
+              <li>
+                Last run {formatDate(status.checked.slice(0, 10))} from {status.runner}.
+              </li>
+              {(status.official ?? []).map((c) => (
+                <li>
+                  {c.source} ({c.window}):{' '}
+                  {c.error
+                    ? `could not be read (${c.error}).`
+                    : c.unmatched.length
+                      ? `${c.items} items; ${c.unmatched.length} official ${c.unmatched.length === 1 ? 'date has' : 'dates have'} no matching obligation yet (${c.unmatched.map((u) => `${formatDate(u.date, { weekday: false })}: ${u.items.slice(0, 4).join(', ')}`).join('; ')}).`
+                      : `${c.items} items; every official date matches an obligation in the calendar.`}
+                </li>
+              ))}
+              {status.links && (
+                <li>
+                  {status.links.answered} of {status.links.total} cited links answered; {status.links.refused} more answered but
+                  turned the automated request away, and {status.links.unreachable.length} did not answer from outside India, which
+                  is common for Indian government sites.
+                  {status.links.notFound.length
+                    ? ` ${status.links.notFound.length} returned not found and need replacing: ${status.links.notFound.map((l) => l.url).join(', ')}.`
+                    : ' None returned not found.'}
+                </li>
+              )}
+              <li>
+                {status.holidays.checked.length} published holiday lists checked against their rules
+                {status.holidays.mismatches.length
+                  ? `; ${status.holidays.mismatches.length} disagree (${status.holidays.mismatches.map((m) => m.id).join(', ')}).`
+                  : '; all agree.'}
+                {status.holidays.drafted.length > 0 && ` Drafted from the rule: ${status.holidays.drafted.join(', ')}.`}
+              </li>
+              {crossChecks.length > 0 && (
+                <li>
+                  Published feeds: {crossChecks.length - crossErrors.length - crossDiffs.length} of {crossChecks.length} comparisons
+                  agree
+                  {crossDiffs.length > 0 && `; differences for ${crossDiffs.map((r) => `${r.list} (${r.source})`).join(', ')}`}
+                  {crossErrors.length > 0 && `; ${crossErrors.length} could not be read (${crossErrors.map((r) => `${r.source} ${r.year}: ${r.error}`).join('; ')})`}.
+                </li>
+              )}
+            </ul>
+          ) : (
+            <p class="muted">The refresher has not run yet.</p>
+          )
+        }
+        <p>
+          <a href={`${repo}/actions/workflows/refresh-sources.yml`}>Refresher runs on GitHub</a>
         </p>
       </div>
     </section>

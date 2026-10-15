@@ -1,5 +1,6 @@
 // Calendar feed content shared by the ICS endpoints.
 
+import { abroadDays, abroadMeaning } from './abroad.ts';
 import { addDays, addMonths } from './dates.ts';
 import { exposureLine } from './exposure.ts';
 import { buildCalendar, type CalendarEvent } from './ics.ts';
@@ -34,4 +35,51 @@ export function feedFor(name: string, description: string, rules: Rule[], months
     };
   });
   return buildCalendar({ name, description, stamp: new Date(`${getBundle().meta.generated}`), events });
+}
+
+/** Holiday calendars to subscribe to: India's central list and the calendars abroad. */
+export const HOLIDAY_FEEDS = {
+  in: { name: 'India - Central Government holidays', scopes: [] as string[] },
+  ca: { name: 'Canada - federal statutory holidays', scopes: ['CA'] },
+  'ca-on': { name: 'Ontario - public and bank holidays', scopes: ['CA-ON'] },
+  us: { name: 'United States - federal and Federal Reserve holidays', scopes: ['US'] },
+};
+export type HolidayFeed = keyof typeof HOLIDAY_FEEDS;
+
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+export function holidayFeed(region: HolidayFeed): string {
+  const bundle = getBundle();
+  const feed = HOLIDAY_FEEDS[region];
+  let events: CalendarEvent[];
+  if (region === 'in') {
+    events = bundle.holidays
+      .filter((l) => l.kind === 'gazetted' && l.scope === 'IN')
+      .flatMap((l) =>
+        l.holidays.map((h) => ({
+          uid: `in-${h.date}-${slug(h.name)}@india-compliance-calendar`,
+          date: h.date,
+          summary: `${h.name} - Central Government holiday`,
+          description: [h.note, `${l.title}. ${l.authority}.`, `Source: ${l.source.url}`].filter(Boolean).join('\n'),
+          url: l.source.url,
+        })),
+      );
+  } else {
+    events = [...abroadDays(bundle, feed.scopes).entries()].flatMap(([date, hs]) =>
+      hs.map((h) => ({
+        uid: `${region}-${date}-${slug(h.name)}@india-compliance-calendar`,
+        date,
+        summary: `${h.name} - ${abroadMeaning(h)}`,
+        description: [...h.notes, ...h.sources.map((u) => `Source: ${u}`), 'Information only.'].join('\n'),
+        url: h.sources[0],
+      })),
+    );
+  }
+  events.sort((a, b) => a.date.localeCompare(b.date));
+  return buildCalendar({
+    name: `${feed.name} - India Compliance Calendar`,
+    description: 'Official holiday lists with their sources. Information only.',
+    stamp: new Date(`${bundle.meta.generated}`),
+    events,
+  });
 }

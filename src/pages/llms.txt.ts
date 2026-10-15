@@ -17,7 +17,8 @@ Data is rebuilt daily. ${meta.counts.rules} rules. Dates up to ${meta.confirmedT
 - [Bundle](${SITE_URL}api/v1/bundle.json): rules, holidays, planner events and metadata
 - [Rules](${SITE_URL}api/v1/rules.json): obligations as recurring rules with schedule, applicability, law, exposure and sources
 - [Occurrences](${SITE_URL}api/v1/occurrences.json): dated occurrences from ${w.from} to ${w.to}
-- [Holidays](${SITE_URL}api/v1/holidays.json): central gazetted, restricted, bank and exchange holidays
+- [Holidays](${SITE_URL}api/v1/holidays.json): central gazetted, restricted, bank and exchange holidays, plus Canada federal, Ontario public and bank, and US federal and Federal Reserve holidays
+- Holiday calendars (ICS): ${SITE_URL}ics/holidays/in.ics, ${SITE_URL}ics/holidays/ca.ics, ${SITE_URL}ics/holidays/ca-on.ics, ${SITE_URL}ics/holidays/us.ics
 - [Planner events](${SITE_URL}api/v1/events.json): deadlines that run from an event such as an AGM or allotment
 - [Regulator updates](${SITE_URL}api/v1/updates.json): latest items from official feeds
 - [Sources](${SITE_URL}api/v1/sources.json): catalogue of open datasets and official sources

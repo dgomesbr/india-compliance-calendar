@@ -1,0 +1,215 @@
+# Holiday calendars abroad for 2026: Canada, Ontario and the United States.
+lists:
+  - id: ca-federal-2026
+    title: Canada federal statutory holidays 2026 (Canada Labour Code general holidays)
+    kind: statutory
+    scope: CA
+    year: 2026
+    authority: Employment and Social Development Canada, Labour Program (Canada Labour Code, R.S.C. 1985, c. L-2, s. 166)
+    source:
+      title: Labour Program general holiday pay calculator (lists each general holiday with its date)
+      url: https://wages-salaires.service.canada.ca/en/gen_holiday/index.html
+    alsoSee:
+      - title: Canada Labour Code s. 166, definition of general holiday
+        url: https://laws-lois.justice.gc.ca/eng/acts/L-2/section-166.html
+      - title: Canada Labour Code s. 193, general holiday falling on a non-working day
+        url: https://laws-lois.justice.gc.ca/eng/acts/L-2/section-193.html
+      - title: Annual vacations and general holidays for federally regulated employers (canada.ca)
+        url: https://www.canada.ca/en/services/jobs/workplace/federal-labour-standards/vacations-holidays.html
+      - title: Labour Program calculator data file with the dated list
+        url: https://wages-salaires.service.canada.ca/_conf/assets/js/general_holiday.js
+      - title: Holidays Act, R.S.C. 1985, c. H-5
+        url: https://laws-lois.justice.gc.ca/eng/acts/H-5/FullText.html
+    verified: 2026-10-15
+    confidence: high
+    notes: The ten general holidays of the Canada Labour Code (s. 166) for federally regulated employers; Easter Monday, Family Day and the Civic Holiday are not general holidays under the Code. When New Year's Day, Canada Day, the National Day for Truth and Reconciliation, Remembrance Day, Christmas Day or Boxing Day falls on a non-working Saturday or Sunday, the employee gets the working day immediately before or after (s. 193(2)).
+    holidays:
+      - date: 2026-01-01
+        name: New Year's Day
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-05-18
+        name: Victoria Day
+      - date: 2026-07-01
+        name: Canada Day
+      - date: 2026-09-07
+        name: Labour Day
+      - date: 2026-09-30
+        name: National Day for Truth and Reconciliation
+      - date: 2026-10-12
+        name: Thanksgiving Day
+      - date: 2026-11-11
+        name: Remembrance Day
+      - date: 2026-12-25
+        name: Christmas Day
+      - date: 2026-12-26
+        name: Boxing Day
+        note: "A Saturday: where it is a non-working day the employee gets the working day immediately before or after (Canada Labour Code s. 193(2))."
+  - id: ca-on-statutory-2026
+    title: Ontario public holidays 2026 (Employment Standards Act, 2000)
+    kind: statutory
+    scope: CA-ON
+    year: 2026
+    authority: Government of Ontario, Ministry of Labour, Immigration, Training and Skills Development (Employment Standards Act, 2000, S.O. 2000, c. 41)
+    source:
+      title: "Your guide to the Employment Standards Act: public holidays (ontario.ca)"
+      url: https://www.ontario.ca/document/your-guide-employment-standards-act-0/public-holidays
+    alsoSee:
+      - title: Employment Standards Act, 2000, s. 1(1) public holiday and s. 29 public holiday not ordinarily a working day (e-Laws)
+        url: https://www.ontario.ca/laws/statute/00e41
+      - title: Ontario Ministry of Finance, Ontario and federally recognized banking holiday schedule (Ontario tax due dates)
+        url: https://www.ontario.ca/page/pay-ontario-taxes-and-charges
+    verified: 2026-10-15
+    confidence: high
+    notes: The nine public holidays of the Employment Standards Act (s. 1(1)). Employers are not required under the Act to give Easter Monday, the Civic Holiday (first Monday in August), Remembrance Day or the National Day for Truth and Reconciliation. A public holiday on a day that is not ordinarily a working day earns a substitute working day off with public holiday pay within three months, or public holiday pay by written agreement (s. 29).
+    holidays:
+      - date: 2026-01-01
+        name: New Year's Day
+      - date: 2026-02-16
+        name: Family Day
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-05-18
+        name: Victoria Day
+      - date: 2026-07-01
+        name: Canada Day
+      - date: 2026-09-07
+        name: Labour Day
+      - date: 2026-10-12
+        name: Thanksgiving Day
+      - date: 2026-12-25
+        name: Christmas Day
+      - date: 2026-12-26
+        name: Boxing Day
+        note: "A Saturday: employees not ordinarily working that day get a substitute day off (Employment Standards Act s. 29); the Ministry of Finance banking schedule uses Monday 28 December."
+  - id: ca-on-bank-2026
+    title: "Ontario bank holidays 2026: Canadian payment system closures (Payments Canada Lynx and ACSS)"
+    kind: bank
+    scope: CA-ON
+    year: 2026
+    authority: Payments Canada (operator of Lynx and the ACSS)
+    source:
+      title: Payments Canada, system closure schedule
+      url: https://www.payments.ca/system-closure-schedule
+    alsoSee:
+      - title: Payments Canada, jours d'inactivite des systemes (French)
+        url: https://www.paiements.ca/systemes-et-services/payment-systems/jours-dinactivite-des-systemes
+      - title: Bank of Canada holiday schedule
+        url: https://www.bankofcanada.ca/press/upcoming-events/bank-of-canada-holiday-schedule/
+      - title: Bills of Exchange Act, R.S.C. 1985, c. B-4, s. 42 (non-juridical days)
+        url: https://laws-lois.justice.gc.ca/eng/acts/B-4/section-42.html
+    verified: 2026-10-15
+    confidence: high
+    notes: Payments Canada's systems run Monday to Friday except the ten federal statutory holidays below; a holiday on a weekend closes them on the next business day. Easter Monday, Family Day and the Civic Holiday are processing days, although many branches and the Bank of Canada's own offices close on Family Day and the Civic Holiday, and the Ontario Ministry of Finance's banking schedule for provincial tax due dates adds those three days.
+    holidays:
+      - date: 2026-01-01
+        name: New Year's Day
+      - date: 2026-04-03
+        name: Good Friday
+      - date: 2026-05-18
+        name: Victoria Day
+      - date: 2026-07-01
+        name: Canada Day
+      - date: 2026-09-07
+        name: Labour Day
+      - date: 2026-09-30
+        name: National Day for Truth and Reconciliation
+      - date: 2026-10-12
+        name: Thanksgiving Day
+      - date: 2026-11-11
+        name: Remembrance Day
+      - date: 2026-12-25
+        name: Christmas Day
+      - date: 2026-12-28
+        name: Boxing Day
+        actual: 2026-12-26
+        note: System closure for Boxing Day, which falls on Saturday 26 December.
+  - id: us-federal-2026
+    title: United States federal holidays 2026 (5 U.S.C. 6103, OPM schedule)
+    kind: statutory
+    scope: US
+    year: 2026
+    authority: U.S. Office of Personnel Management (5 U.S.C. 6103)
+    source:
+      title: OPM, Federal holidays (2026 schedule)
+      url: https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/
+    alsoSee:
+      - title: 5 U.S.C. 6103 Holidays (govinfo)
+        url: https://www.govinfo.gov/content/pkg/USCODE-2023-title5/html/USCODE-2023-title5-partIII-subpartE-chap61-subchapI-sec6103.htm
+      - title: 5 U.S.C. 6103 with Executive Order 11582 in the notes (Cornell LII)
+        url: https://www.law.cornell.edu/uscode/text/5/6103
+      - title: OPM fact sheet, federal holidays - in lieu of determination
+        url: https://www.opm.gov/policy-data-oversight/pay-leave/work-schedules/fact-sheets/Federal-Holidays-In-Lieu-Of-Determination
+      - title: OPM federal holidays iCalendar feed
+        url: https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/holidays.ics
+    verified: 2026-10-15
+    confidence: high
+    notes: "The eleven legal public holidays of 5 U.S.C. 6103(a) on the dates OPM sets for Monday-to-Friday employees: a Saturday holiday is observed the Friday before (6103(b)) and a Sunday holiday the Monday after (Executive Order 11582). A closure added by executive order (as for 24 and 26 December 2025) is recorded when it is published."
+    holidays:
+      - date: 2026-01-01
+        name: New Year's Day
+      - date: 2026-01-19
+        name: Birthday of Martin Luther King, Jr.
+      - date: 2026-02-16
+        name: Washington's Birthday
+      - date: 2026-05-25
+        name: Memorial Day
+      - date: 2026-06-19
+        name: Juneteenth National Independence Day
+      - date: 2026-07-03
+        name: Independence Day
+        actual: 2026-07-04
+        note: Observed; the legal holiday, 4 July, is a Saturday (5 U.S.C. 6103(b)).
+      - date: 2026-09-07
+        name: Labor Day
+      - date: 2026-10-12
+        name: Columbus Day
+      - date: 2026-11-11
+        name: Veterans Day
+      - date: 2026-11-26
+        name: Thanksgiving Day
+      - date: 2026-12-25
+        name: Christmas Day
+  - id: us-fed-bank-2026
+    title: Federal Reserve System holidays 2026 (Federal Reserve Board K.8)
+    kind: bank
+    scope: US
+    year: 2026
+    authority: Board of Governors of the Federal Reserve System
+    source:
+      title: K.8 - Holidays observed by the Federal Reserve System 2026-2030
+      url: https://www.federalreserve.gov/aboutthefed/k8.htm
+    alsoSee:
+      - title: Federal Reserve Financial Services, holiday schedules (FedCash and FedACH)
+        url: https://www.frbservices.org/about/holiday-schedules/
+      - title: FRBservices, Independence Day 2026 holiday instructions
+        url: https://www.frbservices.org/about/holiday-schedules/independence-day-holiday-instructions/
+      - title: 5 U.S.C. 6103 Holidays (govinfo)
+        url: https://www.govinfo.gov/content/pkg/USCODE-2023-title5/html/USCODE-2023-title5-partIII-subpartE-chap61-subchapI-sec6103.htm
+    verified: 2026-10-15
+    confidence: high
+    notes: Reserve Banks and Branches close on the federal holidays, except that for a Saturday holiday they stay open the Friday before (only the Board of Governors closes) and for a Sunday holiday all Federal Reserve offices close the Monday after. Independence Day falls on Saturday 4 July 2026, so Reserve Banks are open on Friday 3 July although federal offices observe the holiday that day.
+    holidays:
+      - date: 2026-01-01
+        name: New Year's Day
+      - date: 2026-01-19
+        name: Birthday of Martin Luther King, Jr.
+      - date: 2026-02-16
+        name: Washington's Birthday
+      - date: 2026-05-25
+        name: Memorial Day
+      - date: 2026-06-19
+        name: Juneteenth National Independence Day
+      - date: 2026-07-04
+        name: Independence Day
+        note: A Saturday; Reserve Banks and Branches are open on Friday 3 July.
+      - date: 2026-09-07
+        name: Labor Day
+      - date: 2026-10-12
+        name: Columbus Day
+      - date: 2026-11-11
+        name: Veterans Day
+      - date: 2026-11-26
+        name: Thanksgiving Day
+      - date: 2026-12-25
+        name: Christmas Day

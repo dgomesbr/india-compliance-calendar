@@ -43,7 +43,7 @@ Claude Desktop, Cursor and other clients with an `mcpServers` file:
 | `search_obligations` | Find rules by form, section, authority or keyword |
 | `event_deadlines` | Every deadline after an event (`agm-held`, allotment, director change, ...) on a date; call without arguments to list events |
 | `check_date` | Holidays and obligations on a date |
-| `list_holidays` | Holidays between two dates, by kind and scope |
+| `list_holidays` | Holidays between two dates, by kind and scope: India (IN, state codes, NSE, BSE) and abroad (CA, CA-ON, US) |
 | `regulatory_updates` | Latest items from the regulators' feeds |
 
 All tools are read-only. Answers are information, not legal advice.

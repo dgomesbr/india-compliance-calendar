@@ -3512,3 +3512,201 @@ sources:
     useInCalendar: Where deductors download Form 16/16A and file TDS corrections - deep-link target for TDS certificate due dates.
     ingestion: Reference only; no public news feed or data.
     priority: P2
+  - id: ca-labour-program-general-holidays
+    name: Labour Program general holiday pay calculator and its dated list (Canada Labour Code general holidays)
+    publisher: Employment and Social Development Canada - Labour Program
+    url: https://wages-salaires.service.canada.ca/en/gen_holiday/index.html
+    category: holidays
+    format:
+      - HTML
+      - JavaScript
+    access: open
+    license: Government of Canada terms and conditions (non-commercial reproduction with attribution)
+    updates: annually, a few years ahead (2021 to 2028 listed)
+    reachable:
+      status: 200
+      checked: 2026-10-15
+      note: The data file https://wages-salaires.service.canada.ca/_conf/assets/js/general_holiday.js holds holidayJsonEN entries {date, name}; answered 200 to an identifying user agent.
+    machineReadable: true
+    useInCalendar: Dated Canada Labour Code s. 166 general holidays for the Canada federal list; the refresher compares each year with it.
+    ingestion: GET the data file every other day and read the "date" values for the year; report differences, never apply them.
+    priority: P0
+    used: true
+  - id: ca-labour-code-s166
+    name: Canada Labour Code s. 166 and s. 193 (general holidays)
+    publisher: Department of Justice Canada
+    url: https://laws-lois.justice.gc.ca/eng/acts/L-2/section-166.html
+    category: legal-text
+    format:
+      - HTML
+    access: open
+    license: Reproduction of federal law permitted (Reproduction of Federal Law Order)
+    updates: on amendment
+    reachable:
+      status: 200
+      checked: 2026-10-15
+      note: Consolidated text; s. 193 covers holidays on a non-working day.
+    machineReadable: false
+    useInCalendar: The rule behind the Canada federal list and its weekend handling.
+    ingestion: Manual review on amendment.
+    priority: P1
+    used: true
+  - id: on-esa-public-holidays
+    name: "Your guide to the Employment Standards Act: public holidays (Ontario)"
+    publisher: Government of Ontario - Ministry of Labour, Immigration, Training and Skills Development
+    url: https://www.ontario.ca/document/your-guide-employment-standards-act-0/public-holidays
+    category: holidays
+    format:
+      - HTML
+    access: open
+    license: Copyright King's Printer for Ontario; reproduction for non-commercial purposes permitted
+    updates: as the Act changes; no dated list per year
+    reachable:
+      status: 200
+      checked: 2026-10-15
+      note: Names the nine public holidays and the substitute-day rule (s. 29); gives no dates.
+    machineReadable: false
+    useInCalendar: The nine Ontario public holidays; dates follow the Act, cross-checked against canada-holidays.ca.
+    ingestion: Manual review; dates computed from the Act.
+    priority: P1
+    used: true
+  - id: payments-canada-closures
+    name: Payments Canada system closure schedule (Lynx and ACSS)
+    publisher: Payments Canada
+    url: https://www.payments.ca/system-closure-schedule
+    category: holidays
+    format:
+      - HTML
+    access: open
+    license: Payments Canada website terms s. 3.2 (accurate, unmodified, non-commercial reproduction)
+    updates: annually, current year only
+    reachable:
+      status: 200
+      checked: 2026-10-15
+      note: One table per year (Federal holiday, Date, Date of system closure); only 2026 published on 2026-10-15.
+    machineReadable: false
+    useInCalendar: "The Ontario bank holiday list: the days Canadian payment systems are closed."
+    ingestion: GET every other day and read the closure column of the year's table; report differences.
+    priority: P0
+    used: true
+  - id: boc-holiday-schedule
+    name: Bank of Canada holiday schedule and bank-holidays RSS feed
+    publisher: Bank of Canada
+    url: https://www.bankofcanada.ca/press/upcoming-events/bank-of-canada-holiday-schedule/
+    category: holidays
+    format:
+      - HTML
+      - RSS
+      - iCal
+    access: open
+    license: Bank of Canada terms of use (free use with attribution)
+    updates: rolling, upcoming dates only
+    reachable:
+      status: 200
+      checked: 2026-10-15
+      note: Lists national and provincial holidays (Family Day and the Civic Holiday as provincial); no 2027 dates yet.
+    machineReadable: true
+    useInCalendar: "Context for the Ontario bank list: the Bank's own offices close on some days the payment systems run."
+    ingestion: Not used for dates.
+    priority: P1
+    used: false
+  - id: canada-holidays-api
+    name: Canada Holidays API (canada-holidays.ca)
+    publisher: Paul Craig (open-source project, not a government source)
+    url: https://canada-holidays.ca/api/v1/provinces/ON?year=2026
+    category: open-source
+    format:
+      - JSON
+      - API
+      - iCal
+    access: open
+    license: MIT (github.com/pcraig3/hols)
+    updates: covers 2013 to 2038
+    reachable:
+      status: 200
+      checked: 2026-10-15
+      note: "Province endpoint returns {province: {holidays: [{date, nameEn, federal, observedDate}]}}; its Ontario list is the nine ESA public holidays."
+    machineReadable: true
+    useInCalendar: Second opinion on the Ontario public holiday list.
+    ingestion: GET every other day for this year and next; report differences.
+    priority: P1
+    used: true
+  - id: opm-federal-holidays
+    name: OPM federal holidays and iCalendar feed
+    publisher: U.S. Office of Personnel Management
+    url: https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/
+    category: holidays
+    format:
+      - HTML
+      - iCal
+    access: open
+    license: U.S. government work (17 U.S.C. 105)
+    updates: annually, published years ahead (feed covers 2021 to 2030)
+    reachable:
+      status: 200
+      checked: 2026-10-15
+      note: Feed https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/holidays.ics, one VEVENT per holiday with DTSTART;VALUE=DATE on the observed date.
+    machineReadable: true
+    useInCalendar: The US federal holiday list and its observed dates.
+    ingestion: GET the feed every other day; report differences.
+    priority: P0
+    used: true
+  - id: fed-k8-holidays
+    name: K.8 - Holidays observed by the Federal Reserve System
+    publisher: Board of Governors of the Federal Reserve System
+    url: https://www.federalreserve.gov/aboutthefed/k8.htm
+    category: holidays
+    format:
+      - HTML
+    access: open
+    license: U.S. government work
+    updates: annually (2026 to 2030 published)
+    reachable:
+      status: 200
+      checked: 2026-10-15
+      note: HTML table with footnotes for Saturday and Sunday holidays; no machine-readable feed found.
+    machineReadable: false
+    useInCalendar: The Federal Reserve bank holiday list.
+    ingestion: Manual review; dates follow the K.8 rule, which the refresher checks.
+    priority: P0
+    used: true
+  - id: federal-register-api
+    name: Federal Register API (executive orders closing federal offices)
+    publisher: Office of the Federal Register (NARA) and GPO
+    url: https://www.federalregister.gov/developers/documentation/api/v1
+    category: api
+    format:
+      - JSON
+      - API
+    access: open
+    license: U.S. government work
+    updates: daily
+    reachable:
+      status: 200
+      checked: 2026-10-15
+      note: documents.json search for executive orders titled "Providing for the Closing of Executive Departments" found EO 14133 and EO 14371 (2025).
+    machineReadable: true
+    useInCalendar: Flags an extra federal closure (such as 24 December) that is not one of the eleven statutory holidays.
+    ingestion: Search every other day for the year; report dates missing from the US list.
+    priority: P1
+    used: true
+  - id: nager-date-api
+    name: Nager.Date public holiday API
+    publisher: Nager.Date (open-source project)
+    url: https://date.nager.at/api/v3/PublicHolidays/2026/CA
+    category: open-source
+    format:
+      - JSON
+      - API
+    access: open
+    license: Code MIT; API terms of service limit commercial use and republishing
+    updates: continuous; v3 reaches end of life on 2027-01-31
+    reachable:
+      status: 200
+      checked: 2026-10-15
+      note: "Not a federal or bank calendar: Remembrance Day and Boxing Day are provincial for Canada, and US Saturday holidays are typed Bank although Reserve Banks open."
+    machineReadable: true
+    useInCalendar: "Not used: its terms bar republishing and it does not model statutory or bank calendars."
+    ingestion: None.
+    priority: P1
+    used: false

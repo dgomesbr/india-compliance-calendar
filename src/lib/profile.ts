@@ -53,6 +53,8 @@ export interface Profile {
   states: string[];
   /** Laws to show. Empty = all. */
   categories: Category[];
+  /** Holiday calendars abroad to show beside the Indian ones (CA, CA-ON, US). */
+  abroad: string[];
 }
 
 export const DEFAULT_PROFILE: Profile = {
@@ -67,6 +69,7 @@ export const DEFAULT_PROFILE: Profile = {
   importExport: true,
   states: [],
   categories: [],
+  abroad: ['CA', 'CA-ON', 'US'],
 };
 
 const COMPANY_TYPES: EntityType[] = ['private-company', 'public-unlisted', 'listed-company', 'small-company', 'opc'];

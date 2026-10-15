@@ -1,0 +1,226 @@
+# Holiday calendars abroad for 2027: Canada, Ontario and the United States.
+lists:
+  - id: ca-federal-2027
+    title: Canada federal statutory holidays 2027 (Canada Labour Code general holidays)
+    kind: statutory
+    scope: CA
+    year: 2027
+    authority: Employment and Social Development Canada, Labour Program (Canada Labour Code, R.S.C. 1985, c. L-2, s. 166)
+    source:
+      title: Labour Program general holiday pay calculator (lists each general holiday with its date)
+      url: https://wages-salaires.service.canada.ca/en/gen_holiday/index.html
+    alsoSee:
+      - title: Canada Labour Code s. 166, definition of general holiday
+        url: https://laws-lois.justice.gc.ca/eng/acts/L-2/section-166.html
+      - title: Canada Labour Code s. 193, general holiday falling on a non-working day
+        url: https://laws-lois.justice.gc.ca/eng/acts/L-2/section-193.html
+      - title: Labour Program calculator data file with the dated list
+        url: https://wages-salaires.service.canada.ca/_conf/assets/js/general_holiday.js
+      - title: Holidays Act, R.S.C. 1985, c. H-5
+        url: https://laws-lois.justice.gc.ca/eng/acts/H-5/FullText.html
+    verified: 2026-10-15
+    confidence: high
+    notes: The same ten Canada Labour Code general holidays, dated from the Labour Program's published 2027 list. Christmas Day falls on a Saturday and Boxing Day on a Sunday; where those are non-working days the employee gets the working day immediately before or after (s. 193(2)).
+    holidays:
+      - date: 2027-01-01
+        name: New Year's Day
+      - date: 2027-03-26
+        name: Good Friday
+      - date: 2027-05-24
+        name: Victoria Day
+      - date: 2027-07-01
+        name: Canada Day
+      - date: 2027-09-06
+        name: Labour Day
+      - date: 2027-09-30
+        name: National Day for Truth and Reconciliation
+      - date: 2027-10-11
+        name: Thanksgiving Day
+      - date: 2027-11-11
+        name: Remembrance Day
+      - date: 2027-12-25
+        name: Christmas Day
+        note: "A Saturday: where it is a non-working day the employee gets the working day immediately before or after (Canada Labour Code s. 193(2))."
+      - date: 2027-12-26
+        name: Boxing Day
+        note: "A Sunday: where it is a non-working day the employee gets the working day immediately before or after (Canada Labour Code s. 193(2))."
+  - id: ca-on-statutory-2027
+    title: Ontario public holidays 2027 (Employment Standards Act, 2000)
+    kind: statutory
+    scope: CA-ON
+    year: 2027
+    authority: Government of Ontario, Ministry of Labour, Immigration, Training and Skills Development (Employment Standards Act, 2000, S.O. 2000, c. 41)
+    source:
+      title: "Your guide to the Employment Standards Act: public holidays (ontario.ca)"
+      url: https://www.ontario.ca/document/your-guide-employment-standards-act-0/public-holidays
+    alsoSee:
+      - title: Employment Standards Act, 2000, s. 1(1) public holiday and s. 29 public holiday not ordinarily a working day (e-Laws)
+        url: https://www.ontario.ca/laws/statute/00e41
+      - title: Labour Program calculator data with the 2027 dates of the eight holidays shared with the Canada Labour Code
+        url: https://wages-salaires.service.canada.ca/_conf/assets/js/general_holiday.js
+    verified: 2026-10-15
+    confidence: medium
+    notes: Ontario has not published dated public holidays for 2027; these follow the Employment Standards Act (s. 1(1); Family Day is the third Monday in February) and match the Labour Program's published 2027 dates for the eight holidays the two lists share. Christmas Day (Saturday) and Boxing Day (Sunday) bring the s. 29 substitute-day rule for employees not ordinarily working those days.
+    holidays:
+      - date: 2027-01-01
+        name: New Year's Day
+      - date: 2027-02-15
+        name: Family Day
+      - date: 2027-03-26
+        name: Good Friday
+      - date: 2027-05-24
+        name: Victoria Day
+      - date: 2027-07-01
+        name: Canada Day
+      - date: 2027-09-06
+        name: Labour Day
+      - date: 2027-10-11
+        name: Thanksgiving Day
+      - date: 2027-12-25
+        name: Christmas Day
+        note: "A Saturday: employees not ordinarily working that day get a substitute day off (Employment Standards Act s. 29)."
+      - date: 2027-12-26
+        name: Boxing Day
+        note: "A Sunday: employees not ordinarily working that day get a substitute day off (Employment Standards Act s. 29)."
+  - id: ca-on-bank-2027
+    title: "Ontario bank holidays 2027: Canadian payment system closures (Payments Canada Lynx and ACSS)"
+    kind: bank
+    scope: CA-ON
+    year: 2027
+    authority: Payments Canada (operator of Lynx and the ACSS)
+    source:
+      title: Payments Canada, system closure schedule (2027 not yet published)
+      url: https://www.payments.ca/system-closure-schedule
+    alsoSee:
+      - title: Archived Payments Canada closure schedule, December 2022 (weekend holidays closed the next business day)
+        url: https://web.archive.org/web/20221219221000/https://www.payments.ca/system-closure-schedule
+      - title: Archived Payments Canada closure schedule, October 2023 (Saturday holidays closed the following Monday)
+        url: https://web.archive.org/web/20231001000335/https://www.payments.ca/system-closure-schedule
+      - title: Bank of Canada holiday schedule
+        url: https://www.bankofcanada.ca/press/upcoming-events/bank-of-canada-holiday-schedule/
+      - title: Bills of Exchange Act, R.S.C. 1985, c. B-4, s. 42 (non-juridical days)
+        url: https://laws-lois.justice.gc.ca/eng/acts/B-4/section-42.html
+    verified: 2026-10-15
+    confidence: medium
+    notes: Payments Canada has not published its 2027 schedule; these dates apply its stated rule (closed on the ten federal statutory holidays) and its practice, shown in its 2022 and 2023 schedules, of closing on the next business day for a weekend holiday, and on the Tuesday when Christmas takes the Monday. New Year's Day 2028 is a Saturday, so by the same practice the closure is Monday 3 January 2028, not Friday 31 December 2027.
+    holidays:
+      - date: 2027-01-01
+        name: New Year's Day
+      - date: 2027-03-26
+        name: Good Friday
+      - date: 2027-05-24
+        name: Victoria Day
+      - date: 2027-07-01
+        name: Canada Day
+      - date: 2027-09-06
+        name: Labour Day
+      - date: 2027-09-30
+        name: National Day for Truth and Reconciliation
+      - date: 2027-10-11
+        name: Thanksgiving Day
+      - date: 2027-11-11
+        name: Remembrance Day
+      - date: 2027-12-27
+        name: Christmas Day
+        actual: 2027-12-25
+        note: Expected closure for Christmas Day, which falls on Saturday 25 December.
+      - date: 2027-12-28
+        name: Boxing Day
+        actual: 2027-12-26
+        note: Expected closure for Boxing Day, which falls on Sunday 26 December; the Monday is taken by Christmas Day.
+  - id: us-federal-2027
+    title: United States federal holidays 2027 (5 U.S.C. 6103, OPM schedule)
+    kind: statutory
+    scope: US
+    year: 2027
+    authority: U.S. Office of Personnel Management (5 U.S.C. 6103)
+    source:
+      title: OPM, Federal holidays (2027 schedule; 31 December 2027 is on the 2028 tab)
+      url: https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/
+    alsoSee:
+      - title: 5 U.S.C. 6103 Holidays (govinfo)
+        url: https://www.govinfo.gov/content/pkg/USCODE-2023-title5/html/USCODE-2023-title5-partIII-subpartE-chap61-subchapI-sec6103.htm
+      - title: OPM fact sheet, federal holidays - in lieu of determination
+        url: https://www.opm.gov/policy-data-oversight/pay-leave/work-schedules/fact-sheets/Federal-Holidays-In-Lieu-Of-Determination
+      - title: OPM federal holidays iCalendar feed
+        url: https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/holidays.ics
+    verified: 2026-10-15
+    confidence: high
+    notes: Juneteenth and Christmas Day fall on Saturdays (observed Fridays 18 June and 24 December) and Independence Day on a Sunday (observed Monday 5 July). New Year's Day 2028 is a Saturday, so Friday 31 December 2027 is a federal holiday; OPM lists it on its 2028 schedule.
+    holidays:
+      - date: 2027-01-01
+        name: New Year's Day
+      - date: 2027-01-18
+        name: Birthday of Martin Luther King, Jr.
+      - date: 2027-02-15
+        name: Washington's Birthday
+      - date: 2027-05-31
+        name: Memorial Day
+      - date: 2027-06-18
+        name: Juneteenth National Independence Day
+        actual: 2027-06-19
+        note: Observed; the legal holiday, 19 June, is a Saturday.
+      - date: 2027-07-05
+        name: Independence Day
+        actual: 2027-07-04
+        note: Observed; the legal holiday, 4 July, is a Sunday (Executive Order 11582).
+      - date: 2027-09-06
+        name: Labor Day
+      - date: 2027-10-11
+        name: Columbus Day
+      - date: 2027-11-11
+        name: Veterans Day
+      - date: 2027-11-25
+        name: Thanksgiving Day
+      - date: 2027-12-24
+        name: Christmas Day
+        actual: 2027-12-25
+        note: Observed; the legal holiday, 25 December, is a Saturday.
+      - date: 2027-12-31
+        name: New Year's Day
+        actual: 2028-01-01
+        note: Observed for Saturday 1 January 2028; OPM lists it on its 2028 schedule.
+  - id: us-fed-bank-2027
+    title: Federal Reserve System holidays 2027 (Federal Reserve Board K.8)
+    kind: bank
+    scope: US
+    year: 2027
+    authority: Board of Governors of the Federal Reserve System
+    source:
+      title: K.8 - Holidays observed by the Federal Reserve System 2026-2030
+      url: https://www.federalreserve.gov/aboutthefed/k8.htm
+    alsoSee:
+      - title: Federal Reserve Financial Services, holiday schedules (FedCash)
+        url: https://www.frbservices.org/about/holiday-schedules/
+      - title: 5 U.S.C. 6103 Holidays (govinfo)
+        url: https://www.govinfo.gov/content/pkg/USCODE-2023-title5/html/USCODE-2023-title5-partIII-subpartE-chap61-subchapI-sec6103.htm
+    verified: 2026-10-15
+    confidence: high
+    notes: Reserve Banks are open on Friday 18 June, Friday 24 December and Friday 31 December 2027 (Saturday holidays; the Board of Governors closes), and all offices close on Monday 5 July for Independence Day on a Sunday. Friday 31 December 2027 is therefore not a Reserve Bank holiday although it is a federal holiday.
+    holidays:
+      - date: 2027-01-01
+        name: New Year's Day
+      - date: 2027-01-18
+        name: Birthday of Martin Luther King, Jr.
+      - date: 2027-02-15
+        name: Washington's Birthday
+      - date: 2027-05-31
+        name: Memorial Day
+      - date: 2027-06-19
+        name: Juneteenth National Independence Day
+        note: A Saturday; Reserve Banks are open on Friday 18 June.
+      - date: 2027-07-05
+        name: Independence Day
+        actual: 2027-07-04
+        note: Closed on Monday; the holiday, 4 July, is a Sunday.
+      - date: 2027-09-06
+        name: Labor Day
+      - date: 2027-10-11
+        name: Columbus Day
+      - date: 2027-11-11
+        name: Veterans Day
+      - date: 2027-11-25
+        name: Thanksgiving Day
+      - date: 2027-12-25
+        name: Christmas Day
+        note: A Saturday; Reserve Banks are open on Friday 24 December.
