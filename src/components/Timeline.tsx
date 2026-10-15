@@ -152,11 +152,12 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
     } else {
       const s = parts(start);
       let m = shiftMonth(s.y, s.m, 1);
-      const step = span > 400 ? (narrow ? 6 : 3) : span > 200 ? (narrow ? 3 : 1) : narrow ? 2 : 1;
+      const step = span > 400 ? (narrow ? 6 : 3) : span > 200 ? (narrow ? 3 : 1) : 1;
       let i = 0;
       while (iso(m.y, m.m, 1) <= end) {
         if (i % step === 0) {
-          const label = m.m === 1 || i === 0 ? `${MONTHS_SHORT[m.m - 1]} ${m.y}` : MONTHS_SHORT[m.m - 1];
+          const year = narrow ? String(m.y).slice(2) : String(m.y);
+          const label = m.m === 1 || (i === 0 && !narrow) ? `${MONTHS_SHORT[m.m - 1]} ${year}` : MONTHS_SHORT[m.m - 1];
           ticks.push({ x: xOf(iso(m.y, m.m, 1)), label, major: m.m === 1 });
         }
         m = shiftMonth(m.y, m.m, 1);
@@ -243,7 +244,9 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
         {ticks.map((t) => (
           <g class={`tl-tick${t.major ? ' is-major' : ''}`}>
             <line x1={t.x} x2={t.x} y1={top - 6} y2={height - 6} />
-            {Math.abs(t.x - xToday) > 52 && <text x={t.x + 4} y={top - 14}>{t.label}</text>}
+            <text x={t.x - xToday > -4 && t.x - xToday < 46 ? xToday + 46 : t.x + 4} y={top - 14} visibility={xToday - t.x >= 4 && xToday - t.x < 4 + t.label.length * 6.5 ? 'hidden' : undefined}>
+              {t.label}
+            </text>
           </g>
         ))}
 
@@ -292,19 +295,27 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
         })}
 
         {heaviest && !narrow && (() => {
-          const y = top + heaviest.lane * laneH + laneH / 2;
-          const leftSide = heaviest.x > x1 - 190;
           const label = `${heaviest.codes[0]}${heaviest.codes.length > 1 ? ` +${heaviest.codes.length - 1}` : ''} - ${formatINRCompact(heaviest.exposure)}`;
-          return (
-            <text
-              class="tl-callout"
-              x={leftSide ? heaviest.x - heaviest.r - 6 : heaviest.x + heaviest.r + 6}
-              y={y + 4}
-              text-anchor={leftSide ? 'end' : 'start'}
-            >
+          const w = label.length * 7;
+          const y = top + heaviest.lane * laneH + laneH / 2;
+          // A span [a, b] on a lane is free when no other mark's circle reaches into it.
+          const free = (lane: number, a: number, b: number) =>
+            a >= x0 &&
+            b <= x1 + right &&
+            !marks.some((m) => m !== heaviest && m.lane === lane && m.x + m.r + 2 > a && m.x - m.r - 2 < b);
+          const rightX = heaviest.x + heaviest.r + 6;
+          const leftX = heaviest.x - heaviest.r - 6;
+          let place: { x: number; y: number; anchor: 'start' | 'end' } | null = null;
+          if (free(heaviest.lane, rightX, rightX + w)) place = { x: rightX, y: y + 4, anchor: 'start' };
+          else if (free(heaviest.lane, leftX - w, leftX)) place = { x: leftX, y: y + 4, anchor: 'end' };
+          else if (heaviest.lane > 0 && free(heaviest.lane - 1, heaviest.x - 4, heaviest.x + w)) {
+            place = { x: heaviest.x - 4, y: y - laneH / 2 + 2, anchor: 'start' };
+          }
+          return place ? (
+            <text class="tl-callout" x={place.x} y={place.y} text-anchor={place.anchor}>
               {label}
             </text>
-          );
+          ) : null;
         })()}
       </svg>
 
