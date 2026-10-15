@@ -25,6 +25,8 @@ export const GET: APIRoute = ({ params }) => {
       list = rules.filter((r) => r.audience.includes(a));
     }
   }
-  const body = feedFor(name, 'Indian statutory due dates with sources. Information only, not legal advice.', list);
+  // The everything feed covers 12 months to stay light for calendar clients; the narrower feeds cover 24.
+  const months = feed === 'all' ? 12 : 24;
+  const body = feedFor(name, 'Indian statutory due dates with sources. Information only, not legal advice.', list, months);
   return new Response(body, { headers: { 'Content-Type': 'text/calendar; charset=utf-8' } });
 };

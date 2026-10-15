@@ -58,8 +58,10 @@ export function exposureLine(rule: Pick<Rule, 'exposure'>, daysLate = 30): strin
   if (!e) return 'Not quantified';
   const parts: string[] = [];
   const cost = delayCost(e, daysLate);
-  if (cost) parts.push(formatINR(cost));
   const turnover = turnoverNote(e);
+  // With only a turnover-based penalty, the cost is just its cap; the note already says so.
+  const capOnly = turnover && e.lateFeePerDay == null && e.fixedPenalty == null;
+  if (cost && !capOnly) parts.push(formatINR(cost));
   if (turnover) parts.push(turnover);
   const interest = interestNote(e);
   if (interest) parts.push(interest);

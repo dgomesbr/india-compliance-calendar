@@ -87,18 +87,17 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
   return (
     <article class="detail" aria-labelledby="detail-code">
       <header class="detail-head">
-        <div class="detail-meta">
-          <span class="law">{CATEGORY_LABEL[rule.category]}</span>
-          <span class="label">{rule.authority}</span>
-        </div>
+        <h2 id="detail-code" class="fig detail-code">{rule.code}</h2>
         <button class="btn btn-quiet detail-close" type="button" onClick={onClose} aria-label="Close details">
           <span class="btn-label"><Icon name="x" /></span>
         </button>
       </header>
-
-      <h2 id="detail-code" class="fig detail-code">{rule.code}</h2>
       <p class="detail-title">{rule.title}</p>
-      <p class="label muted detail-period">{occ.periodLabel}</p>
+      <p class="detail-meta">
+        <span class="law">{CATEGORY_LABEL[rule.category]}</span>
+        <span class="label">{rule.authority}</span>
+        <span class="label">{occ.periodLabel}</span>
+      </p>
 
       <dl class="detail-due">
         <div>

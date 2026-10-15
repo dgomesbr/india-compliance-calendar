@@ -28,7 +28,7 @@ import {
 } from '../lib/view.ts';
 import Detail, { Law } from './Detail.tsx';
 import { Icon } from './Icon.tsx';
-import Timeline from './Timeline.tsx';
+import Timeline, { type DateRange } from './Timeline.tsx';
 
 const READOUT: RowState[] = ['overdue', 'soon', 'extended', 'upcoming', 'filed'];
 const SORT_LABEL: Record<SortKey, string> = { due: 'Due date', exposure: 'Penalty exposure', law: 'Law' };
@@ -64,7 +64,7 @@ export default function Overview() {
   const [laws, setLaws] = useState<Category[]>(url.law ?? []);
   const [states, setStates] = useState<RowState[]>([]);
   const [query, setQuery] = useState(url.q ?? '');
-  const [day, setDay] = useState<ISODate | null>(null);
+  const [day, setDay] = useState<DateRange | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [updates, setUpdates] = useState<Update[]>([]);
   const initialised = useRef(false);
@@ -130,7 +130,7 @@ export default function Overview() {
   const rows = useMemo(() => {
     let r = allRows.filter((x) => matchesQuery(x, query));
     if (states.length) r = r.filter((x) => states.includes(x.state));
-    if (day) r = r.filter((x) => x.occ.due === day);
+    if (day) r = r.filter((x) => x.occ.due >= day.from && x.occ.due <= day.to);
     return sortRows(r, sort);
   }, [allRows, query, states, day, sort]);
 
@@ -276,7 +276,7 @@ export default function Overview() {
           {READOUT.map((s) => (
             <button
               type="button"
-              class={`readout-btn${states.includes(s) ? ' is-on' : ''}`}
+              class={`readout-btn${states.includes(s) ? ' is-on' : ''}${!loading && counts[s] > 0 ? ' has-items' : ''}`}
               data-state={s}
               aria-pressed={states.includes(s)}
               onClick={() => setStates(toggle(states, s))}
@@ -296,7 +296,7 @@ export default function Overview() {
       <section class="page ov-timeline" aria-labelledby="tl-title">
         <div class="tl-head">
           <h2 id="tl-title" class="tl-title">By law</h2>
-          <p class="faint tl-note">Each mark is a due date; its size shows the fixed cost of a 30-day delay. Select one to filter the table.</p>
+          <p class="faint tl-note">Each mark is a due date, sized by the fixed cost of a 30-day delay. Select one to filter the table.</p>
         </div>
         {loading ? (
           <div class="skeleton tl-skeleton" />
@@ -310,7 +310,7 @@ export default function Overview() {
           <div class="ov-list-head">
             <h2 id="ov-list-title" class="label">
               {loading ? 'Loading obligations' : `${rows.length} ${rows.length === 1 ? 'obligation' : 'obligations'}`}
-              {day && <> on {formatDate(day)}</>}
+              {day && (day.from === day.to ? <> on {formatDate(day.from)}</> : <> from {formatDate(day.from, { year: false })} to {formatDate(day.to)}</>)}
             </h2>
             {day && (
               <button type="button" class="btn btn-quiet" onClick={() => setDay(null)}>
@@ -491,7 +491,7 @@ function Table({ rows, sort, today, selected, onSelect, onFile, onUnfile }: Tabl
                     {r.occ.projected && ' - projected'}
                   </span>
                 </td>
-                <td class="col-auth muted" title={r.rule.authority}>{shortAuthority(r.rule.authority)}</td>
+                <td class="col-auth muted" title={r.rule.authority}><span class="auth-text">{shortAuthority(r.rule.authority)}</span></td>
                 <td class="col-exp num">
                   {r.exposure ? formatINRCompact(r.exposure) : <span class="faint">-</span>}
                   {interest && <span class="exp-int faint">+ interest</span>}

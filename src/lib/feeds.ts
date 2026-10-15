@@ -12,17 +12,16 @@ export function feedFor(name: string, description: string, rules: Rule[], months
   const occs = occurrencesBetween(addDays(today, -31), addMonths(today, months), rules);
   const events: CalendarEvent[] = occs.map((o) => {
     const r = byId.get(o.ruleId)!;
+    // Kept short: subscribers get the essentials, the entry page has the rest.
     const lines = [
-      `${r.title}. ${r.summary}`,
-      `Period: ${o.periodLabel}`,
+      `${r.title} - ${o.periodLabel}`,
       o.extended ? `Extended from ${o.originalDue}: ${o.extended.reason}` : '',
       o.projected ? 'Projected from the standing rule; confirm closer to the date.' : '',
-      `Who files: ${r.applicability}`,
       `Law: ${r.law}`,
-      `Cost of a 30-day delay: ${exposureLine(r)}`,
+      `If 30 days late: ${exposureLine(r)}`,
       `Source: ${r.sources[0]?.url ?? ''}`,
       `Details: ${SITE_URL}o/${r.id}/`,
-      'Information only, not legal advice. Confirm on the official portal before filing.',
+      'Information only, not legal advice.',
     ].filter(Boolean);
     return {
       uid: `${o.key}@india-compliance-calendar`,

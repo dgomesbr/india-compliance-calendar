@@ -62,9 +62,8 @@ describe('exposure', () => {
     expect(exposureLine({ exposure: { lateFeePerDay: 200, interestPctPerMonth: 1.5 } })).toBe(
       'Rs 6,000 + interest 1.5% a month',
     );
-    expect(exposureLine({ exposure: { percentOfTurnover: 0.5, maxPenalty: 150000 } })).toBe(
-      'Rs 1,50,000 + 0.5% of turnover, up to Rs 1,50,000',
-    );
+    expect(exposureLine({ exposure: { percentOfTurnover: 0.5, maxPenalty: 150000 } })).toBe('0.5% of turnover, up to Rs 1,50,000');
+    expect(exposure30({ exposure: { percentOfTurnover: 0.5, maxPenalty: 150000 } })).toBe(150000);
   });
   it('formats rupees with Indian grouping', () => {
     expect(formatINR(150000)).toBe('Rs 1,50,000');

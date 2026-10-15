@@ -136,9 +136,8 @@ export default function Report() {
 
       <article class="report-sheet">
         <header class="report-sheet-head">
-          <p class="label faint">Statutory compliance status</p>
           <h2 class="fig report-period">{range.label}</h2>
-          <p>{entity}</p>
+          <p>Statutory compliance status - {entity}</p>
           <p class="faint num">
             {formatDate(range.from)} to {formatDate(range.to)} - prepared {formatDate(today)}
           </p>

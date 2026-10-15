@@ -34,8 +34,8 @@
 
   /* pages and panels */
   --ground: #ffffff;
-  --layer-1: #f6f7f9;
-  --layer-2: #eef1f5;
+  --layer-1: #f5f7fa;
+  --layer-2: #ecf0f5;
 
   /* the masthead */
   --navy: #0e2a47;
@@ -44,14 +44,14 @@
   --navy-ink-2: rgba(255, 255, 255, 0.72);
 
   /* ink */
-  --ink: #101828;
-  --ink-2: #475467;
-  --ink-3: #667085;
+  --ink: #0f1f33;
+  --ink-2: #3f4f63;
+  --ink-3: #5f6e80;
 
   /* rules */
-  --rule: #e4e7ec;
-  --rule-2: #d0d5dd;
-  --rule-3: #98a2b3;
+  --rule: #e2e7ee;
+  --rule-2: #ccd4de;
+  --rule-3: #93a0b0;
 
   /* action and selection */
   --accent: #1d4ed8;
@@ -60,24 +60,24 @@
   --accent-line: #b2c7ff;
 
   /* states: solid for marks, tint and text for pills */
-  --overdue: #d92d20;
-  --overdue-text: #b42318;
-  --overdue-tint: #fef3f2;
-  --overdue-line: #fecdca;
-  --soon: #f79009;
-  --soon-text: #b54708;
-  --soon-tint: #fffaeb;
-  --soon-line: #fedf89;
-  --extended: #2e90fa;
-  --extended-text: #175cd3;
-  --extended-tint: #eff8ff;
-  --extended-line: #b2ddff;
-  --filed: #17b26a;
-  --filed-text: #067647;
-  --filed-tint: #ecfdf3;
-  --filed-line: #abefc6;
+  --overdue: #c0392b;
+  --overdue-text: #a33223;
+  --overdue-tint: #fbefed;
+  --overdue-line: #f0c7c0;
+  --soon: #d4880f;
+  --soon-text: #8a5300;
+  --soon-tint: #fdf5e4;
+  --soon-line: #efd9a8;
+  --extended: #3478c6;
+  --extended-text: #1f5ea8;
+  --extended-tint: #edf4fc;
+  --extended-line: #c2d8f0;
+  --filed: #2e8a5a;
+  --filed-text: #1c6a43;
+  --filed-tint: #ebf6f0;
+  --filed-line: #bddfcb;
   --upcoming: #0e2a47;
-  --past: #98a2b3;
+  --past: #9aa6b4;
 
   --focus: #1d4ed8;
 
@@ -127,7 +127,7 @@ html {
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  scrollbar-color: #c4cad4 var(--ground);
+  scrollbar-color: #c3cbd6 var(--ground);
   scrollbar-width: thin;
   caret-color: var(--accent);
 }

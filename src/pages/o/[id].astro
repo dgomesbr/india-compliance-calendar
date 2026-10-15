@@ -30,9 +30,9 @@ const verified = rule.verified ? formatDate(rule.verified, { weekday: false }) :
 <Shell title={`${rule.code} - ${rule.title}`} active="none" description={`${rule.title}: ${describeSchedule(rule)}. ${rule.summary}`}>
   <article class="page read entry">
     <header class="entry-head">
-      <p class="label muted">{CATEGORY_LABEL[rule.category]} - {rule.authority}</p>
       <h1 class="fig entry-code">{rule.code}</h1>
       <p class="entry-title">{rule.title}</p>
+      <p class="entry-meta"><span class="law">{CATEGORY_LABEL[rule.category]}</span> <span class="muted">{rule.authority}</span></p>
       <div class="form-actions">
         {
           rule.schedule && (
@@ -68,10 +68,29 @@ const verified = rule.verified ? formatDate(rule.verified, { weekday: false }) :
               {turnover && <p>Penalty of {turnover}.</p>}
               {interest && <p>Plus {interest} on the unpaid amount.</p>}
               {(e?.other ?? []).map((o) => <p>{o}.</p>)}
-              {rule.penalty && <p class="muted">{rule.penalty}</p>}
+              {
+                rule.penalty && (
+                  <details class="disclose">
+                    <summary>Legal basis of the penalty</summary>
+                    <p>{rule.penalty}</p>
+                  </details>
+                )
+              }
             </dd>
           </div>
-          {rule.notes && <div><dt class="label faint">Notes</dt><dd>{rule.notes}</dd></div>}
+          {
+            rule.notes && (
+              <div>
+                <dt class="label faint">Notes</dt>
+                <dd>
+                  <details class="disclose">
+                    <summary>Notes and recent changes</summary>
+                    <p>{rule.notes}</p>
+                  </details>
+                </dd>
+              </div>
+            )
+          }
           <div>
             <dt class="label faint">Sources</dt>
             <dd>
