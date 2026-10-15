@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useState } from 'preact/hooks';
 import { baseUrl, downloadFile, useBundle, useTeamState, useToday } from '../lib/client.ts';
 import { diffDays, formatDate, relativeDays, type ISODate } from '../lib/dates.ts';
 import { buildCalendar } from '../lib/ics.ts';
@@ -26,6 +26,14 @@ export default function Planner() {
   const [date, setDate] = useState<ISODate>(today);
   const [label, setLabel] = useState('');
   const [saved, setSaved] = useState('');
+  const [justAdded, setJustAdded] = useState(false);
+
+  // The add button confirms for a moment, then returns to its normal label.
+  useEffect(() => {
+    if (!justAdded) return;
+    const t = setTimeout(() => setJustAdded(false), 1800);
+    return () => clearTimeout(t);
+  }, [justAdded]);
 
   const events = data.status === 'ready' ? data.data.events : [];
   const ev = events.find((e) => e.id === eventId) ?? events[0];
@@ -39,6 +47,7 @@ export default function Planner() {
     const id = `${ev.id}-${date}-${Date.now().toString(36)}`;
     saveTeam({ ...team, planned: [...team.planned, { id, eventId: ev.id, date, label: label.trim() || undefined, created: today }] });
     setSaved(`Added ${ev.steps.length} deadlines to the overview and calendar.`);
+    setJustAdded(true);
   };
   const remove = (id: string) => saveTeam({ ...team, planned: team.planned.filter((p) => p.id !== id) });
 
@@ -58,14 +67,6 @@ export default function Planner() {
 
   return (
     <div class="page planner">
-      <header class="planner-head">
-        <h1 class="fig planner-title">Event planner</h1>
-        <p class="muted planner-lede">
-          Some deadlines run from something that happened, not from the calendar. Pick the event and its date to get every
-          filing that follows from it, then add them to the overview.
-        </p>
-      </header>
-
       <form class="planner-form" onSubmit={(e) => { e.preventDefault(); add(); }}>
         <div class="field">
           <label class="label" for="pl-event">Event</label>
@@ -82,16 +83,29 @@ export default function Planner() {
           <input id="pl-label" class="input" type="text" placeholder="Optional, e.g. AGM 2026" value={label} onInput={(e) => setLabel((e.target as HTMLInputElement).value)} />
         </div>
         <div class="form-actions planner-actions">
-          <button class="btn" type="submit"><span class="btn-label"><Icon name="plus" />Add to our calendar</span><span class="btn-block" /></button>
+          <button class={`btn${justAdded ? ' is-done' : ''}`} type="submit">
+            <span class="btn-label" key={justAdded ? 'done' : 'add'}>
+              <Icon name={justAdded ? 'check' : 'plus'} />
+              {justAdded ? 'Added' : 'Add to our calendar'}
+            </span>
+            <span class="btn-block" />
+          </button>
           <button class="btn" type="button" onClick={() => downloadFile(`${ev.id}-${date}.ics`, 'text/calendar', ics())}>
             <span class="btn-label"><Icon name="calendar" />Download ICS</span>
           </button>
         </div>
-        {saved && <p class="muted" role="status">{saved}</p>}
+        <p class="planner-status" role="status">
+          {saved && (
+            <span class="planner-saved-msg" key={saved}>
+              <Icon name="check" />
+              {saved}
+            </span>
+          )}
+        </p>
       </form>
 
       <section class="planner-result" aria-labelledby="pl-result">
-        <h2 id="pl-result" class="label faint">
+        <h2 id="pl-result">
           {ev.title} - {CATEGORY_LABEL[ev.category]}
         </h2>
         <p class="muted">{ev.description}</p>
@@ -104,12 +118,12 @@ export default function Planner() {
               <th scope="col" class="label">Law</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody key={ev.id}>
             {steps.map((o, i) => {
               const step = ev.steps[i];
               const left = diffDays(today, o.due);
               return (
-                <tr class="obl-row">
+                <tr class="obl-row rise" style={{ '--i': i }}>
                   <td class="col-due num">
                     <span class="due-date">{formatDate(o.due)}</span>
                     <span class={`due-left${left < 0 ? ' state-overdue' : left <= 7 ? ' state-soon' : ''}`}>{relativeDays(today, o.due)}</span>
@@ -132,7 +146,7 @@ export default function Planner() {
       </section>
 
       <section class="planner-saved" aria-labelledby="pl-saved">
-        <h2 id="pl-saved" class="label faint">Planned events</h2>
+        <h2 id="pl-saved">Planned events</h2>
         {team.planned.length === 0 ? (
           <p class="faint">Nothing planned yet. Events you add appear here and their deadlines join the overview.</p>
         ) : (
@@ -140,10 +154,10 @@ export default function Planner() {
             {team.planned
               .slice()
               .sort((a, b) => (a.date < b.date ? -1 : 1))
-              .map((p) => {
+              .map((p, i) => {
                 const pe = events.find((x) => x.id === p.eventId);
                 return (
-                  <li class="planned-item">
+                  <li class="planned-item rise" key={p.id} style={{ '--i': Math.min(i, 10) }}>
                     <span>
                       <span class="fig">{p.label || pe?.title || p.eventId}</span>
                       <span class="faint num"> - {formatDate(p.date)}{pe ? ` - ${pe.steps.length} deadlines` : ''}</span>

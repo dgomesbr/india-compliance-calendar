@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { appliesTo, DEFAULT_PROFILE, type Profile } from '../src/lib/profile.ts';
 import { importState, emptyState, exportState } from '../src/lib/store.ts';
 import type { Bundle, Rule } from '../src/lib/types.ts';
-import { buildRows, countStates, rowState, sortRows } from '../src/lib/view.ts';
+import { buildRows, countStates, hasOpenExtension, matchesState, rowState, sortRows } from '../src/lib/view.ts';
 
 function rule(id: string, partial: Partial<Rule> = {}): Rule {
   return {
@@ -81,6 +81,21 @@ describe('buildRows', () => {
     const aoc = rows.find((r) => r.planned);
     expect(aoc?.occ.due).toBe('2026-10-30');
     expect(aoc?.rule.code).toBe('AOC-4');
+  });
+
+  it('counts a notified extension as extended even when it is also due soon', () => {
+    const moved = bundle([
+      rule('gstr3b', { overrides: [{ period: '2026-09', due: '2026-10-22', reason: 'Portal outage' }] }),
+    ]);
+    const rows = buildRows({ ...base, bundle: moved, today: '2026-10-18', to: '2026-10-31' });
+    const row = rows.find((r) => r.occ.key === 'gstr3b@2026-09')!;
+    expect(row.state).toBe('soon');
+    expect(hasOpenExtension(row)).toBe(true);
+    expect(matchesState(row, 'extended')).toBe(true);
+    expect(matchesState(row, 'soon')).toBe(true);
+    expect(matchesState(row, 'upcoming')).toBe(false);
+    const filed = buildRows({ ...base, bundle: moved, filed: { 'gstr3b@2026-09': { filedOn: '2026-10-18' } }, today: '2026-10-18', to: '2026-10-31' });
+    expect(hasOpenExtension(filed.find((r) => r.occ.key === 'gstr3b@2026-09')!)).toBe(false);
   });
 
   it('sorts by exposure with filed items last', () => {

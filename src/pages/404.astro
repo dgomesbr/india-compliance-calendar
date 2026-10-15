@@ -1,17 +1,17 @@
 ---
 import Shell from '../layouts/Shell.astro';
+import PageBand from '../components/PageBand.astro';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <Shell title="Not found" active="none">
-  <div class="page read">
-    <header class="read-head">
-      <h1 class="fig read-title">404</h1>
-      <p class="read-lede muted">
-        There is no page at this address. Obligations live at <code>/o/&lt;id&gt;/</code>; the full list is in the
-        <a href={`${base}api/v1/rules.json`}>rules API</a>.
-      </p>
-      <p><a class="btn" href={base}><span class="btn-label">Back to the overview</span></a></p>
-    </header>
-  </div>
+  <PageBand title="Page not found" titleClass="num">
+    <p slot="after-title" class="band-lede">
+      There is no page at this address. Obligations live at <code>/o/&lt;id&gt;/</code>; the full list is in the
+      <a href={`${base}api/v1/rules.json`}>rules API</a>.
+    </p>
+    <p slot="after-title" class="form-actions">
+      <a class="btn" href={base}><span class="btn-label">Back to the overview</span><span class="btn-block" /></a>
+    </p>
+  </PageBand>
 </Shell>

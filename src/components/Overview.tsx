@@ -2,7 +2,7 @@ import type { ComponentChildren } from 'preact';
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { fetchUpdates, useBundle, useTeamState, useToday } from '../lib/client.ts';
 import { addMonths, diffDays, formatDate, lastDayOfMonth, parts, relativeDays, shiftMonth, type ISODate } from '../lib/dates.ts';
-import { formatINR, formatINRCompact, interestNote } from '../lib/exposure.ts';
+import { formatINRCompact, interestNote } from '../lib/exposure.ts';
 import {
   describeRange,
   HORIZON_LABEL,
@@ -12,18 +12,21 @@ import {
   maxHorizonEnd,
   type HorizonPreset,
 } from '../lib/horizon.ts';
+import { useCountUp, useFlip, useInView, useThumb } from '../lib/motion.ts';
 import { isEverything } from '../lib/profile.ts';
 import type { TeamState } from '../lib/store.ts';
 import { CATEGORIES, CATEGORY_LABEL, type Category, type Update } from '../lib/types.ts';
 import {
   buildRows,
   countStates,
+  hasOpenExtension,
   matchesQuery,
+  matchesState,
+  shortAuthority,
   sortRows,
   STATE_LABEL,
   type Row,
   type RowState,
-  shortAuthority,
   type SortKey,
 } from '../lib/view.ts';
 import Detail, { Law } from './Detail.tsx';
@@ -32,6 +35,9 @@ import Timeline, { type DateRange } from './Timeline.tsx';
 
 const READOUT: RowState[] = ['overdue', 'soon', 'extended', 'upcoming', 'filed'];
 const SORT_LABEL: Record<SortKey, string> = { due: 'Due date', exposure: 'Penalty exposure', law: 'Law' };
+const PAGE = 120;
+/** Shorter names for the phone cover, where three figures share a 358px row. */
+const SHORT_LABEL: Partial<Record<RowState, string>> = { soon: 'Due in 7 days' };
 
 function readUrl(): Partial<{ h: HorizonPreset; end: string; sort: SortKey; law: Category[]; q: string }> {
   if (typeof location === 'undefined') return {};
@@ -52,6 +58,54 @@ function monthsBetween(from: ISODate, to: ISODate): number {
   return MAX_CUSTOM_MONTHS;
 }
 
+/** A state count set large in the band; it filters the table like a toggle. */
+function Figure({ state, count, on, loading, index, onToggle }: {
+  state: RowState;
+  count: number;
+  on: boolean;
+  loading: boolean;
+  index: number;
+  onToggle: () => void;
+}) {
+  const shown = Math.round(useCountUp(loading ? 0 : count));
+  return (
+    <button
+      type="button"
+      class={`figure${on ? ' is-on' : ''}${!loading && count > 0 ? ' has-items' : ''}`}
+      data-state={state}
+      aria-pressed={on}
+      disabled={loading}
+      onClick={onToggle}
+      style={{ '--i': index }}
+    >
+      <span class="figure-n num">{loading ? '-' : shown}</span>
+      <span class="figure-label">
+        {SHORT_LABEL[state] ? (
+          <>
+            <span class="label-long">{STATE_LABEL[state]}</span>
+            <span class="label-short">{SHORT_LABEL[state]}</span>
+          </>
+        ) : (
+          STATE_LABEL[state]
+        )}
+      </span>
+    </button>
+  );
+}
+
+function ExposureFigure({ value, loading }: { value: number; loading: boolean }) {
+  const shown = useCountUp(loading ? 0 : value, 700);
+  return (
+    <div class="figure figure-total" style={{ '--i': 5 }}>
+      <span class="figure-n num">{loading ? '-' : formatINRCompact(Math.round(shown))}</span>
+      <span class="figure-label">
+        <span class="label-long">Fixed cost if every open item runs 30 days late</span>
+        <span class="label-short">Cost at 30 days</span>
+      </span>
+    </div>
+  );
+}
+
 export default function Overview() {
   const data = useBundle();
   const [team, saveTeam] = useTeamState();
@@ -67,8 +121,13 @@ export default function Overview() {
   const [day, setDay] = useState<DateRange | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
   const [updates, setUpdates] = useState<Update[]>([]);
+  const [limit, setLimit] = useState(PAGE);
+  const [flash, setFlash] = useState<string | null>(null);
   const initialised = useRef(false);
   const sheet = useRef<HTMLDialogElement>(null);
+  const segRef = useRef<HTMLDivElement>(null);
+  const bandRef = useRef<HTMLElement>(null);
+  const bandLit = useInView(bandRef);
 
   // Saved preferences apply when the URL does not say otherwise.
   useEffect(() => {
@@ -98,9 +157,15 @@ export default function Overview() {
     }
   }, [horizon, customEnd, sort, laws, query]);
 
-  const range = horizonRange(horizon, today, customEnd);
+  // A new view starts from the top of the list again.
+  useEffect(() => setLimit(PAGE), [horizon, customEnd, sort, laws, query, states, day]);
 
-  // The plot always shows a few months of context past a short horizon.
+  const range = horizonRange(horizon, today, customEnd);
+  // The title animates when the horizon changes, not when the island first replaces the static band.
+  const rangeKey = `${range.from}|${range.to}`;
+  const firstRange = useRef(rangeKey);
+
+  // The timeline always shows a few months of context past a short horizon.
   const plotTo = useMemo(() => {
     const t = parts(today);
     const e = shiftMonth(t.y, t.m, 4);
@@ -124,17 +189,21 @@ export default function Overview() {
   }, [data, team, today, plotTo, laws]);
 
   const allRows = useMemo(() => wideRows.filter((r) => r.occ.due <= range.to), [wideRows, range.to]);
-
-  const counts = useMemo(() => countStates(allRows.filter((r) => matchesQuery(r, query))), [allRows, query]);
+  const counts = useMemo(() => {
+    const matching = allRows.filter((r) => matchesQuery(r, query));
+    // Extended counts every open item with a notified extension, as the pills and the aside do.
+    return { ...countStates(matching), extended: matching.filter(hasOpenExtension).length };
+  }, [allRows, query]);
 
   const rows = useMemo(() => {
     let r = allRows.filter((x) => matchesQuery(x, query));
-    if (states.length) r = r.filter((x) => states.includes(x.state));
+    if (states.length) r = r.filter((x) => states.some((s) => matchesState(x, s)));
     if (day) r = r.filter((x) => x.occ.due >= day.from && x.occ.due <= day.to);
     return sortRows(r, sort);
   }, [allRows, query, states, day, sort]);
 
   const selectedRow = selected ? allRows.find((r) => r.occ.key === selected) ?? null : null;
+  const thumb = useThumb(segRef, '.seg-btn.is-on', [horizon]);
 
   useEffect(() => {
     const d = sheet.current;
@@ -158,11 +227,10 @@ export default function Overview() {
   const toggle = <T,>(list: T[], v: T) => (list.includes(v) ? list.filter((x) => x !== v) : [...list, v]);
   const quickFile = (row: Row) => {
     if (!team) return;
-    const next: TeamState = {
-      ...team,
-      filed: { ...team.filed, [row.occ.key]: { filedOn: today, owner: team.owners[row.rule.id] } },
-    };
+    const next: TeamState = { ...team, filed: { ...team.filed, [row.occ.key]: { filedOn: today, owner: team.owners[row.rule.id] } } };
     saveTeam(next);
+    setFlash(row.occ.key);
+    setTimeout(() => setFlash((k) => (k === row.occ.key ? null : k)), 1200);
   };
   const unfile = (row: Row) => {
     if (!team) return;
@@ -176,27 +244,52 @@ export default function Overview() {
   const closedDays = allRows.filter((r) => r.closed && r.state !== 'filed' && r.daysLeft >= 0).slice(0, 5);
   const profileName = team && !isEverything(team.profile) ? team.profile.name : 'All obligations';
   const horizonExposure = allRows.filter((r) => r.state !== 'filed').reduce((s, r) => s + r.exposure, 0);
+  const filtering = Boolean(query || laws.length || states.length || day);
 
   return (
     <div class="ov">
-      <section class="page ov-head" aria-labelledby="ov-title">
-        <div class="ov-title-row">
-          <h1 id="ov-title" class="fig ov-title num">{describeRange(range).replace(' - ', ' - ')}</h1>
-          <p class="ov-sub muted">
-            {profileName}
-            {team && team.trackingSince && (
-              <span class="faint"> - tracking filings since {formatDate(team.trackingSince, { weekday: false })}</span>
-            )}
-          </p>
+      <section class="band band-live ov-band" aria-labelledby="ov-title" ref={bandRef} data-lit={bandLit || undefined}>
+        <div class="page band-inner">
+          <div class="band-head">
+            <h1 id="ov-title" class={`band-title display num${rangeKey !== firstRange.current ? ' is-swap' : ''}`} key={rangeKey}>
+              {describeRange(range).replace(' - ', '\u00a0- ')}
+            </h1>
+            <p class="band-sub">
+              {profileName}
+              {team && team.trackingSince && <> - tracking filings since {formatDate(team.trackingSince, { weekday: false })}</>}
+            </p>
+          </div>
+          <div class="band-figures" role="group" aria-label="Filter by state">
+            {READOUT.map((s, i) => (
+              <Figure
+                state={s}
+                count={counts[s]}
+                on={states.includes(s)}
+                loading={loading}
+                index={i}
+                onToggle={() => setStates(toggle(states, s))}
+              />
+            ))}
+            <ExposureFigure value={horizonExposure} loading={loading} />
+          </div>
         </div>
+      </section>
 
+      <section class="page ov-head" aria-label="Horizon, order and filters">
         <div class="ov-controls" role="group" aria-label="Horizon and order">
-          <div class="seg" role="group" aria-label="Horizon">
+          <div class="seg" role="group" aria-label="Horizon" ref={segRef}>
+            {thumb && (
+              <span
+                class="seg-thumb"
+                aria-hidden="true"
+                style={{ transform: `translate(${thumb.x}px, ${thumb.y}px)`, width: `${thumb.w}px`, height: `${thumb.h}px` }}
+              />
+            )}
             {HORIZON_PRESETS.map((h) => (
               <button
                 type="button"
                 aria-pressed={horizon === h}
-                class={`seg-btn label${horizon === h ? ' is-on' : ''}`}
+                class={`seg-btn${horizon === h ? ' is-on' : ''}`}
                 onClick={() => {
                   setHorizon(h);
                   setDay(null);
@@ -207,12 +300,15 @@ export default function Overview() {
             ))}
           </div>
           <div class="ov-sort">
-            <label class="label faint" for="ov-sort">Order by</label>
-            <select id="ov-sort" class="select" value={sort} onChange={(e) => setSort((e.target as HTMLSelectElement).value as SortKey)}>
-              {(Object.keys(SORT_LABEL) as SortKey[]).map((k) => (
-                <option value={k}>{SORT_LABEL[k]}</option>
-              ))}
-            </select>
+            <label class="label" for="ov-sort">Order by</label>
+            <span class="ov-sort-field">
+              <Icon name="sort" />
+              <select id="ov-sort" class="select" value={sort} onChange={(e) => setSort((e.target as HTMLSelectElement).value as SortKey)}>
+                {(Object.keys(SORT_LABEL) as SortKey[]).map((k) => (
+                  <option value={k}>{SORT_LABEL[k]}</option>
+                ))}
+              </select>
+            </span>
           </div>
           <div class="ov-search">
             <label class="visually-hidden" for="ov-q">Search obligations</label>
@@ -221,7 +317,7 @@ export default function Overview() {
               id="ov-q"
               class="input"
               type="search"
-              placeholder="Search form, law or authority"
+              placeholder="Search form or law"
               value={query}
               onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
             />
@@ -230,7 +326,7 @@ export default function Overview() {
 
         {horizon === 'custom' && (
           <div class="ov-custom">
-            <label class="label faint" for="ov-months">Months ahead</label>
+            <label class="label" for="ov-months">Months ahead</label>
             <input
               id="ov-months"
               type="range"
@@ -240,7 +336,7 @@ export default function Overview() {
               onInput={(e) => setCustomEnd(addMonths(today, Number((e.target as HTMLInputElement).value)))}
             />
             <output class="num" for="ov-months">{monthsBetween(today, range.to)} months</output>
-            <label class="label faint" for="ov-end">Until</label>
+            <label class="label" for="ov-end">Until</label>
             <input
               id="ov-end"
               class="input num"
@@ -260,6 +356,7 @@ export default function Overview() {
               <button
                 type="button"
                 class={`law-btn${laws.includes(c) ? ' is-on' : ''}`}
+                data-law={c}
                 aria-pressed={laws.includes(c)}
                 onClick={() => setLaws(toggle(laws, c))}
               >
@@ -270,26 +367,6 @@ export default function Overview() {
               <button type="button" class="law-clear" onClick={() => setLaws([])}>Show all laws</button>
             )}
           </div>
-        </div>
-
-        <div class="readout" role="group" aria-label="Filter by state">
-          {READOUT.map((s) => (
-            <button
-              type="button"
-              class={`readout-btn${states.includes(s) ? ' is-on' : ''}${!loading && counts[s] > 0 ? ' has-items' : ''}`}
-              data-state={s}
-              aria-pressed={states.includes(s)}
-              onClick={() => setStates(toggle(states, s))}
-              disabled={loading}
-            >
-              <span class="readout-block" aria-hidden="true" />
-              <span class="num readout-n">{loading ? '-' : counts[s]}</span>
-              <span class="label">{STATE_LABEL[s]}</span>
-            </button>
-          ))}
-          <p class="readout-total faint num">
-            {loading ? '' : `${formatINR(horizonExposure)} fixed exposure if every open item ran 30 days late`}
-          </p>
         </div>
       </section>
 
@@ -308,7 +385,7 @@ export default function Overview() {
       <div class="page ov-main">
         <section class="ov-list" aria-labelledby="ov-list-title">
           <div class="ov-list-head">
-            <h2 id="ov-list-title" class="label">
+            <h2 id="ov-list-title">
               {loading ? 'Loading obligations' : `${rows.length} ${rows.length === 1 ? 'obligation' : 'obligations'}`}
               {day && (day.from === day.to ? <> on {formatDate(day.from)}</> : <> from {formatDate(day.from, { year: false })} to {formatDate(day.to)}</>)}
             </h2>
@@ -319,17 +396,18 @@ export default function Overview() {
             )}
           </div>
           {loading ? (
-            <div class="table-skeleton">{Array.from({ length: 7 }, () => <div class="skeleton row-skeleton" />)}</div>
+            <div class="table-skeleton">{Array.from({ length: 7 }, (_, i) => <div class="skeleton row-skeleton" style={{ '--i': i }} />)}</div>
           ) : rows.length === 0 ? (
-            <div class="empty">
+            <div class="empty rise">
+              <Icon name="calendar" class="icon empty-icon" />
               <p class="empty-title">Nothing due in this view.</p>
               <p class="muted">
-                {query || laws.length || states.length || day
+                {filtering
                   ? 'Filters are narrowing the list. Clear them or widen the horizon.'
-                  : 'No obligation in this profile falls due before ' + formatDate(range.to) + '. Try a longer horizon.'}
+                  : `No obligation in this profile falls due before ${formatDate(range.to)}. Try a longer horizon.`}
               </p>
               <div class="form-actions">
-                {(query || laws.length || states.length || day) && (
+                {filtering && (
                   <button class="btn" type="button" onClick={() => { setQuery(''); setLaws([]); setStates([]); setDay(null); }}>
                     <span class="btn-label">Clear filters</span>
                   </button>
@@ -338,30 +416,45 @@ export default function Overview() {
               </div>
             </div>
           ) : (
-            <Table rows={rows} sort={sort} today={today} selected={selected} onSelect={setSelected} onFile={quickFile} onUnfile={unfile} />
+            <>
+              <Table rows={rows.slice(0, limit)} sort={sort} today={today} selected={selected} flash={flash} onSelect={setSelected} onFile={quickFile} onUnfile={unfile} />
+              {rows.length > limit && (
+                <div class="more">
+                  <span class="faint num">Showing {limit} of {rows.length}</span>
+                  <button class="btn" type="button" onClick={() => setLimit(limit + PAGE)}><span class="btn-label">Show {Math.min(PAGE, rows.length - limit)} more</span></button>
+                  <button class="btn btn-quiet" type="button" onClick={() => setLimit(rows.length)}><span class="btn-label">Show all</span></button>
+                </div>
+              )}
+            </>
           )}
         </section>
 
         <aside class="ov-aside" aria-label={selectedRow ? 'Obligation details' : 'At risk'}>
           {selectedRow && team ? (
-            <div class="aside-detail">
-              <Detail row={selectedRow} today={today} state={team} onSave={saveTeam} onClose={() => setSelected(null)} />
+            <div class="aside-detail" key={selectedRow.occ.key}>
+              <Detail row={selectedRow} today={today} state={team} bundle={data.status === 'ready' ? data.data : null} onSave={saveTeam} onClose={() => setSelected(null)} idp="a" />
             </div>
           ) : (
-            <>
+            <div class="aside-lists">
               <AsideList title="Costliest if late" empty="No open items with a fixed penalty in this horizon.">
-                {atRisk.filter((r) => r.exposure > 0).map((r) => (
-                  <li>
+                {atRisk.filter((r) => r.exposure > 0).map((r, i) => (
+                  <li style={{ '--i': i }}>
                     <button type="button" class="aside-item" onClick={() => setSelected(r.occ.key)}>
-                      <span class="aside-code fig">{r.rule.code}</span>
-                      <span class="aside-meta num">{formatDate(r.occ.due, { year: false })} - {formatINRCompact(r.exposure)}</span>
+                      <span class="aside-row">
+                        <span class="aside-code fig">{r.rule.code}</span>
+                        <span class="aside-amount num">{formatINRCompact(r.exposure)}</span>
+                      </span>
+                      <span class="aside-bar" aria-hidden="true">
+                        <span style={{ transform: `scaleX(${atRisk[0]?.exposure ? r.exposure / atRisk[0].exposure : 0})` }} />
+                      </span>
+                      <span class="aside-meta num"><Law row={r} /> {formatDate(r.occ.due, { year: false })}</span>
                     </button>
                   </li>
                 ))}
               </AsideList>
               <AsideList title="Extended or moved" empty="No notified extensions in this horizon.">
-                {moved.map((r) => (
-                  <li>
+                {moved.map((r, i) => (
+                  <li style={{ '--i': i }}>
                     <button type="button" class="aside-item" onClick={() => setSelected(r.occ.key)}>
                       <span class="aside-code fig">{r.rule.code}</span>
                       <span class="aside-meta num">
@@ -372,8 +465,8 @@ export default function Overview() {
                 ))}
               </AsideList>
               <AsideList title="Due on a holiday or weekend" empty="No due date in this horizon falls on a closed day.">
-                {closedDays.map((r) => (
-                  <li>
+                {closedDays.map((r, i) => (
+                  <li style={{ '--i': i }}>
                     <button type="button" class="aside-item" onClick={() => setSelected(r.occ.key)}>
                       <span class="aside-code fig">{r.rule.code}</span>
                       <span class="aside-meta num">{formatDate(r.occ.due, { year: false })} - {r.closed?.join(', ')}</span>
@@ -382,23 +475,23 @@ export default function Overview() {
                 ))}
               </AsideList>
               <AsideList title="From the regulators" empty="The regulator feed has not been collected yet.">
-                {updates.map((u) => (
-                  <li>
+                {updates.map((u, i) => (
+                  <li style={{ '--i': i }}>
                     <a class="aside-item" href={u.url} rel="noopener" target="_blank">
                       <span class="aside-title">{u.title}</span>
-                      <span class="aside-meta label faint">{u.sourceName} - {formatDate(u.date, { weekday: false })}</span>
+                      <span class="aside-meta">{u.sourceName} - {formatDate(u.date, { weekday: false })}</span>
                     </a>
                   </li>
                 ))}
               </AsideList>
-            </>
+            </div>
           )}
         </aside>
       </div>
 
       <dialog class="sheet" ref={sheet} onClose={() => setSelected(null)} aria-label="Obligation details">
         {selectedRow && team && (
-          <Detail row={selectedRow} today={today} state={team} onSave={saveTeam} onClose={() => sheet.current?.close()} />
+          <Detail row={selectedRow} today={today} state={team} bundle={data.status === 'ready' ? data.data : null} onSave={saveTeam} onClose={() => sheet.current?.close()} idp="s" />
         )}
       </dialog>
     </div>
@@ -409,8 +502,8 @@ function AsideList({ title, empty, children }: { title: string; empty: string; c
   const items = Array.isArray(children) ? children.filter(Boolean) : children ? [children] : [];
   return (
     <section class="aside-list">
-      <h2 class="label faint">{title}</h2>
-      {items.length ? <ul>{items}</ul> : <p class="faint aside-empty">{empty}</p>}
+      <h2>{title}</h2>
+      {items.length ? <ul>{items}</ul> : <p class="aside-empty">{empty}</p>}
     </section>
   );
 }
@@ -420,12 +513,17 @@ interface TableProps {
   sort: SortKey;
   today: ISODate;
   selected: string | null;
+  /** Row just marked filed; it gets a brief confirmation tint. */
+  flash: string | null;
   onSelect: (key: string) => void;
   onFile: (row: Row) => void;
   onUnfile: (row: Row) => void;
 }
 
-function Table({ rows, sort, today, selected, onSelect, onFile, onUnfile }: TableProps) {
+function Table({ rows, sort, today, selected, flash, onSelect, onFile, onUnfile }: TableProps) {
+  const ref = useRef<HTMLTableElement>(null);
+  useFlip(ref, [rows, sort]);
+
   const groups: { date: ISODate | null; rows: Row[] }[] = [];
   if (sort === 'due') {
     for (const r of rows) {
@@ -436,7 +534,7 @@ function Table({ rows, sort, today, selected, onSelect, onFile, onUnfile }: Tabl
   } else groups.push({ date: null, rows });
 
   return (
-    <table class={`obl${sort === 'due' ? ' is-grouped' : ''}`}>
+    <table class={`obl${sort === 'due' ? ' is-grouped' : ''}`} ref={ref}>
       <thead>
         <tr>
           <th scope="col" class="label col-due">{sort === 'due' ? 'When' : 'Due'}</th>
@@ -448,9 +546,9 @@ function Table({ rows, sort, today, selected, onSelect, onFile, onUnfile }: Tabl
         </tr>
       </thead>
       {groups.map((g) => (
-        <tbody>
+        <tbody key={g.date ?? 'all'}>
           {g.date && (
-            <tr class="obl-group">
+            <tr class="obl-group" data-flip={`g:${g.date}`} key={`g:${g.date}`}>
               <th scope="colgroup" colSpan={6}>
                 <span class="num">{formatDate(g.date)}</span>
                 <span class="faint num"> - {relativeDays(today, g.date)}</span>
@@ -463,7 +561,9 @@ function Table({ rows, sort, today, selected, onSelect, onFile, onUnfile }: Tabl
             const interest = interestNote(r.rule.exposure);
             return (
               <tr
-                class={`obl-row state-${r.state}${selected === r.occ.key ? ' is-selected' : ''}`}
+                key={r.occ.key}
+                data-flip={r.occ.key}
+                class={`obl-row state-${r.state}${selected === r.occ.key ? ' is-selected' : ''}${flash === r.occ.key ? ' is-flash' : ''}`}
                 onClick={() => onSelect(r.occ.key)}
               >
                 <td class="col-due num">
@@ -486,7 +586,7 @@ function Table({ rows, sort, today, selected, onSelect, onFile, onUnfile }: Tabl
                     </span>
                     <span class="obl-title">{r.rule.title}</span>
                   </button>
-                  <span class="obl-period label faint">
+                  <span class="obl-period">
                     {r.occ.periodLabel}
                     {r.occ.projected && ' - projected'}
                   </span>
@@ -513,7 +613,9 @@ function Table({ rows, sort, today, selected, onSelect, onFile, onUnfile }: Tabl
                       (r.filed ? onUnfile : onFile)(r);
                     }}
                   >
-                    <Icon name="check" />
+                    <svg class="icon check-draw" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
                   </button>
                 </td>
               </tr>

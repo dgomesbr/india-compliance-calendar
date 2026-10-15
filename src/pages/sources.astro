@@ -1,5 +1,6 @@
 ---
 import Shell from '../layouts/Shell.astro';
+import PageBand from '../components/PageBand.astro';
 import { formatDate } from '../lib/dates.ts';
 import { getBundle, getSources } from '../lib/site-data.ts';
 import { CATEGORIES, CATEGORY_LABEL } from '../lib/types.ts';
@@ -25,15 +26,11 @@ const used = sources.filter((s) => s.used).length;
 ---
 
 <Shell title="Method and sources" active="sources" description="How the calendar's dates are compiled and verified, and the catalogue of open datasets and official sources behind it.">
+  <PageBand
+    title="Method and sources"
+    lede="Every date here comes from a rule written down from the law and checked against the official source it cites. Nothing is copied from commercial calendars. This page says how the rules are built and lists every open dataset and official source we looked at."
+  />
   <div class="page read">
-    <header class="read-head">
-      <h1 class="fig read-title">Method and sources</h1>
-      <p class="read-lede muted">
-        Every date here comes from a rule written down from the law and checked against the official source it cites. Nothing
-        is copied from commercial calendars. This page says how the rules are built and lists every open dataset and official
-        source we looked at.
-      </p>
-    </header>
 
     <section class="read-section" aria-labelledby="method">
       <h2 id="method">How a due date is made</h2>

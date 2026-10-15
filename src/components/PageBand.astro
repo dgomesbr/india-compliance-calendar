@@ -1,0 +1,23 @@
+---
+// The navy band that opens every page: title, a short lede, and optional
+// actions or figures. It morphs between pages through the view transition.
+interface Props {
+  title: string;
+  lede?: string;
+  /** Class for the title, e.g. "num" for a date range. */
+  titleClass?: string;
+  class?: string;
+}
+const { title, lede, titleClass = '', class: cls = '' } = Astro.props;
+---
+
+<section class:list={['band', cls]} aria-labelledby="band-title">
+  <div class="page band-inner">
+    <div class="band-head">
+      <h1 id="band-title" class:list={['band-title', 'display', titleClass]}>{title}</h1>
+      {lede && <p class="band-lede">{lede}</p>}
+      <slot name="after-title" />
+    </div>
+    <slot />
+  </div>
+</section>

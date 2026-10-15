@@ -13,8 +13,8 @@ rules, with no content copied from any commercial site.
 ## What it does
 
 - **Risk first.** The overview opens on the chosen horizon with overdue and
-  due-this-week items at the top, a readout of counts by state, and the
-  costliest-if-late list beside the table.
+  due-this-week items at the top, the counts by state set large on the cover
+  (each one filters the table), and the costliest-if-late list beside the table.
 - **Any horizon.** 1 week, 2 weeks, 1 month, 1 quarter, to year end, to FY end,
   or a custom window up to 24 months ahead.
 - **Order by fine.** Sort by due date, by penalty exposure (the fixed cost of a
@@ -24,6 +24,9 @@ rules, with no content copied from any commercial site.
   mark sized by its penalty exposure and coloured by its state, so it is clear
   which law is heavy when. Select a mark to filter the table. Keyboard and
   screen-reader accessible.
+- **Cost of a delay.** For filings whose late fee grows by the day, the detail
+  panel and each entry page chart the fixed cost against days late, with a
+  slider, a hover readout and the same values as a table.
 - **Our obligations only.** An entity profile (type, GST mode, TDS, employees,
   audit, transfer pricing, foreign investment, import/export, states) filters
   everything, including state professional tax and labour welfare fund.
@@ -112,7 +115,10 @@ Designed with the Impeccable process: product context in [PRODUCT.md](PRODUCT.md
 the visual system in [DESIGN.md](DESIGN.md). The world is a listed company's
 annual report: a navy masthead over white working pages, ruled tables with
 tabular figures, one cobalt for actions, state tints only where state is the
-message, and one chart (the timeline) that tells the year.
+message, and two charts: the timeline that tells the year, and the cost of a
+delay for a single filing. Each law has its own colour, shown only as a swatch
+beside its name. Motion explains change (rows glide, figures count, the timeline
+assembles from Today) and gives way to plain fades under reduced motion.
 
 ## Licence
 

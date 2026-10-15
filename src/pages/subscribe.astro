@@ -1,5 +1,6 @@
 ---
 import Shell from '../layouts/Shell.astro';
+import PageBand from '../components/PageBand.astro';
 import { getBundle, SITE_URL } from '../lib/site-data.ts';
 import { AUDIENCES, AUDIENCE_LABEL, CATEGORIES, CATEGORY_LABEL } from '../lib/types.ts';
 
@@ -31,15 +32,11 @@ const mcpConfig = JSON.stringify(
 ---
 
 <Shell title="Feeds, API and MCP" active="subscribe" description="Calendar subscriptions, a JSON API and an MCP server for AI agents, all from the same source-cited data.">
+  <PageBand
+    title="Feeds, API and MCP"
+    lede="The same rules feed people and machines. Subscribe in Google Calendar or Outlook, pull JSON into your own tools, or let an AI agent query the calendar over MCP."
+  />
   <div class="page read">
-    <header class="read-head">
-      <h1 class="fig read-title">Feeds, API and MCP</h1>
-      <p class="read-lede muted">
-        The same rules feed people and machines. Subscribe in Google Calendar or Outlook, pull JSON into your own tools, or let
-        an AI agent query the calendar over MCP.
-      </p>
-    </header>
-
     <section class="read-section" aria-labelledby="ics">
       <h2 id="ics">Calendar subscriptions</h2>
       <div class="prose">

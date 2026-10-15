@@ -2,12 +2,17 @@
 import Shell from '../layouts/Shell.astro';
 import Overview from '../components/Overview.tsx';
 import { formatDate } from '../lib/dates.ts';
-import { getBundle, upcoming } from '../lib/site-data.ts';
+import { describeRange, horizonRange } from '../lib/horizon.ts';
+import { buildDate, getBundle, upcoming } from '../lib/site-data.ts';
+import { STATE_LABEL, type RowState } from '../lib/view.ts';
 
 const { rules } = getBundle();
 const byId = new Map(rules.map((r) => [r.id, r]));
 const next = upcoming(30).slice(0, 60);
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+// The static band matches the island's default view so the swap is seamless.
+const range = horizonRange('1m', buildDate());
+const READOUT: RowState[] = ['overdue', 'soon', 'extended', 'upcoming', 'filed'];
 ---
 
 <Shell
@@ -17,15 +22,53 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
   description="What is due, what is at risk and what it costs if late: Indian statutory deadlines with official sources."
 >
   <Overview client:only="preact">
-    <div slot="fallback" class="page ov-fallback" aria-busy="true">
-      <div class="skeleton" style="height:44px;width:min(420px,80%);margin-top:32px"></div>
-      <div class="skeleton" style="height:36px;margin-top:24px"></div>
-      <div class="skeleton" style="height:260px;margin-top:32px"></div>
+    <div slot="fallback" class="ov">
+      <section class="band ov-band" aria-labelledby="ov-title">
+        <div class="page band-inner">
+          <div class="band-head">
+            <h1 id="ov-title" class="band-title display num">{describeRange(range).replace(' - ', '\u00a0- ')}</h1>
+            <p class="band-sub">All obligations</p>
+          </div>
+          <div class="band-figures js-only" aria-hidden="true">
+            {
+              READOUT.map((s, i) => (
+                <div class="figure" data-state={s} style={`--i:${i}`}>
+                  <span class="figure-n num">-</span>
+                  <span class="figure-label">
+                    {
+                      s === 'soon' ? (
+                        <>
+                          <span class="label-long">{STATE_LABEL[s]}</span>
+                          <span class="label-short">Due in 7 days</span>
+                        </>
+                      ) : (
+                        STATE_LABEL[s]
+                      )
+                    }
+                  </span>
+                </div>
+              ))
+            }
+            <div class="figure figure-total" style="--i:5">
+              <span class="figure-n num">-</span>
+              <span class="figure-label">
+                <span class="label-long">Fixed cost if every open item runs 30 days late</span>
+                <span class="label-short">Cost at 30 days</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="page js-only" aria-busy="true" aria-hidden="true">
+        <div class="skeleton" style="height:36px;margin-top:24px"></div>
+        <div class="skeleton" style="height:30px;margin-top:16px;width:min(760px,100%)"></div>
+        <div class="skeleton" style="height:280px;margin-top:28px"></div>
+      </div>
     </div>
   </Overview>
   <noscript>
     <section class="page noscript-list">
-      <h1 class="fig">Due in the next 30 days</h1>
+      <h2>Due in the next 30 days</h2>
       <p class="muted">As of the last build. Turn on JavaScript for horizons, filters, filing status and the timeline.</p>
       <table class="obl">
         <thead>

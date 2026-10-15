@@ -1,5 +1,6 @@
 ---
 import Shell from '../layouts/Shell.astro';
+import PageBand from '../components/PageBand.astro';
 import Planner from '../components/Planner.tsx';
 ---
 
@@ -9,7 +10,14 @@ import Planner from '../components/Planner.tsx';
   preloadData
   description="Deadlines that run from an event: AGM, allotment, director change, charge, foreign investment."
 >
+  <PageBand
+    title="Event planner"
+    lede="Some deadlines run from something that happened, not from the calendar. Pick the event and its date to get every filing that follows from it, then add them to the overview."
+  />
   <Planner client:only="preact">
-    <div slot="fallback" class="page" aria-busy="true"><div class="skeleton" style="height:320px;margin-top:32px"></div></div>
+    <div slot="fallback" class="page js-only" aria-busy="true"><div class="skeleton" style="height:320px;margin-top:24px"></div></div>
   </Planner>
+  <noscript>
+    <p class="page noscript-note">The planner needs JavaScript to date each deadline from the event you pick.</p>
+  </noscript>
 </Shell>

@@ -1,11 +1,14 @@
 ---
 import Shell from '../../layouts/Shell.astro';
 import Icon from '../../components/Icon.astro';
-import { addMonths, formatDate, formatLong } from '../../lib/dates.ts';
-import { delayCost, formatINR, interestNote, turnoverNote } from '../../lib/exposure.ts';
+import PageBand from '../../components/PageBand.astro';
+import DelayChart from '../../components/DelayChart.tsx';
+import { addMonths, formatDate, MONTHS_SHORT, parts, relativeDays, WEEKDAYS_SHORT, weekday } from '../../lib/dates.ts';
+import { hasDelayCurve } from '../../lib/delay.ts';
+import { delayCost, formatINR, formatINRCompact, interestNote, turnoverNote } from '../../lib/exposure.ts';
 import { describeSchedule } from '../../lib/schedule.ts';
 import { buildDate, getBundle, occurrencesBetween } from '../../lib/site-data.ts';
-import { AUDIENCE_LABEL, CATEGORY_LABEL, type Rule } from '../../lib/types.ts';
+import { AUDIENCE_LABEL, CATEGORY_LABEL, FREQUENCY_LABEL, type Rule } from '../../lib/types.ts';
 import { STATE_NAME } from '../../lib/validate.ts';
 
 export function getStaticPaths() {
@@ -18,113 +21,224 @@ interface Props {
 const { rule } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const today = buildDate();
-const next = rule.schedule ? occurrencesBetween(today, addMonths(today, 24), [rule]).slice(0, 8) : [];
+const next = rule.schedule ? occurrencesBetween(today, addMonths(today, 24), [rule]).slice(0, 6) : [];
 const extended = rule.schedule ? occurrencesBetween(addMonths(today, -12), addMonths(today, 24), [rule]).filter((o) => o.extended) : [];
 const e = rule.exposure;
+const curve = hasDelayCurve(e);
 const cost30 = delayCost(e, 30);
 const interest = interestNote(e);
 const turnover = turnoverNote(e);
 const verified = rule.verified ? formatDate(rule.verified, { weekday: false }) : '';
+const frequency =
+  rule.frequency === 'every-n-years' && rule.schedule?.everyYears ? `Every ${rule.schedule.everyYears} years` : FREQUENCY_LABEL[rule.frequency];
+const POINTS = [1, 7, 15, 30, 60, 90, 180, 365];
+const SHOWN_SOURCES = 5;
+const firstSources = rule.sources.slice(0, SHOWN_SOURCES);
+const moreSources = rule.sources.slice(SHOWN_SOURCES);
+const host = (url: string) => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+};
 ---
 
 <Shell title={`${rule.code} - ${rule.title}`} active="none" description={`${rule.title}: ${describeSchedule(rule)}. ${rule.summary}`}>
-  <article class="page read entry">
-    <header class="entry-head">
-      <h1 class="fig entry-code">{rule.code}</h1>
-      <p class="entry-title">{rule.title}</p>
-      <p class="entry-meta"><span class="law">{CATEGORY_LABEL[rule.category]}</span> <span class="muted">{rule.authority}</span></p>
-      <div class="form-actions">
-        {
-          rule.schedule && (
-            <a class="btn" href={`${base}ics/rules/${rule.id}.ics`}>
-              <span class="btn-label"><Icon name="calendar" />Subscribe to this obligation</span>
-              <span class="btn-block" />
-            </a>
-          )
-        }
-        <a class="btn" href={`${base}?q=${encodeURIComponent(rule.code)}&h=fy`}>
-          <span class="btn-label"><Icon name="arrow" />See it in the overview</span>
-        </a>
+  <PageBand title={rule.code} titleClass="entry-code" lede={rule.title} class="entry-band">
+    <p slot="after-title" class="band-meta">
+      <span class="law" data-law={rule.category}>{CATEGORY_LABEL[rule.category]}</span>
+      <span>{rule.authority}</span>
+    </p>
+    <div slot="after-title" class="form-actions entry-actions">
+      {
+        rule.schedule && (
+          <a class="btn" href={`${base}ics/rules/${rule.id}.ics`}>
+            <span class="btn-label"><Icon name="calendar" />Subscribe to this obligation</span>
+            <span class="btn-block" />
+          </a>
+        )
+      }
+      <a class="btn" href={`${base}?q=${encodeURIComponent(rule.code)}&h=fy`}>
+        <span class="btn-label"><Icon name="arrow" />See it in the overview</span>
+      </a>
+    </div>
+    <dl class="band-figures entry-figures">
+      <div class="figure is-static" style="--i:0">
+        <dt class="figure-label">Next due</dt>
+        <dd class="figure-n num">{next[0] ? formatDate(next[0].due, { weekday: false }) : 'On event'}</dd>
       </div>
-    </header>
+      <div class="figure is-static" style="--i:1">
+        <dt class="figure-label">Frequency</dt>
+        <dd class="figure-n">{frequency}</dd>
+      </div>
+      <div class="figure is-static" style="--i:2">
+        <dt class="figure-label">At 30 days late</dt>
+        <dd class="figure-n num">{cost30 ? formatINRCompact(cost30) : 'Not fixed'}</dd>
+      </div>
+      <div class="figure is-static" style="--i:3">
+        <dt class="figure-label">Verified</dt>
+        <dd class="figure-n num">{verified || 'Not yet'}</dd>
+      </div>
+    </dl>
+  </PageBand>
+
+  <article class="page read entry">
+    {
+      next.length > 0 && (
+        <section class="next-strip" aria-labelledby="next-title">
+          <h2 id="next-title" class="next-strip-title">Next due dates</h2>
+          <ol class="next-cards">
+            {next.map((o, i) => {
+              const p = parts(o.due);
+              return (
+                <li class={`next-card rise${i === 0 ? ' is-first' : ''}`} style={`--i:${i}`}>
+                  <span class="next-day fig display num">{p.d}</span>
+                  <span class="next-month num">
+                    {MONTHS_SHORT[p.m - 1]} {p.y} - {WEEKDAYS_SHORT[weekday(o.due)]}
+                  </span>
+                  <span class="next-period">{o.periodLabel}</span>
+                  <span class="next-rel num">{relativeDays(today, o.due)}</span>
+                  {(o.extended || o.projected) && (
+                    <span class="next-tags">
+                      {o.extended && <span class="tag" data-state="extended">Extended</span>}
+                      {o.projected && <span class="tag" data-state="projected">Projected</span>}
+                    </span>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        </section>
+      )
+    }
 
     <div class="entry-grid">
-      <div>
+      <div class="entry-main">
+        <p class="entry-summary">{rule.summary}</p>
         <dl class="entry-facts">
-          <div><dt class="label faint">What</dt><dd>{rule.summary}</dd></div>
-          <div><dt class="label faint">Who files</dt><dd>{rule.applicability}</dd></div>
+          <div><dt class="label">Who files</dt><dd>{rule.applicability}</dd></div>
           <div>
-            <dt class="label faint">Applies to</dt>
+            <dt class="label">Applies to</dt>
             <dd>{rule.audience.map((a) => AUDIENCE_LABEL[a]).join(', ')}{rule.states?.length ? ` - ${rule.states.map((s) => STATE_NAME[s] ?? s).join(', ')}` : ''}</dd>
           </div>
-          <div><dt class="label faint">When</dt><dd>{describeSchedule(rule)}</dd></div>
-          {rule.trigger && <div><dt class="label faint">Trigger</dt><dd>{rule.trigger}</dd></div>}
-          {rule.form && <div><dt class="label faint">Form</dt><dd>{rule.form}</dd></div>}
-          <div><dt class="label faint">Law</dt><dd>{rule.law}</dd></div>
-          <div>
-            <dt class="label faint">Cost of a delay</dt>
-            <dd>
-              {cost30 ? <p>{formatINR(cost30)} fixed cost at 30 days late.</p> : null}
-              {turnover && <p>Penalty of {turnover}.</p>}
-              {interest && <p>Plus {interest} on the unpaid amount.</p>}
-              {(e?.other ?? []).map((o) => <p>{o}.</p>)}
-              {
-                rule.penalty && (
-                  <details class="disclose">
-                    <summary>Legal basis of the penalty</summary>
-                    <p>{rule.penalty}</p>
-                  </details>
-                )
-              }
-            </dd>
-          </div>
+          <div><dt class="label">When</dt><dd>{describeSchedule(rule)}</dd></div>
+          {rule.trigger && <div><dt class="label">Trigger</dt><dd>{rule.trigger}</dd></div>}
+          {rule.form && <div><dt class="label">Form</dt><dd>{rule.form}</dd></div>}
+          <div><dt class="label">Law</dt><dd>{rule.law}</dd></div>
+        </dl>
+
+        <section class="entry-cost" aria-labelledby="cost-title">
+          <h2 id="cost-title">Cost of a delay</h2>
           {
-            rule.notes && (
-              <div>
-                <dt class="label faint">Notes</dt>
-                <dd>
-                  <details class="disclose">
-                    <summary>Notes and recent changes</summary>
-                    <p>{rule.notes}</p>
-                  </details>
-                </dd>
-              </div>
+            curve && e ? (
+              <>
+                <p class="muted">Drag across the chart or use the slider to see the fixed cost on any day late.</p>
+                <DelayChart client:visible exposure={e} category={rule.category} initialWidth={640} idp="entry" />
+                <div class="data-table-wrap">
+                  <table class="data-table delay-table">
+                    <caption class="visually-hidden">Fixed cost by days late</caption>
+                    <tbody>
+                      <tr>
+                        <th scope="row">Days late</th>
+                        {POINTS.map((d) => <td class="num">{d}</td>)}
+                      </tr>
+                      <tr>
+                        <th scope="row">Fixed cost</th>
+                        {POINTS.map((d) => <td class="num">{formatINRCompact(delayCost(e, d) ?? 0)}</td>)}
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </>
+            ) : (
+              <p class="fig delay-cost num">{cost30 ? formatINR(cost30) : 'Not fixed by law'}</p>
             )
           }
-          <div>
-            <dt class="label faint">Sources</dt>
-            <dd>
-              <ul class="sources">
-                {rule.sources.map((s) => <li><a href={s.url} rel="noopener">{s.title}</a>{s.kind && <span class="label faint"> {s.kind}</span>}</li>)}
-              </ul>
-              {verified && <p class="label faint verified">Verified {verified} - confidence {rule.confidence}</p>}
-            </dd>
-          </div>
-        </dl>
-      </div>
-
-      <aside>
-        <section class="aside-list">
-          <h2 class="label faint">Next due dates</h2>
           {
-            next.length ? (
-              <ul class="next-list">
-                {next.map((o) => (
-                  <li>
-                    <span class="num">{formatLong(o.due)}</span>
-                    <span class="faint">{o.periodLabel}{o.projected ? ' - projected' : ''}{o.extended ? ' - extended' : ''}</span>
-                  </li>
-                ))}
+            (turnover || interest || e?.other?.length) && (
+              <ul class="cost-notes">
+                {turnover && <li>Penalty of {turnover}.</li>}
+                {interest && <li>Plus {interest} on the unpaid amount.</li>}
+                {(e?.other ?? []).map((o) => <li>{o}.</li>)}
               </ul>
-            ) : (
-              <p class="faint aside-empty">Event-based: due a set time after the event. Use the planner to date it.</p>
+            )
+          }
+          {
+            rule.penalty && (
+              <details class="disclose">
+                <summary>Legal basis of the penalty</summary>
+                <p>{rule.penalty}</p>
+              </details>
+            )
+          }
+          {
+            rule.notes && (
+              <details class="disclose">
+                <summary>Notes and recent changes</summary>
+                <p>{rule.notes}</p>
+              </details>
             )
           }
         </section>
+      </div>
+
+      <aside class="entry-aside">
+        <section class="aside-list">
+          <h2>Sources</h2>
+          <ul class="source-cards">
+            {
+              firstSources.map((s) => (
+                <li>
+                  <a class="source-card" href={s.url} rel="noopener">
+                    <span class="source-title">{s.title}</span>
+                    <span class="source-meta">
+                      {host(s.url)}
+                      {s.kind && <span class="source-kind">{s.kind}</span>}
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          {
+            moreSources.length > 0 && (
+              <details class="disclose more-sources">
+                <summary>
+                  {moreSources.length} more {moreSources.length === 1 ? 'source' : 'sources'}
+                </summary>
+                <ul class="source-cards">
+                  {moreSources.map((s) => (
+                    <li>
+                      <a class="source-card" href={s.url} rel="noopener">
+                        <span class="source-title">{s.title}</span>
+                        <span class="source-meta">
+                          {host(s.url)}
+                          {s.kind && <span class="source-kind">{s.kind}</span>}
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            )
+          }
+          {verified && <p class="verified">Verified {verified} - confidence {rule.confidence}</p>}
+        </section>
+        {
+          !next.length && (
+            <section class="aside-list">
+              <h2>Due dates</h2>
+              <p class="aside-empty">
+                Event-based: due a set time after the event. Use the <a href={`${base}planner/`}>planner</a> to date it.
+              </p>
+            </section>
+          )
+        }
         {
           extended.length > 0 && (
             <section class="aside-list">
-              <h2 class="label faint">Notified extensions</h2>
+              <h2>Notified extensions</h2>
               <ul class="next-list">
                 {extended.map((o) => (
                   <li>
@@ -137,7 +251,7 @@ const verified = rule.verified ? formatDate(rule.verified, { weekday: false }) :
           )
         }
         <section class="aside-list">
-          <h2 class="label faint">Machine-readable</h2>
+          <h2>Machine-readable</h2>
           <p class="aside-empty"><a href={`${base}api/v1/rules.json`}>rules.json</a> - id <code>{rule.id}</code></p>
         </section>
       </aside>

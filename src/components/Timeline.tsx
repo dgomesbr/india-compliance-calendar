@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { addDays, diffDays, formatDate, iso, MONTHS_SHORT, parts, shiftMonth, type ISODate } from '../lib/dates.ts';
 import { formatINR, formatINRCompact } from '../lib/exposure.ts';
 import { CATEGORIES, CATEGORY_LABEL, CATEGORY_SHORT, type Category } from '../lib/types.ts';
@@ -44,12 +44,22 @@ const FILL: Record<RowState, string> = {
   filed: 'var(--filed)',
 };
 
-function radius(exposure: number, count: number, narrow: boolean): number {
-  const r = (narrow ? 3 : 4.5) + Math.min(narrow ? 3.5 : 7, 2.1 * Math.log10(1 + exposure / 1000));
-  // Clusters are large enough to carry their count; two digits need more room.
-  if (count > 9) return Math.max(r, narrow ? 8 : 9.5);
-  return count > 1 ? Math.max(r, narrow ? 6.5 : 8.5) : r;
+/** Every mark, single or merged, is sized by its fixed cost of a 30-day delay. */
+function radius(exposure: number, narrow: boolean): number {
+  return (narrow ? 3 : 4.5) + Math.min(narrow ? 3.5 : 7, 2.1 * Math.log10(1 + exposure / 1000));
 }
+
+/** A merged mark carries its count inside when the disc is large enough, beside it otherwise. */
+function countInside(m: Pick<Mark, 'count' | 'r'>): boolean {
+  return m.r >= (m.count > 9 ? 9 : 7);
+}
+
+/** How far a mark reaches to the right, including a count set beside it. */
+function reach(m: Pick<Mark, 'count' | 'r'>): number {
+  return m.count > 1 && !countInside(m) ? m.r + 3 + String(m.count).length * 6.5 : m.r;
+}
+
+const markKey = (m: Mark) => `${m.category}|${m.from}`;
 
 function rangeLabel(m: { from: ISODate; to: ISODate }): string {
   if (m.from === m.to) return formatDate(m.from);
@@ -61,13 +71,24 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
   const [width, setWidth] = useState(1100);
   const [hover, setHover] = useState<number>(-1);
   const [cursor, setCursor] = useState<number>(-1);
+  const [ready, setReady] = useState(false);
+  // How each mark entered: the first marks assemble outward from Today, later ones pop in.
+  const entry = useRef(new Map<string, 'assemble' | 'pop'>());
+  const seenMarks = useRef(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = wrap.current;
-    if (!el || typeof ResizeObserver === 'undefined') return;
+    if (!el) return;
+    setWidth(Math.max(300, Math.round(el.clientWidth)));
+    // Marks glide to new positions on later changes, never from the first measurement.
+    const t = setTimeout(() => setReady(true), 120);
+    if (typeof ResizeObserver === 'undefined') return () => clearTimeout(t);
     const ro = new ResizeObserver(([e]) => setWidth(Math.max(300, Math.round(e.contentRect.width))));
     ro.observe(el);
-    return () => ro.disconnect();
+    return () => {
+      ro.disconnect();
+      clearTimeout(t);
+    };
   }, []);
 
   const narrow = width < 640;
@@ -112,14 +133,14 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
     const marks: Mark[] = [];
     for (let lane = 0; lane < present.length; lane++) {
       let list = [...byKey.values()].filter((m) => m.lane === lane).sort((a, b) => a.x - b.x);
-      for (const m of list) m.r = radius(m.exposure, m.count, narrow);
+      for (const m of list) m.r = radius(m.exposure, narrow);
       let merged = true;
       while (merged) {
         merged = false;
         const next: Mark[] = [];
         for (const m of list) {
           const prev = next[next.length - 1];
-          if (prev && m.x - prev.x < prev.r + m.r + 2) {
+          if (prev && m.x - prev.x < reach(prev) + m.r + 2) {
             const c: Mark = {
               ...prev,
               to: m.to > prev.to ? m.to : prev.to,
@@ -130,7 +151,7 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
               beyond: prev.beyond && m.beyond,
             };
             c.x = (xOf(c.from) + xOf(c.to)) / 2;
-            c.r = radius(c.exposure, c.count, narrow);
+            c.r = radius(c.exposure, narrow);
             next[next.length - 1] = c;
             merged = true;
           } else next.push(m);
@@ -143,11 +164,11 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
 
     // Axis: month starts, or week starts for short spans; Today keeps its label.
     const xToday = xOf(today);
-    const ticks: { x: number; label: string; major: boolean; lx?: number; show?: boolean }[] = [];
+    const ticks: { key: ISODate; x: number; label: string; major: boolean; lx?: number; show?: boolean }[] = [];
     if (span <= 50) {
       for (let d = start; d <= end; d = addDays(d, 1)) {
         if (new Date(`${d}T00:00:00Z`).getUTCDay() === 1) {
-          ticks.push({ x: xOf(d), label: formatDate(d, { weekday: false, year: false }), major: parts(d).d <= 7 });
+          ticks.push({ key: d, x: xOf(d), label: formatDate(d, { weekday: false, year: false }), major: parts(d).d <= 7 });
         }
       }
     } else {
@@ -161,7 +182,7 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
           const year = narrow ? String(m.y).slice(2) : String(m.y);
           const withYear = m.m === 1 || i === 0 || (narrow && m.y !== lastYear);
           const label = withYear ? `${MONTHS_SHORT[m.m - 1]} ${year}` : MONTHS_SHORT[m.m - 1];
-          ticks.push({ x: xOf(iso(m.y, m.m, 1)), label, major: m.m === 1 });
+          ticks.push({ key: iso(m.y, m.m, 1), x: xOf(iso(m.y, m.m, 1)), label, major: m.m === 1 });
           lastYear = m.y;
         }
         m = shiftMonth(m.y, m.m, 1);
@@ -183,6 +204,10 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
   }, [rows, today, to, width, narrow, labelW]);
 
   const { present, marks, ticks, xOf, x0, x1, end, xToday, heaviest } = model;
+  // Marks first painted assemble; the re-render that measures the real width still counts as first.
+  useEffect(() => {
+    if (marks.length) seenMarks.current = true;
+  });
   const height = top + Math.max(1, present.length) * laneH + 10;
   const active = hover >= 0 ? marks[hover] : cursor >= 0 ? marks[cursor] : null;
   const counts = new Map<Category, number>();
@@ -221,7 +246,12 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
   }
 
   const xEnd = Math.min(x1, xOf(to));
-  const keyR = [radius(0, 1, narrow), radius(10_000, 1, narrow), radius(100_000, 1, narrow)];
+  const keyR = [radius(0, narrow), radius(10_000, narrow), radius(100_000, narrow)];
+  const nextEntry = new Map<string, 'assemble' | 'pop'>();
+  for (const m of marks) nextEntry.set(markKey(m), entry.current.get(markKey(m)) ?? (seenMarks.current ? 'pop' : 'assemble'));
+  entry.current = nextEntry;
+  const span = Math.max(1, x1 - x0);
+  const hotLane = active ? active.lane : -1;
 
   return (
     <div class="tl" ref={wrap}>
@@ -241,7 +271,7 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
         <span class="tl-key-item faint">Numbers count due dates merged into one mark</span>
       </div>
       <svg
-        class="tl-svg"
+        class={`tl-svg${ready ? ' is-ready' : ''}`}
         width={width}
         height={height}
         viewBox={`0 0 ${width} ${height}`}
@@ -256,10 +286,10 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
         {xEnd < x1 && <rect class="tl-beyond" x={xEnd} y={top - 6} width={x1 - xEnd + right} height={height - top + 6} />}
 
         {ticks.map((t) => (
-          <g class={`tl-tick${t.major ? ' is-major' : ''}`}>
-            <line x1={t.x} x2={t.x} y1={top - 6} y2={height - 6} />
+          <g class={`tl-tick${t.major ? ' is-major' : ''}`} key={t.key} style={{ transform: `translateX(${t.x}px)` }}>
+            <line x1={0} x2={0} y1={top - 6} y2={height - 6} />
             {t.show && (
-              <text x={t.lx} y={top - 14}>
+              <text x={(t.lx ?? t.x) - t.x} y={top - 14}>
                 {t.label}
               </text>
             )}
@@ -269,10 +299,12 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
         {present.map((c, i) => {
           const y = top + i * laneH + laneH / 2;
           return (
-            <g class="tl-lane">
-              <line x1={x0} x2={x1} y1={y} y2={y} />
-              <text x={0} y={y + 4} class="tl-lane-label">{narrow ? NARROW_LABEL[c] : CATEGORY_LABEL[c]}</text>
-              {!narrow && <text x={x0 - 12} y={y + 4} text-anchor="end" class="tl-lane-count">{counts.get(c) ?? 0}</text>}
+            <g class={`tl-lane${i === hotLane ? ' is-hot' : ''}`} key={c} data-law={c} style={{ transform: `translateY(${y}px)` }}>
+              <rect class="tl-lane-band" x={x0 - 8} y={-laneH / 2 + 1} width={x1 - x0 + 16} height={laneH - 2} rx={4} />
+              <line x1={x0} x2={x1} y1={0} y2={0} />
+              <rect class="tl-lane-swatch" x={0} y={-4.5} width={9} height={9} rx={2} />
+              <text x={15} y={4} class="tl-lane-label">{narrow ? NARROW_LABEL[c] : CATEGORY_LABEL[c]}</text>
+              {!narrow && <text x={x0 - 12} y={4} text-anchor="end" class="tl-lane-count">{counts.get(c) ?? 0}</text>}
             </g>
           );
         })}
@@ -288,28 +320,44 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
           />
         )}
 
-        <g class="tl-today">
-          <line x1={xToday} x2={xToday} y1={top - 8} y2={height - 6} />
-          <text x={xToday + 4} y={top - 14} class="tl-today-label">Today</text>
+        <g class="tl-today" style={{ transform: `translateX(${xToday}px)` }}>
+          <path d={`M0 ${top - 8}V${height - 6}`} pathLength={1} />
+          <text x={4} y={top - 14} class="tl-today-label">Today</text>
         </g>
 
         {marks.map((m, i) => {
+          const key = markKey(m);
           const y = top + m.lane * laneH + laneH / 2;
           const on = i === hover || i === cursor || isSelected(m);
+          const dist = m.x - xToday;
+          const assemble = entry.current.get(key) === 'assemble';
+          // Assembling marks start a short way toward Today and arrive in a wave by distance from it.
+          const enter = assemble
+            ? { '--dx': `${-Math.sign(dist) * Math.min(Math.abs(dist), 96)}px`, '--d': `${Math.round(Math.min(1, Math.abs(dist) / span) * 260)}ms` }
+            : {};
           return (
             <g
+              key={key}
               class={`tl-mark${m.beyond ? ' is-beyond' : ''}${on ? ' is-active' : ''}`}
+              style={{ transform: `translate(${m.x}px, ${y}px)` }}
               onMouseEnter={() => setHover(i)}
               onMouseLeave={() => setHover(-1)}
               onClick={() => onPick(isSelected(m) ? null : { from: m.from, to: m.to })}
             >
-              <circle cx={m.x} cy={y} r={Math.max(m.r, 12)} class="tl-hit" />
-              <circle cx={m.x} cy={y} r={m.r} fill={FILL[m.state]} class="tl-dot" />
-              {m.count > 1 && (
-                <text x={m.x} y={y + 3.5} text-anchor="middle" class={`tl-count${m.count > 9 ? ' is-wide' : ''}${m.state === 'soon' ? ' on-amber' : ''}`}>
-                  {m.count}
-                </text>
-              )}
+              <g class="tl-body" data-enter={assemble ? 'assemble' : 'pop'} style={enter}>
+                <circle cx={0} cy={0} r={Math.max(m.r, 12)} class="tl-hit" />
+                <circle cx={0} cy={0} r={m.r} fill={FILL[m.state]} class="tl-dot" />
+                {m.count > 1 &&
+                  (countInside(m) ? (
+                    <text x={0} y={3.5} text-anchor="middle" class={`tl-count${m.count > 9 ? ' is-wide' : ''}${m.state === 'soon' ? ' on-amber' : ''}`}>
+                      {m.count}
+                    </text>
+                  ) : (
+                    <text x={m.r + 3} y={4} class="tl-count is-out">
+                      {m.count}
+                    </text>
+                  ))}
+              </g>
             </g>
           );
         })}
@@ -322,8 +370,8 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
           const free = (lane: number, a: number, b: number) =>
             a >= x0 &&
             b <= x1 + right &&
-            !marks.some((m) => m !== heaviest && m.lane === lane && m.x + m.r + 2 > a && m.x - m.r - 2 < b);
-          const rightX = heaviest.x + heaviest.r + 6;
+            !marks.some((m) => m !== heaviest && m.lane === lane && m.x + reach(m) + 2 > a && m.x - m.r - 2 < b);
+          const rightX = heaviest.x + reach(heaviest) + 6;
           const leftX = heaviest.x - heaviest.r - 6;
           let place: { x: number; y: number; anchor: 'start' | 'end' } | null = null;
           if (free(heaviest.lane, rightX, rightX + w)) place = { x: rightX, y: y + 4, anchor: 'start' };
@@ -332,7 +380,7 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
             place = { x: heaviest.x - 4, y: y - laneH / 2 + 2, anchor: 'start' };
           }
           return place ? (
-            <text class="tl-callout" x={place.x} y={place.y} text-anchor={place.anchor}>
+            <text class="tl-callout" key={markKey(heaviest)} x={place.x} y={place.y} text-anchor={place.anchor}>
               {label}
             </text>
           ) : null;
@@ -343,7 +391,7 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
         <div class={`tl-tip${active.x > width * 0.7 ? ' is-left' : ''}`} role="status" style={{ left: `${active.x}px`, top: `${top + active.lane * laneH + 30}px` }}>
           <p class="tl-tip-head">
             <span class="num">{rangeLabel(active)}</span>
-            <span class="law">{CATEGORY_SHORT[active.category]}</span>
+            <span class="law" data-law={active.category}>{CATEGORY_SHORT[active.category]}</span>
           </p>
           <p class="tl-tip-codes">
             {active.codes.slice(0, 6).join(', ')}

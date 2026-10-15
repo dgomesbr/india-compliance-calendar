@@ -81,6 +81,16 @@ export const FREQUENCIES = [
 ] as const;
 export type Frequency = (typeof FREQUENCIES)[number];
 
+export const FREQUENCY_LABEL: Record<Frequency, string> = {
+  monthly: 'Monthly',
+  quarterly: 'Quarterly',
+  'half-yearly': 'Half-yearly',
+  annual: 'Annual',
+  'every-n-years': 'Every few years',
+  event: 'After an event',
+  'one-time': 'One time',
+};
+
 export type ScheduleKind = 'monthly' | 'quarterly' | 'half-yearly' | 'annual' | 'every-n-years' | 'fixed';
 
 /** How a due date is placed relative to the end of its period. */

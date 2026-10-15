@@ -1,9 +1,10 @@
-import { useMemo, useState } from 'preact/hooks';
+import { useMemo, useRef, useState } from 'preact/hooks';
 import { downloadFile, useBundle, useTeamState, useToday } from '../lib/client.ts';
 import { addMonths, formatDate, fyLabel, fyStartYear, iso, lastDayOfMonth, parts, shiftMonth, type ISODate } from '../lib/dates.ts';
 import { toCSV } from '../lib/csv.ts';
 import { isEverything } from '../lib/profile.ts';
 import { CATEGORY_LABEL } from '../lib/types.ts';
+import { useCountUp, useThumb } from '../lib/motion.ts';
 import { buildRows, sortRows, type Row } from '../lib/view.ts';
 import { Icon } from './Icon.tsx';
 
@@ -22,6 +23,10 @@ function quarterOf(date: ISODate, offset: number): { from: ISODate; to: ISODate;
 
 type ReportStatus = 'Filed' | 'Overdue' | 'Pending' | 'Not recorded';
 
+function Count({ value }: { value: number }) {
+  return <>{Math.round(useCountUp(value))}</>;
+}
+
 function statusOf(r: Row, today: ISODate, trackingSince: ISODate): ReportStatus {
   if (r.filed) return 'Filed';
   if (r.occ.due >= today) return 'Pending';
@@ -34,6 +39,8 @@ export default function Report() {
   const today = useToday();
   const [period, setPeriod] = useState<PeriodKey>('this-q');
   const [custom, setCustom] = useState({ from: iso(parts(today).y, parts(today).m, 1), to: addMonths(today, 1) });
+  const segRef = useRef<HTMLDivElement>(null);
+  const thumb = useThumb(segRef, '.seg-btn.is-on', [period, data.status, Boolean(team)]);
 
   const range = useMemo(() => {
     const fy = fyStartYear(today);
@@ -98,13 +105,15 @@ export default function Report() {
   return (
     <div class="page report">
       <header class="report-head no-print">
-        <h1 class="fig report-title">Board report</h1>
-        <p class="muted">
-          Compliance status for a period, ready to print for the board or audit committee. Filing status comes from what the
-          team recorded in this browser or imported from a teammate.
-        </p>
         <div class="report-controls">
-          <div class="seg" role="group" aria-label="Period">
+          <div class="seg" role="group" aria-label="Period" ref={segRef}>
+            {thumb && (
+              <span
+                class="seg-thumb"
+                aria-hidden="true"
+                style={{ transform: `translate(${thumb.x}px, ${thumb.y}px)`, width: `${thumb.w}px`, height: `${thumb.h}px` }}
+              />
+            )}
             {([
               ['this-q', 'This quarter'],
               ['last-q', 'Last quarter'],
@@ -112,7 +121,7 @@ export default function Report() {
               ['last-fy', 'Last FY'],
               ['custom', 'Custom'],
             ] as [PeriodKey, string][]).map(([k, l]) => (
-              <button type="button" aria-pressed={period === k} class={`seg-btn label${period === k ? ' is-on' : ''}`} onClick={() => setPeriod(k)}>
+              <button type="button" aria-pressed={period === k} class={`seg-btn${period === k ? ' is-on' : ''}`} onClick={() => setPeriod(k)}>
                 {l}
               </button>
             ))}
@@ -136,18 +145,18 @@ export default function Report() {
 
       <article class="report-sheet">
         <header class="report-sheet-head">
-          <h2 class="fig report-period">{range.label}</h2>
+          <h2 class="fig display report-period" key={range.label}>{range.label}</h2>
           <p>Statutory compliance status - {entity}</p>
           <p class="faint num">
             {formatDate(range.from)} to {formatDate(range.to)} - prepared {formatDate(today)}
           </p>
         </header>
         <dl class="report-summary num">
-          <div><dt class="label faint">Obligations</dt><dd class="fig">{rows.length}</dd></div>
-          <div><dt class="label faint">Filed</dt><dd class="fig">{counts.Filed}</dd></div>
-          <div><dt class="label faint">Overdue</dt><dd class={`fig${counts.Overdue ? ' state-overdue' : ''}`}>{counts.Overdue}</dd></div>
-          <div><dt class="label faint">Pending</dt><dd class="fig">{counts.Pending}</dd></div>
-          <div><dt class="label faint">Not recorded</dt><dd class="fig">{counts['Not recorded']}</dd></div>
+          <div><dt class="label faint">Obligations</dt><dd class="fig display"><Count value={rows.length} /></dd></div>
+          <div><dt class="label faint">Filed</dt><dd class="fig display"><Count value={counts.Filed} /></dd></div>
+          <div><dt class="label faint">Overdue</dt><dd class={`fig display${counts.Overdue ? ' state-overdue' : ''}`}><Count value={counts.Overdue} /></dd></div>
+          <div><dt class="label faint">Pending</dt><dd class="fig display"><Count value={counts.Pending} /></dd></div>
+          <div><dt class="label faint">Not recorded</dt><dd class="fig display"><Count value={counts['Not recorded']} /></dd></div>
         </dl>
         {rows.length === 0 ? (
           <p class="muted">No obligations for this profile in the period.</p>
@@ -164,11 +173,11 @@ export default function Report() {
                 <th scope="col" class="label">Owner</th>
               </tr>
             </thead>
-            <tbody>
-              {rows.map((r) => {
+            <tbody key={`${range.from}|${range.to}`}>
+              {rows.map((r, i) => {
                 const s = statusOf(r, today, team.trackingSince);
                 return (
-                  <tr class={`report-row status-${s.replace(' ', '-').toLowerCase()}`}>
+                  <tr class={`report-row rise status-${s.replace(' ', '-').toLowerCase()}`} style={{ '--i': Math.min(i, 14) }}>
                     <td class="num">{formatDate(r.occ.due, { weekday: false })}{r.occ.originalDue && <span class="faint"> (ext.)</span>}</td>
                     <td><span class="fig report-code">{r.rule.code}</span> {r.rule.title}</td>
                     <td class="muted">{r.occ.periodLabel}</td>

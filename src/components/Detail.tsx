@@ -1,24 +1,30 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useMemo, useState } from 'preact/hooks';
 import { baseUrl, downloadFile } from '../lib/client.ts';
-import { formatDate, formatLong, relativeDays, todayIST, type ISODate } from '../lib/dates.ts';
+import { addDays, addMonths, formatDate, relativeDays, todayIST, type ISODate } from '../lib/dates.ts';
+import { hasDelayCurve } from '../lib/delay.ts';
 import { delayCost, formatINR, interestNote, turnoverNote } from '../lib/exposure.ts';
 import { buildCalendar } from '../lib/ics.ts';
-import { describeSchedule } from '../lib/schedule.ts';
+import { describeSchedule, expandRule } from '../lib/schedule.ts';
 import type { TeamState } from '../lib/store.ts';
-import { CATEGORY_LABEL, CATEGORY_SHORT } from '../lib/types.ts';
-import { STATE_LABEL, type Row } from '../lib/view.ts';
+import { CATEGORY_LABEL, CATEGORY_SHORT, type Bundle } from '../lib/types.ts';
+import { centralHolidays, STATE_LABEL, type Row } from '../lib/view.ts';
+import DelayChart from './DelayChart.tsx';
 import { Icon } from './Icon.tsx';
 
 export function Law({ row }: { row: Row }) {
-  return <span class="law">{CATEGORY_SHORT[row.rule.category]}</span>;
+  return <span class="law" data-law={row.rule.category}>{CATEGORY_SHORT[row.rule.category]}</span>;
 }
 
 interface Props {
   row: Row;
   today: ISODate;
   state: TeamState;
+  /** Lets the panel list the obligation's next due dates. */
+  bundle?: Bundle | null;
   onSave: (next: TeamState) => void;
   onClose: () => void;
+  /** Prefix for element ids, so the side panel and the sheet can both be mounted. */
+  idp?: string;
 }
 
 export function occurrenceICS(row: Row): string {
@@ -40,7 +46,7 @@ export function occurrenceICS(row: Row): string {
   });
 }
 
-export default function Detail({ row, today, state, onSave, onClose }: Props) {
+export default function Detail({ row, today, state, bundle, onSave, onClose, idp = 'd' }: Props) {
   const { rule, occ } = row;
   const filed = state.filed[occ.key];
   const [editing, setEditing] = useState(false);
@@ -54,11 +60,22 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
     setDays(row.daysLeft < 0 ? Math.max(1, -row.daysLeft) : 30);
   }, [occ.key]);
 
+  // The next few dates of the same obligation, so the panel answers "and after this?".
+  const nextDates = useMemo(() => {
+    if (!bundle || row.planned || !rule.schedule) return [];
+    return expandRule(rule, addDays(occ.due, 1), addMonths(occ.due, 25), {
+      confirmedThrough: bundle.meta.confirmedThrough,
+      holidays: new Set(centralHolidays(bundle).keys()),
+    }).slice(0, 3);
+  }, [bundle, rule, occ.due, row.planned]);
+
   const owners = [...new Set([...Object.values(state.owners), ...Object.values(state.filed).map((f) => f.owner ?? '')])].filter(Boolean);
-  const cost = delayCost(rule.exposure, days);
+  const curve = hasDelayCurve(rule.exposure);
+  const cost = delayCost(rule.exposure, 30);
   const interest = interestNote(rule.exposure);
   const turnover = turnoverNote(rule.exposure);
   const link = `${location.origin}${baseUrl()}o/${rule.id}/`;
+  const id = (s: string) => `${idp}-${s}`;
 
   const save = (e: Event) => {
     e.preventDefault();
@@ -85,16 +102,16 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
   };
 
   return (
-    <article class="detail" aria-labelledby="detail-code">
+    <article class="detail" aria-labelledby={id('code')}>
       <header class="detail-head">
-        <h2 id="detail-code" class="fig detail-code">{rule.code}</h2>
+        <h2 id={id('code')} class="fig detail-code">{rule.code}</h2>
         <button class="btn btn-quiet detail-close" type="button" onClick={onClose} aria-label="Close details">
           <span class="btn-label"><Icon name="x" /></span>
         </button>
       </header>
       <p class="detail-title">{rule.title}</p>
       <p class="detail-meta">
-        <span class="law">{CATEGORY_LABEL[rule.category]}</span>
+        <span class="law" data-law={rule.category}>{CATEGORY_LABEL[rule.category]}</span>
         <span class="label">{rule.authority}</span>
         <span class="label">{occ.periodLabel}</span>
       </p>
@@ -102,7 +119,7 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
       <dl class="detail-due">
         <div>
           <dt class="label faint">Due</dt>
-          <dd class="num">{formatLong(occ.due)}</dd>
+          <dd class="num">{formatDate(occ.due, { weekday: false })}</dd>
         </div>
         <div>
           <dt class="label faint">When</dt>
@@ -113,6 +130,20 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
           <dd><span class="tag" data-state={row.state === 'upcoming' ? undefined : row.state}>{STATE_LABEL[row.state]}</span></dd>
         </div>
       </dl>
+
+      {nextDates.length > 0 && (
+        <div class="detail-next">
+          <span class="label">Then</span>
+          <ol>
+            {nextDates.map((o, i) => (
+              <li style={{ '--i': i }}>
+                <span class="num">{formatDate(o.due, { weekday: false })}</span>
+                <span class="detail-next-period">{o.periodLabel}{o.extended ? ' - extended' : ''}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
 
       {occ.extended && (
         <p class="detail-note extended">
@@ -156,24 +187,23 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
         ) : editing ? (
           <form class="filed-form" onSubmit={save}>
             <div class="field">
-              <label class="label" for="f-on">Filed on</label>
-              <input id="f-on" class="input num" type="date" required value={form.filedOn} max={today}
+              <label class="label" for={id('on')}>Filed on</label>
+              <input id={id('on')} class="input num" type="date" required value={form.filedOn} max={today}
                 onInput={(e) => setForm({ ...form, filedOn: (e.target as HTMLInputElement).value })} />
             </div>
             <div class="field">
-              <label class="label" for="f-ack">Acknowledgement or SRN</label>
-              <input id="f-ack" class="input num" type="text" autocomplete="off" value={form.ack} placeholder="ARN, SRN, challan or ack number"
+              <label class="label" for={id('ack')}>Acknowledgement or SRN</label>
+              <input id={id('ack')} class="input num" type="text" autocomplete="off" value={form.ack} placeholder="ARN, SRN, challan or ack number"
                 onInput={(e) => setForm({ ...form, ack: (e.target as HTMLInputElement).value })} />
             </div>
             <div class="field">
-              <label class="label" for="f-owner">Owner</label>
-              <input id="f-owner" class="input" type="text" list="owners" value={form.owner} placeholder="Who filed it"
+              <label class="label" for={id('fowner')}>Owner</label>
+              <input id={id('fowner')} class="input" type="text" list={id('owners')} value={form.owner} placeholder="Who filed it"
                 onInput={(e) => setForm({ ...form, owner: (e.target as HTMLInputElement).value })} />
-              <datalist id="owners">{owners.map((o) => <option value={o} />)}</datalist>
             </div>
             <div class="field">
-              <label class="label" for="f-note">Note</label>
-              <input id="f-note" class="input" type="text" value={form.note} placeholder="Optional"
+              <label class="label" for={id('note')}>Note</label>
+              <input id={id('note')} class="input" type="text" value={form.note} placeholder="Optional"
                 onInput={(e) => setForm({ ...form, note: (e.target as HTMLInputElement).value })} />
             </div>
             <div class="form-actions">
@@ -195,14 +225,15 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
               type="button"
               onClick={() => navigator.clipboard?.writeText(link).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1600); })}
             >
-              <span class="btn-label"><Icon name="link" />{copied ? 'Copied' : 'Copy link'}</span>
+              <span class="btn-label"><Icon name={copied ? 'check' : 'link'} />{copied ? 'Copied' : 'Copy link'}</span>
             </button>
           </div>
         )}
         <div class="field owner-field">
-          <label class="label faint" for="d-owner">Owner for {rule.code}</label>
-          <input id="d-owner" class="input" type="text" list="owners" placeholder="Unassigned" value={state.owners[rule.id] ?? ''}
+          <label class="label faint" for={id('owner')}>Owner for {rule.code}</label>
+          <input id={id('owner')} class="input" type="text" list={id('owners')} placeholder="Unassigned" value={state.owners[rule.id] ?? ''}
             onChange={(e) => setOwner((e.target as HTMLInputElement).value)} />
+          <datalist id={id('owners')}>{owners.map((o) => <option value={o} />)}</datalist>
         </div>
       </section>
 
@@ -217,12 +248,11 @@ export default function Detail({ row, today, state, onSave, onClose }: Props) {
 
       <section class="detail-section">
         <h3 class="label faint">Cost of a delay</h3>
-        <div class="delay">
-          <label class="label muted" for="d-days">Days late</label>
-          <input id="d-days" type="range" min={1} max={365} value={days} onInput={(e) => setDays(Number((e.target as HTMLInputElement).value))} />
-          <output for="d-days" class="num">{days}</output>
-        </div>
-        <p class="fig delay-cost num">{cost !== null ? formatINR(cost) : 'Not fixed by law'}</p>
+        {curve && rule.exposure ? (
+          <DelayChart exposure={rule.exposure} category={rule.category} days={days} onDays={setDays} idp={id('dc')} />
+        ) : (
+          <p class="fig delay-cost num">{cost !== null ? formatINR(cost) : 'Not fixed by law'}</p>
+        )}
         <ul class="delay-notes">
           {turnover && <li>Penalty of {turnover}</li>}
           {interest && <li>Plus {interest} on the unpaid amount</li>}

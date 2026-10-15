@@ -222,6 +222,16 @@ export function sortRows(rows: Row[], key: SortKey): Row[] {
   return out;
 }
 
+/** An open item whose due date was moved by a notified extension, whatever its urgency. */
+export function hasOpenExtension(row: Row): boolean {
+  return Boolean(row.occ.extended) && row.state !== 'filed' && row.state !== 'past';
+}
+
+/** State filter. "extended" follows the notified extension, so it overlaps the urgency states. */
+export function matchesState(row: Row, state: RowState): boolean {
+  return state === 'extended' ? hasOpenExtension(row) : row.state === state;
+}
+
 export function countStates(rows: Row[]): Record<RowState, number> {
   const c: Record<RowState, number> = { filed: 0, overdue: 0, soon: 0, extended: 0, upcoming: 0, past: 0 };
   for (const r of rows) c[r.state]++;

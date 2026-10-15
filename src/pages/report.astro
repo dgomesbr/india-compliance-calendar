@@ -1,10 +1,19 @@
 ---
 import Shell from '../layouts/Shell.astro';
+import PageBand from '../components/PageBand.astro';
 import Report from '../components/Report.tsx';
 ---
 
 <Shell title="Board report" active="report" preloadData description="Printable compliance status for the board or audit committee.">
+  <PageBand
+    title="Board report"
+    lede="Compliance status for a period, ready to print for the board or audit committee. Filing status comes from what the team recorded in this browser or imported from a teammate."
+    class="no-print"
+  />
   <Report client:only="preact">
-    <div slot="fallback" class="page" aria-busy="true"><div class="skeleton" style="height:320px;margin-top:32px"></div></div>
+    <div slot="fallback" class="page js-only" aria-busy="true"><div class="skeleton" style="height:320px;margin-top:24px"></div></div>
   </Report>
+  <noscript>
+    <p class="page noscript-note">The report needs JavaScript: it reads the filing status your team recorded in this browser.</p>
+  </noscript>
 </Shell>

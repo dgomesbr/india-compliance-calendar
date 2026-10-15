@@ -1,5 +1,6 @@
 ---
 import Shell from '../layouts/Shell.astro';
+import PageBand from '../components/PageBand.astro';
 import { formatDate } from '../lib/dates.ts';
 import { addMonths } from '../lib/dates.ts';
 import { buildDate, getBundle, getFeeds, getUpdates, occurrencesBetween } from '../lib/site-data.ts';
@@ -17,16 +18,15 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
 <Shell title="Regulator updates" active="updates" description="Latest circulars, notifications and press releases collected daily from Indian regulators.">
+  <PageBand
+    title="Regulator updates"
+    lede={`Circulars, notifications and press releases collected each day from the regulators' own feeds, plus every due-date extension the calendar has applied.${updates.fetched ? ` Last collected ${formatDate(updates.fetched.slice(0, 10))}.` : ' The first collection runs on the next scheduled build.'}`}
+  >
+    <p slot="after-title" class="band-links">
+      <a href={`${base}updates.xml`}>RSS feed of these updates</a>
+    </p>
+  </PageBand>
   <div class="page read">
-    <header class="read-head">
-      <h1 class="fig read-title">Regulator updates</h1>
-      <p class="read-lede muted">
-        Circulars, notifications and press releases collected each day from the regulators' own feeds, plus every due-date
-        extension the calendar has applied.
-        {updates.fetched ? ` Last collected ${formatDate(updates.fetched.slice(0, 10))}.` : ' The first collection runs on the next scheduled build.'}
-      </p>
-      <p><a class="label" href={`${base}updates.xml`}>RSS feed of these updates</a></p>
-    </header>
 
     <section class="read-section" aria-labelledby="changes">
       <h2 id="changes">Extensions applied to the calendar</h2>

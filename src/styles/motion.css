@@ -1,0 +1,106 @@
+/* Reduced motion. Loaded last so these keyframes replace the spatial ones.
+   Movement goes; fades, colour changes and the confirmation of an action stay. */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-delay: 0ms !important;
+    animation-duration: 200ms !important;
+    transition-property: color, background-color, border-color, opacity, fill, stroke, outline-color !important;
+    transition-duration: 120ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* the confirmation tint on a row just marked filed keeps its full length */
+  .obl-row.is-flash {
+    animation-duration: 1100ms !important;
+  }
+
+  /* loops and spatial flourishes have no reduced form */
+  .band::before,
+  .skeleton::after,
+  .obl-row.is-flash .file-btn.is-filed {
+    animation: none !important;
+  }
+  .skeleton::after {
+    display: none;
+  }
+
+  /* every entrance becomes a plain fade */
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes tl-assemble {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes tl-pop {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes tl-draw {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes check-draw {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes bar-grow {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes panel-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes tip-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes cal-next {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes cal-prev {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes title-swap {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes title-next {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes title-prev {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes vt-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  /* page changes crossfade; nothing slides or morphs */
+  ::view-transition-group(*) {
+    animation: none !important;
+  }
+}

@@ -81,17 +81,39 @@
 
   --focus: #1d4ed8;
 
+  /* law identity: swatches beside text, never text colour (validated categorical order) */
+  --law-income-tax: #d4568f;
+  --law-gst: #8c2f4f;
+  --law-mca: #4a55b8;
+  --law-sebi: #7a8a10;
+  --law-rbi-fema: #8e3ea8;
+  --law-labour: #d9622b;
+  --law-state: #0e8fb8;
+  --law-trade: #9a4e12;
+  --law-other: #8794a3;
+
+  /* motion */
+  --dur-instant: 110ms;
+  --dur-fast: 160ms;
+  --dur-base: 240ms;
+  --dur-slow: 380ms;
+  --dur-focal: 720ms;
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
   --font: 'Archivo', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: 'Fragment Mono', ui-monospace, 'Cascadia Mono', Menlo, monospace;
 
-  /* fixed rem scale, ratio ~1.2 */
-  --t-xs: 0.75rem;
-  --t-sm: 0.8125rem;
-  --t-md: 0.9375rem;
-  --t-lg: 1.125rem;
-  --t-xl: 1.375rem;
-  --t-2xl: 1.75rem;
-  --t-3xl: 2.25rem;
+  /* fixed rem scale, ratio ~1.2; display steps set slightly wide for presence */
+  --t-xs: 0.78125rem;
+  --t-sm: 0.875rem;
+  --t-md: 1rem;
+  --t-lg: 1.1875rem;
+  --t-xl: 1.5rem;
+  --t-2xl: 2rem;
+  --t-3xl: 2.75rem;
+  --t-4xl: 3.5rem;
+  --display-stretch: 108%;
 
   --s-1: 4px;
   --s-2: 8px;
@@ -124,7 +146,7 @@ html {
   color: var(--ink);
   font-family: var(--font);
   font-size: 100%;
-  line-height: 1.5;
+  line-height: 1.55;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   scrollbar-color: #c3cbd6 var(--ground);
@@ -152,16 +174,23 @@ body {
   outline-offset: 2px;
 }
 
+:focus-visible {
+  transition: outline-offset var(--dur-fast) var(--ease-out);
+}
+
 a {
   color: var(--accent);
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
   text-decoration-color: var(--accent-line);
+  transition: color var(--dur-fast) var(--ease-out), text-decoration-color var(--dur-fast) var(--ease-out),
+    text-underline-offset var(--dur-fast) var(--ease-out);
 }
 a:hover {
   color: var(--accent-hover);
   text-decoration-color: currentColor;
+  text-underline-offset: 0.28em;
 }
 
 h1,
@@ -169,9 +198,9 @@ h2,
 h3,
 h4 {
   margin: 0;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
@@ -237,18 +266,25 @@ hr {
 /* small field and column labels */
 .label {
   font-size: var(--t-xs);
-  font-weight: 600;
+  font-weight: 650;
   letter-spacing: 0.01em;
   line-height: 1.35;
-  color: var(--ink-3);
+  color: var(--ink-2);
 }
 
 /* figures and obligation codes */
 .fig {
-  font-weight: 650;
-  letter-spacing: -0.015em;
-  line-height: 1.1;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
   font-variant-numeric: tabular-nums;
+}
+
+/* display voice: the few largest headings and figures */
+.display {
+  font-stretch: var(--display-stretch);
+  font-weight: 750;
+  letter-spacing: -0.025em;
 }
 
 .num {
@@ -315,7 +351,11 @@ hr {
   white-space: nowrap;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
-  transition: background-color 150ms var(--ease-out), border-color 150ms var(--ease-out), color 150ms var(--ease-out);
+  transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), transform var(--dur-instant) var(--ease-out);
+}
+.btn:active:not([disabled]) {
+  transform: scale(0.97);
 }
 .btn > .btn-label {
   display: inline-flex;
@@ -337,7 +377,9 @@ hr {
   border-color: var(--accent);
   background: var(--accent);
   color: #fff;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.12), 0 4px 10px -4px rgba(29, 78, 216, 0.5);
 }
+
 .btn:has(.btn-block):hover {
   border-color: var(--accent-hover);
   background: var(--accent-hover);
@@ -377,18 +419,54 @@ hr {
   stroke-linejoin: round;
 }
 
-/* the law an obligation belongs to */
+/* the law an obligation belongs to: ink text, identity in the swatch */
 .law {
   display: inline-flex;
   align-items: center;
-  padding: 1px 6px;
+  gap: 6px;
+  padding: 1px 7px 1px 6px;
   border-radius: 4px;
-  background: var(--layer-2);
-  color: var(--ink-2);
+  background: color-mix(in srgb, var(--law-color, var(--law-other)) 9%, white);
+  color: var(--ink);
   font-size: var(--t-xs);
-  font-weight: 600;
+  font-weight: 650;
   line-height: 1.5;
   white-space: nowrap;
+}
+.law::before {
+  content: '';
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--law-color, var(--law-other));
+}
+[data-law='income-tax'] {
+  --law-color: var(--law-income-tax);
+}
+[data-law='gst'] {
+  --law-color: var(--law-gst);
+}
+[data-law='mca'] {
+  --law-color: var(--law-mca);
+}
+[data-law='sebi'] {
+  --law-color: var(--law-sebi);
+}
+[data-law='rbi-fema'] {
+  --law-color: var(--law-rbi-fema);
+}
+[data-law='labour'] {
+  --law-color: var(--law-labour);
+}
+[data-law='state'] {
+  --law-color: var(--law-state);
+}
+[data-law='trade'] {
+  --law-color: var(--law-trade);
+}
+[data-law='other'] {
+  --law-color: var(--law-other);
 }
 
 /* status pills */
@@ -396,6 +474,8 @@ hr {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  transition: background-color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
   padding: 1px 8px 1px 7px;
   border: 1px solid var(--rule);
   border-radius: 999px;
@@ -503,31 +583,116 @@ input[type='checkbox'] {
   width: 16px;
   height: 16px;
 }
+/* date fields draw the same calendar icon as the rest of the interface */
+input[type='date']::-webkit-calendar-picker-indicator {
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+  padding: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235f6e80' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 2v4'/%3E%3Cpath d='M16 2v4'/%3E%3Crect width='18' height='18' x='3' y='4' rx='1'/%3E%3Cpath d='M3 10h18'/%3E%3C/svg%3E") center / 16px 16px no-repeat;
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* disclosures: a chevron that turns as the section opens, never the browser's triangle */
+details > summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details > summary::before {
+  content: '';
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E") center / 16px 16px no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m9 18 6-6-6-6'/%3E%3C/svg%3E") center / 16px 16px no-repeat;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+details[open] > summary::before {
+  transform: rotate(90deg);
+}
 
 .skeleton {
+  position: relative;
+  overflow: hidden;
   border-radius: var(--radius);
-  background: linear-gradient(90deg, var(--layer-1) 0%, var(--layer-2) 50%, var(--layer-1) 100%);
-  background-size: 200% 100%;
-  animation: skeleton 1.4s linear infinite;
+  background: var(--layer-1);
 }
-@keyframes skeleton {
-  from {
-    background-position: 100% 0;
-  }
+.skeleton::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 20%, rgba(214, 226, 255, 0.55) 45%, rgba(255, 255, 255, 0.9) 50%,
+      rgba(214, 226, 255, 0.55) 55%, transparent 80%);
+  transform: translateX(-100%);
+  animation: shimmer 1.6s var(--ease-in-out) infinite;
+}
+@keyframes shimmer {
   to {
-    background-position: -100% 0;
+    transform: translateX(100%);
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+/* entrance used by static lists and sections; content is visible if it never runs */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
 }
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+.rise {
+  animation: rise-in var(--dur-slow) var(--ease-out) both;
+  animation-delay: calc(var(--i, 0) * 28ms);
+}
+
+/* page-to-page continuity: the masthead holds, the band morphs, the page rises in */
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root) {
+  animation: 160ms var(--ease-exit) both vt-out;
+}
+::view-transition-new(root) {
+  animation: 360ms var(--ease-out) both vt-in;
+}
+::view-transition-group(band) {
+  animation-duration: 420ms;
+  animation-timing-function: var(--ease-out);
+}
+::view-transition-old(band),
+::view-transition-new(band) {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+::view-transition-group(nav-indicator) {
+  animation-duration: 380ms;
+  animation-timing-function: var(--ease-out);
+}
+@keyframes vt-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes vt-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* reduced motion lives in motion.css, loaded last so its keyframes win */
 
 @media print {
   html,

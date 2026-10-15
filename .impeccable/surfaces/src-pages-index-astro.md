@@ -25,7 +25,7 @@ OWN-WORLD: White ground and cool grey panels under a deep navy masthead; ruled t
 
 STORY: The team sees what is due and at risk in the horizon, which law is heaviest when, and which filing costs most if late; they open one, read its source, and mark it filed.
 
-FIRST VIEWPORT: Navy top bar with tabs and the profile; the range as the headline with horizon, sort and search controls; law filters and status counts; a full-width swimlane timeline (one lane per law, due dates as marks sized by penalty, a cobalt today line); the first table rows beneath with the at-risk column to the right.
+FIRST VIEWPORT: Navy top bar with tabs and the profile, running on into a navy cover band that carries the range as the headline and the state counts as key figures, with the fixed-cost total leading at display size; below it on white, the horizon, sort and search controls and the law filters; then a full-width swimlane timeline (one lane per law, due dates as marks sized by penalty, a cobalt today line). Amended 2026-10-15 for the approved "Stronger headline band": at 1440x900 the band moves the first table rows and the at-risk column just below the fold; on a 390x844 phone the timeline's first lanes still reach the first screen.
 
 FORM: Annual Report, first of my safer-register grounded list, chosen by the user over Board Pack, Desk Calendar and the category standard; seed key 26667422 (re-roll 1, safer register).
 
