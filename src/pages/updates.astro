@@ -49,8 +49,8 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
         {
           lastRun ? (
             <p>
-              Last update {formatDate(lastRun.date, { weekday: false })}: {lastRun.confirmed.length} lists confirmed unchanged,{' '}
-              {lastRun.changes.length} changed.
+              Last update {formatDate(lastRun.date, { weekday: false })}: {lastRun.confirmed.length} lists confirmed against
+              their sources, {lastRun.changes.length ? `${lastRun.changes.length} changed` : 'nothing moved'}.
               {lastRun.skipped.length > 0 && ` Not reachable this time: ${lastRun.skipped.map((s) => `${s.source} (${s.reason})`).join('; ')}.`}
               {' '}Next update {nextFirst}.
             </p>
