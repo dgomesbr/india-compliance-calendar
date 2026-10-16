@@ -18,7 +18,7 @@ lists:
         url: https://wages-salaires.service.canada.ca/_conf/assets/js/general_holiday.js
       - title: Holidays Act, R.S.C. 1985, c. H-5
         url: https://laws-lois.justice.gc.ca/eng/acts/H-5/FullText.html
-    verified: 2026-10-15
+    verified: 2026-10-16
     confidence: high
     notes: The same ten Canada Labour Code general holidays, dated from the Labour Program's published 2027 list. Christmas Day falls on a Saturday and Boxing Day on a Sunday; where those are non-working days the employee gets the working day immediately before or after (s. 193(2)).
     holidays:
@@ -144,7 +144,7 @@ lists:
         url: https://www.opm.gov/policy-data-oversight/pay-leave/work-schedules/fact-sheets/Federal-Holidays-In-Lieu-Of-Determination
       - title: OPM federal holidays iCalendar feed
         url: https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/holidays.ics
-    verified: 2026-10-15
+    verified: 2026-10-16
     confidence: high
     notes: Juneteenth and Christmas Day fall on Saturdays (observed Fridays 18 June and 24 December) and Independence Day on a Sunday (observed Monday 5 July). New Year's Day 2028 is a Saturday, so Friday 31 December 2027 is a federal holiday; OPM lists it on its 2028 schedule.
     holidays:

@@ -20,7 +20,7 @@ lists:
         url: https://wages-salaires.service.canada.ca/_conf/assets/js/general_holiday.js
       - title: Holidays Act, R.S.C. 1985, c. H-5
         url: https://laws-lois.justice.gc.ca/eng/acts/H-5/FullText.html
-    verified: 2026-10-15
+    verified: 2026-10-16
     confidence: high
     notes: The ten general holidays of the Canada Labour Code (s. 166) for federally regulated employers; Easter Monday, Family Day and the Civic Holiday are not general holidays under the Code. When New Year's Day, Canada Day, the National Day for Truth and Reconciliation, Remembrance Day, Christmas Day or Boxing Day falls on a non-working Saturday or Sunday, the employee gets the working day immediately before or after (s. 193(2)).
     holidays:
@@ -98,7 +98,7 @@ lists:
         url: https://www.bankofcanada.ca/press/upcoming-events/bank-of-canada-holiday-schedule/
       - title: Bills of Exchange Act, R.S.C. 1985, c. B-4, s. 42 (non-juridical days)
         url: https://laws-lois.justice.gc.ca/eng/acts/B-4/section-42.html
-    verified: 2026-10-15
+    verified: 2026-10-16
     confidence: high
     notes: Payments Canada's systems run Monday to Friday except the ten federal statutory holidays below; a holiday on a weekend closes them on the next business day. Easter Monday, Family Day and the Civic Holiday are processing days, although many branches and the Bank of Canada's own offices close on Family Day and the Civic Holiday, and the Ontario Ministry of Finance's banking schedule for provincial tax due dates adds those three days.
     holidays:
@@ -142,7 +142,7 @@ lists:
         url: https://www.opm.gov/policy-data-oversight/pay-leave/work-schedules/fact-sheets/Federal-Holidays-In-Lieu-Of-Determination
       - title: OPM federal holidays iCalendar feed
         url: https://www.opm.gov/policy-data-oversight/pay-leave/federal-holidays/holidays.ics
-    verified: 2026-10-15
+    verified: 2026-10-16
     confidence: high
     notes: "The eleven legal public holidays of 5 U.S.C. 6103(a) on the dates OPM sets for Monday-to-Friday employees: a Saturday holiday is observed the Friday before (6103(b)) and a Sunday holiday the Monday after (Executive Order 11582). A closure added by executive order (as for 24 and 26 December 2025) is recorded when it is published."
     holidays:

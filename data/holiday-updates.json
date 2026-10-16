@@ -1,0 +1,54 @@
+{
+ "runs": [
+  {
+   "date": "2026-10-16",
+   "changes": [],
+   "confirmed": [
+    "bank-mh-2026",
+    "bank-dl-2026",
+    "bank-ka-2026",
+    "bank-tn-2026",
+    "bank-wb-2026",
+    "bank-tg-2026",
+    "bank-gj-2026",
+    "bank-kl-2026",
+    "bank-up-2026",
+    "bank-rj-2026",
+    "bank-br-2026",
+    "bank-od-2026",
+    "bank-as-2026",
+    "bank-mp-2026",
+    "bank-ap-2026",
+    "bank-ga-2026",
+    "bank-jh-2026",
+    "us-federal-2026",
+    "us-federal-2027",
+    "ca-federal-2026",
+    "ca-federal-2027",
+    "ca-on-bank-2026"
+   ],
+   "skipped": [
+    {
+     "source": "National Portal of India holidays 2026",
+     "reason": "HTTP 403"
+    },
+    {
+     "source": "RBI holiday matrix 2027",
+     "reason": "RBI has not published 2027 yet"
+    },
+    {
+     "source": "National Portal of India holidays 2027",
+     "reason": "HTTP 403"
+    },
+    {
+     "source": "NSE trading holidays",
+     "reason": "The operation was aborted due to timeout"
+    },
+    {
+     "source": "NSE settlement holidays",
+     "reason": "The operation was aborted due to timeout"
+    }
+   ]
+  }
+ ]
+}
