@@ -1,9 +1,9 @@
 import type { ComponentChildren } from 'preact';
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { abroadDays, abroadMeaning, COUNTRY_LABEL, type AbroadHoliday } from '../lib/abroad.ts';
-import { baseUrl, fetchUpdates, useBundle, useTeamState, useToday } from '../lib/client.ts';
+import { baseUrl, fetchUpdates, useBundle, useMoney, useTeamState, useToday } from '../lib/client.ts';
 import { addMonths, diffDays, formatDate, lastDayOfMonth, parts, relativeDays, shiftMonth, type ISODate } from '../lib/dates.ts';
-import { formatINRCompact, interestNote } from '../lib/exposure.ts';
+import { interestNote } from '../lib/exposure.ts';
 import {
   describeRange,
   HORIZON_LABEL,
@@ -32,6 +32,7 @@ import {
 } from '../lib/view.ts';
 import Detail, { Law } from './Detail.tsx';
 import { Icon } from './Icon.tsx';
+import { Money, MoneyContext, useMoneyFormat } from './Money.tsx';
 import Timeline, { type DateRange } from './Timeline.tsx';
 
 const READOUT: RowState[] = ['overdue', 'soon', 'extended', 'upcoming', 'filed'];
@@ -95,11 +96,14 @@ function Figure({ state, count, on, loading, index, onToggle }: {
 }
 
 function ExposureFigure({ value, loading }: { value: number; loading: boolean }) {
-  const shown = useCountUp(loading ? 0 : value, 700);
+  const money = useMoneyFormat();
+  const shown = Math.round(useCountUp(loading ? 0 : value, 700));
+  const ref = money.ref(shown, true);
   return (
     <div class="figure figure-total" style={{ '--i': 5 }}>
-      <span class="figure-n num">{loading ? '-' : formatINRCompact(Math.round(shown))}</span>
+      <span class="figure-n num">{loading ? '-' : ref ?? money.inr(shown, true)}</span>
       <span class="figure-label">
+        {!loading && ref && <span class="figure-inr num">({money.inr(value, true)})</span>}
         <span class="label-long">Fixed cost if every open item runs 30 days late</span>
         <span class="label-short">Cost at 30 days</span>
       </span>
@@ -112,6 +116,7 @@ export default function Overview() {
   const [team, saveTeam] = useTeamState();
   const today = useToday();
   const url = useMemo(readUrl, []);
+  const money = useMoney(data.status === 'ready' ? data.data : null, team);
 
   const [horizon, setHorizon] = useState<HorizonPreset>(url.h ?? '1m');
   const [customEnd, setCustomEnd] = useState<ISODate | undefined>(url.end);
@@ -259,6 +264,7 @@ export default function Overview() {
   const filtering = Boolean(query || laws.length || states.length || day);
 
   return (
+    <MoneyContext.Provider value={money}>
     <div class="ov">
       <section class="band band-live ov-band" aria-labelledby="ov-title" ref={bandRef} data-lit={bandLit || undefined}>
         <div class="page band-inner">
@@ -454,7 +460,7 @@ export default function Overview() {
                     <button type="button" class="aside-item" onClick={() => setSelected(r.occ.key)}>
                       <span class="aside-row">
                         <span class="aside-code fig">{r.rule.code}</span>
-                        <span class="aside-amount num">{formatINRCompact(r.exposure)}</span>
+                        <span class="aside-amount num"><Money inr={r.exposure} compact /></span>
                       </span>
                       <span class="aside-bar" aria-hidden="true">
                         <span style={{ transform: `scaleX(${atRisk[0]?.exposure ? r.exposure / atRisk[0].exposure : 0})` }} />
@@ -523,6 +529,7 @@ export default function Overview() {
         )}
       </dialog>
     </div>
+    </MoneyContext.Provider>
   );
 }
 
@@ -621,7 +628,7 @@ function Table({ rows, sort, today, selected, flash, onSelect, onFile, onUnfile 
                 </td>
                 <td class="col-auth muted" title={r.rule.authority}><span class="auth-text">{shortAuthority(r.rule.authority)}</span></td>
                 <td class="col-exp num">
-                  {r.exposure ? formatINRCompact(r.exposure) : <span class="faint">-</span>}
+                  {r.exposure ? <Money inr={r.exposure} compact stack /> : <span class="faint">-</span>}
                   {interest && <span class="exp-int faint">+ interest</span>}
                 </td>
                 <td class="col-state">

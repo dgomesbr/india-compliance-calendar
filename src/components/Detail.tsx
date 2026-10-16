@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'preact/hooks';
 import { baseUrl, downloadFile } from '../lib/client.ts';
 import { addDays, addMonths, formatDate, relativeDays, todayIST, type ISODate } from '../lib/dates.ts';
 import { hasDelayCurve } from '../lib/delay.ts';
-import { delayCost, formatINR, interestNote, turnoverNote } from '../lib/exposure.ts';
+import { delayCost, interestNote, turnoverNote } from '../lib/exposure.ts';
 import { buildCalendar } from '../lib/ics.ts';
 import { describeSchedule, expandRule } from '../lib/schedule.ts';
 import type { TeamState } from '../lib/store.ts';
@@ -10,6 +10,7 @@ import { CATEGORY_LABEL, CATEGORY_SHORT, type Bundle } from '../lib/types.ts';
 import { centralHolidays, STATE_LABEL, type Row } from '../lib/view.ts';
 import DelayChart from './DelayChart.tsx';
 import { Icon } from './Icon.tsx';
+import { Money } from './Money.tsx';
 
 export function Law({ row }: { row: Row }) {
   return <span class="law" data-law={row.rule.category}>{CATEGORY_SHORT[row.rule.category]}</span>;
@@ -251,7 +252,7 @@ export default function Detail({ row, today, state, bundle, onSave, onClose, idp
         {curve && rule.exposure ? (
           <DelayChart exposure={rule.exposure} category={rule.category} days={days} onDays={setDays} idp={id('dc')} />
         ) : (
-          <p class="fig delay-cost num">{cost !== null ? formatINR(cost) : 'Not fixed by law'}</p>
+          <p class="fig delay-cost num">{cost !== null ? <Money inr={cost} /> : 'Not fixed by law'}</p>
         )}
         <ul class="delay-notes">
           {turnover && <li>Penalty of {turnover}</li>}

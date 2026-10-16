@@ -5,7 +5,9 @@ import '../styles/pages.css';
 import '../styles/band.css';
 import '../styles/motion.css';
 import Icon from '../components/Icon.astro';
+import CurrencyToggle from '../components/CurrencyToggle.tsx';
 import ProfileButton from '../components/ProfileButton.tsx';
+import { getBundle } from '../lib/site-data.ts';
 
 export type NavKey = 'overview' | 'calendar' | 'planner' | 'report' | 'updates' | 'sources' | 'subscribe' | 'none';
 
@@ -33,6 +35,8 @@ const nav: { key: NavKey; label: string; href: string }[] = [
   { key: 'subscribe', label: 'Subscribe', href: `${base}subscribe/` },
 ];
 const built = new Date().toISOString().slice(0, 10);
+const fx = getBundle().fx;
+const fxMeta = fx ? JSON.stringify({ date: fx.date, cadPerInr: fx.cadPerInr, usdPerInr: fx.usdPerInr }) : '';
 ---
 
 <!doctype html>
@@ -53,6 +57,7 @@ const built = new Date().toISOString().slice(0, 10);
     <link rel="alternate" type="text/calendar" title="All obligations (ICS)" href={`${base}ics/all.ics`} />
     {preloadData && <link rel="preload" href={`${base}api/v1/bundle.json`} as="fetch" crossorigin="anonymous" />}
     <meta name="icc-base" content={base} />
+    {fxMeta && <meta name="icc-fx" content={fxMeta} />}
     <noscript><style is:inline>.js-only { display: none !important; }</style></noscript>
   </head>
   <body>
@@ -78,6 +83,7 @@ const built = new Date().toISOString().slice(0, 10);
           </ul>
         </nav>
         <div class="masthead-tools">
+          <CurrencyToggle client:idle />
           <ProfileButton client:idle />
         </div>
       </div>
@@ -100,6 +106,36 @@ const built = new Date().toISOString().slice(0, 10);
         <p class="faint footer-built">Built {built}</p>
       </div>
     </footer>
+    <script>
+      // Static pages render reference amounts in CAD at build time; switch them to the
+      // team's chosen currency, and follow the masthead switch as it changes.
+      import { DEFAULT_CURRENCY, formatRef, isCurrency, toRef, type Fx, type RefCurrency } from '../lib/money.ts';
+      const fxContent = document.querySelector('meta[name="icc-fx"]')?.getAttribute('content');
+      const rates = fxContent ? (JSON.parse(fxContent) as Fx) : null;
+      const chosen = (state: unknown): RefCurrency => {
+        const c = (state as { prefs?: { currency?: unknown } } | null)?.prefs?.currency;
+        return isCurrency(c) ? c : DEFAULT_CURRENCY;
+      };
+      const stored = () => {
+        try {
+          return chosen(JSON.parse(localStorage.getItem('icc.state.v1') ?? 'null'));
+        } catch {
+          return DEFAULT_CURRENCY;
+        }
+      };
+      const show = (cur: RefCurrency) => {
+        if (!rates) return;
+        document.querySelectorAll<HTMLElement>('[data-money-ref]').forEach((el) => {
+          el.textContent = formatRef(toRef(Number(el.dataset.moneyRef), rates, cur), cur, el.dataset.compact === '1');
+        });
+        document.querySelectorAll<HTMLElement>('[data-money-cur]').forEach((el) => (el.textContent = cur));
+      };
+      show(stored());
+      window.addEventListener('icc:state', (e) => show(chosen((e as CustomEvent).detail)));
+      window.addEventListener('storage', (e) => {
+        if (e.key === 'icc.state.v1') show(stored());
+      });
+    </script>
     <script>
       // Run a static band's ambient light only while it is on screen. Island bands
       // (band-live) do the same through useInView, so the island owns the attribute.
@@ -219,7 +255,10 @@ const built = new Date().toISOString().slice(0, 10);
     outline-offset: -4px;
   }
   .masthead-tools {
+    display: flex;
     flex: none;
+    align-items: center;
+    gap: var(--s-2);
   }
   .masthead :global(:focus-visible) {
     outline-color: #fff;

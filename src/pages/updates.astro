@@ -3,7 +3,7 @@ import Shell from '../layouts/Shell.astro';
 import PageBand from '../components/PageBand.astro';
 import { formatDate } from '../lib/dates.ts';
 import { addMonths } from '../lib/dates.ts';
-import { buildDate, getBundle, getFeeds, getUpdates, occurrencesBetween } from '../lib/site-data.ts';
+import { buildDate, getBundle, getFeeds, getHolidayUpdates, getUpdates, occurrencesBetween } from '../lib/site-data.ts';
 
 const updates = getUpdates();
 const feeds = getFeeds();
@@ -14,6 +14,14 @@ const changes = occurrencesBetween(addMonths(today, -6), addMonths(today, 18))
   .filter((o) => o.extended)
   .map((o) => ({ o, r: byId.get(o.ruleId)! }));
 const sources = [...new Map(updates.items.map((u) => [u.source, u.sourceName])).entries()];
+const holidayRuns = getHolidayUpdates();
+const lastRun = holidayRuns[0];
+const titleOf = new Map(getBundle().holidays.map((l) => [l.id, l.title]));
+const withChanges = holidayRuns.filter((r) => r.changes.length).slice(0, 4);
+const nextFirst = (() => {
+  const [y, m] = today.split('-').map(Number);
+  return formatDate(`${m === 12 ? y + 1 : y}-${String(m === 12 ? 1 : m + 1).padStart(2, '0')}-01`, { weekday: false });
+})();
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 ---
 
@@ -27,6 +35,58 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
     </p>
   </PageBand>
   <div class="page read">
+
+    <section class="read-section" aria-labelledby="holiday-changes">
+      <h2 id="holiday-changes">Holiday changes</h2>
+      <div class="prose">
+        <p>
+          Indian holidays move during the year: festivals follow the moon, and the Centre, the states and RBI declare or shift
+          days as they go. On the first of every month the lists are refreshed from their official sources (RBI's holiday
+          matrix for bank holidays by state, the National Portal of India's copy of the DoPT list, NSE's holiday API, and the
+          authorities' own feeds for Canada and the United States), and what changed is listed here. A date someone corrected
+          by hand from a later order is never moved back by a source that has not caught up; it is flagged instead.
+        </p>
+        {
+          lastRun ? (
+            <p>
+              Last update {formatDate(lastRun.date, { weekday: false })}: {lastRun.confirmed.length} lists confirmed unchanged,{' '}
+              {lastRun.changes.length} changed.
+              {lastRun.skipped.length > 0 && ` Not reachable this time: ${lastRun.skipped.map((s) => `${s.source} (${s.reason})`).join('; ')}.`}
+              {' '}Next update {nextFirst}.
+            </p>
+          ) : (
+            <p class="muted">The first monthly update runs on {nextFirst}.</p>
+          )
+        }
+      </div>
+      {
+        withChanges.length > 0 && (
+          <ul class="feed-list">
+            {withChanges.flatMap((run) =>
+              run.changes.map((c) => (
+                <li class="feed-item">
+                  <span class="num faint">{formatDate(run.date, { weekday: false })}</span>
+                  <span>
+                    <strong>{titleOf.get(c.list) ?? c.list}</strong>:{' '}
+                    {[
+                      c.created ? `published, ${c.added.length} dates` : '',
+                      !c.created && c.added.length ? `added ${c.added.map((h) => `${formatDate(h.date, { weekday: false })} (${h.name})`).join(', ')}` : '',
+                      c.removed.length ? `removed ${c.removed.map((h) => `${formatDate(h.date, { weekday: false })} (${h.name})`).join(', ')}` : '',
+                      c.moved.length ? `moved ${c.moved.map((m) => `${m.name} from ${formatDate(m.from, { weekday: false })} to ${formatDate(m.to, { weekday: false })}`).join(', ')}` : '',
+                      c.conflicts.length ? `to review: ${c.conflicts.map((x) => `${formatDate(x.date, { weekday: false })} ${x.name}`).join(', ')}` : '',
+                    ]
+                      .filter(Boolean)
+                      .join('; ') || 'confirmed as published'}
+                    .
+                    <span class="feed-meta">{c.source}</span>
+                  </span>
+                </li>
+              )),
+            )}
+          </ul>
+        )
+      }
+    </section>
 
     <section class="read-section" aria-labelledby="changes">
       <h2 id="changes">Extensions applied to the calendar</h2>

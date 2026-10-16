@@ -718,7 +718,7 @@
   text-align: right;
 }
 .col-exp {
-  width: 104px;
+  width: 120px;
   text-align: right;
   white-space: nowrap;
   font-weight: 650;
@@ -1126,6 +1126,9 @@
   font-size: var(--t-sm);
   font-weight: 700;
 }
+.dchart-tip strong + span {
+  color: var(--ink-3);
+}
 
 /* ---------- sheets (dialogs): slide in from the edge, and out again on close ---------- */
 .sheet {
@@ -1191,6 +1194,65 @@
   padding: var(--s-4) 0 var(--s-5);
   border-top: 1px solid var(--rule);
   background: var(--ground);
+}
+
+/* ---------- amounts: the reference currency first, the rupee figure in brackets ---------- */
+.money {
+  white-space: nowrap;
+}
+.money-inr {
+  margin-left: 0.3em;
+  color: var(--ink-3);
+  font-size: 0.85em;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.money.is-stacked {
+  display: inline-grid;
+  justify-items: end;
+}
+.money.is-stacked .money-inr {
+  margin-left: 0;
+  font-size: var(--t-xs);
+}
+.delay-cost .money-inr {
+  font-size: var(--t-md);
+  font-weight: 600;
+  font-stretch: 100%;
+}
+
+/* masthead switch for the reference currency (phones choose it in the profile sheet) */
+.cur-toggle {
+  display: inline-flex;
+  padding: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius);
+}
+.cur-btn {
+  min-height: 30px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--navy-ink-2);
+  font-family: inherit;
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur-fast) var(--ease-out);
+}
+.cur-btn:hover:not([disabled]) {
+  color: #fff;
+}
+.cur-btn.is-on {
+  background: rgba(143, 176, 255, 0.16);
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(143, 176, 255, 0.7);
+}
+.cur-btn[disabled] {
+  cursor: default;
 }
 
 /* ---------- profile ---------- */
@@ -1415,6 +1477,12 @@
   }
   .sheet {
     width: 100vw;
+  }
+}
+
+@media (max-width: 599px) {
+  .cur-toggle {
+    display: none;
   }
 }
 

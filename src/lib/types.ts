@@ -268,4 +268,6 @@ export interface Bundle {
   rules: Rule[];
   holidays: HolidayList[];
   events: EventType[];
+  /** Bank of Canada rates for the CAD and USD reference amounts (data/fx.json). */
+  fx?: import('./money.ts').Fx;
 }

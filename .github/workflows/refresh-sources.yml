@@ -12,7 +12,8 @@ permissions:
   actions: write
 
 concurrency:
-  group: refresh-sources
+  # Shared with the monthly holiday update, so the two never push at once.
+  group: data-commits
   cancel-in-progress: false
 
 jobs:
@@ -25,6 +26,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - name: Refresh the reference exchange rates
+        run: node scripts/fetch-fx.ts >> "$GITHUB_STEP_SUMMARY"
       - name: Check holiday calendars and every cited source
         run: node scripts/refresh-sources.ts >> "$GITHUB_STEP_SUMMARY"
       - name: Validate and test what changed

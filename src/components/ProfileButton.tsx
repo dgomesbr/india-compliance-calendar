@@ -11,6 +11,7 @@ import {
   type Profile,
 } from '../lib/profile.ts';
 import { ABROAD, ABROAD_LABEL } from '../lib/abroad.ts';
+import { CURRENCY_LABEL, REF_CURRENCIES } from '../lib/money.ts';
 import { exportState, importState, type TeamState } from '../lib/store.ts';
 import { STATE_CODES, STATE_NAME } from '../lib/validate.ts';
 import { Icon } from './Icon.tsx';
@@ -143,6 +144,20 @@ export default function ProfileButton() {
                     <input type="checkbox" checked={(draft.abroad ?? []).includes(s)}
                       onChange={(e) => set({ abroad: (e.target as HTMLInputElement).checked ? [...(draft.abroad ?? []), s] : (draft.abroad ?? []).filter((x) => x !== s) })} />
                     <span>{ABROAD_LABEL[s]}</span>
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset class="currency">
+              <legend class="label">Amounts</legend>
+              <p class="faint">Penalties are fixed in rupees. A reference amount sits beside each one, at the Bank of Canada's daily rate.</p>
+              <div class="state-grid">
+                {REF_CURRENCIES.map((c) => (
+                  <label class="state-chip">
+                    <input type="radio" name="p-currency" checked={team.prefs.currency === c}
+                      onChange={() => saveTeam({ ...team, prefs: { ...team.prefs, currency: c } })} />
+                    <span>{CURRENCY_LABEL[c]} ({c})</span>
                   </label>
                 ))}
               </div>

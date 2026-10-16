@@ -262,6 +262,19 @@ button.figure:active:not([disabled]) {
 .figure-total .figure-label::before {
   display: none;
 }
+/* the rupee figure under the reference total, then what it means */
+.figure-total .figure-label {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+.figure-inr {
+  color: #fff;
+  font-weight: 650;
+}
+.band .money-inr {
+  color: var(--navy-ink-2);
+}
 /* the exposure total leads the figures, set at display size */
 .figure-total .figure-n {
   font-size: var(--t-3xl);
@@ -368,6 +381,9 @@ button.figure:active:not([disabled]) {
     margin-left: 0;
     text-align: left;
     justify-items: start;
+  }
+  .figure-total .figure-label {
+    align-items: flex-start;
   }
   .label-long {
     display: none;

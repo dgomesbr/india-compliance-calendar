@@ -36,9 +36,21 @@ rules, with no content copied from any commercial site.
   investment date and get every downstream deadline (AOC-4, MGT-7, ADT-1, PAS-3,
   FC-GPR, DIR-12, CHG-1 ...), then add them to the calendar.
 - **Board report.** A printable status for any quarter, FY or custom period:
-  filed, overdue, pending, not recorded, with CSV export.
+  filed, overdue, pending, not recorded. Copy it for Excel (tab-separated, pastes
+  straight into columns) or download a CSV that Excel opens cleanly, with each
+  item's 30-day cost in rupees and in the reference currency.
+- **Amounts in CAD or USD for reference.** Every penalty amount shows a Canadian
+  dollar figure (or US dollars, a switch in the masthead and the profile) at the
+  Bank of Canada's daily rate, with the rupee figure, which the law fixes, in
+  brackets.
 - **Regulator feed.** A daily GitHub Actions job collects official RSS feeds into
   an updates page and an RSS feed of its own.
+- **Holidays kept current.** Indian holidays move during the year (festivals
+  follow the moon; the Centre, the states and RBI declare or shift days), so on the
+  1st of every month `update-holidays.yml` refreshes the lists from RBI's holiday
+  matrix, the National Portal of India's copy of the DoPT list and NSE's holiday
+  API, and the calendars abroad from their authorities' feeds. A date corrected by
+  hand from a later order is never moved back; it is flagged on the Updates page.
 - **Holidays abroad.** Canada federal statutory holidays, Ontario public and bank
   holidays, and US federal and Federal Reserve holidays sit beside the Indian
   ones in the month calendar and the overview, for teams that pay, file or meet

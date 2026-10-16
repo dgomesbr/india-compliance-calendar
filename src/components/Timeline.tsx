@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { addDays, diffDays, formatDate, iso, MONTHS_SHORT, parts, shiftMonth, type ISODate } from '../lib/dates.ts';
-import { formatINR, formatINRCompact } from '../lib/exposure.ts';
+import { useMoneyFormat } from './Money.tsx';
 import { CATEGORIES, CATEGORY_LABEL, CATEGORY_SHORT, type Category } from '../lib/types.ts';
 import { STATE_LABEL, type Row, type RowState } from '../lib/view.ts';
 
@@ -67,6 +67,7 @@ function rangeLabel(m: { from: ISODate; to: ISODate }): string {
 }
 
 export default function Timeline({ rows, today, to, selected, onPick }: Props) {
+  const money = useMoneyFormat();
   const wrap = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(1100);
   const [hover, setHover] = useState<number>(-1);
@@ -246,6 +247,8 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
   }
 
   const xEnd = Math.min(x1, xOf(to));
+  // On narrow screens the size key gives the reference amount alone, so it stays on one line.
+  const keyAmount = (inr: number) => (narrow ? money.ref(inr, true) ?? money.inr(inr, true) : money.both(inr, true));
   const keyR = [radius(0, narrow), radius(10_000, narrow), radius(100_000, narrow)];
   const nextEntry = new Map<string, 'assemble' | 'pop'>();
   for (const m of marks) nextEntry.set(markKey(m), entry.current.get(markKey(m)) ?? (seenMarks.current ? 'pop' : 'assemble'));
@@ -258,15 +261,15 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
       <div class="tl-key" aria-hidden="true">
         <span class="tl-key-item">
           <svg width={keyR[0] * 2 + 2} height={keyR[2] * 2 + 2}><circle cx={keyR[0] + 1} cy={keyR[2] + 1} r={keyR[0]} /></svg>
-          Under Rs 1,000
+          Under {keyAmount(1000)}
         </span>
         <span class="tl-key-item">
           <svg width={keyR[1] * 2 + 2} height={keyR[2] * 2 + 2}><circle cx={keyR[1] + 1} cy={keyR[2] + 1} r={keyR[1]} /></svg>
-          Rs 10,000
+          {keyAmount(10_000)}
         </span>
         <span class="tl-key-item">
           <svg width={keyR[2] * 2 + 2} height={keyR[2] * 2 + 2}><circle cx={keyR[2] + 1} cy={keyR[2] + 1} r={keyR[2]} /></svg>
-          Rs 1 lakh or more
+          {keyAmount(100_000)} or more
         </span>
         <span class="tl-key-item faint">Numbers count due dates merged into one mark</span>
       </div>
@@ -363,7 +366,7 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
         })}
 
         {heaviest && !narrow && (() => {
-          const label = `${heaviest.codes[0]}${heaviest.codes.length > 1 ? ` +${heaviest.codes.length - 1}` : ''} - ${formatINRCompact(heaviest.exposure)}`;
+          const label = `${heaviest.codes[0]}${heaviest.codes.length > 1 ? ` +${heaviest.codes.length - 1}` : ''} - ${money.ref(heaviest.exposure, true) ?? money.inr(heaviest.exposure, true)}`;
           const w = label.length * 7;
           const y = top + heaviest.lane * laneH + laneH / 2;
           // A span [a, b] on a lane is free when no other mark's circle reaches into it.
@@ -399,7 +402,7 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
           </p>
           <p class="tl-tip-meta num">
             {active.count} {active.count === 1 ? 'obligation' : 'obligations'} - {STATE_LABEL[active.state].toLowerCase()}
-            {active.exposure ? ` - ${formatINR(active.exposure)} if 30 days late` : ''}
+            {active.exposure ? ` - ${money.both(active.exposure)} if 30 days late` : ''}
           </p>
         </div>
       )}
@@ -408,7 +411,7 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
         {cursor >= 0 && marks[cursor]
           ? `${rangeLabel(marks[cursor])}, ${CATEGORY_LABEL[marks[cursor].category]}: ${marks[cursor].codes.join(', ')}.`
           : `${marks.filter((m) => !m.beyond).length} marks across ${present.length} laws until ${formatDate(end)}.` +
-            (heaviest ? ` Costliest: ${rangeLabel(heaviest)}, ${heaviest.codes.join(', ')}, ${formatINR(heaviest.exposure)}.` : '')}
+            (heaviest ? ` Costliest: ${rangeLabel(heaviest)}, ${heaviest.codes.join(', ')}, ${money.both(heaviest.exposure)}.` : '')}
       </p>
     </div>
   );

@@ -3,6 +3,7 @@
 
 import { todayIST, type ISODate } from './dates.ts';
 import type { HorizonPreset } from './horizon.ts';
+import { DEFAULT_CURRENCY, isCurrency, type RefCurrency } from './money.ts';
 import { DEFAULT_PROFILE, type Profile } from './profile.ts';
 
 export interface FiledRecord {
@@ -24,6 +25,8 @@ export interface Prefs {
   horizon: HorizonPreset;
   customEnd?: ISODate;
   sort: 'due' | 'exposure' | 'law';
+  /** Reference currency shown beside the rupee amounts. */
+  currency: RefCurrency;
 }
 
 export interface TeamState {
@@ -48,7 +51,7 @@ export function emptyState(today: ISODate = todayIST()): TeamState {
     owners: {},
     planned: [],
     trackingSince: today,
-    prefs: { horizon: '1m', sort: 'due' },
+    prefs: { horizon: '1m', sort: 'due', currency: DEFAULT_CURRENCY },
   };
 }
 
@@ -72,7 +75,11 @@ export function normalizeState(raw: unknown, today: ISODate = todayIST()): TeamS
     owners: r.owners && typeof r.owners === 'object' ? r.owners : {},
     planned: Array.isArray(r.planned) ? r.planned : [],
     trackingSince: typeof r.trackingSince === 'string' ? r.trackingSince : base.trackingSince,
-    prefs: { ...base.prefs, ...(r.prefs ?? {}) },
+    prefs: {
+      ...base.prefs,
+      ...(r.prefs ?? {}),
+      currency: isCurrency(r.prefs?.currency) ? r.prefs.currency : base.prefs.currency,
+    },
   };
 }
 

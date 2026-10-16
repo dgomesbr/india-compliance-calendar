@@ -1,0 +1,53 @@
+name: Update holidays
+
+on:
+  schedule:
+    # 06:00 IST on the 1st of every month. Indian holidays move during the year (festivals
+    # follow the moon; the Centre, the states and RBI declare or shift days), so the lists
+    # are refreshed from their official sources monthly.
+    - cron: '30 0 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: data-commits
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Refresh holiday lists from their official sources
+        run: node scripts/update-holidays.ts >> "$GITHUB_STEP_SUMMARY"
+      - name: Validate and test the updated lists
+        run: |
+          npm run validate
+          npm test
+      - name: Commit the updated lists
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "chore(data): monthly holiday update $(date -u +%Y-%m)"
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Rebuild the site with the updated lists
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

@@ -1,7 +1,8 @@
 // Browser data access and shared hooks for the islands.
 
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useMemo, useState } from 'preact/hooks';
 import { todayIST } from './dates.ts';
+import { DEFAULT_CURRENCY, moneyFormat, type MoneyFormat } from './money.ts';
 import { loadState, saveState, type TeamState } from './store.ts';
 import type { Bundle, Update } from './types.ts';
 
@@ -57,6 +58,13 @@ export function useTeamState(): [TeamState | null, (next: TeamState) => void] {
     };
   }, []);
   return [state, (next) => saveState(next)];
+}
+
+/** Amount formatting for the team's reference currency and the bundle's rates. */
+export function useMoney(bundle: Bundle | null, team: TeamState | null): MoneyFormat {
+  const cur = team?.prefs.currency ?? DEFAULT_CURRENCY;
+  const fx = bundle?.fx ?? null;
+  return useMemo(() => moneyFormat(fx, cur), [fx, cur]);
 }
 
 /** Today in IST, refreshed when the tab regains focus after midnight. */

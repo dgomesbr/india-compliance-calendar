@@ -6,6 +6,7 @@ import DelayChart from '../../components/DelayChart.tsx';
 import { addMonths, formatDate, MONTHS_SHORT, parts, relativeDays, WEEKDAYS_SHORT, weekday } from '../../lib/dates.ts';
 import { hasDelayCurve } from '../../lib/delay.ts';
 import { delayCost, formatINR, formatINRCompact, interestNote, turnoverNote } from '../../lib/exposure.ts';
+import { moneyFormat } from '../../lib/money.ts';
 import { describeSchedule } from '../../lib/schedule.ts';
 import { buildDate, getBundle, occurrencesBetween } from '../../lib/site-data.ts';
 import { AUDIENCE_LABEL, CATEGORY_LABEL, FREQUENCY_LABEL, type Rule } from '../../lib/types.ts';
@@ -26,6 +27,9 @@ const extended = rule.schedule ? occurrencesBetween(addMonths(today, -12), addMo
 const e = rule.exposure;
 const curve = hasDelayCurve(e);
 const cost30 = delayCost(e, 30);
+// Built in CAD; the shell's script switches [data-money-ref] amounts to the team's currency.
+const fx = getBundle().fx;
+const money = moneyFormat(fx, 'CAD');
 const interest = interestNote(e);
 const turnover = turnoverNote(e);
 const verified = rule.verified ? formatDate(rule.verified, { weekday: false }) : '';
@@ -73,8 +77,8 @@ const host = (url: string) => {
         <dd class="figure-n">{frequency}</dd>
       </div>
       <div class="figure is-static" style="--i:2">
-        <dt class="figure-label">At 30 days late</dt>
-        <dd class="figure-n num">{cost30 ? formatINRCompact(cost30) : 'Not fixed'}</dd>
+        <dt class="figure-label">At 30 days late{cost30 && fx ? <span class="figure-inr num"> ({formatINRCompact(cost30)})</span> : null}</dt>
+        <dd class="figure-n num">{cost30 ? fx ? <span data-money-ref={cost30}>{money.ref(cost30)}</span> : formatINRCompact(cost30) : 'Not fixed'}</dd>
       </div>
       <div class="figure is-static" style="--i:3">
         <dt class="figure-label">Verified</dt>
@@ -134,7 +138,7 @@ const host = (url: string) => {
             curve && e ? (
               <>
                 <p class="muted">Drag across the chart or use the slider to see the fixed cost on any day late.</p>
-                <DelayChart client:visible exposure={e} category={rule.category} initialWidth={640} idp="entry" />
+                <DelayChart client:visible exposure={e} category={rule.category} initialWidth={640} idp="entry" fx={fx} />
                 <div class="data-table-wrap">
                   <table class="data-table delay-table">
                     <caption class="visually-hidden">Fixed cost by days late</caption>
@@ -143,8 +147,18 @@ const host = (url: string) => {
                         <th scope="row">Days late</th>
                         {POINTS.map((d) => <td class="num">{d}</td>)}
                       </tr>
+                      {
+                        fx && (
+                          <tr>
+                            <th scope="row">Fixed cost, <span data-money-cur>CAD</span></th>
+                            {POINTS.map((d) => (
+                              <td class="num" data-money-ref={delayCost(e, d) ?? 0} data-compact="1">{money.ref(delayCost(e, d) ?? 0, true)}</td>
+                            ))}
+                          </tr>
+                        )
+                      }
                       <tr>
-                        <th scope="row">Fixed cost</th>
+                        <th scope="row">Fixed cost, INR</th>
                         {POINTS.map((d) => <td class="num">{formatINRCompact(delayCost(e, d) ?? 0)}</td>)}
                       </tr>
                     </tbody>
@@ -152,7 +166,9 @@ const host = (url: string) => {
                 </div>
               </>
             ) : (
-              <p class="fig delay-cost num">{cost30 ? formatINR(cost30) : 'Not fixed by law'}</p>
+              <p class="fig delay-cost num">
+                {cost30 ? fx ? <><span data-money-ref={cost30}>{money.ref(cost30)}</span><span class="money-inr"> ({formatINR(cost30)})</span></> : formatINR(cost30) : 'Not fixed by law'}
+              </p>
             )
           }
           {

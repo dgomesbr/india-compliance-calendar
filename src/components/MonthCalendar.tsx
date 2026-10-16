@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
-import { useBundle, useTeamState, useToday } from '../lib/client.ts';
+import { useBundle, useMoney, useTeamState, useToday } from '../lib/client.ts';
 import {
   daysInMonth,
   formatDate,
@@ -12,12 +12,12 @@ import {
   weekday,
   type ISODate,
 } from '../lib/dates.ts';
-import { formatINRCompact } from '../lib/exposure.ts';
 import { CATEGORIES, CATEGORY_LABEL, type Category } from '../lib/types.ts';
 import { buildRows, closedDays, STATE_LABEL, sortRows, type Row } from '../lib/view.ts';
 import { ABROAD, ABROAD_LABEL, COUNTRY_LABEL, abroadDays, abroadMeaning } from '../lib/abroad.ts';
 import { useInView } from '../lib/motion.ts';
 import Detail, { Law } from './Detail.tsx';
+import { MoneyContext } from './Money.tsx';
 import { Icon } from './Icon.tsx';
 
 const DOW = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -26,6 +26,7 @@ export default function MonthCalendar() {
   const data = useBundle();
   const [team, saveTeam] = useTeamState();
   const today = useToday();
+  const money = useMoney(data.status === 'ready' ? data.data : null, team);
   const [start] = useState(() => {
     const d = typeof location === 'undefined' ? null : new URLSearchParams(location.search).get('d');
     return d && isISODate(d) ? d : today;
@@ -134,6 +135,7 @@ export default function MonthCalendar() {
   const loading = data.status === 'loading' || !team;
 
   return (
+    <MoneyContext.Provider value={money}>
     <div class="cal">
       <section class="band band-live cal-band" aria-labelledby="cal-title" ref={bandRef} data-lit={bandLit || undefined}>
         <div class="page band-inner">
@@ -260,7 +262,7 @@ export default function MonthCalendar() {
                       <span class="aside-title">{r.rule.title}</span>
                       <span class="aside-meta num">
                         {r.occ.periodLabel}
-                        {r.exposure ? ` - ${formatINRCompact(r.exposure)} at 30 days` : ''}
+                        {r.exposure ? ` - ${money.both(r.exposure, true)} at 30 days` : ''}
                       </span>
                     </button>
                   </li>
@@ -285,5 +287,6 @@ export default function MonthCalendar() {
         )}
       </dialog>
     </div>
+    </MoneyContext.Provider>
   );
 }

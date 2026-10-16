@@ -349,6 +349,17 @@
 .report-custom .input {
   width: auto;
 }
+.report-copied {
+  flex-basis: 100%;
+  min-height: 1.4em;
+  margin: calc(var(--s-2) * -1) 0 0;
+  color: var(--ink-2);
+  font-size: var(--t-sm);
+  font-weight: 600;
+}
+.report-copied:empty {
+  margin-top: calc(var(--s-3) * -1);
+}
 .report-sheet {
   margin: var(--s-5) 0 var(--s-6);
   padding: var(--s-7) var(--s-7) var(--s-6);

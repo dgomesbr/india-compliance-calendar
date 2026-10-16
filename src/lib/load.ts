@@ -85,5 +85,7 @@ export function loadBundle(root: string = process.cwd(), site = ''): Bundle {
     site,
     counts: { rules: rules.length, categories },
   };
-  return { meta: fullMeta, rules, holidays: loadHolidays(root), events: loadEvents(root) };
+  const fxFile = join(root, 'data', 'fx.json');
+  const fx = existsSync(fxFile) ? (JSON.parse(readFileSync(fxFile, 'utf8')) as Bundle['fx']) : undefined;
+  return { meta: fullMeta, rules, holidays: loadHolidays(root), events: loadEvents(root), ...(fx ? { fx } : {}) };
 }

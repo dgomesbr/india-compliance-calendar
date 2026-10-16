@@ -1,7 +1,8 @@
 import { useMemo, useRef, useState } from 'preact/hooks';
-import { downloadFile, useBundle, useTeamState, useToday } from '../lib/client.ts';
+import { downloadFile, useBundle, useMoney, useTeamState, useToday } from '../lib/client.ts';
 import { addMonths, formatDate, fyLabel, fyStartYear, iso, lastDayOfMonth, parts, shiftMonth, type ISODate } from '../lib/dates.ts';
-import { toCSV } from '../lib/csv.ts';
+import { toExcelCSV, toTSV } from '../lib/csv.ts';
+import { toRef } from '../lib/money.ts';
 import { isEverything } from '../lib/profile.ts';
 import { CATEGORY_LABEL } from '../lib/types.ts';
 import { useCountUp, useThumb } from '../lib/motion.ts';
@@ -41,6 +42,8 @@ export default function Report() {
   const [custom, setCustom] = useState({ from: iso(parts(today).y, parts(today).m, 1), to: addMonths(today, 1) });
   const segRef = useRef<HTMLDivElement>(null);
   const thumb = useThumb(segRef, '.seg-btn.is-on', [period, data.status, Boolean(team)]);
+  const money = useMoney(data.status === 'ready' ? data.data : null, team);
+  const [copied, setCopied] = useState('');
 
   const range = useMemo(() => {
     const fy = fyStartYear(today);
@@ -83,9 +86,14 @@ export default function Report() {
   for (const r of rows) counts[statusOf(r, today, team.trackingSince)]++;
   const entity = isEverything(team.profile) ? 'All obligations (no entity profile set)' : team.profile.name;
 
-  const csv = () =>
-    toCSV(
-      ['due', 'code', 'obligation', 'period', 'law_area', 'authority', 'status', 'filed_on', 'acknowledgement', 'owner', 'extended_from', 'source'],
+  // The same table for the CSV download and the clipboard: fixed costs in rupees, with the
+  // reference currency at the rate shown in the last column.
+  const ref = money.cur.toLowerCase();
+  const header = [
+    'due', 'code', 'obligation', 'period', 'law_area', 'authority', 'status', 'filed_on', 'acknowledgement', 'owner', 'extended_from',
+    'cost_30_days_inr', ...(money.fx ? [`cost_30_days_${ref}`, `${ref}_rate_date`] : []), 'source',
+  ];
+  const table = () =>
       rows.map((r) => [
         r.occ.due,
         r.rule.code,
@@ -98,9 +106,19 @@ export default function Report() {
         r.filed?.ack ?? '',
         r.filed?.owner ?? team.owners[r.rule.id] ?? '',
         r.occ.originalDue ?? '',
+        r.exposure || '',
+        ...(money.fx ? [r.exposure ? toRef(r.exposure, money.fx, money.cur).toFixed(2) : '', money.fx.date] : []),
         r.rule.sources[0]?.url ?? '',
-      ]),
-    );
+      ]);
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(toTSV(header, table()));
+      setCopied(`Copied ${rows.length} ${rows.length === 1 ? 'row' : 'rows'} with headings. Paste into Excel or Sheets.`);
+    } catch {
+      setCopied('The browser blocked the clipboard. Use Download CSV instead.');
+    }
+    setTimeout(() => setCopied(''), 4000);
+  };
 
   return (
     <div class="page report">
@@ -136,10 +154,15 @@ export default function Report() {
           )}
           <div class="form-actions">
             <button class="btn" type="button" onClick={() => window.print()}><span class="btn-label"><Icon name="printer" />Print</span><span class="btn-block" /></button>
-            <button class="btn" type="button" onClick={() => downloadFile(`compliance-report-${range.from}-${range.to}.csv`, 'text/csv', csv())}>
-              <span class="btn-label"><Icon name="download" />CSV</span>
+            <button class="btn" type="button" onClick={copy} disabled={!rows.length}>
+              <span class="btn-label"><Icon name={copied.startsWith('Copied') ? 'check' : 'copy'} />Copy for Excel</span>
+            </button>
+            <button class="btn" type="button" disabled={!rows.length}
+              onClick={() => downloadFile(`compliance-report-${range.from}-${range.to}.csv`, 'text/csv;charset=utf-8', toExcelCSV(header, table()))}>
+              <span class="btn-label"><Icon name="download" />Download CSV</span>
             </button>
           </div>
+          <p class="report-copied" role="status">{copied}</p>
         </div>
       </header>
 

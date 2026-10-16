@@ -62,7 +62,13 @@ export interface DelayGeometry {
 const X_TICKS = [0, 30, 90, 180, 365];
 const X_TICKS_NARROW = [0, 90, 180, 365];
 
-export function delayGeometry(points: DelayPoint[], width: number, height: number, maxDays = 365): DelayGeometry {
+export function delayGeometry(
+  points: DelayPoint[],
+  width: number,
+  height: number,
+  maxDays = 365,
+  label: (value: number) => string = formatINRCompact,
+): DelayGeometry {
   const left = 58;
   const right = width - 14;
   const top = 14;
@@ -87,7 +93,7 @@ export function delayGeometry(points: DelayPoint[], width: number, height: numbe
     y,
     line,
     area,
-    yTicks: [0, max / 2, max].map((value) => ({ value, y: y(value), label: value ? formatINRCompact(value) : 'Rs 0' })),
+    yTicks: [0, max / 2, max].map((value) => ({ value, y: y(value), label: value ? label(value) : '0' })),
     xTicks: (width < 480 ? X_TICKS_NARROW : X_TICKS)
       .filter((d) => d <= maxDays)
       .map((day) => ({ day, x: x(day), label: day ? `${day} days` : 'Due' })),
@@ -95,6 +101,6 @@ export function delayGeometry(points: DelayPoint[], width: number, height: numbe
 }
 
 /** Plain-language summary of the curve for screen readers and the table view. */
-export function delaySummary(e: Exposure | undefined, days: number[] = [30, 90, 365]): string {
-  return days.map((d) => `${formatINRCompact(delayCost(e, d) ?? 0)} at ${d} days`).join(', ');
+export function delaySummary(e: Exposure | undefined, days: number[] = [30, 90, 365], label: (value: number) => string = formatINRCompact): string {
+  return days.map((d) => `${label(delayCost(e, d) ?? 0)} at ${d} days`).join(', ');
 }

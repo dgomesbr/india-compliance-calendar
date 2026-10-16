@@ -3710,3 +3710,23 @@ sources:
     ingestion: None.
     priority: P1
     used: false
+  - id: boc-valet-fx
+    name: Bank of Canada daily exchange rates (Valet API)
+    publisher: Bank of Canada
+    url: https://www.bankofcanada.ca/valet/observations/FXINRCAD,FXUSDCAD/json?recent=10
+    category: statistics
+    format:
+      - JSON
+      - API
+    access: open
+    license: Bank of Canada terms of use (free use with attribution)
+    updates: business daily
+    reachable:
+      status: 200
+      checked: 2026-10-16
+      note: "observations [{d, FXINRCAD: {v}, FXUSDCAD: {v}}]; FXINRCAD is Canadian dollars per Indian rupee (0.01493 on 2026-10-15)."
+    machineReadable: true
+    useInCalendar: The CAD and USD reference amounts beside every rupee penalty figure.
+    ingestion: GET on every build and refresher run (scripts/fetch-fx.ts); keep the last good rates on failure.
+    priority: P1
+    used: true

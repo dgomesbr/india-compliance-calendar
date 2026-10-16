@@ -40,6 +40,9 @@ jobs:
       - name: Collect regulator feeds
         run: node scripts/fetch-feeds.ts
         continue-on-error: true
+      - name: Collect reference exchange rates
+        run: node scripts/fetch-fx.ts
+        continue-on-error: true
       - name: Keep collected feeds for the next run
         uses: actions/cache/save@v6
         with:

@@ -77,6 +77,32 @@ export function getSourceStatus(): SourceStatus | null {
   }
 }
 
+/** What the monthly holiday update changed (data/holiday-updates.json), newest run first. */
+export interface HolidayUpdateRun {
+  date: string;
+  changes: {
+    list: string;
+    source: string;
+    added: { date: string; name: string }[];
+    removed: { date: string; name: string }[];
+    moved: { from: string; to: string; name: string }[];
+    conflicts: { date: string; name: string; reason: string }[];
+    created?: boolean;
+  }[];
+  confirmed: string[];
+  skipped: { source: string; reason: string }[];
+}
+
+export function getHolidayUpdates(): HolidayUpdateRun[] {
+  const file = join(ROOT, 'data', 'holiday-updates.json');
+  if (!existsSync(file)) return [];
+  try {
+    return (JSON.parse(readFileSync(file, 'utf8')) as { runs?: HolidayUpdateRun[] }).runs ?? [];
+  } catch {
+    return [];
+  }
+}
+
 export function buildDate(): ISODate {
   return todayIST();
 }
