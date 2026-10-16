@@ -6,10 +6,24 @@ import { exposureLine } from './exposure.ts';
 import { buildCalendar, type CalendarEvent } from './ics.ts';
 import { buildDate, getBundle, occurrencesBetween, SITE_URL } from './site-data.ts';
 import { CATEGORY_LABEL, type Rule } from './types.ts';
+import { describeFollows } from './schedule.ts';
+import { rulesById } from './view.ts';
+
+/** The feed's line on a chained date: what it runs from, and that it counts from the deadline. */
+function chainLine(r: Rule, all: ReadonlyMap<string, Rule>): string {
+  const f = r.schedule?.follows;
+  const code = f && all.get(f.rule)?.code;
+  if (!f || !code) return '';
+  const text = describeFollows(f, code);
+  if (f.earlier) return `${text[0].toUpperCase()}${text.slice(1)}.`;
+  const dated = (f.from ?? 'done') === 'done' ? ` (counted from the ${code} deadline; the overview uses the real date once it is recorded)` : '';
+  return `${text[0].toUpperCase()}${text.slice(1)}${dated}.`;
+}
 
 export function feedFor(name: string, description: string, rules: Rule[], months = 24): string {
   const today = buildDate();
   const byId = new Map(rules.map((r) => [r.id, r]));
+  const all = rulesById(getBundle());
   const occs = occurrencesBetween(addDays(today, -31), addMonths(today, months), rules);
   const events: CalendarEvent[] = occs.map((o) => {
     const r = byId.get(o.ruleId)!;
@@ -18,6 +32,8 @@ export function feedFor(name: string, description: string, rules: Rule[], months
       `${r.title} - ${o.periodLabel}`,
       o.extended ? `Extended from ${o.originalDue}: ${o.extended.reason}` : '',
       o.projected ? 'Projected from the standing rule; confirm closer to the date.' : '',
+      o.chain ? chainLine(r, all) : '',
+      r.schedule?.entityYear ? 'Counts from an April-March financial year.' : '',
       `Law: ${r.law}`,
       `If 30 days late: ${exposureLine(r)}`,
       `Source: ${r.sources[0]?.url ?? ''}`,

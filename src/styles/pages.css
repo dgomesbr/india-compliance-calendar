@@ -303,6 +303,14 @@
   font-weight: 650;
   animation: rise-in var(--dur-slow) var(--ease-out) both;
 }
+.planner-hint {
+  max-width: 80ch;
+  margin-top: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  border-radius: var(--radius);
+  background: var(--layer-1);
+  font-size: var(--t-sm);
+}
 .planner-result,
 .planner-saved {
   display: grid;
@@ -342,6 +350,7 @@
 }
 .report-custom {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--s-2);
   animation: rise-in var(--dur-base) var(--ease-out);
@@ -413,6 +422,11 @@
   margin-right: 6px;
   color: var(--navy);
   font-size: var(--t-sm);
+}
+.report-chain {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--t-xs);
 }
 .report-row.status-overdue td:nth-child(4) {
   color: var(--overdue-text);
@@ -677,15 +691,24 @@
   display: grid;
   gap: var(--s-1);
 }
-.entry-cost {
+.entry-cost,
+.entry-chain {
   display: grid;
   gap: var(--s-3);
   margin-top: var(--s-7);
   padding-top: var(--s-3);
   border-top: 2px solid var(--navy);
 }
-.entry-cost > h2 {
+.entry-cost > h2,
+.entry-chain > h2 {
   font-size: var(--t-xl);
+}
+.entry-chain .chain {
+  max-width: 720px;
+  font-size: var(--t-sm);
+}
+.entry-chain > .muted {
+  max-width: 72ch;
 }
 .entry-cost .dchart {
   max-width: 720px;

@@ -1,7 +1,8 @@
 // Browser-only team state: profile, filed status, owners, planned events.
 // Nothing leaves the browser; teams share it by exporting and importing JSON.
 
-import { todayIST, type ISODate } from './dates.ts';
+import { isISODate, todayIST, type ISODate } from './dates.ts';
+import { INDIAN_FY_START, isFyStart } from './fiscal.ts';
 import type { HorizonPreset } from './horizon.ts';
 import { DEFAULT_CURRENCY, isCurrency, type RefCurrency } from './money.ts';
 import { DEFAULT_PROFILE, type Profile } from './profile.ts';
@@ -24,6 +25,8 @@ export interface PlannedEvent {
 export interface Prefs {
   horizon: HorizonPreset;
   customEnd?: ISODate;
+  /** Start of a custom range, up to 15 months back. */
+  customFrom?: ISODate;
   sort: 'due' | 'exposure' | 'law';
   /** Reference currency shown beside the rupee amounts. */
   currency: RefCurrency;
@@ -68,19 +71,27 @@ export function normalizeState(raw: unknown, today: ISODate = todayIST()): TeamS
   const base = emptyState(today);
   if (!raw || typeof raw !== 'object') return base;
   const r = raw as Partial<TeamState>;
+  const profile = { ...base.profile, ...(r.profile ?? {}) };
+  if (!isFyStart(profile.fyStart)) profile.fyStart = INDIAN_FY_START;
   return {
     version: 1,
-    profile: { ...base.profile, ...(r.profile ?? {}) },
-    filed: r.filed && typeof r.filed === 'object' ? r.filed : {},
+    profile,
+    // A record without a real date would move every step that runs from it.
+    filed: r.filed && typeof r.filed === 'object' ? Object.fromEntries(Object.entries(r.filed).filter(([, v]) => v && isISODate(v.filedOn))) : {},
     owners: r.owners && typeof r.owners === 'object' ? r.owners : {},
     planned: Array.isArray(r.planned) ? r.planned : [],
-    trackingSince: typeof r.trackingSince === 'string' ? r.trackingSince : base.trackingSince,
+    trackingSince: isISODate(r.trackingSince) ? r.trackingSince : base.trackingSince,
     prefs: {
       ...base.prefs,
       ...(r.prefs ?? {}),
       currency: isCurrency(r.prefs?.currency) ? r.prefs.currency : base.prefs.currency,
     },
   };
+}
+
+/** The state with some preferences changed and the rest (the reference currency, the horizon) kept. */
+export function withPrefs(state: TeamState, patch: Partial<Prefs>): TeamState {
+  return { ...state, prefs: { ...state.prefs, ...patch } };
 }
 
 export function loadState(): TeamState {

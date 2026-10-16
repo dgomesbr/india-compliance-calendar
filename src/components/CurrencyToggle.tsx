@@ -1,5 +1,6 @@
 import { useTeamState } from '../lib/client.ts';
 import { CURRENCY_LABEL, DEFAULT_CURRENCY, REF_CURRENCIES } from '../lib/money.ts';
+import { withPrefs } from '../lib/store.ts';
 
 /** Masthead switch for the reference currency shown beside rupee amounts. */
 export default function CurrencyToggle() {
@@ -14,7 +15,7 @@ export default function CurrencyToggle() {
           aria-pressed={cur === c}
           disabled={!team}
           title={`Show amounts in ${CURRENCY_LABEL[c]}, with the rupee figure in brackets`}
-          onClick={() => team && saveTeam({ ...team, prefs: { ...team.prefs, currency: c } })}
+          onClick={() => team && saveTeam(withPrefs(team, { currency: c }))}
         >
           {c}
         </button>

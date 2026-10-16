@@ -109,6 +109,12 @@ export default function Planner() {
           {ev.title} - {CATEGORY_LABEL[ev.category]}
         </h2>
         <p class="muted">{ev.description}</p>
+        {ev.id === 'agm-held' && (
+          <p class="muted planner-hint">
+            The overview already carries each year's AGM. Mark it held there, on the date of the meeting, and AOC-4, MGT-7, ADT-1,
+            MGT-15 and the rest of its chain move with it; add it here only for a meeting the calendar does not show.
+          </p>
+        )}
         <table class="obl planner-table">
           <thead>
             <tr>

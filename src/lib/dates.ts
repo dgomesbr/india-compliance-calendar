@@ -67,6 +67,21 @@ export function addMonths(date: ISODate, n: number): ISODate {
   return iso(t.y, t.m, Math.min(d, daysInMonth(t.y, t.m)));
 }
 
+/**
+ * N months (the same date, clamped to the target month) then N days from a date; negative
+ * values go back. With `monthEnd`, a month's last day lands on the target month's last day.
+ */
+export function shiftDate(date: ISODate, o: { months?: number; days?: number; monthEnd?: boolean }): ISODate {
+  let out = date;
+  if (o.months) {
+    const { y, m, d } = parts(out);
+    const t = shiftMonth(y, m, o.months);
+    const last = daysInMonth(t.y, t.m);
+    out = iso(t.y, t.m, o.monthEnd && d === daysInMonth(y, m) ? last : Math.min(d, last));
+  }
+  return o.days ? addDays(out, o.days) : out;
+}
+
 export function diffDays(from: ISODate, to: ISODate): number {
   return Math.round((toUTC(to) - toUTC(from)) / MS_DAY);
 }

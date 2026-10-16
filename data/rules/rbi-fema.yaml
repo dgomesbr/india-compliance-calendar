@@ -16,6 +16,9 @@ rules:
       basis: fy
       day: 30
       monthOffset: 6
+      entityYear: true
+      after:
+        months: 6
     law: FEM (Establishment in India of a branch office or a liaison office or a project office or any other place of business) Regulations 2016 (FEMA 22(R)/2016-RB), Regulation 4(l); Master Direction on BO/LO/PO para 4
     penalty: No late submission fee is prescribed; the AD bank reports defaults to RBI, and the delay is a FEMA contravention (compounding guidance Rs 10,000 per delayed AAC).
     exposure:

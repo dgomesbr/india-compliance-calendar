@@ -641,7 +641,7 @@ rules:
         kind: portal
     verified: 2026-10-14
     confidence: high
-    notes: "2025-2026 portal changes: liability auto-populated from GSTR-1/1A/IFF is non-editable from the July 2025 period (filed Aug 2025) and Table 3.2 from the November 2025 period; from the January 2026 period system-computed interest in Table 5.1 is auto-populated in the next GSTR-3B and cannot be reduced; from the February 2026 period the 'tax liability breakup' must be confirmed before filing. ITC comes from GSTR-2B (generated on the 14th) after IMS accept/reject/pending actions, which can be taken until GSTR-3B is filed; credit notes may be kept pending for one period from the October 2025 period. The 57th GST Council (8 Oct 2026) recommended waiving the Section 39(1) return late fee for taxpayers with turnover up to Rs 5 crore if the return is filed by the end of the month in which it was due; not notified as of 14 Oct 2026. The 2025-07 override carries a 'states' key because it covered only five Maharashtra districts. State-specific extension (MH): 2025-07 moved to 2025-08-27. Notification 12/2025-Central Tax dated 20-08-2025 (heavy rains): applies ONLY to registered persons whose principal place of business is in Mumbai (City), Mumbai (Suburban), Thane, Raigad or Palghar districts of Maharashtra"
+    notes: "2025-2026 portal changes: liability auto-populated from GSTR-1/1A/IFF is non-editable from the July 2025 period (filed Aug 2025) and Table 3.2 from the November 2025 period; from the January 2026 period system-computed interest in Table 5.1 is auto-populated in the next GSTR-3B and cannot be reduced; from the February 2026 period the 'tax liability breakup' must be confirmed before filing. ITC comes from GSTR-2B (generated on the 14th) after IMS accept/reject/pending actions, which can be taken until GSTR-3B is filed; credit notes may be kept pending for one period from the October 2025 period. The 57th GST Council (8 Oct 2026) recommended waiving the Section 39(1) return late fee for taxpayers with turnover up to Rs 5 crore if the return is filed by the end of the month in which it was due; not notified as of 14 Oct 2026. The 2025-07 override carries a 'states' key because it covered only five Maharashtra districts. State-specific extension (MH): 2025-07 moved to 2025-08-27. Notification 12/2025-Central Tax dated 20-08-2025 (heavy rains): applies ONLY to registered persons whose principal place of business is in Mumbai (City), Mumbai (Suburban), Thane, Raigad or Palghar districts of Maharashtra Notification 12/2025-Central Tax dated 20-08-2025 (heavy rains) extended the July 2025 return to 27-08-2025 only for monthly filers whose principal place of business is in the Mumbai (City), Mumbai (Suburban), Thane, Raigad or Palghar districts of Maharashtra; the calendar shows the general date."
     code: GSTR-3B
     tags:
       - gst-monthly
@@ -1233,6 +1233,11 @@ rules:
       basis: fy
       day: 31
       monthOffset: 9
+      follows:
+        rule: gst-gstr9-annual
+        within:
+          days: 0
+        from: due
     law: Section 44(1), CGST Act 2017; Rule 80(3), CGST Rules 2017
     penalty: "No separate late fee: the annual return is incomplete until GSTR-9C is filed, so the GSTR-9 late fee under Section 47(2) continues to accrue (Circular 246/03/2025-GST). Notification 08/2025-CT waived the GSTR-9C-related excess for FY 2017-18 to 2022-23 where GSTR-9C was filed by 31-03-2025."
     exposure:
@@ -1359,6 +1364,11 @@ rules:
       basis: fy
       day: 30
       monthOffset: 8
+      follows:
+        rule: gst-gstr9-annual
+        within:
+          days: 0
+        earlier: true
     law: Sections 16(4), 34(2), 37(3) proviso and 39(9) proviso, CGST Act 2017
     penalty: ITC not taken by this date is lost permanently; credit notes declared later cannot reduce output tax; previous-FY errors can no longer be rectified through returns.
     exposure:

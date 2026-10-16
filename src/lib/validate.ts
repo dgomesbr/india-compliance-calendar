@@ -31,6 +31,53 @@ export function nonAsciiPaths(value: unknown, path = ''): string[] {
   return [];
 }
 
+function isOffset(o: unknown): boolean {
+  if (!o || typeof o !== 'object') return false;
+  const { months, days, monthEnd } = o as { months?: unknown; days?: unknown; monthEnd?: unknown };
+  const whole = (v: unknown) => v === undefined || Number.isInteger(v);
+  return whole(months) && whole(days) && (monthEnd === undefined || typeof monthEnd === 'boolean') && (months !== undefined || days !== undefined);
+}
+
+/** Chains point at real rules, never loop, and share the period basis so their period keys line up. */
+function checkChains(rules: Rule[], errors: string[]): void {
+  const byId = new Map(rules.map((r) => [r.id, r]));
+  for (const r of rules) {
+    if (!r.sameEventAs) continue;
+    const other = byId.get(r.sameEventAs);
+    const a = r.schedule;
+    const b = other?.schedule;
+    if (!other || !a || !b) errors.push(`rule ${r.id}: sameEventAs unknown or unscheduled rule "${r.sameEventAs}"`);
+    else if (a.kind !== b.kind || (a.basis ?? 'fy') !== (b.basis ?? 'fy') || Boolean(a.entityYear) !== Boolean(b.entityYear) || r.recordAs !== other.recordAs) {
+      errors.push(`rule ${r.id}: sameEventAs needs the same periods and recordAs as ${r.sameEventAs}`);
+    }
+  }
+  for (const r of rules) {
+    const f = r.schedule?.follows;
+    if (!f) continue;
+    const where = `rule ${r.id}`;
+    const prev = byId.get(f.rule);
+    if (!prev?.schedule) {
+      errors.push(`${where}: follows unknown or unscheduled rule "${f.rule}"`);
+      continue;
+    }
+    const s = r.schedule!;
+    if (prev.schedule.skip?.length || prev.schedule.kind === 'every-n-years') errors.push(`${where}: follows ${f.rule}, which skips periods`);
+    if ((prev.schedule.basis ?? 'fy') !== (s.basis ?? 'fy')) errors.push(`${where}: follows ${f.rule} on a different basis`);
+    if (Boolean(prev.schedule.entityYear) !== Boolean(s.entityYear)) errors.push(`${where}: entityYear must match ${f.rule}`);
+    if (f.slot ? prev.schedule.kind === s.kind : prev.schedule.kind !== s.kind) {
+      errors.push(`${where}: follows.slot is for an annual rule following a quarterly or half-yearly one`);
+    }
+    const seen = new Set([r.id]);
+    for (let x: Rule | undefined = prev; x?.schedule?.follows; x = byId.get(x.schedule.follows.rule)) {
+      if (seen.has(x.id)) {
+        errors.push(`${where}: chain loops back to ${x.id}`);
+        break;
+      }
+      seen.add(x.id);
+    }
+  }
+}
+
 const SLOT_KEYS: Record<string, RegExp> = {
   monthly: /^(?:[1-9]|1[0-2])$/,
   quarterly: /^Q[1-4]$/,
@@ -48,9 +95,24 @@ function checkSchedule(s: Schedule, where: string, errors: string[]): void {
     for (const d of s.dates ?? []) if (!isISODate(d.due)) errors.push(`${where}: bad fixed date "${d.due}"`);
     return;
   }
-  const placed = (x: { day?: unknown; daysAfter?: unknown; workingDaysAfter?: unknown }) =>
-    x.day !== undefined || typeof x.daysAfter === 'number' || typeof x.workingDaysAfter === 'number';
-  if (!placed(s)) errors.push(`${where}: schedule needs day, daysAfter or workingDaysAfter`);
+  const placed = (x: { day?: unknown; daysAfter?: unknown; workingDaysAfter?: unknown; after?: unknown }) =>
+    x.day !== undefined || typeof x.daysAfter === 'number' || typeof x.workingDaysAfter === 'number' || x.after !== undefined;
+  if (!placed(s)) errors.push(`${where}: schedule needs day, daysAfter, workingDaysAfter or after`);
+  for (const [key, o] of [['after', s.after], ['follows.within', s.follows?.within]] as const) {
+    if (o === undefined) continue;
+    if (!isOffset(o)) errors.push(`${where}: ${key} needs whole months and/or days`);
+  }
+  if (s.entityYear !== undefined) {
+    if (s.entityYear !== true) errors.push(`${where}: entityYear is true or absent`);
+    if ((s.basis ?? 'fy') !== 'fy') errors.push(`${where}: entityYear rules use the financial-year basis`);
+    if (!['quarterly', 'half-yearly', 'annual'].includes(s.kind)) errors.push(`${where}: entityYear fits quarterly, half-yearly and annual schedules`);
+  }
+  if (s.follows) {
+    if (!s.follows.rule) errors.push(`${where}: follows needs a rule`);
+    if (s.follows.from !== undefined && s.follows.from !== 'done' && s.follows.from !== 'due') errors.push(`${where}: follows.from is done or due`);
+    if (s.follows.slot !== undefined && !/^(?:Q[1-4]|H[12])$/.test(s.follows.slot)) errors.push(`${where}: bad follows.slot "${s.follows.slot}"`);
+    if (!s.follows.within) errors.push(`${where}: follows needs within`);
+  }
   if (s.day !== undefined && s.day !== 'last' && !(Number.isInteger(s.day) && s.day >= 1 && s.day <= 31)) {
     errors.push(`${where}: bad day "${String(s.day)}"`);
   }
@@ -64,7 +126,8 @@ function checkSchedule(s: Schedule, where: string, errors: string[]): void {
     if (!slot || !slot.test(key)) errors.push(`${where}: bad except/skip key "${key}" for ${s.kind}`);
   }
   for (const [key, ex] of Object.entries(s.except ?? {})) {
-    if (!placed(ex)) errors.push(`${where}: except "${key}" needs day, daysAfter or workingDaysAfter`);
+    if (!placed(ex)) errors.push(`${where}: except "${key}" needs day, daysAfter, workingDaysAfter or after`);
+    if (ex.after !== undefined && !isOffset(ex.after)) errors.push(`${where}: except "${key}" after needs whole months and/or days`);
   }
   if (s.kind === 'every-n-years') {
     if (!s.everyYears || s.everyYears < 2) errors.push(`${where}: every-n-years needs everyYears >= 2`);
@@ -109,8 +172,10 @@ export function validateRules(rules: Rule[]): string[] {
     for (const [k, v] of Object.entries(r.exposure ?? {})) {
       if (typeof v === 'number' && v < 0) errors.push(`${where}: exposure.${k} is negative`);
     }
+    if (r.recordAs !== undefined && r.recordAs !== 'filed' && r.recordAs !== 'held') errors.push(`${where}: recordAs is filed or held`);
     for (const p of nonAsciiPaths(r)) errors.push(`${where}: non-ASCII text in ${p}`);
   }
+  checkChains(rules, errors);
   return errors;
 }
 

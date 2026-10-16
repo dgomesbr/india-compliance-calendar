@@ -217,6 +217,14 @@ rules:
         - Environmental compensation per CPCB EC guidelines under rule 22 (partly refundable)
         - Suspension or revocation of registration (rule 4)
       basis: Rule 22 E-Waste (Management) Rules 2022; Section 15 EP Act as substituted by Jan Vishwas Act 2023.
+    overrides:
+      - period: FY2024-25
+        due: 2025-08-15
+        originalDue: 2025-04-30
+        reason: CPCB notice File No. CP/14/2024-WM-III-HO-CPCB-HO dated 14-07-2025 further extended the time for filing FY 2024-25 quarterly and annual returns on the E-Waste EPR portal from 30-06-2025 to 15-08-2025
+        source:
+          title: CPCB notice dated 14-07-2025 - FY 2024-25 e-waste quarterly and annual returns extended to 15-08-2025
+          url: https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg==
     sources:
       - title: E-Waste (Management) Rules 2022 (CPCB copy)
         url: https://cpcb.nic.in/uploads/Projects/E-Waste/e-waste_rules_2022.pdf
@@ -264,6 +272,35 @@ rules:
         - Environmental compensation per CPCB EC guidelines under rule 22
         - Suspension or revocation of registration
       basis: Rule 22 E-Waste (Management) Rules 2022; Section 15 EP Act as substituted by Jan Vishwas Act 2023.
+    overrides:
+      - period: FY2024-25-Q1
+        due: 2025-08-15
+        originalDue: 2024-07-31
+        reason: CPCB notice File No. CP/14/2024-WM-III-HO-CPCB-HO dated 14-07-2025 further extended the time for filing FY 2024-25 quarterly and annual returns on the E-Waste EPR portal from 30-06-2025 to 15-08-2025
+        source:
+          title: CPCB notice dated 14-07-2025 - FY 2024-25 e-waste quarterly and annual returns extended to 15-08-2025
+          url: https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg==
+      - period: FY2024-25-Q2
+        due: 2025-08-15
+        originalDue: 2024-10-31
+        reason: CPCB notice File No. CP/14/2024-WM-III-HO-CPCB-HO dated 14-07-2025 further extended the time for filing FY 2024-25 quarterly and annual returns on the E-Waste EPR portal from 30-06-2025 to 15-08-2025
+        source:
+          title: CPCB notice dated 14-07-2025 - FY 2024-25 e-waste quarterly and annual returns extended to 15-08-2025
+          url: https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg==
+      - period: FY2024-25-Q3
+        due: 2025-08-15
+        originalDue: 2025-01-31
+        reason: CPCB notice File No. CP/14/2024-WM-III-HO-CPCB-HO dated 14-07-2025 further extended the time for filing FY 2024-25 quarterly and annual returns on the E-Waste EPR portal from 30-06-2025 to 15-08-2025
+        source:
+          title: CPCB notice dated 14-07-2025 - FY 2024-25 e-waste quarterly and annual returns extended to 15-08-2025
+          url: https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg==
+      - period: FY2024-25-Q4
+        due: 2025-08-15
+        originalDue: 2025-04-30
+        reason: CPCB notice File No. CP/14/2024-WM-III-HO-CPCB-HO dated 14-07-2025 further extended the time for filing FY 2024-25 quarterly and annual returns on the E-Waste EPR portal from 30-06-2025 to 15-08-2025
+        source:
+          title: CPCB notice dated 14-07-2025 - FY 2024-25 e-waste quarterly and annual returns extended to 15-08-2025
+          url: https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg==
     sources:
       - title: E-Waste (Management) Rules 2022 (CPCB copy)
         url: https://cpcb.nic.in/uploads/Projects/E-Waste/e-waste_rules_2022.pdf

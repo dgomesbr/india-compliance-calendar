@@ -1,0 +1,362 @@
+{
+  "checked": "2026-10-15",
+  "window": [
+    "2025-07-01",
+    "2026-04-30"
+  ],
+  "overrides": [
+    {
+      "ruleId": "income-tax-itr-non-audit",
+      "period": "FY2024-25",
+      "originalDue": "2025-07-31",
+      "due": "2025-09-16",
+      "reason": "Extended to 15-09-2025 by CBDT Circular No. 06/2025 dated 27-05-2025 (F. No. 225/205/2024/ITA-II) and to 16-09-2025 by CBDT Circular No. 12/2025 dated 15-09-2025 (F. No. 225/131/2025/ITA-II), for assessees referred to in clause (c) of Explanation 2 to section 139(1), AY 2025-26",
+      "source": {
+        "title": "CBDT Circular No. 12/2025 dated 15-09-2025",
+        "url": "https://incometaxindia.gov.in/communications/circular/circular-12-2025.pdf"
+      },
+      "confidence": "high",
+      "note": "Circular 06/2025 read directly on the e-filing portal (https://www.incometax.gov.in/iec/foportal/sites/default/files/2025-05/CBDT%20Circular%20no.pdf); PIB release 27-05-2025 (PRID 2131700). incometaxindia.gov.in refused this client (HTTP 403), so Circular 12/2025 was read from the Internet Archive copy of the official URL (captured 25-09-2025); e-filing portal news of 15-09-2025 confirms 16-09-2025. For AY 2025-26 clause (c) covered all non-audit assessees, including non-audit business cases that the data models separately only from AY 2026-27."
+    },
+    {
+      "ruleId": "income-tax-tax-audit-1961-act",
+      "period": "FY2024-25",
+      "originalDue": "2025-09-30",
+      "due": "2025-11-10",
+      "reason": "Specified date for audit reports extended to 31-10-2025 by CBDT Circular No. 14/2025 dated 25-09-2025 and to 10-11-2025 by CBDT Circular No. 15/2025 dated 29-10-2025 (F. No. 225/131/2025/ITA-II), for assessees referred to in clause (a) of Explanation 2 to section 139(1), AY 2025-26",
+      "source": {
+        "title": "CBDT Circular No. 15/2025 dated 29-10-2025",
+        "url": "https://incometaxindia.gov.in/communications/circular/circular-15-2025.pdf"
+      },
+      "confidence": "high",
+      "note": "Circular 14/2025: https://incometaxindia.gov.in/communications/circular/circular-no-14-2025.pdf (PIB release 25-09-2025, PRID 2171215). Both circulars read from Internet Archive copies of the official URLs; e-filing portal news of 26-09-2025 and 04-11-2025 confirms both dates. Transfer pricing cases (clause (aa); audit report due 31-10-2025, return 30-11-2025) were not covered, so their audit report stayed 31-10-2025."
+    },
+    {
+      "ruleId": "income-tax-trust-audit-1961-act",
+      "period": "FY2024-25",
+      "originalDue": "2025-09-30",
+      "due": "2025-11-10",
+      "reason": "Extended to 31-10-2025 by CBDT Circular No. 14/2025 dated 25-09-2025 and to 10-11-2025 by CBDT Circular No. 15/2025 dated 29-10-2025, which extend the specified date for \"report of audit under any provisions of the Act\" for clause (a) assessees, AY 2025-26",
+      "source": {
+        "title": "CBDT Circular No. 15/2025 dated 29-10-2025",
+        "url": "https://incometaxindia.gov.in/communications/circular/circular-15-2025.pdf"
+      },
+      "confidence": "high",
+      "note": "Neither circular names Form 10B/10BB; they apply through their general wording, because a trust whose accounts must be audited is a clause (a)(ii) assessee. This matches the data note that the circulars were applied to Form 10B/10BB. The CBDT tax calendar on incometaxindia.gov.in could not be opened to double-check (HTTP 403)."
+    },
+    {
+      "ruleId": "income-tax-itr-audit",
+      "period": "FY2024-25",
+      "originalDue": "2025-10-31",
+      "due": "2025-12-10",
+      "reason": "Extended by CBDT Circular No. 15/2025 dated 29-10-2025 (F. No. 225/131/2025/ITA-II) for assessees referred to in clause (a) of Explanation 2 to section 139(1), AY 2025-26",
+      "source": {
+        "title": "CBDT Circular No. 15/2025 dated 29-10-2025",
+        "url": "https://incometaxindia.gov.in/communications/circular/circular-15-2025.pdf"
+      },
+      "confidence": "high",
+      "note": "Clause (a) covers companies, persons whose accounts must be audited (including trusts filing ITR-7) and partners of audited firms. Transfer pricing cases (clause (aa)) kept 30-11-2025. CBDT press release of 29-10-2025: https://incometaxindia.gov.in/Lists/Press%20Releases/Attachments/1231/Press-Release-CBDT-extends-due-date-for-furnishing-Return-of-Income-for-the-Assessment-Year-2025-26-dated-29-10-2025.pdf (refused, not opened); the circular itself was read from an archived copy and the e-filing portal news of 04-11-2025 confirms the date."
+    },
+    {
+      "ruleId": "income-tax-form-16a-1961-act",
+      "period": "FY2025-26-Q3",
+      "originalDue": "2026-02-15",
+      "due": "2026-03-31",
+      "reason": "Extended by CBDT Circular No. 02/2026 dated 25-03-2026 (F. No. 275/10/2026-IT(B)), an order under section 119 for TDS certificates under section 203 read with rule 31 for the quarter ending 31-12-2025, because of technical glitches on the e-filing portal",
+      "source": {
+        "title": "CBDT Circular No. 02/2026 dated 25-03-2026",
+        "url": "https://www.incometaxindia.gov.in/documents/d/guest/circular-2-2026-pdf"
+      },
+      "confidence": "high",
+      "note": "Issued after the original date; certificates issued by 31-03-2026 count as issued in time. Same circular on the e-filing portal (https://www.incometax.gov.in/iec/foportal/sites/default/files/2026-03/circular-2-2026-pdf.pdf, read directly) and TRACES (https://traces61contents.tdscpc.gov.in/docs/Circular-2-2026.pdf). It covers section 203 TDS certificates only: Form 27D (TCS) and the Q3 statements 24Q/26Q/27Q (31-01-2026) and 27EQ (15-01-2026) were not extended. Its wording may also reach Form 16B/16C/16D/16E for October-December 2025 deductions, which the data does not model as a separate rule."
+    },
+    {
+      "ruleId": "gst-gstr3b-monthly",
+      "period": "2025-09",
+      "originalDue": "2025-10-20",
+      "due": "2025-10-25",
+      "reason": "Extended by Notification No. 17/2025-Central Tax dated 18-10-2025 (section 39(6) read with section 168)",
+      "source": {
+        "title": "CBIC - Notification 17/2025-Central Tax (GSTR-3B September 2025 / Jul-Sep 2025)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010488/ENG/Notifications"
+      },
+      "confidence": "high",
+      "note": "Already recorded in data/rules/gst.yaml; confirmed against the notification text from the CBIC tax portal. No change needed."
+    },
+    {
+      "ruleId": "gst-gstr3b-qrmp-22",
+      "period": "FY2025-26-Q2",
+      "originalDue": "2025-10-22",
+      "due": "2025-10-25",
+      "reason": "Extended by Notification No. 17/2025-Central Tax dated 18-10-2025 (July-September 2025 quarter, proviso to section 39(1))",
+      "source": {
+        "title": "CBIC - Notification 17/2025-Central Tax (GSTR-3B September 2025 / Jul-Sep 2025)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010488/ENG/Notifications"
+      },
+      "confidence": "high",
+      "note": "Already recorded in data/rules/gst.yaml; confirmed. The notification sets one date for both State groups."
+    },
+    {
+      "ruleId": "gst-gstr3b-qrmp-24",
+      "period": "FY2025-26-Q2",
+      "originalDue": "2025-10-24",
+      "due": "2025-10-25",
+      "reason": "Extended by Notification No. 17/2025-Central Tax dated 18-10-2025 (July-September 2025 quarter, proviso to section 39(1))",
+      "source": {
+        "title": "CBIC - Notification 17/2025-Central Tax (GSTR-3B September 2025 / Jul-Sep 2025)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010488/ENG/Notifications"
+      },
+      "confidence": "high",
+      "note": "Already recorded in data/rules/gst.yaml; confirmed."
+    },
+    {
+      "ruleId": "gst-gstr3b-monthly",
+      "period": "2026-03",
+      "originalDue": "2026-04-20",
+      "due": "2026-04-21",
+      "reason": "Extended by Notification No. 01/2026-Central Tax dated 21-04-2026 (effective 20-04-2026), monthly filers under rule 61(1)(i) only",
+      "source": {
+        "title": "CBIC - Notification 01/2026-Central Tax (GSTR-3B March 2026 extension)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010630/ENG/Notifications"
+      },
+      "confidence": "high",
+      "note": "Already recorded in data/rules/gst.yaml; confirmed. QRMP returns for January-March 2026 were not extended."
+    },
+    {
+      "ruleId": "mca-aoc4-opc-annual",
+      "period": "FY2024-25",
+      "originalDue": "2025-09-27",
+      "due": "2026-01-31",
+      "reason": "MCA General Circular No. 06/2025 dated 17-10-2025 allowed annual filings for FY 2024-25 in AOC-4 and its variants without additional fees up to 31-12-2025; General Circular No. 08/2025 dated 30-12-2025 extended this to 31-01-2026",
+      "source": {
+        "title": "MCA General Circular No. 08/2025 dated 30-12-2025",
+        "url": "https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjExNDE5MzU5&docCategory=Circulars&type=open"
+      },
+      "confidence": "medium",
+      "note": "GC 06/2025 names AOC-4 without excluding One Person Companies; applying it to the OPC 180-day date is an inference. GC 06/2025 (File No. Policy-17/111/2022-CL-V-MCA, https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTc5MDY1MjQ0&docCategory=Circulars&type=open) was read from the Internet Archive copy of that MCA URL; it names MGT-7, MGT-7A, AOC-4, AOC-4 CFS, AOC-4 NBFC (Ind AS), AOC-4 CFS NBFC (Ind AS) and AOC-4 (XBRL), says it gives no extra time to hold AGMs, and says filings after the relief date pay additional fees counted from the original due date. Unconfirmed: GC 08/2025 itself could not be opened (mca.gov.in returned HTTP 403 to this client and the archived copy does not replay), so the 31-01-2026 date rests on the existing data record and secondary reports. MCA publicly disowned a fake \"GC 08/2025\" dated 26-12-2025; the genuine one is dated 30-12-2025. Fee waiver, not a change of the statutory date (same treatment as the mca-dpt3-annual precedent)."
+    },
+    {
+      "ruleId": "mca-cra4-annual",
+      "period": "FY2024-25",
+      "originalDue": "2025-10-27",
+      "due": "2025-12-31",
+      "reason": "MCA General Circular No. 07/2025 dated 27-10-2025 (F.No. 17/52/2020-CL-V) allowed CRA-4 for the financial year ended 31-03-2025 to be filed without additional fees up to 31-12-2025",
+      "source": {
+        "title": "MCA General Circular No. 07/2025 dated 27-10-2025",
+        "url": "https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTgxODM1Njg4&docCategory=Circulars&type=open"
+      },
+      "confidence": "high",
+      "note": "Read from the Internet Archive copy of the MCA URL (mca.gov.in returned HTTP 403). Later filings pay additional fees counted from the rule 6(6) due date. Not confirmed whether GC 08/2025 also covered CRA-4; secondary summaries list only the AOC-4 and MGT-7 family."
+    },
+    {
+      "ruleId": "mca-aoc4-annual",
+      "period": "FY2024-25",
+      "originalDue": "2025-10-30",
+      "due": "2026-01-31",
+      "reason": "MCA General Circular No. 06/2025 dated 17-10-2025 allowed annual filings for FY 2024-25 in AOC-4, AOC-4 CFS, AOC-4 NBFC (Ind AS), AOC-4 CFS NBFC (Ind AS) and AOC-4 (XBRL) without additional fees up to 31-12-2025; General Circular No. 08/2025 dated 30-12-2025 extended this to 31-01-2026",
+      "source": {
+        "title": "MCA General Circular No. 08/2025 dated 30-12-2025",
+        "url": "https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjExNDE5MzU5&docCategory=Circulars&type=open"
+      },
+      "confidence": "medium",
+      "note": "GC 06/2025 (File No. Policy-17/111/2022-CL-V-MCA, https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTc5MDY1MjQ0&docCategory=Circulars&type=open) was read from the Internet Archive copy of that MCA URL; it names MGT-7, MGT-7A, AOC-4, AOC-4 CFS, AOC-4 NBFC (Ind AS), AOC-4 CFS NBFC (Ind AS) and AOC-4 (XBRL), says it gives no extra time to hold AGMs, and says filings after the relief date pay additional fees counted from the original due date. Unconfirmed: GC 08/2025 itself could not be opened (mca.gov.in returned HTTP 403 to this client and the archived copy does not replay), so the 31-01-2026 date rests on the existing data record and secondary reports. MCA publicly disowned a fake \"GC 08/2025\" dated 26-12-2025; the genuine one is dated 30-12-2025. Fee waiver, not a change of the statutory date (same treatment as the mca-dpt3-annual precedent)."
+    },
+    {
+      "ruleId": "mca-mgt7-annual",
+      "period": "FY2024-25",
+      "originalDue": "2025-11-29",
+      "due": "2026-01-31",
+      "reason": "MCA General Circular No. 06/2025 dated 17-10-2025 allowed annual filings for FY 2024-25 in MGT-7 without additional fees up to 31-12-2025; General Circular No. 08/2025 dated 30-12-2025 extended this to 31-01-2026",
+      "source": {
+        "title": "MCA General Circular No. 08/2025 dated 30-12-2025",
+        "url": "https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjExNDE5MzU5&docCategory=Circulars&type=open"
+      },
+      "confidence": "medium",
+      "note": "GC 06/2025 (File No. Policy-17/111/2022-CL-V-MCA, https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTc5MDY1MjQ0&docCategory=Circulars&type=open) was read from the Internet Archive copy of that MCA URL; it names MGT-7, MGT-7A, AOC-4, AOC-4 CFS, AOC-4 NBFC (Ind AS), AOC-4 CFS NBFC (Ind AS) and AOC-4 (XBRL), says it gives no extra time to hold AGMs, and says filings after the relief date pay additional fees counted from the original due date. Unconfirmed: GC 08/2025 itself could not be opened (mca.gov.in returned HTTP 403 to this client and the archived copy does not replay), so the 31-01-2026 date rests on the existing data record and secondary reports. MCA publicly disowned a fake \"GC 08/2025\" dated 26-12-2025; the genuine one is dated 30-12-2025. Fee waiver, not a change of the statutory date (same treatment as the mca-dpt3-annual precedent)."
+    },
+    {
+      "ruleId": "mca-mgt7a-annual",
+      "period": "FY2024-25",
+      "originalDue": "2025-11-29",
+      "due": "2026-01-31",
+      "reason": "MCA General Circular No. 06/2025 dated 17-10-2025 allowed annual filings for FY 2024-25 in MGT-7A without additional fees up to 31-12-2025; General Circular No. 08/2025 dated 30-12-2025 extended this to 31-01-2026",
+      "source": {
+        "title": "MCA General Circular No. 08/2025 dated 30-12-2025",
+        "url": "https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjExNDE5MzU5&docCategory=Circulars&type=open"
+      },
+      "confidence": "medium",
+      "note": "GC 06/2025 (File No. Policy-17/111/2022-CL-V-MCA, https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTc5MDY1MjQ0&docCategory=Circulars&type=open) was read from the Internet Archive copy of that MCA URL; it names MGT-7, MGT-7A, AOC-4, AOC-4 CFS, AOC-4 NBFC (Ind AS), AOC-4 CFS NBFC (Ind AS) and AOC-4 (XBRL), says it gives no extra time to hold AGMs, and says filings after the relief date pay additional fees counted from the original due date. Unconfirmed: GC 08/2025 itself could not be opened (mca.gov.in returned HTTP 403 to this client and the archived copy does not replay), so the 31-01-2026 date rests on the existing data record and secondary reports. MCA publicly disowned a fake \"GC 08/2025\" dated 26-12-2025; the genuine one is dated 30-12-2025. Fee waiver, not a change of the statutory date (same treatment as the mca-dpt3-annual precedent)."
+    },
+    {
+      "ruleId": "labour-epf-ecr-monthly",
+      "period": "2025-09",
+      "originalDue": "2025-10-15",
+      "due": "2025-10-22",
+      "reason": "EPFO extended the date of ECR filing for wage month September 2025, the first month of the revamped ECR, to 22-10-2025 (Ministry of Labour and Employment release of 13-10-2025)",
+      "source": {
+        "title": "PIB - EPFO Extends date of filing of new ECR up to 22nd October 2025 (13-10-2025)",
+        "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2178587"
+      },
+      "confidence": "high",
+      "note": "The EPFO circular itself was not located (epfindia.gov.in redirects to epfo.gov.in, which returned HTTP 403). The release does not say whether interest and damages were waived for the extra week; the December 2025 circulars did waive them."
+    },
+    {
+      "ruleId": "labour-epf-ecr-monthly",
+      "period": "2025-12",
+      "originalDue": "2026-01-15",
+      "due": "2026-01-22",
+      "reason": "Extended to 20-01-2026 by EPFO circular No. NDC/VEE4-Estt/1807/ECRFilling/2026/e-1239468 dated 15-01-2026 and to 22-01-2026 by circular No. NDC/VEE4-Estt/1807/ECR Filling/2026/e-1239468/15157 dated 22-01-2026 (technical difficulties in filing returns); no interest or damages for ECRs and payments made within the extended date",
+      "source": {
+        "title": "EPFO circular dated 22-01-2026 - ECR for wage month December 2025 extended to 22-01-2026",
+        "url": "https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/Circular_ExtensionOfECR_22012026.pdf"
+      },
+      "confidence": "high",
+      "note": "First circular: https://www.epfindia.gov.in/site_docs/PDFs/Circulars/Y2025-2026/circular_ECR_FilingExtn_15012026.pdf. Both read from Internet Archive copies of the epfindia.gov.in URLs and listed in EPFO's FY 2025-26 circular index (archived 15-03-2026). The 22-01-2026 circular adds that once the extra time lapses, default is counted from the 15th."
+    },
+    {
+      "ruleId": "state-pt-ka-enrolment",
+      "period": "FY2026-27",
+      "originalDue": "2026-04-30",
+      "due": "2026-05-05",
+      "reason": "Extended by the Karnataka PT (Removal of Difficulties) Order 01/2026, No. FD 14 CSL 2026 dated 02-05-2026, owing to Professional Tax portal glitches",
+      "source": {
+        "title": "Karnataka PT (Removal of Difficulties) Order 01/2026",
+        "url": "https://gst.karnataka.gov.in/latestupdates/ptrod4426.pdf"
+      },
+      "confidence": "high",
+      "note": "Already recorded in data/rules/state.yaml; the gazette order was opened and matches. State authority outside the brief, listed only because its statutory date falls in the window."
+    },
+    {
+      "ruleId": "other-ewaste-quarterly-return",
+      "period": "FY2024-25-Q1",
+      "originalDue": "2024-07-31",
+      "due": "2025-08-15",
+      "reason": "CPCB notice File No. CP/14/2024-WM-III-HO-CPCB-HO dated 14-07-2025 further extended the time for filing FY 2024-25 quarterly and annual returns on the E-Waste EPR portal from 30-06-2025 to 15-08-2025",
+      "source": {
+        "title": "CPCB notice dated 14-07-2025 - FY 2024-25 e-waste quarterly and annual returns extended to 15-08-2025",
+        "url": "https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg=="
+      },
+      "confidence": "high",
+      "note": "Statutory date (2024-07-31) is before the requested window; included because the extended date falls inside it. An earlier notice had already moved these returns to 30-06-2025. cpcb.nic.in now redirects to cpcb.gov.in; notice read directly."
+    },
+    {
+      "ruleId": "other-ewaste-quarterly-return",
+      "period": "FY2024-25-Q2",
+      "originalDue": "2024-10-31",
+      "due": "2025-08-15",
+      "reason": "CPCB notice File No. CP/14/2024-WM-III-HO-CPCB-HO dated 14-07-2025 further extended the time for filing FY 2024-25 quarterly and annual returns on the E-Waste EPR portal from 30-06-2025 to 15-08-2025",
+      "source": {
+        "title": "CPCB notice dated 14-07-2025 - FY 2024-25 e-waste quarterly and annual returns extended to 15-08-2025",
+        "url": "https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg=="
+      },
+      "confidence": "high",
+      "note": "Statutory date (2024-10-31) is before the requested window; included because the extended date falls inside it. An earlier notice had already moved these returns to 30-06-2025. cpcb.nic.in now redirects to cpcb.gov.in; notice read directly."
+    },
+    {
+      "ruleId": "other-ewaste-quarterly-return",
+      "period": "FY2024-25-Q3",
+      "originalDue": "2025-01-31",
+      "due": "2025-08-15",
+      "reason": "CPCB notice File No. CP/14/2024-WM-III-HO-CPCB-HO dated 14-07-2025 further extended the time for filing FY 2024-25 quarterly and annual returns on the E-Waste EPR portal from 30-06-2025 to 15-08-2025",
+      "source": {
+        "title": "CPCB notice dated 14-07-2025 - FY 2024-25 e-waste quarterly and annual returns extended to 15-08-2025",
+        "url": "https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg=="
+      },
+      "confidence": "high",
+      "note": "Statutory date (2025-01-31) is before the requested window; included because the extended date falls inside it. An earlier notice had already moved these returns to 30-06-2025. cpcb.nic.in now redirects to cpcb.gov.in; notice read directly."
+    },
+    {
+      "ruleId": "other-ewaste-quarterly-return",
+      "period": "FY2024-25-Q4",
+      "originalDue": "2025-04-30",
+      "due": "2025-08-15",
+      "reason": "CPCB notice File No. CP/14/2024-WM-III-HO-CPCB-HO dated 14-07-2025 further extended the time for filing FY 2024-25 quarterly and annual returns on the E-Waste EPR portal from 30-06-2025 to 15-08-2025",
+      "source": {
+        "title": "CPCB notice dated 14-07-2025 - FY 2024-25 e-waste quarterly and annual returns extended to 15-08-2025",
+        "url": "https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg=="
+      },
+      "confidence": "high",
+      "note": "Statutory date (2025-04-30) is before the requested window; included because the extended date falls inside it. An earlier notice had already moved these returns to 30-06-2025. cpcb.nic.in now redirects to cpcb.gov.in; notice read directly."
+    },
+    {
+      "ruleId": "other-ewaste-annual-return",
+      "period": "FY2024-25",
+      "originalDue": "2025-04-30",
+      "due": "2025-08-15",
+      "reason": "CPCB notice File No. CP/14/2024-WM-III-HO-CPCB-HO dated 14-07-2025 further extended the time for filing FY 2024-25 quarterly and annual returns on the E-Waste EPR portal from 30-06-2025 to 15-08-2025",
+      "source": {
+        "title": "CPCB notice dated 14-07-2025 - FY 2024-25 e-waste quarterly and annual returns extended to 15-08-2025",
+        "url": "https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg=="
+      },
+      "confidence": "high",
+      "note": "Statutory date (2025-04-30) is before the requested window; included because the extended date falls inside it. An earlier notice had already moved these returns to 30-06-2025. cpcb.nic.in now redirects to cpcb.gov.in; notice read directly."
+    },
+    {
+      "ruleId": "other-ewaste-annual-return",
+      "period": "FY2025-26",
+      "originalDue": "2026-04-30",
+      "due": "2026-09-30",
+      "reason": "Reported CPCB extension of the FY 2025-26 annual return on the E-Waste EPR portal to 30-09-2026; no official notice located",
+      "source": {
+        "title": "CPCB E-Waste EPR portal (where return notices are posted; HTTP 526 from this machine)",
+        "url": "https://eprewastecpcb.in/"
+      },
+      "confidence": "medium",
+      "note": "Unconfirmed. CPCB's e-waste notice page (https://cpcb.gov.in/urgent-notice-2/) lists nothing after the 16-07-2025 notice, and the portal could not be reached; the date comes from a consultancy report dated 12-09-2026 (lead only, not cited). The data currently sets no override for this reason; check the portal before adding. Quarterly returns for FY 2025-26 are not mentioned in the report."
+    }
+  ],
+  "stateScoped": [
+    {
+      "ruleId": "gst-gstr3b-monthly",
+      "period": "2025-07",
+      "originalDue": "2025-08-20",
+      "due": "2025-08-27",
+      "reason": "Extended by Notification No. 12/2025-Central Tax dated 20-08-2025 (heavy rains) for registered persons whose principal place of business is in Mumbai (City), Mumbai (Suburban), Thane, Raigad or Palghar districts of Maharashtra and who file monthly under rule 61(1)(i)",
+      "source": {
+        "title": "CBIC - Notification 12/2025-Central Tax (GSTR-3B July 2025, Maharashtra districts)",
+        "url": "https://taxinformation.cbic.gov.in/view-pdf/1010424/ENG/Notifications"
+      },
+      "confidence": "high",
+      "states": [
+        "MH"
+      ],
+      "note": "Five districts only, not the whole State; QRMP filers not covered. Also PIB release 21-08-2025 (PRID 2158991) and GST portal advisory 21-08-2025 (news item 620). The GST portal news feed for June 2025 - June 2026 shows no other State-specific extension."
+    }
+  ],
+  "noneFound": [
+    "income-tax-itr-transfer-pricing FY2024-25 (30-11-2025): not extended; Circular 15/2025 covers only clause (a) of Explanation 2 to section 139(1), and transfer pricing cases are clause (aa).",
+    "income-tax-tp-report-1961-act FY2024-25 (Form 3CEB, 31-10-2025): not extended; its specified date (section 92F(iv)) follows the unextended 30-11-2025 return date. The tax audit report of transfer pricing cases (also 31-10-2025) was likewise not extended.",
+    "income-tax-master-file-1961-act FY2024-25 (Form 3CEAA, 30-11-2025) and income-tax-lo-statement-1961-act FY2024-25 (Form 49C, 30-11-2025): no extension found.",
+    "income-tax-belated-return FY2024-25 (31-12-2025): no extension; Circular 15/2025 is the last CBDT circular of 2025 (CBDT circular index archived 11-02-2026) and e-filing portal news for 2025-2026 shows none.",
+    "income-tax-cbcr-1961-act and income-tax-ftc-form-67-1961-act FY2024-25 (31-03-2026): no extension found.",
+    "income-tax-tds-statements-1961-act and income-tax-tcs-statement-1961-act, Q1-Q3 FY2025-26 (24Q/26Q/27Q 31-07-2025, 31-10-2025, 31-01-2026; 27EQ 15-07-2025, 15-10-2025, 15-01-2026): not extended. Circular 02/2026 covers only section 203 certificates, and the TRACES circular list (reviewed 31-03-2026) shows no statement extension after Circular 09/2023.",
+    "income-tax-form-27d-1961-act Q1-Q3 FY2025-26 and income-tax-form-16a-1961-act Q1-Q2 FY2025-26: no extension; Circular 02/2026 is limited to section 203 TDS certificates for the December 2025 quarter.",
+    "income-tax-15g-15h-statement-1961-act, income-tax-form-15cc-1961-act, income-tax-form-61-1961-act, income-tax-form-24g-1961-act, income-tax-challan-statement-1961-act, income-tax-tds-deposit-1961-act, income-tax-tcs-deposit-1961-act (July 2025 - April 2026 occurrences): no extension in CBDT Circulars 06/2025-15/2025 and 01/2026-04/2026 or in e-filing portal news.",
+    "Advance tax FY 2025-26 (15-09-2025, 15-12-2025, 15-03-2026): no extension. The data has no 1961-Act advance tax rule (income-tax-advance-tax starts 2026-04-01), so these instalments will not appear in the look-back.",
+    "income-tax-updated-return FY2020-21 (AY 2021-22, 31-03-2026): no extension; the 48-month window comes from the Finance Act 2025.",
+    "gst-gstr1-monthly (June 2025 - March 2026 periods) and gst-gstr1-quarterly-qrmp (Q1-Q4 FY2025-26): no extension; the only 2025-2026 GSTR-1 extension was Notification 01/2025-CT for December 2024 (outside the window).",
+    "gst-gstr3b-monthly other months, gst-gstr3b-qrmp-22 and gst-gstr3b-qrmp-24 Q1, Q3 and Q4 FY2025-26: no extension. All 20 Central Tax notifications of 2025 and both of 2026 were listed from the CBIC tax portal API; only 12/2025, 17/2025 and 01/2026 extend a return.",
+    "gst-gstr5-nonresident, gst-gstr5a-oidar, gst-gstr6-isd, gst-gstr7-tds, gst-gstr8-tcs, gst-cmp08-composition, gst-iff-qrmp, gst-pmt06-qrmp: no extension in the window.",
+    "gst-gstr9-annual and gst-gstr9c-reconciliation FY2024-25 (31-12-2025): no extension notified; GST portal news items 606-664 (June 2025 - June 2026) show none.",
+    "gst-itc04-annual FY2025-26, gst-itc04-halfyearly H1 and H2 FY2025-26, gst-lut-rfd11, gst-cmp02-opt-in, gst-gta-forward-charge-option and gst-specified-premises-declaration (31-03-2026), gst-itc-credit-note-cutoff FY2024-25 (30-11-2025): no extension found.",
+    "GST State-level extensions: apart from the Maharashtra districts relief (12/2025-CT, in stateScoped), none found for 2025 floods in Punjab, Himachal Pradesh, Jammu and Kashmir or Uttarakhand.",
+    "mca-llp-form8-annual FY2024-25 (30-10-2025): no relief; MCA General Circulars 01/2025 to 08/2025 contain no LLP form relaxation.",
+    "mca-csr2-annual FY2024-25: CSR-2 is not named in GC 06/2025, which lists only MGT-7, MGT-7A and the AOC-4 family. CSR-2 quotes the AOC-4 SRN, so in practice it followed a late AOC-4, but no circular relaxes it by name.",
+    "mca-mgt15-annual, mca-adt1-annual and mca-cra2-annual FY2024-25: not covered by GC 06/2025 or GC 07/2025.",
+    "mca-agm-annual FY2024-25 (30-09-2025): no extension; GC 06/2025 para 3 says it gives no extra time to hold AGMs, and GC 03/2025 (22-09-2025, per the data record) only allows VC/OAVM meetings.",
+    "mca-msme1-halfyearly H1 and H2 FY2025-26, mca-pas6-halfyearly H1 FY2025-26 and mca-nfra2-annual FY2024-25: no extension found (the NFRA circulars page lists none).",
+    "MCA GC 01/2025 dated 16-06-2025 (V2 to V3 transition) waived additional fees up to 15-08-2025 for 13 e-forms due 18-06-2025 to 31-07-2025. No periodic occurrence in the data falls in that range; only event filings such as ADT-3 and CRA-2 could.",
+    "DIR-3 KYC 2025 (due 30-09-2025): filing without fee extended to 15-10-2025 by GC 04/2025 dated 29-09-2025 (read) and reportedly to 31-10-2025 by GC 05/2025. Not mapped, because the data models only the triennial regime from 2026-03-31.",
+    "SEBI rules (sebi-*): SEBI circulars of July 2025 - April 2026 (listed from sebi.gov.in) contain no relaxation of the periodic filing timelines modelled (results, integrated filings, shareholding pattern, Reg 24A, Reg 34 and BRSR, Reg 76, Reg 74(5)). The 31-08-2025 top-100 AGM date was unchanged.",
+    "rbi-fema-fla-annual (15-07-2025), rbi-fema-bo-lo-po-aac-annual (30-09-2025), rbi-fema-odi-apr-annual (31-12-2025), rbi-fema-opi-halfyearly H1 FY2025-26 (29-11-2025), rbi-fema-grn-quarterly Q4 FY2025-26 (15-04-2026), rbi-fema-ecb2-monthly (February-March 2026): no extension in RBI notifications July 2025 - April 2026; the FLA FAQ (updated 01-07-2026) still gives 15 July.",
+    "labour-esic-contribution-monthly (June 2025 - March 2026 periods): no extension found in Ministry of Labour PIB releases (July 2025 - April 2026) or archived ESIC circular index pages; esic.gov.in timed out from this machine.",
+    "labour-epf-ecr-monthly other wage months (June-August and October-November 2025, January-March 2026): no extension in EPFO's FY 2025-26 circular index (archived 15-03-2026) or PIB.",
+    "labour-bonus-payment-annual FY2024-25 (30-11-2025): no extension found.",
+    "trade-rodtep-annual-return FY2024-25 (31-03-2026): not extended. For FY2023-24 (statutory 31-03-2025, outside the window) DGFT PN 51/2024-25 moved the fee-free date to 30-06-2025 and the grace period to 30-09-2025; PN 24/2025-26 (03-10-2025) and PN 46/2025-26 (05-02-2026) only extended late filing with a composition fee (Rs 10,000 to 30-11-2025, then Rs 15,000 to 31-03-2026), so they are not overrides.",
+    "trade-customs-warehouse-monthly-return and trade-igcr-monthly-statement: no extension. Separately, Customs (N.T.) Notification 07/2025 dated 01-02-2025 made the IGCR-3 statement quarterly from 02-02-2025 (rule 6(2)), so the monthly schedule in the data looks out of date; the CBIC rule page still shows the old text.",
+    "other-epr-plastic-annual-return FY2024-25 (30-06-2025, outside the window): the reported extension to 30-11-2025 was not found on cpcb.gov.in. other-battery-epr-annual-return FY2024-25 (30-06-2025, outside the window): not checked in depth; no notice on the CPCB pages read, and the battery EPR portal (eprbatterycpcb.in) returned HTTP 410.",
+    "other-ewaste-quarterly-return Q1-Q4 FY2025-26: no extension found; the reported FY 2025-26 extension mentions only annual returns.",
+    "other-env-statement-form-v FY2024-25 (30-09-2025), other-rera-annual-audit-form5, other-rera-quarterly-update and other-posh-ic-annual-report CY2025: SPCB, State RERA or District level; no central extension found, and state authorities were not checked.",
+    "State PT and LWF rules (state-*): not checked against state notifications, beyond confirming the Karnataka PT order already in the data."
+  ]
+}

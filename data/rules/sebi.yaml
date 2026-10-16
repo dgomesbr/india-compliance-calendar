@@ -15,6 +15,9 @@ rules:
       basis: fy
       day: 31
       monthOffset: 5
+      entityYear: true
+      after:
+        months: 5
     law: Regulation 44(5)-(6), SEBI LODR Regulations 2015
     penalty: SOP fine of Rs 25,000 per instance of not convening the AGM within five months.
     exposure:
@@ -29,8 +32,10 @@ rules:
         kind: circular
     verified: 2026-10-14
     confidence: high
-    notes: Companies Act deadline for all others remains 30 September (mca-agm-annual).
+    notes: "Companies Act deadline for all others remains 30 September (mca-agm-annual). It is the same meeting as the Companies Act AGM: marking either one held records it for both, and the filings that run from the AGM follow that date."
     code: AGM TOP 100
+    recordAs: held
+    sameEventAs: mca-agm-annual
   - id: sebi-annual-report-reg34
     title: Annual report to stock exchanges (Reg 34)
     form: Annual report
@@ -46,6 +51,11 @@ rules:
       basis: fy
       day: 8
       monthOffset: 6
+      entityYear: true
+      follows:
+        rule: mca-agm-annual
+        within:
+          days: -22
     law: Regulation 34(1), SEBI LODR Regulations 2015; Section 101(1), Companies Act 2013 (21 clear days' notice)
     penalty: SOP fine of Rs 2,000 per day; non-submission for two consecutive years is a ground for suspension.
     exposure:
@@ -63,7 +73,7 @@ rules:
         kind: act
     verified: 2026-10-14
     confidence: medium
-    notes: The real deadline is the date dispatch begins. 8 September is the latest dispatch date for an AGM on 30 September with 21 clear days' notice by electronic mode; top 100 entities holding the AGM by 31 August must dispatch earlier.
+    notes: "The real deadline is the date dispatch begins. 8 September is the latest dispatch date for an AGM on 30 September with 21 clear days' notice by electronic mode; top 100 entities holding the AGM by 31 August must dispatch earlier. Runs from the AGM: 22 days before the date recorded for it, or before its last permitted day until one is recorded."
     code: REG 34
   - id: sebi-brsr-annual
     title: BRSR (top 1,000 listed entities)
@@ -80,6 +90,12 @@ rules:
       basis: fy
       day: 8
       monthOffset: 6
+      entityYear: true
+      follows:
+        rule: sebi-annual-report-reg34
+        within:
+          days: 0
+        from: due
     law: Regulation 34(2)(f), SEBI LODR Regulations 2015 (amended 28-03-2025); SEBI Circular dated 28-03-2025 on BRSR Core assessment or assurance and value chain
     penalty: No BRSR-specific fine; filed with the annual report, so the Reg 34 SOP fine of Rs 2,000 per day applies to a late annual report.
     exposure:
@@ -116,6 +132,7 @@ rules:
       except:
         Q4:
           daysAfter: 60
+      entityYear: true
     law: Regulations 10(1A), 23(9), 32(1) and 33(3)(a) and (d), SEBI LODR Regulations 2015; SEBI Circular SEBI/HO/CFD/CFD-PoD-2/CIR/P/2024/185 dated 31-12-2024
     penalty: "SOP fines: Rs 5,000 per day for late financial results (Reg 33), Rs 5,000 per day for late RPT disclosure (Reg 23(9)) and Rs 1,000 per day for the statement of deviation (Reg 32(1)); repeated default leads to promoter demat freeze and suspension."
     exposure:
@@ -158,8 +175,8 @@ rules:
     schedule:
       kind: quarterly
       basis: fy
-      day: 30
-      monthOffset: 1
+      entityYear: true
+      daysAfter: 30
     law: Regulations 10(1A), 13(3) and 27(2)(a), SEBI LODR Regulations 2015; SEBI Circular SEBI/HO/CFD/CFD-PoD-2/CIR/P/2024/185 dated 31-12-2024 (now in LODR Master Circular dated 30-01-2026, Section VI-L)
     penalty: "Exchange fines under the SOP: Rs 2,000 per day for the corporate governance report (Reg 27(2)) and Rs 1,000 per day for the investor grievance statement (Reg 13(3)); continued default can lead to freezing of promoter holdings and suspension of trading."
     exposure:
@@ -241,6 +258,7 @@ rules:
       except:
         Q4:
           daysAfter: 60
+      entityYear: true
     law: Regulation 52(1)-(2), SEBI LODR Regulations 2015; SEBI Master Circular for non-convertible securities dated 11-07-2025
     penalty: Fine of Rs 5,000 per day for late results; not levied again if a Reg 33 fine is already levied for the same default.
     exposure:
@@ -303,6 +321,7 @@ rules:
       kind: annual
       basis: fy
       daysAfter: 60
+      entityYear: true
     law: Regulations 3(5) and 3(6), SEBI (Prohibition of Insider Trading) Regulations 2015; BSE Notice 20241018-44 dated 18-10-2024
     penalty: No per-day fine; the exchange flags the entity as SDD non-compliant on its website, gives no further listing approvals except bonus and split, and may seek the Board's comments.
     exposure:
@@ -332,6 +351,7 @@ rules:
       kind: annual
       basis: fy
       daysAfter: 60
+      entityYear: true
     law: Regulation 24A(2), SEBI LODR Regulations 2015
     penalty: SOP fine of Rs 2,000 per day.
     exposure:

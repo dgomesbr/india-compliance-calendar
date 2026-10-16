@@ -67,6 +67,69 @@ gazetted holidays).
 `H1`/`H2`); `skip` drops periods. Advance tax is
 `{kind: quarterly, day: 15, monthOffset: 0}`.
 
+`after: {months, days}` is the exact placement for "within N months (and N days)
+of the period end": the same date N months on, clamped to the month's length
+(31 March plus six months is 30 September; 30 June plus six is 30 December), then
+the days. When present it wins over the other fields; `day` and `monthOffset`
+stay beside it with the April-March answer for older readers of the data.
+
+### The entity's financial year
+
+`entityYear: true` marks a schedule whose periods follow the entity's own
+financial year rather than the statutory April-March one: company law (the AGM
+and its filings, AOC-4 for an OPC, cost audit), LLP returns, SEBI results and
+annual filings, and the FEMA annual activity certificate. A company that is a
+holding company, subsidiary or associate of a company incorporated outside India,
+and must follow a different year for consolidation there, may have it approved by
+the Tribunal (proviso to section 2(41), Companies Act 2013); an LLP in that
+position, by the Central Government (section 2(1)(l), LLP Act 2008). The team sets the first month
+in its profile (`profile.fyStart`, 1-12, default 4). Income tax, TDS and GST
+never carry the flag.
+
+With April as the first month nothing changes: period keys stay `FY2026-27`,
+`FY2026-27-Q1`, `FY2026-27-H1`, so filed records and overrides keep matching.
+Any other start uses keys named by the year's end, `FYE2026-12` (the year ending
+December 2026) and `FYE2026-12-Q1`, labelled "FY 2026 (Jan-Dec)" or "FY 2026-27
+(Jul-Jun)". Quarters and halves run from the first month, so `except: {Q4: ...}`
+always means the year's last quarter. Overrides are recorded for April-March
+years and apply only there.
+
+### Chains
+
+`follows` places a rule from another rule's occurrence for the same period
+instead of from the period end:
+
+```yaml
+schedule:
+  kind: annual
+  basis: fy
+  entityYear: true
+  day: 30            # the April-March answer, kept for older readers
+  monthOffset: 7
+  follows:
+    rule: mca-agm-annual
+    within: { days: 30 }   # months and/or days; negative for "before"
+    from: done             # done (default) or due
+```
+
+| Field | Meaning |
+|---|---|
+| `rule` | the earlier rule; it must share the basis and `entityYear` |
+| `slot` | for an annual rule that follows one quarter or half of a more frequent rule, e.g. `Q4` |
+| `within` | `{months, days}` from the earlier occurrence; `monthEnd: true` takes a month's last day to the target month's last day (CBDT counts one month before 30 November as 31 October) |
+| `from` | `done`: the date the team recorded for the earlier occurrence (filed, or held for a meeting), else its due date; `due`: always its due date, including any extension |
+| `earlier` | "whichever is earlier": the rule keeps its own date and a recorded earlier step can only bring it forward (the GST credit cut-off and the GSTR-9 filing date) |
+
+A notified override on the rule itself still wins. Chains are validated: the
+earlier rule must exist, chains may not loop, and the test suite checks that
+every chain reproduces the rule's own April-March dates. Unrecorded, a `done`
+chain counts from the earlier step's due date as extended (the AGM that should
+have been held); a `due` chain counts from its statutory date, because linked
+dates are extended separately (each extension is recorded on its own rule).
+`recordAs: held` marks a meeting, so the site says "Mark held" and "Held on" for
+it, and `sameEventAs` names the rule a second deadline for the same meeting keeps
+its record under (the top 100 listed entities' AGM is the Companies Act AGM).
+
 ### Overrides
 
 ```yaml
@@ -101,10 +164,15 @@ shown, not summed.
 
 ## Occurrences
 
-`expandRule(rule, from, to)` in `src/lib/schedule.ts` returns occurrences with a
-stable `key` (`<ruleId>@<periodKey>`), `due`, `periodKey`, `periodLabel`, period
-start and end, `originalDue` and `extended` when moved, and `projected` when the
-due date is past `confirmedThrough` in `data/meta.yaml`.
+`expandRule(rule, from, to, opts)` in `src/lib/schedule.ts` returns occurrences
+with a stable `key` (`<ruleId>@<periodKey>`), `due`, `periodKey`, `periodLabel`,
+period start and end, `originalDue` and `extended` when moved, `projected` when
+the due date is past `confirmedThrough` in `data/meta.yaml`, and `chain` (the
+earlier occurrence, the date the clock ran from and whether that date was
+recorded or its due date) for a rule that follows another. `opts` carries every
+rule by id (so chains resolve), the entity's first month and the recorded dates;
+`expandOptions(bundle, {fyStart, filed})` in `src/lib/view.ts` builds it, and
+`lineage()` walks a chain both ways for the detail panel and entry pages.
 
 ## Holidays
 

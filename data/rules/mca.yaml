@@ -18,6 +18,11 @@ rules:
       basis: fy
       day: 14
       monthOffset: 7
+      entityYear: true
+      follows:
+        rule: mca-agm-annual
+        within:
+          days: 14
     law: Section 139(1) fourth proviso, Companies Act 2013; Rule 4(2), Companies (Audit and Auditors) Rules 2014 (V3 form by G.S.R. 359(E))
     penalty: "Additional fee under Table B: 1x the normal fee if up to 15 days late, then 2x up to 30 days, 4x up to 60 days, 6x up to 90 days, 10x up to 180 days and 12x beyond. Section 147(1): the company is punishable with a fine of Rs 25,000 to Rs 5 lakh and officers Rs 10,000 to Rs 1 lakh."
     exposure:
@@ -44,7 +49,7 @@ rules:
         kind: rules
     verified: 2026-10-14
     confidence: high
-    notes: Due date assumes the AGM is held on the last permitted day, 30 September; the real deadline runs from the actual AGM date (or from the last day the AGM should have been held, if it was not held). The 14 October date counts the AGM day as day 1 (the conservative reading used by most calendars); counting from the day after the AGM gives 15 October.
+    notes: "Runs from the meeting that appoints the auditor, normally the AGM: 14 days after the date recorded for it, or after the AGM's last permitted day (30 September for an April-March year) until one is recorded. With no meeting there is no appointment and nothing to file. The 14 October date counts the AGM day as day 1 (the conservative reading used by most calendars); counting from the day after the AGM gives 15 October."
     code: ADT-1
   - id: mca-adt3-event
     title: ADT-3 statement on auditor resignation
@@ -96,6 +101,9 @@ rules:
       basis: fy
       day: 30
       monthOffset: 6
+      entityYear: true
+      after:
+        months: 6
     law: Section 96(1), Companies Act 2013; Section 99 (punishment); Section 101(1) (21 clear days' notice)
     penalty: "Section 99: the company and every officer in default are punishable with a fine of up to Rs 1 lakh and, for a continuing default, up to Rs 5,000 for every day the default continues (court-imposed fine)."
     exposure:
@@ -120,10 +128,11 @@ rules:
         kind: circular
     verified: 2026-10-14
     confidence: high
-    notes: General Circular 03/2025 (22-09-2025) lets companies hold AGMs and EGMs through video conference till further orders but expressly grants no extension of the AGM deadline. No AGM extension has been notified for FY 2025-26. The top 100 listed entities must hold their AGM within 5 months (see sebi-agm-top100-annual). All AGM-linked rules in this file assume the AGM is held on 30 September.
+    notes: "General Circular 03/2025 (22-09-2025) lets companies hold AGMs and EGMs through video conference till further orders but expressly grants no extension of the AGM deadline. No AGM extension has been notified for FY 2025-26. The top 100 listed entities must hold their AGM within 5 months (see sebi-agm-top100-annual). Record the date the AGM was held: AOC-4, MGT-7 or MGT-7A, ADT-1, MGT-15, CSR-2 and the SEBI annual report then run from it, and until then from the last permitted day. A company allowed another financial year (section 2(41) proviso) counts the six months from the end of that year."
     code: AGM
     tags:
       - not-opc
+    recordAs: held
   - id: mca-aoc4-annual
     title: AOC-4 / AOC-4 XBRL / AOC-4 CFS financial statements
     form: AOC-4, AOC-4 XBRL, AOC-4 CFS, AOC-4 NBFC (Ind AS), AOC-4 CFS NBFC (Ind AS)
@@ -140,6 +149,11 @@ rules:
       basis: fy
       day: 30
       monthOffset: 7
+      entityYear: true
+      follows:
+        rule: mca-agm-annual
+        within:
+          days: 30
     law: Section 137(1)-(3), Companies Act 2013; Rule 12(1), (1A) and (1C), Companies (Accounts) Rules 2014; Rule 3, Companies (Filing of Documents and Forms in XBRL) Rules 2015; Table D, Companies (Registration Offices and Fees) Rules 2014
     penalty: "Additional fee of Rs 100 per day of delay with no upper limit (Table D, Fees Rules). Section 137(3): the company is liable to a penalty of Rs 10,000 plus Rs 100 per day of continuing failure, up to Rs 2 lakh; the MD and CFO (or responsible directors) Rs 10,000 plus Rs 100 per day, up to Rs 50,000 each. Directors of a company that has not filed financial statements or annual returns for three continuous years are disqualified for five years (Section 164(2)(a))."
     exposure:
@@ -151,6 +165,14 @@ rules:
         - Officer penalty Rs 10,000 + Rs 100/day up to Rs 50,000
         - Director disqualification after 3 years of non-filing (Section 164(2)(a))
       basis: "Table D Fees Rules: Rs 100/day additional fee; Section 137(3): Rs 10,000 plus Rs 100/day up to Rs 2 lakh for the company"
+    overrides:
+      - period: FY2024-25
+        due: 2025-12-31
+        originalDue: 2025-10-30
+        reason: MCA General Circular No. 06/2025 dated 17-10-2025 allowed the FY 2024-25 AOC-4 filings (AOC-4, CFS, NBFC and XBRL) to be filed without additional fees up to 31-12-2025. General Circular No. 08/2025 dated 30-12-2025 is reported to extend this to 31-01-2026; it could not be read here, so the confirmed date is shown.
+        source:
+          title: MCA General Circular No. 06/2025 dated 17-10-2025
+          url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTc5MDY1MjQ0&docCategory=Circulars&type=open
     sources:
       - title: MCA e-book - Companies Act 2013, Section 137 (filing of financial statements)
         url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwNzI=&docCategory=Acts&type=open
@@ -181,7 +203,7 @@ rules:
         kind: circular
     verified: 2026-10-14
     confidence: high
-    notes: "Due date assumes the AGM is held on the last permitted day, 30 September; the real deadline runs from the actual AGM date (or from the last day the AGM should have been held, if it was not held). Unadopted statements must still be filed within 30 days of the AGM and the adopted ones within 30 days of the adjourned AGM. Producer companies are reported to have 60 days (Section 378ZA) - not verified here. FY 2024-25 relief (outside this window): no additional fee till 31-12-2025 (GC 06/2025) and then 31-01-2026 (GC 08/2025). CCFS-2026 (GC 01/2026, 15-04-2026 to 15-09-2026 after GC 03/2026 and 04/2026) let defaulting companies file old AOC-4/MGT-7 with only 10% of the additional fee. No relaxation for FY 2025-26 filings has been notified as of 14-10-2026."
+    notes: "Runs from the AGM: 30 days after the date recorded for it, or after its last permitted day (30 September for an April-March year) until one is recorded, which is also the rule when no AGM was held. Unadopted statements must still be filed within 30 days of the AGM and the adopted ones within 30 days of the adjourned AGM. Producer companies are reported to have 60 days (Section 378ZA) - not verified here. FY 2024-25 relief: no additional fee till 31-12-2025 (GC 06/2025, recorded as the extension); GC 08/2025 reportedly moved it to 31-01-2026, which could not be confirmed against the circular. CCFS-2026 (GC 01/2026, 15-04-2026 to 15-09-2026 after GC 03/2026 and 04/2026) let defaulting companies file old AOC-4/MGT-7 with only 10% of the additional fee. No relaxation for FY 2025-26 filings has been notified as of 14-10-2026."
     code: AOC-4
     tags:
       - not-opc
@@ -199,6 +221,7 @@ rules:
       kind: annual
       basis: fy
       daysAfter: 180
+      entityYear: true
     law: Section 137(1), fourth proviso, Companies Act 2013; Rule 12, Companies (Accounts) Rules 2014; Table D, Companies (Registration Offices and Fees) Rules 2014
     penalty: "Additional fee of Rs 100 per day of delay with no upper limit (Table D). Section 137(3): Rs 10,000 plus Rs 100 per day, up to Rs 2 lakh for the company and Rs 50,000 for responsible officers."
     exposure:
@@ -208,6 +231,14 @@ rules:
       other:
         - Rs 100/day MCA additional fee has no cap
       basis: "Table D Fees Rules: Rs 100/day; Section 137(3): Rs 10,000 plus Rs 100/day up to Rs 2 lakh"
+    overrides:
+      - period: FY2024-25
+        due: 2025-12-31
+        originalDue: 2025-09-27
+        reason: MCA General Circular No. 06/2025 dated 17-10-2025 allowed the FY 2024-25 AOC-4 (the form One Person Companies file) to be filed without additional fees up to 31-12-2025. General Circular No. 08/2025 dated 30-12-2025 is reported to extend this to 31-01-2026; it could not be read here, so the confirmed date is shown.
+        source:
+          title: MCA General Circular No. 06/2025 dated 17-10-2025
+          url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTc5MDY1MjQ0&docCategory=Circulars&type=open
     sources:
       - title: MCA e-book - Companies Act 2013, Section 137 (filing of financial statements)
         url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MjgwNzI=&docCategory=Acts&type=open
@@ -308,6 +339,7 @@ rules:
       kind: annual
       basis: fy
       daysAfter: 180
+      entityYear: true
     law: Rule 6(1), (2) and (3A), Companies (Cost Records and Audit) Rules 2014 (V3 form by G.S.R. 361(E)); Section 148(3) and (8), Companies Act 2013
     penalty: "Table B additional fee. Section 148(8)(a) read with Section 147(1): the company is punishable with a fine of Rs 25,000 to Rs 5 lakh and officers Rs 10,000 to Rs 1 lakh."
     exposure:
@@ -348,6 +380,7 @@ rules:
       kind: annual
       basis: fy
       daysAfter: 210
+      entityYear: true
     law: Section 148(6), Companies Act 2013; Rule 6(5)-(6), Companies (Cost Records and Audit) Rules 2014; Rule 4, Companies (Filing of Documents and Forms in XBRL) Rules 2015
     penalty: "Table B additional fee. Section 148(8)(a) read with Section 147(1): company fine of Rs 25,000 to Rs 5 lakh; officers Rs 10,000 to Rs 1 lakh."
     exposure:
@@ -356,6 +389,14 @@ rules:
       other:
         - "Additional fee for late filing: 2x the normal fee up to 30 days late, 4x up to 60 days, 6x up to 90 days, 10x up to 180 days, 12x beyond (Table B, Fees Rules)"
       basis: Section 148(8)(a) read with Section 147(1)
+    overrides:
+      - period: FY2024-25
+        due: 2025-12-31
+        originalDue: 2025-10-27
+        reason: MCA General Circular No. 07/2025 dated 27-10-2025 (F.No. 17/52/2020-CL-V) allowed CRA-4 for the financial year ended 31-03-2025 to be filed without additional fees up to 31-12-2025
+        source:
+          title: MCA General Circular No. 07/2025 dated 27-10-2025
+          url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTgxODM1Njg4&docCategory=Circulars&type=open
     sources:
       - title: MCA e-book - Companies (Cost Records and Audit) Rules 2014, Rule 6
         url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=MzcyMTE=&docCategory=Rules&type=open
@@ -389,6 +430,12 @@ rules:
       basis: fy
       day: 30
       monthOffset: 7
+      entityYear: true
+      follows:
+        rule: mca-aoc4-annual
+        within:
+          days: 0
+        from: due
     law: Rule 12(1B), Companies (Accounts) Rules 2014 (V3 form substituted by G.S.R. 357(E), in force 14-07-2025); Section 135, Companies Act 2013
     penalty: "No CSR-2-specific additional-fee slab was found. Non-filing is a contravention of the rules, which attracts the general penalty in Section 450: Rs 10,000 plus Rs 1,000 per day of continuing contravention, up to Rs 2 lakh for the company and Rs 50,000 for each officer in default."
     exposure:
@@ -420,7 +467,7 @@ rules:
         kind: act
     verified: 2026-10-14
     confidence: medium
-    notes: "Lead confirmed with a correction: CSR-2 became an e-form linked to AOC-4 through G.S.R. 357(E) dated 30-05-2025 (the Companies (Accounts) SECOND Amendment Rules 2025, effective 14-07-2025). G.S.R. 317(E) dated 19-05-2025 (the first Amendment Rules) only moved the separate FY 2023-24 CSR-2 deadline from 31-03-2025 to 30-06-2025; GC 02/2025 then opened a 14-07-2025 to 15-08-2025 window in V3. From FY 2024-25 onward there is no separate CSR-2 date, so this rule follows the AOC-4 due date. Due date assumes the AGM is held on the last permitted day, 30 September; the real deadline runs from the actual AGM date (or from the last day the AGM should have been held, if it was not held)."
+    notes: "Lead confirmed with a correction: CSR-2 became an e-form linked to AOC-4 through G.S.R. 357(E) dated 30-05-2025 (the Companies (Accounts) SECOND Amendment Rules 2025, effective 14-07-2025). G.S.R. 317(E) dated 19-05-2025 (the first Amendment Rules) only moved the separate FY 2023-24 CSR-2 deadline from 31-03-2025 to 30-06-2025; GC 02/2025 then opened a 14-07-2025 to 15-08-2025 window in V3. From FY 2024-25 onward there is no separate CSR-2 date, so this rule follows the AOC-4 due date. Its date is the AOC-4 due date, which runs from the AGM."
     code: CSR-2
   - id: mca-dir12-event
     title: DIR-12 appointment or change of director / KMP
@@ -524,10 +571,12 @@ rules:
       from: 2026-03-31
       to: null
     sources:
-      - title: MCA - G.S.R. 943(E) dated 31-12-2025, Companies (Appointment and Qualification of Directors) Amendment Rules 2025
+      - &a1
+        title: MCA - G.S.R. 943(E) dated 31-12-2025, Companies (Appointment and Qualification of Directors) Amendment Rules 2025
         url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjExMzk5Mzk2&docCategory=Notifications&type=open
         kind: notification
-      - title: MCA e-book - Companies (Appointment and Qualification of Directors) Rules 2014, Rule 12A
+      - &a2
+        title: MCA e-book - Companies (Appointment and Qualification of Directors) Rules 2014, Rule 12A
         url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjE1MDA1Njgx&docCategory=Rules&type=open
         kind: rules
       - title: MCA e-book - Companies (Appointment and Qualification of Directors) Rules 2014, Rule 11
@@ -536,7 +585,8 @@ rules:
       - title: MCA - G.S.R. 300(E) dated 21-04-2026, Companies (Registration Offices and Fees) Amendment Rules 2026
         url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NjQ1ODUwMDEw&docCategory=Notifications&type=open
         kind: notification
-      - title: MCA - FAQs on Form DIR-3-KYC-Web
+      - &a3
+        title: MCA - FAQs on Form DIR-3-KYC-Web
         url: https://www.mca.gov.in/content/mca/global/en/help-faq/faqs/company-services/din-related/dir-3-kyc-web.html
         kind: faq
     verified: 2026-10-14
@@ -584,6 +634,49 @@ rules:
     verified: 2026-10-14
     confidence: high
     notes: First occurrence (30-06-2029) falls after the site's current window; included so the cohort is not shown the 2028 date. MCA has not yet stated the cycle for DINs allotted from FY 2026-27 onward.
+    code: DIR-3 KYC
+  - id: mca-dir3-kyc-annual-2025
+    title: DIR-3 KYC - annual KYC of DIN holders (last due 30 Sep 2025)
+    form: DIR-3 KYC, DIR-3 KYC-Web
+    category: mca
+    authority: MCA
+    summary: Until the triennial filing replaced it on 31-03-2026, every individual holding a DIN on 31 March filed KYC by 30 September of the next financial year. The last annual round, for DINs held on 31 March 2025, was due 30 September 2025.
+    applicability: Individuals who held a DIN on 31 March of the year (directors and designated partners).
+    audience:
+      - company
+      - llp
+      - individual
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 30
+      monthOffset: 6
+    law: Rule 12A, Companies (Appointment and Qualification of Directors) Rules 2014, as it stood before its substitution by G.S.R. 943(E) dated 31-12-2025 (in force 31-03-2026); Rule 11
+    penalty: Rs 5,000 fee for filing after the due date or to reactivate the DIN; a DIN not updated is deactivated (Rule 11).
+    exposure:
+      fixedPenalty: 5000
+      other:
+        - DIN deactivation until filed (Rule 11)
+      basis: Rs 5,000 fee for filing after the due date
+    effective:
+      from: null
+      to: 2025-03-31
+    overrides:
+      - period: FY2024-25
+        due: 2025-10-15
+        originalDue: 2025-09-30
+        reason: MCA General Circular No. 04/2025 dated 29-09-2025 allowed the 2025 DIR-3 KYC to be filed without fee up to 15-10-2025; General Circular No. 05/2025 reportedly extended this to 31-10-2025 (not confirmed here, so the confirmed date is shown)
+        source:
+          title: MCA - General Circulars (General Circular No. 04/2025 dated 29-09-2025)
+          url: https://www.mca.gov.in/content/mca/global/en/acts-rules/ebooks/circulars.html
+    sources:
+      - *a1
+      - *a2
+      - *a3
+    verified: 2026-10-16
+    confidence: medium
+    notes: "Added for the 15-month look back, from the triennial rule's sources: G.S.R. 943(E) replaced this annual filing with the once-in-three-years DIR-3 KYC-Web (see mca-dir3-kyc-triennial). The period is the year at whose end the DIN was held."
     code: DIR-3 KYC
   - id: mca-dpt3-annual
     title: DPT-3 return of deposits (30 June)
@@ -717,8 +810,8 @@ rules:
     schedule:
       kind: annual
       basis: fy
-      day: 30
-      monthOffset: 2
+      entityYear: true
+      daysAfter: 60
     law: Section 35(1)-(2), LLP Act 2008; Rule 25, LLP Rules 2009; Annexure A, LLP Rules
     penalty: "Section 35(2): the LLP and its designated partners are liable to Rs 100 per day of continuing failure, up to Rs 1 lakh for the LLP and Rs 50,000 for each designated partner. Late filing also attracts additional fee under Annexure A item 8."
     exposure:
@@ -791,6 +884,10 @@ rules:
       basis: fy
       day: 30
       monthOffset: 7
+      entityYear: true
+      after:
+        months: 6
+        days: 30
     law: Section 34(2), (3) and (5), LLP Act 2008; Rule 24(4), LLP Rules 2009; Annexure A, LLP Rules
     penalty: "Section 34(5): the LLP and its designated partners are liable to Rs 100 per day of continuing failure, up to Rs 1 lakh for the LLP and Rs 50,000 for each designated partner. Additional fee under Annexure A item 8 also applies."
     exposure:
@@ -860,6 +957,11 @@ rules:
       basis: fy
       day: 30
       monthOffset: 7
+      entityYear: true
+      follows:
+        rule: mca-agm-annual
+        within:
+          days: 30
     law: Section 121(1)-(3), Companies Act 2013; Rule 31(2), Companies (Management and Administration) Rules 2014 (V3 form by G.S.R. 358(E))
     penalty: "Section 121(3): the company is liable to Rs 1 lakh plus Rs 500 per day of continuing failure, up to Rs 5 lakh; officers in default Rs 25,000 plus Rs 500 per day, up to Rs 1 lakh. Table B additional fees also apply to late filing."
     exposure:
@@ -882,7 +984,7 @@ rules:
         kind: notification
     verified: 2026-10-14
     confidence: high
-    notes: Due date assumes the AGM is held on the last permitted day, 30 September; the real deadline runs from the actual AGM date (or from the last day the AGM should have been held, if it was not held). The 30 days run from the conclusion of the AGM.
+    notes: "Runs from the AGM: 30 days after the date recorded for it (the conclusion of the meeting), or after its last permitted day until one is recorded. The 30 days run from the conclusion of the AGM."
     code: MGT-15
   - id: mca-mgt7-annual
     title: MGT-7 annual return
@@ -900,6 +1002,11 @@ rules:
       basis: fy
       day: 29
       monthOffset: 8
+      entityYear: true
+      follows:
+        rule: mca-agm-annual
+        within:
+          days: 60
     law: Section 92(4)-(5), Companies Act 2013; Rules 11 and 12, Companies (Management and Administration) Rules 2014 (V3 form by G.S.R. 358(E), in force 14-07-2025); Table D, Fees Rules
     penalty: "Additional fee of Rs 100 per day with no upper limit (Table D). Section 92(5): the company and every officer in default are liable to Rs 10,000 plus Rs 100 per day of continuing failure, up to Rs 2 lakh for the company and Rs 50,000 for an officer."
     exposure:
@@ -910,6 +1017,14 @@ rules:
         - Rs 100/day MCA additional fee has no cap
         - Director disqualification after 3 years of non-filing (Section 164(2)(a))
       basis: "Table D Fees Rules: Rs 100/day; Section 92(5): Rs 10,000 plus Rs 100/day up to Rs 2 lakh (company)"
+    overrides:
+      - period: FY2024-25
+        due: 2025-12-31
+        originalDue: 2025-11-29
+        reason: MCA General Circular No. 06/2025 dated 17-10-2025 allowed the FY 2024-25 MGT-7 to be filed without additional fees up to 31-12-2025. General Circular No. 08/2025 dated 30-12-2025 is reported to extend this to 31-01-2026; it could not be read here, so the confirmed date is shown.
+        source:
+          title: MCA General Circular No. 06/2025 dated 17-10-2025
+          url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTc5MDY1MjQ0&docCategory=Circulars&type=open
     sources:
       - title: MCA e-book - Companies Act 2013, Section 92 (annual return)
         url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mjk1MDc=&docCategory=Acts&type=open
@@ -931,7 +1046,7 @@ rules:
         kind: circular
     verified: 2026-10-14
     confidence: high
-    notes: Due date assumes the AGM is held on the last permitted day, 30 September; the real deadline runs from the actual AGM date (or from the last day the AGM should have been held, if it was not held). 60 days from a 30 September AGM is 29 November. FY 2024-25 filings were relieved to 31-01-2026 (GC 06/2025, GC 08/2025); none for FY 2025-26 so far.
+    notes: "Runs from the AGM: 60 days after the date recorded for it, or after its last permitted day (30 September for an April-March year) until one is recorded, which is also the rule when no AGM was held. 60 days from a 30 September AGM is 29 November. FY 2024-25 filings were relieved to 31-12-2025 by GC 06/2025 (recorded as the extension) and reportedly to 31-01-2026 by GC 08/2025 (not confirmed against the circular); none for FY 2025-26 so far."
     code: MGT-7
     tags:
       - not-opc-small
@@ -950,6 +1065,11 @@ rules:
       basis: fy
       day: 29
       monthOffset: 8
+      entityYear: true
+      follows:
+        rule: mca-agm-annual
+        within:
+          days: 60
     law: Section 92(1) second proviso and 92(4), Companies Act 2013; Rule 11(1), Companies (Management and Administration) Rules 2014; G.S.R. 880(E) dated 01-12-2025
     penalty: "Additional fee of Rs 100 per day with no upper limit (Table D). Section 92(5): Rs 10,000 plus Rs 100 per day, up to Rs 2 lakh for the company and Rs 50,000 for an officer."
     exposure:
@@ -959,6 +1079,14 @@ rules:
       other:
         - Rs 100/day MCA additional fee has no cap
       basis: "Table D Fees Rules: Rs 100/day; Section 92(5): Rs 10,000 plus Rs 100/day up to Rs 2 lakh"
+    overrides:
+      - period: FY2024-25
+        due: 2025-12-31
+        originalDue: 2025-11-29
+        reason: MCA General Circular No. 06/2025 dated 17-10-2025 allowed the FY 2024-25 MGT-7A to be filed without additional fees up to 31-12-2025. General Circular No. 08/2025 dated 30-12-2025 is reported to extend this to 31-01-2026; it could not be read here, so the confirmed date is shown.
+        source:
+          title: MCA General Circular No. 06/2025 dated 17-10-2025
+          url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=NTc5MDY1MjQ0&docCategory=Circulars&type=open
     sources:
       - title: MCA e-book - Companies Act 2013, Section 92 (annual return)
         url: https://www.mca.gov.in/bin/ebook/dms/getdocument?doc=Mjk1MDc=&docCategory=Acts&type=open
@@ -974,7 +1102,7 @@ rules:
         kind: notification
     verified: 2026-10-14
     confidence: high
-    notes: Due date assumes the AGM is held on the last permitted day, 30 September; the real deadline runs from the actual AGM date (or from the last day the AGM should have been held, if it was not held). OPCs hold no AGM; in practice they count 60 days from the date the AGM would have been due (30 September), giving 29 November - MCA has not published guidance on this point.
+    notes: "Runs from the AGM: 60 days after the date recorded for it, or after its last permitted day (30 September for an April-March year) until one is recorded, which is also the rule when no AGM was held. OPCs hold no AGM; in practice they count 60 days from the date the AGM would have been due (30 September), giving 29 November - MCA has not published guidance on this point."
     code: MGT-7A
     tags:
       - opc-small

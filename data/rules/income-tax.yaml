@@ -68,7 +68,8 @@ rules:
       - title: Income-tax Act, 2025 (30 of 2025) - text as passed by Parliament (PRS Legislative Research copy)
         url: https://prsindia.org/files/bills_acts/bills_parliament/2025/Bill_as_passed_by_LS_Income_Tax_(No.2)_Bill.pdf
         kind: act
-      - title: CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)
+      - &a1
+        title: CBDT FAQs on Interplay and Transition from the Income-tax Act, 1961 to the Income-tax Act, 2025 (v2.0)
         url: https://www.incometaxindia.gov.in/documents/20117/43120/Updated-FQAs-on-Interplay%26Transitions.pdf/dda21cfd-28be-d931-ad5c-6459ecbd2ea7?version=2.0&t=1791877981764&download=true
         kind: faq
       - title: CBDT tax calendar - first instalment for Tax Year 2026-27 (due 2026-06-15)
@@ -79,7 +80,39 @@ rules:
         kind: portal
     verified: 2026-10-14
     confidence: high
-    notes: FAQ Q2.15-Q2.21. The last 1961-Act instalment (AY 2026-27) fell on 15 March 2026, before the site window; interest for that year stays under sections 234B/234C.
+    notes: FAQ Q2.15-Q2.21. The last 1961-Act instalment (AY 2026-27) fell on 15 March 2026 (see income-tax-advance-tax-1961-act); interest for that year stays under sections 234B/234C.
+    code: ADVANCE TAX
+  - id: income-tax-advance-tax-1961-act
+    title: Advance tax instalments (1961 Act, FY 2025-26 and earlier)
+    form: Challan 280 (advance tax, minor head 100) through e-Pay Tax
+    category: income-tax
+    authority: CBDT / Income Tax Department
+    summary: "Where tax for the year after TDS/TCS is Rs 10,000 or more, advance tax is paid in four instalments: at least 15% by 15 June, 45% by 15 September, 75% by 15 December and 100% by 15 March. The last 1961-Act instalment fell on 15 March 2026."
+    applicability: All assessees liable under section 208, except resident senior citizens with no business or professional income (section 207(2)). Presumptive-scheme taxpayers (sections 44AD and 44ADA) pay in one instalment (see income-tax-advance-tax-presumptive-1961-act).
+    audience:
+      - individual
+      - company
+      - firm
+      - llp
+      - trust
+    frequency: quarterly
+    schedule:
+      kind: quarterly
+      day: 15
+      monthOffset: 0
+    law: Sections 207 to 211, Income-tax Act, 1961 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)
+    penalty: Interest at 1% per month under section 234B where advance tax paid is below 90% of the assessed tax, and under section 234C for deferment of instalments (1% per month, generally for three months for each shortfall).
+    exposure:
+      interestPctPerMonth: 1
+      basis: "Sections 234B and 234C: simple interest 1% per month or part"
+    effective:
+      from: null
+      to: 2026-03-31
+    sources:
+      - *a1
+    verified: 2026-10-16
+    confidence: medium
+    notes: "Added for the 15-month look back: the same four instalments as income-tax-advance-tax under the 1961 Act, which still governs FY 2025-26 (AY 2026-27). CBDT's transition FAQ (Q2.15-Q2.21) confirms the last 1961-Act instalment fell on 15 March 2026 and that interest for that year stays under sections 234B and 234C. The CBDT tax calendar pages for these instalments could not be re-read from the build machine (HTTP 403 to an identifying client)."
     code: ADVANCE TAX
   - id: income-tax-advance-tax-presumptive
     title: Advance tax - presumptive taxation (15 March)
@@ -115,6 +148,36 @@ rules:
     verified: 2026-10-14
     confidence: high
     notes: FAQ Q2.20.
+    code: ADV TAX 44AD
+  - id: income-tax-advance-tax-presumptive-1961-act
+    title: Advance tax - presumptive taxation (1961 Act, 15 March)
+    form: Challan 280 (advance tax, minor head 100) through e-Pay Tax
+    category: income-tax
+    authority: CBDT / Income Tax Department
+    summary: Residents declaring business or professional income on a presumptive basis under sections 44AD or 44ADA pay the whole advance tax in one instalment by 15 March; the last 1961-Act date was 15 March 2026.
+    applicability: Assessees declaring income under section 44AD or 44ADA, Income-tax Act, 1961, for FY 2025-26 and earlier.
+    audience:
+      - individual
+      - firm
+    frequency: annual
+    schedule:
+      kind: annual
+      basis: fy
+      day: 15
+      monthOffset: 0
+    law: Section 211(1)(b), Income-tax Act, 1961 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)
+    penalty: Interest at 1% per month under sections 234B and 234C.
+    exposure:
+      interestPctPerMonth: 1
+      basis: "Sections 234B and 234C: simple interest 1% per month or part"
+    effective:
+      from: null
+      to: 2026-03-31
+    sources:
+      - *a1
+    verified: 2026-10-16
+    confidence: medium
+    notes: "Added for the 15-month look back: the 1961-Act counterpart of income-tax-advance-tax-presumptive (CBDT transition FAQ, Q2.20)."
     code: ADV TAX 44AD
   - id: income-tax-belated-return
     title: Belated return (31 December)
@@ -453,6 +516,11 @@ rules:
         Q4:
           day: 15
           monthOffset: 3
+      follows:
+        rule: income-tax-tds-statements
+        within:
+          days: 15
+        from: due
     law: Section 395(4), Income-tax Act, 2025; rule 215(1) [Table Sl. Nos. 2 and 4], Income-tax Rules, 2026
     penalty: Penalty Rs 500 per day of default under section 465(2)(g), not exceeding the tax deductible or collectible (section 465(3)(b)).
     exposure:
@@ -723,6 +791,11 @@ rules:
         Q4:
           day: 15
           monthOffset: 3
+      follows:
+        rule: income-tax-tds-statements-1961-act
+        within:
+          days: 15
+        from: due
     law: Section 203, Income-tax Act, 1961; rule 31(3), Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)
     penalty: Penalty Rs 100 per day of default under section 272A(2)(g), not exceeding the tax deductible or collectible.
     exposure:
@@ -731,6 +804,14 @@ rules:
     effective:
       from: null
       to: 2026-03-31
+    overrides:
+      - period: FY2025-26-Q3
+        due: 2026-03-31
+        originalDue: 2026-02-15
+        reason: Extended by CBDT Circular No. 02/2026 dated 25-03-2026 (F. No. 275/10/2026-IT(B)), an order under section 119 for TDS certificates under section 203 read with rule 31 for the quarter ending 31-12-2025, because of technical glitches on the e-filing portal
+        source:
+          title: CBDT Circular No. 02/2026 dated 25-03-2026
+          url: https://www.incometaxindia.gov.in/documents/d/guest/circular-2-2026-pdf
     sources:
       - title: incometaxindia.gov.in - About Form 16A (due date)
         url: https://www.incometaxindia.gov.in/w/form-16a
@@ -746,7 +827,7 @@ rules:
         kind: act
     verified: 2026-10-14
     confidence: high
-    notes: CBDT Circular 02/2026 had extended Q3 FY 2025-26 certificates to 31 March 2026 (before the site window). FAQ Q6.16 cites Rs 500/day under 272A(2)(g); the Act text on incometaxindia.gov.in shows Rs 100/day.
+    notes: CBDT Circular 02/2026 extended Q3 FY 2025-26 certificates to 31 March 2026 (recorded as the extension); the Q3 statements themselves were not extended. FAQ Q6.16 cites Rs 500/day under 272A(2)(g); the Act text on incometaxindia.gov.in shows Rs 100/day.
     code: FORM 16A
   - id: income-tax-form-24g-1961-act
     title: Form 24G book adjustment statement (1961 Act)
@@ -808,6 +889,11 @@ rules:
         Q4:
           day: 30
           monthOffset: 2
+      follows:
+        rule: income-tax-tcs-statement-1961-act
+        within:
+          days: 15
+        from: due
     law: Section 206C(5), Income-tax Act, 1961; rule 37D, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)
     penalty: Penalty Rs 100 per day of default under section 272A(2)(g), not exceeding the tax deductible or collectible.
     exposure:
@@ -1003,6 +1089,13 @@ rules:
         - Business and capital losses not carried forward if filed late
       basis: 234F / 428(a) fee Rs 1,000 (income up to Rs 5 lakh) or Rs 5,000; 234A / 423 interest 1% per month on tax due
     overrides:
+      - period: FY2024-25
+        due: 2025-12-10
+        originalDue: 2025-10-31
+        reason: Extended by CBDT Circular No. 15/2025 dated 29-10-2025 (F. No. 225/131/2025/ITA-II) for assessees referred to in clause (a) of Explanation 2 to section 139(1), AY 2025-26
+        source:
+          title: CBDT Circular No. 15/2025 dated 29-10-2025
+          url: https://incometaxindia.gov.in/communications/circular/circular-15-2025.pdf
       - period: FY2025-26
         due: 2026-11-21
         originalDue: 2026-10-31
@@ -1103,6 +1196,14 @@ rules:
       other:
         - Business and capital losses not carried forward if filed late
       basis: 234F / 428(a) fee Rs 1,000 (income up to Rs 5 lakh) or Rs 5,000; 234A / 423 interest 1% per month on tax due
+    overrides:
+      - period: FY2024-25
+        due: 2025-09-16
+        originalDue: 2025-07-31
+        reason: Extended to 15-09-2025 by CBDT Circular No. 06/2025 dated 27-05-2025 (F. No. 225/205/2024/ITA-II) and to 16-09-2025 by CBDT Circular No. 12/2025 dated 15-09-2025 (F. No. 225/131/2025/ITA-II), for assessees referred to in clause (c) of Explanation 2 to section 139(1), AY 2025-26
+        source:
+          title: CBDT Circular No. 12/2025 dated 15-09-2025
+          url: https://incometaxindia.gov.in/communications/circular/circular-12-2025.pdf
     sources:
       - title: CBDT tax calendar - ITR for AY 2026-27 by other assessees (due 2026-07-31)
         url: https://www.incometaxindia.gov.in/w/due-date-for-furnishing-the-return-of-income-for-the-assessment-year-2026-27-by-an-assessee
@@ -1254,6 +1355,11 @@ rules:
       basis: fy
       day: 30
       monthOffset: 8
+      follows:
+        rule: income-tax-itr-transfer-pricing
+        within:
+          days: 0
+        from: due
     law: Section 92D(4), Income-tax Act, 1961; rule 10DA, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)
     penalty: Penalty Rs 5,00,000 under section 271AA(2).
     exposure:
@@ -1290,6 +1396,11 @@ rules:
       basis: fy
       day: 30
       monthOffset: 8
+      follows:
+        rule: income-tax-itr-transfer-pricing
+        within:
+          days: 0
+        from: due
     law: Section 171(4), Income-tax Act, 2025; rule 123, Income-tax Rules, 2026
     penalty: Penalty Rs 5,00,000 under section 442(2).
     exposure:
@@ -1361,6 +1472,12 @@ rules:
       basis: fy
       day: 30
       monthOffset: 6
+      follows:
+        rule: income-tax-itr-audit
+        within:
+          months: -1
+          monthEnd: true
+        from: due
     law: Sections 348 and 349, Income-tax Act, 2025; rule 188, Income-tax Rules, 2026
     penalty: No fee identified; non-compliance can cost the exemption for the year (not quantified).
     exposure:
@@ -1611,6 +1728,12 @@ rules:
       basis: fy
       day: 30
       monthOffset: 6
+      follows:
+        rule: income-tax-itr-audit
+        within:
+          months: -1
+          monthEnd: true
+        from: due
     law: Section 44AB and clause (ii) of its Explanation, Income-tax Act, 1961; rule 6G, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)
     penalty: Penalty of 0.5% of turnover or gross receipts, up to Rs 1,50,000, under section 271B.
     exposure:
@@ -1621,6 +1744,13 @@ rules:
       from: null
       to: 2026-03-31
     overrides:
+      - period: FY2024-25
+        due: 2025-11-10
+        originalDue: 2025-09-30
+        reason: Specified date for audit reports extended to 31-10-2025 by CBDT Circular No. 14/2025 dated 25-09-2025 and to 10-11-2025 by CBDT Circular No. 15/2025 dated 29-10-2025 (F. No. 225/131/2025/ITA-II), for assessees referred to in clause (a) of Explanation 2 to section 139(1), AY 2025-26
+        source:
+          title: CBDT Circular No. 15/2025 dated 29-10-2025
+          url: https://incometaxindia.gov.in/communications/circular/circular-15-2025.pdf
       - period: FY2025-26
         due: 2026-10-21
         originalDue: 2026-09-30
@@ -1664,6 +1794,12 @@ rules:
       basis: fy
       day: 30
       monthOffset: 6
+      follows:
+        rule: income-tax-itr-audit
+        within:
+          months: -1
+          monthEnd: true
+        from: due
     law: Section 63(3) and 63(5)(a), Income-tax Act, 2025; rule 47, Income-tax Rules, 2026
     penalty: "Fee under section 428(c) (Finance Act, 2026): Rs 75,000 for a delay of up to one month and Rs 1,50,000 thereafter; this replaces the turnover-based penalty of old section 446."
     exposure:
@@ -2029,6 +2165,12 @@ rules:
       basis: fy
       day: 31
       monthOffset: 7
+      follows:
+        rule: income-tax-itr-transfer-pricing
+        within:
+          months: -1
+          monthEnd: true
+        from: due
     law: Section 92E, Income-tax Act, 1961; rule 10E, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)
     penalty: Penalty Rs 1,00,000 under section 271BA.
     exposure:
@@ -2067,6 +2209,12 @@ rules:
       basis: fy
       day: 31
       monthOffset: 7
+      follows:
+        rule: income-tax-itr-transfer-pricing
+        within:
+          months: -1
+          monthEnd: true
+        from: due
     law: Section 172, Income-tax Act, 2025; rule 85, Income-tax Rules, 2026
     penalty: "Fee under section 428(d) (Finance Act, 2026): Rs 50,000 for a delay of up to one month and Rs 1,00,000 thereafter; old penalty section 447 was omitted."
     exposure:
@@ -2108,6 +2256,12 @@ rules:
       basis: fy
       day: 30
       monthOffset: 6
+      follows:
+        rule: income-tax-itr-audit
+        within:
+          months: -1
+          monthEnd: true
+        from: due
     law: Section 12A(1)(b) and the tenth proviso to section 10(23C), Income-tax Act, 1961; rules 16CC and 17B, Income-tax Rules, 1962 (continued for periods before 1 April 2026 by section 536(2), Income-tax Act, 2025)
     penalty: No fee; the exemption under sections 11/12 or 10(23C) can be denied if the audit report is not furnished in time.
     exposure:
@@ -2118,6 +2272,13 @@ rules:
       from: null
       to: 2026-03-31
     overrides:
+      - period: FY2024-25
+        due: 2025-11-10
+        originalDue: 2025-09-30
+        reason: Extended to 31-10-2025 by CBDT Circular No. 14/2025 dated 25-09-2025 and to 10-11-2025 by CBDT Circular No. 15/2025 dated 29-10-2025, which extend the specified date for "report of audit under any provisions of the Act" for clause (a) assessees, AY 2025-26
+        source:
+          title: CBDT Circular No. 15/2025 dated 29-10-2025
+          url: https://incometaxindia.gov.in/communications/circular/circular-15-2025.pdf
       - period: FY2025-26
         due: 2026-10-21
         originalDue: 2026-09-30

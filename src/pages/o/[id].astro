@@ -7,10 +7,12 @@ import { addMonths, formatDate, MONTHS_SHORT, parts, relativeDays, WEEKDAYS_SHOR
 import { hasDelayCurve } from '../../lib/delay.ts';
 import { delayCost, formatINR, formatINRCompact, interestNote, turnoverNote } from '../../lib/exposure.ts';
 import { moneyFormat } from '../../lib/money.ts';
+import { DEFAULT_PROFILE } from '../../lib/profile.ts';
 import { describeSchedule } from '../../lib/schedule.ts';
 import { buildDate, getBundle, occurrencesBetween } from '../../lib/site-data.ts';
 import { AUDIENCE_LABEL, CATEGORY_LABEL, FREQUENCY_LABEL, type Rule } from '../../lib/types.ts';
 import { STATE_NAME } from '../../lib/validate.ts';
+import { doneWord, lineage, rulesById, type Row } from '../../lib/view.ts';
 
 export function getStaticPaths() {
   return getBundle().rules.map((rule) => ({ params: { id: rule.id }, props: { rule } }));
@@ -23,6 +25,10 @@ const { rule } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const today = buildDate();
 const next = rule.schedule ? occurrencesBetween(today, addMonths(today, 24), [rule]).slice(0, 6) : [];
+const byId = rulesById(getBundle());
+// The chain around the next occurrence: what its date runs from and what runs from it.
+const chain = next[0] ? lineage(getBundle(), { rule, occ: next[0] } as Row, { profile: DEFAULT_PROFILE, filed: {} }) : [];
+const chainTop = chain.length ? Math.min(...chain.map((s) => s.level)) : 0;
 const extended = rule.schedule ? occurrencesBetween(addMonths(today, -12), addMonths(today, 24), [rule]).filter((o) => o.extended) : [];
 const e = rule.exposure;
 const curve = hasDelayCurve(e);
@@ -126,11 +132,59 @@ const host = (url: string) => {
             <dt class="label">Applies to</dt>
             <dd>{rule.audience.map((a) => AUDIENCE_LABEL[a]).join(', ')}{rule.states?.length ? ` - ${rule.states.map((s) => STATE_NAME[s] ?? s).join(', ')}` : ''}</dd>
           </div>
-          <div><dt class="label">When</dt><dd>{describeSchedule(rule)}</dd></div>
+          <div><dt class="label">When</dt><dd>{describeSchedule(rule, byId)}</dd></div>
+          {
+            rule.schedule?.entityYear && (
+              <div>
+                <dt class="label">Financial year</dt>
+                <dd>
+                  Counts from the end of the entity's own financial year. Dates here assume April to March; a company allowed
+                  another year by the Tribunal (section 2(41), Companies Act), or an LLP by the Central Government (section
+                  2(1)(l), LLP Act), sets it in the profile, and the overview and calendar move these dates.
+                </dd>
+              </div>
+            )
+          }
           {rule.trigger && <div><dt class="label">Trigger</dt><dd>{rule.trigger}</dd></div>}
           {rule.form && <div><dt class="label">Form</dt><dd>{rule.form}</dd></div>}
           <div><dt class="label">Law</dt><dd>{rule.law}</dd></div>
         </dl>
+
+        {
+          chain.length > 1 && (
+            <section class="entry-chain" aria-labelledby="chain-title">
+              <h2 id="chain-title">Chain</h2>
+              <p class="muted">
+                {rule.schedule?.follows
+                  ? `This date runs from an earlier step. Shown for ${next[0]?.periodLabel}, with each step on its own deadline; record the real dates in the overview and the chain follows them.`
+                  : `Later filings run from this one. Shown for ${next[0]?.periodLabel}; record the real date in the overview and they follow it.`}
+              </p>
+              <ol class="chain">
+                {chain.map((s, i) => (
+                  <li class={`chain-step${s.self ? ' is-self' : ''}`} style={`--lvl:${s.level - chainTop};--i:${i}`}>
+                    {s.relation && s.level > chainTop && <span class="chain-rel">{s.relation}</span>}
+                    {s.self ? (
+                      <span class="chain-main" aria-current="true">
+                        <span class="chain-code fig">{s.rule.code}</span>
+                        <span class="chain-title">{s.rule.title}</span>
+                        <span class="chain-date num">Due {formatDate(s.occ.due, { weekday: false })}</span>
+                      </span>
+                    ) : (
+                      <a class="chain-main" href={`${base}o/${s.rule.id}/`}>
+                        <span class="chain-code fig">{s.rule.code}</span>
+                        <span class="chain-title">{s.rule.title}</span>
+                        <span class="chain-date num">Due {formatDate(s.occ.due, { weekday: false })}</span>
+                      </a>
+                    )}
+                  </li>
+                ))}
+              </ol>
+              {rule.recordAs === 'held' && (
+                <p class="faint chain-hint">Mark it {doneWord(rule).toLowerCase()} in the overview on the date of the meeting and the filings below move with it.</p>
+              )}
+            </section>
+          )
+        }
 
         <section class="entry-cost" aria-labelledby="cost-title">
           <h2 id="cost-title">Cost of a delay</h2>

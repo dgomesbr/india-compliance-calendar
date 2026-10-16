@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { addDays, addMonths, fyStartYear, iso, todayIST, type ISODate } from './dates.ts';
 import { loadBundle, loadUpdatesFile, loadYamlFile, type UpdatesFile } from './load.ts';
 import { expandRules } from './schedule.ts';
-import { centralHolidays } from './view.ts';
+import { expandOptions } from './view.ts';
 import type { Bundle, Occurrence } from './types.ts';
 
 let bundle: Bundle | null = null;
@@ -113,12 +113,9 @@ export function publishedWindow(): { from: ISODate; to: ISODate } {
   return { from: iso(fyStartYear(today), 4, 1), to: addMonths(today, 25) };
 }
 
+/** Occurrences for an April-March year with nothing recorded, as the static pages and feeds show them. */
 export function occurrencesBetween(from: ISODate, to: ISODate, rules = getBundle().rules): Occurrence[] {
-  const b = getBundle();
-  return expandRules(rules, from, to, {
-    confirmedThrough: b.meta.confirmedThrough,
-    holidays: new Set(centralHolidays(b).keys()),
-  });
+  return expandRules(rules, from, to, expandOptions(getBundle()));
 }
 
 export function upcoming(days: number, rules = getBundle().rules): Occurrence[] {

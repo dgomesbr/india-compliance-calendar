@@ -1,5 +1,6 @@
 // Entity profile: narrows the calendar to the obligations that apply to us.
 
+import { INDIAN_FY_START } from './fiscal.ts';
 import type { Audience, Category, Rule } from './types.ts';
 
 export const ENTITY_TYPES = [
@@ -55,6 +56,8 @@ export interface Profile {
   categories: Category[];
   /** Holiday calendars abroad to show beside the Indian ones (CA, CA-ON, US). */
   abroad: string[];
+  /** First month (1-12) of the entity's financial year; April unless another year was approved. */
+  fyStart: number;
 }
 
 export const DEFAULT_PROFILE: Profile = {
@@ -70,12 +73,13 @@ export const DEFAULT_PROFILE: Profile = {
   states: [],
   categories: [],
   abroad: ['CA', 'CA-ON', 'US'],
+  fyStart: INDIAN_FY_START,
 };
 
 const COMPANY_TYPES: EntityType[] = ['private-company', 'public-unlisted', 'listed-company', 'small-company', 'opc'];
 
 export function isEverything(p: Profile): boolean {
-  return p.entity === 'any' && p.gst === 'any' && !p.states.length && !p.categories.length;
+  return p.entity === 'any' && p.gst === 'any' && !p.states.length && !p.categories.length && (p.fyStart ?? INDIAN_FY_START) === INDIAN_FY_START;
 }
 
 /** Audience tags this profile covers. */

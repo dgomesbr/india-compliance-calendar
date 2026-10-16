@@ -12,6 +12,8 @@ export interface DateRange {
 interface Props {
   rows: Row[];
   today: ISODate;
+  /** Start of the selected range when it reaches back before today. */
+  from?: ISODate;
   /** End of the selected horizon. Rows after it are context, drawn lighter. */
   to: ISODate;
   selected: DateRange | null;
@@ -66,7 +68,7 @@ function rangeLabel(m: { from: ISODate; to: ISODate }): string {
   return `${formatDate(m.from, { weekday: false, year: false })} - ${formatDate(m.to, { weekday: false })}`;
 }
 
-export default function Timeline({ rows, today, to, selected, onPick }: Props) {
+export default function Timeline({ rows, today, from, to, selected, onPick }: Props) {
   const money = useMoneyFormat();
   const wrap = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(1100);
@@ -99,8 +101,8 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
   const right = narrow ? 10 : 16;
 
   const model = useMemo(() => {
-    // Domain: from the earliest overdue item (or today) to at least a month ahead.
-    let start = today;
+    // Domain: from the range start, the earliest overdue item or today, to at least a month ahead.
+    let start = from && from < today ? from : today;
     for (const r of rows) if (r.state === 'overdue' && r.occ.due < start) start = r.occ.due;
     const minEnd = addDays(today, 30);
     const end = to > minEnd ? to : minEnd;
@@ -181,7 +183,8 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
       while (iso(m.y, m.m, 1) <= end) {
         if (i % step === 0) {
           const year = narrow ? String(m.y).slice(2) : String(m.y);
-          const withYear = m.m === 1 || i === 0 || (narrow && m.y !== lastYear);
+          // The year shows on the first tick and wherever it changes, so quarterly ticks still carry it.
+          const withYear = m.m === 1 || i === 0 || m.y !== lastYear;
           const label = withYear ? `${MONTHS_SHORT[m.m - 1]} ${year}` : MONTHS_SHORT[m.m - 1];
           ticks.push({ key: iso(m.y, m.m, 1), x: xOf(iso(m.y, m.m, 1)), label, major: m.m === 1 });
           lastYear = m.y;
@@ -190,19 +193,20 @@ export default function Timeline({ rows, today, to, selected, onPick }: Props) {
         i++;
       }
     }
-    // Place tick labels left to right: shift one just past Today, hide any that would collide.
+    // Place tick labels left to right: shift one just past Today, hide any that would collide
+    // with Today's label or the label before it (a range reaching back has labels on both sides).
     const charW = 6.5;
-    let lastEnd = xToday + 40;
+    let lastEnd = -Infinity;
     for (const t of [...ticks].sort((a, b) => a.x - b.x)) {
       const w = t.label.length * charW;
       t.lx = t.x - xToday > -4 && t.x - xToday < 46 ? xToday + 46 : t.x + 4;
-      const intoToday = t.lx < xToday && t.lx + w > xToday - 4;
-      t.show = !intoToday && (t.lx + w < xToday - 4 || t.lx >= lastEnd + 6);
-      if (t.show && t.lx > xToday) lastEnd = t.lx + w;
+      const intoToday = t.lx < xToday + 40 && t.lx + w > xToday - 4;
+      t.show = !intoToday && t.lx >= lastEnd + 6;
+      if (t.show) lastEnd = t.lx + w;
     }
     const heaviest = marks.filter((m) => !m.beyond && m.exposure > 0).reduce<Mark | null>((a, m) => (!a || m.exposure > a.exposure ? m : a), null);
     return { start, end, xOf, present, marks, ticks, x0, x1, xToday, heaviest };
-  }, [rows, today, to, width, narrow, labelW]);
+  }, [rows, today, from, to, width, narrow, labelW]);
 
   const { present, marks, ticks, xOf, x0, x1, end, xToday, heaviest } = model;
   // Marks first painted assemble; the re-render that measures the real width still counts as first.

@@ -38,13 +38,17 @@ Claude Desktop, Cursor and other clients with an `mcpServers` file:
 
 | Tool | Use it for |
 |---|---|
-| `upcoming_obligations` | Due items for a horizon (`1w`, `2w`, `1m`, `1q`, `ye`, `fy`, or `custom` with `months` up to 24), filtered by `categories`, `audience`, `states`, `entity`, `gst`, ordered by `due`, `exposure` or `law` |
+| `upcoming_obligations` | Due items for a horizon (`1w`, `2w`, `1m`, `1q`, `ye`, `fy`, or `custom` with `months` up to 24), filtered by `categories`, `audience`, `states`, `entity`, `gst`, ordered by `due`, `exposure` or `law`; `fiscalYearStart` (1-12) moves company-law and SEBI dates to the entity's own financial year |
 | `get_obligation` | One rule by `id` or form `code`: schedule, applicability, law, penalty exposure, sources, next due dates |
 | `search_obligations` | Find rules by form, section, authority or keyword |
 | `event_deadlines` | Every deadline after an event (`agm-held`, allotment, director change, ...) on a date; call without arguments to list events |
 | `check_date` | Holidays and obligations on a date |
 | `list_holidays` | Holidays between two dates, by kind and scope: India (IN, state codes, NSE, BSE) and abroad (CA, CA-ON, US) |
 | `regulatory_updates` | Latest items from the regulators' feeds |
+
+`get_obligation` and `check_date` take `fiscalYearStart` too. A date that runs
+from another rule's comes with `follows`: the earlier rule, the date it ran from
+and a note such as "30 days after AGM".
 
 All tools are read-only. Answers are information, not legal advice.
 

@@ -12,7 +12,8 @@ import { HORIZON_PRESETS, horizonRange, MAX_CUSTOM_MONTHS, type HorizonPreset } 
 import { appliesTo, DEFAULT_PROFILE, ENTITY_TYPES, type Profile } from '../src/lib/profile.ts';
 import { describeSchedule, expandRule, expandRules } from '../src/lib/schedule.ts';
 import { AUDIENCES, CATEGORIES, type Bundle, type Occurrence, type Rule, type Update } from '../src/lib/types.ts';
-import { centralHolidays, eventOccurrences } from '../src/lib/view.ts';
+import { isFyStart } from '../src/lib/fiscal.ts';
+import { chainNote, eventOccurrences, expandOptions, rulesById } from '../src/lib/view.ts';
 
 const VERSION = '0.1.0';
 const SUPPORTED = ['2025-11-25', '2025-06-18', '2025-03-26', '2024-11-05'];
@@ -49,7 +50,8 @@ function siteOf(bundle: Bundle): string {
   return bundle.meta.site || DATA_URL.replace(/api\/v1\/bundle\.json$/, '');
 }
 
-function occView(o: Occurrence, r: Rule, today: string, site: string) {
+function occView(o: Occurrence, r: Rule, today: string, site: string, rules?: ReadonlyMap<string, Rule>) {
+  const after = o.chain && rules ? chainNote(o, rules) : undefined;
   return {
     due: o.due,
     weekday: WEEKDAYS_SHORT[weekday(o.due)],
@@ -62,6 +64,7 @@ function occView(o: Occurrence, r: Rule, today: string, site: string) {
     exposure30: exposure30(r),
     exposure: exposureLine(r),
     ...(o.extended ? { extendedFrom: o.originalDue, extensionReason: o.extended.reason } : {}),
+    ...(o.chain ? { follows: { ruleId: o.chain.ruleId, date: o.chain.date, from: o.chain.from, ...(after ? { note: after } : {}) } } : {}),
     projected: o.projected,
     ruleId: r.id,
     url: `${site}o/${r.id}/`,
@@ -71,6 +74,13 @@ function occView(o: Occurrence, r: Rule, today: string, site: string) {
 
 const str = { type: 'string' } as const;
 const dateStr = { type: 'string', pattern: '^\\d{4}-\\d{2}-\\d{2}$', description: 'YYYY-MM-DD' } as const;
+const fiscalYearStart = {
+  type: 'integer',
+  minimum: 1,
+  maximum: 12,
+  description:
+    'First month of the entity financial year (1-12, default 4 for April). Company-law, LLP and SEBI dates follow it; income tax and GST stay April-March.',
+} as const;
 
 const TOOLS = [
   {
@@ -81,7 +91,7 @@ const TOOLS = [
     inputSchema: {
       type: 'object',
       properties: {
-        horizon: { type: 'string', enum: [...HORIZON_PRESETS], description: '1w, 2w, 1m, 1q, ye (to 31 Dec), fy (to 31 Mar) or custom', default: '1m' },
+        horizon: { type: 'string', enum: [...HORIZON_PRESETS], description: '1w, 2w, 1m, 1q, ye (to 31 Dec), fy (to the end of the financial year) or custom', default: '1m' },
         months: { type: 'integer', minimum: 1, maximum: MAX_CUSTOM_MONTHS, description: 'For horizon=custom: months ahead (max 24)' },
         from: { ...dateStr, description: 'Start date, default today (IST)' },
         to: { ...dateStr, description: 'End date; overrides horizon (capped at 24 months from start)' },
@@ -92,6 +102,7 @@ const TOOLS = [
         gst: { type: 'string', enum: ['any', 'monthly', 'qrmp', 'composition', 'none'] },
         sort: { type: 'string', enum: ['due', 'exposure', 'law'], default: 'due' },
         limit: { type: 'integer', minimum: 1, maximum: 500, default: 50 },
+        fiscalYearStart,
       },
       additionalProperties: false,
     },
@@ -103,7 +114,7 @@ const TOOLS = [
     description: 'One obligation by rule id or form code: schedule, applicability, law, penalty exposure, sources and the next due dates.',
     inputSchema: {
       type: 'object',
-      properties: { id: { ...str, description: 'Rule id, e.g. gst-gstr3b-monthly' }, code: { ...str, description: 'Form code, e.g. GSTR-3B' } },
+      properties: { id: { ...str, description: 'Rule id, e.g. gst-gstr3b-monthly' }, code: { ...str, description: 'Form code, e.g. GSTR-3B' }, fiscalYearStart },
       additionalProperties: false,
     },
     annotations: { readOnlyHint: true, openWorldHint: false },
@@ -136,7 +147,7 @@ const TOOLS = [
     name: 'check_date',
     title: 'Check a date',
     description: 'Weekday, holidays in the published lists and every obligation due on a date.',
-    inputSchema: { type: 'object', properties: { date: dateStr }, required: ['date'], additionalProperties: false },
+    inputSchema: { type: 'object', properties: { date: dateStr, fiscalYearStart }, required: ['date'], additionalProperties: false },
     annotations: { readOnlyHint: true, openWorldHint: false },
   },
   {
@@ -183,9 +194,9 @@ async function call(name: string, a: Args): Promise<unknown> {
   const { bundle, updates } = await data();
   const site = siteOf(bundle);
   const today = todayIST();
-  const holidays = new Set(centralHolidays(bundle).keys());
-  const opts = { confirmedThrough: bundle.meta.confirmedThrough, holidays };
-  const byId = new Map(bundle.rules.map((r) => [r.id, r]));
+  // Company-law and SEBI dates follow the entity's financial year when one is given.
+  const opts = expandOptions(bundle, { fyStart: isFyStart(a.fiscalYearStart) ? a.fiscalYearStart : undefined });
+  const byId = rulesById(bundle);
 
   switch (name) {
     case 'upcoming_obligations': {
@@ -193,7 +204,7 @@ async function call(name: string, a: Args): Promise<unknown> {
       const months = typeof a.months === 'number' ? Math.min(MAX_CUSTOM_MONTHS, Math.max(1, Math.round(a.months))) : undefined;
       const asked = typeof a.horizon === 'string' && (HORIZON_PRESETS as readonly string[]).includes(a.horizon) ? (a.horizon as HorizonPreset) : null;
       const preset: HorizonPreset = asked ?? (months ? 'custom' : '1m');
-      let to = horizonRange(preset, from, months ? addMonths(from, months) : undefined).to;
+      let to = horizonRange(preset, from, months ? addMonths(from, months) : undefined, { fyStart: opts.fyStart }).to;
       if (typeof a.to === 'string' && isISODate(a.to)) to = a.to < addMonths(from, MAX_CUSTOM_MONTHS) ? a.to : addMonths(from, MAX_CUSTOM_MONTHS);
       const profile = profileFrom(a);
       let rules = bundle.rules.filter((r) => appliesTo(r, profile));
@@ -201,7 +212,7 @@ async function call(name: string, a: Args): Promise<unknown> {
         const want = new Set(a.audience.map(String));
         rules = rules.filter((r) => r.audience.some((x) => want.has(x)));
       }
-      let items = expandRules(rules, from, to, opts).map((o) => occView(o, byId.get(o.ruleId)!, today, site));
+      let items = expandRules(rules, from, to, opts).map((o) => occView(o, byId.get(o.ruleId)!, today, site, byId));
       if (a.sort === 'exposure') items.sort((x, y) => y.exposure30 - x.exposure30 || (x.due < y.due ? -1 : 1));
       else if (a.sort === 'law') items.sort((x, y) => CATEGORIES.indexOf(x.category) - CATEGORIES.indexOf(y.category) || (x.due < y.due ? -1 : 1));
       const total = items.length;
@@ -215,10 +226,10 @@ async function call(name: string, a: Args): Promise<unknown> {
       if (!matches.length) throw new UserError(`No obligation with ${id ? `id "${id}"` : `code "${a.code}"`}. Try search_obligations.`);
       return matches.map((r) => ({
         ...r,
-        when: describeSchedule(r),
+        when: describeSchedule(r, byId),
         exposureAt30Days: exposureLine(r),
         url: `${site}o/${r.id}/`,
-        next: r.schedule ? expandRule(r, today, addMonths(today, 24), opts).slice(0, 6).map((o) => occView(o, r, today, site)) : [],
+        next: r.schedule ? expandRule(r, today, addMonths(today, 24), opts).slice(0, 6).map((o) => occView(o, r, today, site, byId)) : [],
       }));
     }
     case 'search_obligations': {
@@ -233,7 +244,7 @@ async function call(name: string, a: Args): Promise<unknown> {
         .filter((x) => x.all)
         .sort((x, y) => y.score - x.score)
         .slice(0, typeof a.limit === 'number' ? a.limit : 20)
-        .map(({ r }) => ({ id: r.id, code: r.code, title: r.title, category: r.category, frequency: r.frequency, when: describeSchedule(r) }));
+        .map(({ r }) => ({ id: r.id, code: r.code, title: r.title, category: r.category, frequency: r.frequency, when: describeSchedule(r, byId) }));
       return { query: a.query, count: hits.length, results: hits };
     }
     case 'event_deadlines': {
@@ -261,7 +272,7 @@ async function call(name: string, a: Args): Promise<unknown> {
       const date = String(a.date ?? '');
       if (!isISODate(date)) throw new UserError('date must be YYYY-MM-DD');
       const hols = bundle.holidays.flatMap((l) => l.holidays.filter((h) => h.date === date).map((h) => ({ name: h.name, list: l.title, kind: l.kind, scope: l.scope })));
-      const due = expandRules(bundle.rules, date, date, opts).map((o) => occView(o, byId.get(o.ruleId)!, today, site));
+      const due = expandRules(bundle.rules, date, date, opts).map((o) => occView(o, byId.get(o.ruleId)!, today, site, byId));
       return { date, weekday: WEEKDAYS_SHORT[weekday(date)], formatted: formatDate(date), holidays: hols, obligationsDue: due };
     }
     case 'list_holidays': {

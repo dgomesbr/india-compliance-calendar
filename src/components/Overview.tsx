@@ -4,22 +4,28 @@ import { abroadDays, abroadMeaning, COUNTRY_LABEL, type AbroadHoliday } from '..
 import { baseUrl, fetchUpdates, useBundle, useMoney, useTeamState, useToday } from '../lib/client.ts';
 import { addMonths, diffDays, formatDate, lastDayOfMonth, parts, relativeDays, shiftMonth, type ISODate } from '../lib/dates.ts';
 import { interestNote } from '../lib/exposure.ts';
+import { describeYear, INDIAN_FY_START } from '../lib/fiscal.ts';
 import {
   describeRange,
   HORIZON_LABEL,
   HORIZON_PRESETS,
   horizonRange,
   MAX_CUSTOM_MONTHS,
+  MAX_LOOKBACK_MONTHS,
   maxHorizonEnd,
+  minHorizonStart,
   type HorizonPreset,
 } from '../lib/horizon.ts';
 import { useCountUp, useFlip, useInView, useThumb } from '../lib/motion.ts';
 import { isEverything } from '../lib/profile.ts';
-import type { TeamState } from '../lib/store.ts';
+import { withPrefs, type TeamState } from '../lib/store.ts';
 import { CATEGORIES, CATEGORY_LABEL, type Category, type Update } from '../lib/types.ts';
 import {
+  anchorRules,
   buildRows,
   countStates,
+  doneWord,
+  recordKey,
   hasOpenExtension,
   matchesQuery,
   matchesState,
@@ -36,18 +42,21 @@ import { Money, MoneyContext, useMoneyFormat } from './Money.tsx';
 import Timeline, { type DateRange } from './Timeline.tsx';
 
 const READOUT: RowState[] = ['overdue', 'soon', 'extended', 'upcoming', 'filed'];
+/** States that count as open: known, unfiled, and so in the cost total and the costliest list. */
+const isOpen = (r: Row) => r.state !== 'filed' && r.state !== 'past';
 const SORT_LABEL: Record<SortKey, string> = { due: 'Due date', exposure: 'Penalty exposure', law: 'Law' };
 const PAGE = 120;
 /** Shorter names for the phone cover, where three figures share a 358px row. */
-const SHORT_LABEL: Partial<Record<RowState, string>> = { soon: 'Due in 7 days' };
+const SHORT_LABEL: Partial<Record<RowState, string>> = { soon: 'Due in 7 days', past: 'Not tracked' };
 
-function readUrl(): Partial<{ h: HorizonPreset; end: string; sort: SortKey; law: Category[]; q: string }> {
+function readUrl(): Partial<{ h: HorizonPreset; from: string; end: string; sort: SortKey; law: Category[]; q: string }> {
   if (typeof location === 'undefined') return {};
   const p = new URLSearchParams(location.search);
   const h = p.get('h') as HorizonPreset | null;
   const sort = p.get('sort') as SortKey | null;
   return {
     h: h && (HORIZON_PRESETS as readonly string[]).includes(h) ? h : undefined,
+    from: p.get('from') ?? undefined,
     end: p.get('end') ?? undefined,
     sort: sort && sort in SORT_LABEL ? sort : undefined,
     law: (p.get('law') ?? '').split(',').filter((c): c is Category => (CATEGORIES as readonly string[]).includes(c)),
@@ -58,6 +67,12 @@ function readUrl(): Partial<{ h: HorizonPreset; end: string; sort: SortKey; law:
 function monthsBetween(from: ISODate, to: ISODate): number {
   for (let m = 1; m <= MAX_CUSTOM_MONTHS; m++) if (addMonths(from, m) >= to) return m;
   return MAX_CUSTOM_MONTHS;
+}
+
+/** Whole months from a custom start back to today, 0 to 15. */
+function monthsBack(from: ISODate, today: ISODate): number {
+  for (let m = 0; m <= MAX_LOOKBACK_MONTHS; m++) if (addMonths(today, -m) <= from) return m;
+  return MAX_LOOKBACK_MONTHS;
 }
 
 /** A state count set large in the band; it filters the table like a toggle. */
@@ -95,12 +110,12 @@ function Figure({ state, count, on, loading, index, onToggle }: {
   );
 }
 
-function ExposureFigure({ value, loading }: { value: number; loading: boolean }) {
+function ExposureFigure({ value, loading, index }: { value: number; loading: boolean; index: number }) {
   const money = useMoneyFormat();
   const shown = Math.round(useCountUp(loading ? 0 : value, 700));
   const ref = money.ref(shown, true);
   return (
-    <div class="figure figure-total" style={{ '--i': 5 }}>
+    <div class="figure figure-total" style={{ '--i': index }}>
       <span class="figure-n num">{loading ? '-' : ref ?? money.inr(shown, true)}</span>
       <span class="figure-label">
         {!loading && ref && <span class="figure-inr num">({money.inr(value, true)})</span>}
@@ -119,6 +134,7 @@ export default function Overview() {
   const money = useMoney(data.status === 'ready' ? data.data : null, team);
 
   const [horizon, setHorizon] = useState<HorizonPreset>(url.h ?? '1m');
+  const [customFrom, setCustomFrom] = useState<ISODate | undefined>(url.from);
   const [customEnd, setCustomEnd] = useState<ISODate | undefined>(url.end);
   const [sort, setSort] = useState<SortKey>(url.sort ?? 'due');
   const [laws, setLaws] = useState<Category[]>(url.law ?? []);
@@ -129,6 +145,14 @@ export default function Overview() {
   const [updates, setUpdates] = useState<Update[]>([]);
   const [limit, setLimit] = useState(PAGE);
   const [flash, setFlash] = useState<string | null>(null);
+  // A recorded date that moves other filings is never stamped with today: its row opens the form instead.
+  const [edit, setEdit] = useState<{ key: string | null; n: number }>({ key: null, n: 0 });
+  const [jumped, setJumped] = useState<string | null>(null);
+  // Those requests belong to the row they were made for; choosing another row drops them.
+  useEffect(() => {
+    if (edit.key && edit.key !== selected) setEdit((e) => ({ ...e, key: null }));
+    if (jumped && jumped !== selected) setJumped(null);
+  }, [selected]);
   const initialised = useRef(false);
   const sheet = useRef<HTMLDialogElement>(null);
   const segRef = useRef<HTMLDivElement>(null);
@@ -140,6 +164,8 @@ export default function Overview() {
     if (!team || initialised.current) return;
     initialised.current = true;
     if (!url.h) setHorizon(team.prefs.horizon);
+    // A link that names another horizon keeps the saved custom start; only a custom link replaces it.
+    if (!url.from && url.h !== 'custom' && team.prefs.customFrom) setCustomFrom(team.prefs.customFrom);
     if (!url.end && team.prefs.customEnd) setCustomEnd(team.prefs.customEnd);
     if (!url.sort) setSort(team.prefs.sort);
   }, [team]);
@@ -152,21 +178,25 @@ export default function Overview() {
     if (!initialised.current) return;
     const p = new URLSearchParams();
     if (horizon !== '1m') p.set('h', horizon);
+    if (horizon === 'custom' && customFrom && customFrom < today) p.set('from', customFrom);
     if (horizon === 'custom' && customEnd) p.set('end', customEnd);
     if (sort !== 'due') p.set('sort', sort);
     if (laws.length) p.set('law', laws.join(','));
     if (query) p.set('q', query);
     const qs = p.toString();
     history.replaceState(null, '', `${location.pathname}${qs ? `?${qs}` : ''}${location.hash}`);
-    if (team && (team.prefs.horizon !== horizon || team.prefs.sort !== sort || team.prefs.customEnd !== customEnd)) {
-      saveTeam({ ...team, prefs: { horizon, sort, customEnd } });
+    const p0 = team?.prefs;
+    if (team && p0 && (p0.horizon !== horizon || p0.sort !== sort || p0.customEnd !== customEnd || p0.customFrom !== customFrom)) {
+      // Keep the other preferences (the reference currency) as they are.
+      saveTeam(withPrefs(team, { horizon, sort, customEnd, customFrom }));
     }
-  }, [horizon, customEnd, sort, laws, query]);
+  }, [horizon, customFrom, customEnd, sort, laws, query]);
 
   // A new view starts from the top of the list again.
-  useEffect(() => setLimit(PAGE), [horizon, customEnd, sort, laws, query, states, day]);
+  useEffect(() => setLimit(PAGE), [horizon, customFrom, customEnd, sort, laws, query, states, day]);
 
-  const range = horizonRange(horizon, today, customEnd);
+  const fyStart = team?.profile.fyStart ?? INDIAN_FY_START;
+  const range = horizonRange(horizon, today, customEnd, { customFrom, fyStart });
   // The title animates when the horizon changes, not when the island first replaces the static band.
   const rangeKey = `${range.from}|${range.to}`;
   const firstRange = useRef(rangeKey);
@@ -186,13 +216,14 @@ export default function Overview() {
       bundle: data.data,
       profile,
       today,
+      from: range.from,
       to: plotTo,
       filed: team.filed,
       planned: team.planned,
       trackingSince: team.trackingSince,
       includeOverdue: true,
     });
-  }, [data, team, today, plotTo, laws]);
+  }, [data, team, today, range.from, plotTo, laws]);
 
   const allRows = useMemo(() => wideRows.filter((r) => r.occ.due <= range.to), [wideRows, range.to]);
   const counts = useMemo(() => {
@@ -242,9 +273,15 @@ export default function Overview() {
 
   const loading = data.status === 'loading' || !team;
   const toggle = <T,>(list: T[], v: T) => (list.includes(v) ? list.filter((x) => x !== v) : [...list, v]);
+  const anchors = data.status === 'ready' ? anchorRules(data.data) : new Set<string>();
   const quickFile = (row: Row) => {
     if (!team) return;
-    const next: TeamState = { ...team, filed: { ...team.filed, [row.occ.key]: { filedOn: today, owner: team.owners[row.rule.id] } } };
+    if (anchors.has(row.rule.id)) {
+      setSelected(row.occ.key);
+      setEdit((e) => ({ key: row.occ.key, n: e.n + 1 }));
+      return;
+    }
+    const next: TeamState = { ...team, filed: { ...team.filed, [recordKey(row.rule, row.occ)]: { filedOn: today, owner: team.owners[row.rule.id] } } };
     saveTeam(next);
     setFlash(row.occ.key);
     setTimeout(() => setFlash((k) => (k === row.occ.key ? null : k)), 1200);
@@ -252,16 +289,25 @@ export default function Overview() {
   const unfile = (row: Row) => {
     if (!team) return;
     const f = { ...team.filed };
+    delete f[recordKey(row.rule, row.occ)];
     delete f[row.occ.key];
     saveTeam({ ...team, filed: f });
   };
 
-  const atRisk = allRows.filter((r) => r.state !== 'filed').slice().sort((a, b) => b.exposure - a.exposure).slice(0, 5);
-  const moved = allRows.filter((r) => r.occ.extended && r.state !== 'filed').slice(0, 5);
+  const atRisk = allRows.filter(isOpen).sort((a, b) => b.exposure - a.exposure).slice(0, 5);
+  const moved = allRows.filter((r) => r.occ.extended && isOpen(r)).slice(0, 5);
   const closedDays = allRows.filter((r) => r.closed && r.state !== 'filed' && r.daysLeft >= 0).slice(0, 5);
   const profileName = team && !isEverything(team.profile) ? team.profile.name : 'All obligations';
-  const horizonExposure = allRows.filter((r) => r.state !== 'filed').reduce((s, r) => s + r.exposure, 0);
+  const horizonExposure = allRows.filter(isOpen).reduce((s, r) => s + r.exposure, 0);
   const filtering = Boolean(query || laws.length || states.length || day);
+  // A range reaching back before tracking began also counts what was due before it.
+  const readout: RowState[] = team && range.from < team.trackingSince ? [...READOUT, 'past'] : READOUT;
+  const openRow = (key: string) => {
+    if (!allRows.some((r) => r.occ.key === key)) return false;
+    setSelected(key);
+    setJumped(key);
+    return true;
+  };
 
   return (
     <MoneyContext.Provider value={money}>
@@ -275,10 +321,11 @@ export default function Overview() {
             <p class="band-sub">
               {profileName}
               {team && team.trackingSince && <> - tracking filings since {formatDate(team.trackingSince, { weekday: false })}</>}
+              {fyStart !== INDIAN_FY_START && <> - financial year {describeYear(fyStart)}</>}
             </p>
           </div>
-          <div class="band-figures" role="group" aria-label="Filter by state">
-            {READOUT.map((s, i) => (
+          <div class={`band-figures${readout.length > READOUT.length ? ' has-past' : ''}`} role="group" aria-label="Filter by state">
+            {readout.map((s, i) => (
               <Figure
                 state={s}
                 count={counts[s]}
@@ -288,7 +335,7 @@ export default function Overview() {
                 onToggle={() => setStates(toggle(states, s))}
               />
             ))}
-            <ExposureFigure value={horizonExposure} loading={loading} />
+            <ExposureFigure value={horizonExposure} loading={loading} index={readout.length} />
           </div>
         </div>
       </section>
@@ -344,27 +391,57 @@ export default function Overview() {
 
         {horizon === 'custom' && (
           <div class="ov-custom">
-            <label class="label" for="ov-months">Months ahead</label>
-            <input
-              id="ov-months"
-              type="range"
-              min={1}
-              max={MAX_CUSTOM_MONTHS}
-              value={monthsBetween(today, range.to)}
-              onInput={(e) => setCustomEnd(addMonths(today, Number((e.target as HTMLInputElement).value)))}
-            />
-            <output class="num" for="ov-months">{monthsBetween(today, range.to)} months</output>
-            <label class="label" for="ov-end">Until</label>
-            <input
-              id="ov-end"
-              class="input num"
-              type="date"
-              min={today}
-              max={maxHorizonEnd(today)}
-              value={range.to}
-              onChange={(e) => setCustomEnd((e.target as HTMLInputElement).value)}
-            />
-            <span class="faint">Up to {MAX_CUSTOM_MONTHS} months ahead</span>
+            <div class="ov-custom-row">
+              <label class="label" for="ov-back">Months back</label>
+              <input
+                id="ov-back"
+                type="range"
+                min={0}
+                max={MAX_LOOKBACK_MONTHS}
+                value={monthsBack(range.from, today)}
+                onInput={(e) => {
+                  const n = Number((e.target as HTMLInputElement).value);
+                  setCustomFrom(n ? addMonths(today, -n) : undefined);
+                }}
+              />
+              <output class="num" for="ov-back">{monthsBack(range.from, today)} {monthsBack(range.from, today) === 1 ? 'month' : 'months'}</output>
+              <label class="label" for="ov-from">From</label>
+              <input
+                id="ov-from"
+                class="input num"
+                type="date"
+                min={minHorizonStart(today)}
+                max={today}
+                value={range.from}
+                onChange={(e) => setCustomFrom((e.target as HTMLInputElement).value || undefined)}
+              />
+            </div>
+            <div class="ov-custom-row">
+              <label class="label" for="ov-months">Months ahead</label>
+              <input
+                id="ov-months"
+                type="range"
+                min={1}
+                max={MAX_CUSTOM_MONTHS}
+                value={monthsBetween(today, range.to)}
+                onInput={(e) => setCustomEnd(addMonths(today, Number((e.target as HTMLInputElement).value)))}
+              />
+              <output class="num" for="ov-months">{monthsBetween(today, range.to)} months</output>
+              <label class="label" for="ov-end">Until</label>
+              <input
+                id="ov-end"
+                class="input num"
+                type="date"
+                min={today}
+                max={maxHorizonEnd(today)}
+                value={range.to}
+                onChange={(e) => setCustomEnd((e.target as HTMLInputElement).value)}
+              />
+            </div>
+            <p class="faint ov-custom-note">
+              Up to {MAX_LOOKBACK_MONTHS} months back and {MAX_CUSTOM_MONTHS} ahead. Items due before you began tracking filings show as
+              {' '}{STATE_LABEL.past.toLowerCase()}; mark the ones that were filed, or move the tracking date in the profile.
+            </p>
           </div>
         )}
 
@@ -396,7 +473,7 @@ export default function Overview() {
         {loading ? (
           <div class="skeleton tl-skeleton" />
         ) : (
-          <Timeline rows={wideRows.filter((r) => matchesQuery(r, query))} today={today} to={range.to} selected={day} onPick={setDay} />
+          <Timeline rows={wideRows.filter((r) => matchesQuery(r, query))} today={today} from={range.from} to={range.to} selected={day} onPick={setDay} />
         )}
       </section>
 
@@ -435,7 +512,7 @@ export default function Overview() {
             </div>
           ) : (
             <>
-              <Table rows={rows.slice(0, limit)} sort={sort} today={today} selected={selected} flash={flash} onSelect={setSelected} onFile={quickFile} onUnfile={unfile} />
+              <Table rows={rows.slice(0, limit)} sort={sort} today={today} selected={selected} flash={flash} anchors={anchors} onSelect={setSelected} onFile={quickFile} onUnfile={unfile} />
               {rows.length > limit && (
                 <div class="more">
                   <span class="faint num">Showing {limit} of {rows.length}</span>
@@ -450,7 +527,7 @@ export default function Overview() {
         <aside class="ov-aside" aria-label={selectedRow ? 'Obligation details' : 'At risk'}>
           {selectedRow && team ? (
             <div class="aside-detail" key={selectedRow.occ.key}>
-              <Detail row={selectedRow} today={today} state={team} bundle={data.status === 'ready' ? data.data : null} onSave={saveTeam} onClose={() => setSelected(null)} idp="a" />
+              <Detail row={selectedRow} today={today} state={team} bundle={data.status === 'ready' ? data.data : null} onSave={saveTeam} onClose={() => setSelected(null)} onOpen={openRow} editKey={edit.key} editNonce={edit.n} focusKey={jumped} idp="a" />
             </div>
           ) : (
             <div class="aside-lists">
@@ -525,7 +602,7 @@ export default function Overview() {
 
       <dialog class="sheet" ref={sheet} onClose={() => setSelected(null)} aria-label="Obligation details">
         {selectedRow && team && (
-          <Detail row={selectedRow} today={today} state={team} bundle={data.status === 'ready' ? data.data : null} onSave={saveTeam} onClose={() => sheet.current?.close()} idp="s" />
+          <Detail row={selectedRow} today={today} state={team} bundle={data.status === 'ready' ? data.data : null} onSave={saveTeam} onClose={() => sheet.current?.close()} onOpen={openRow} editKey={edit.key} editNonce={edit.n} focusKey={jumped} idp="s" />
         )}
       </dialog>
     </div>
@@ -550,12 +627,14 @@ interface TableProps {
   selected: string | null;
   /** Row just marked filed; it gets a brief confirmation tint. */
   flash: string | null;
+  /** Rules whose date moves others: their check opens the form for the real date. */
+  anchors: Set<string>;
   onSelect: (key: string) => void;
   onFile: (row: Row) => void;
   onUnfile: (row: Row) => void;
 }
 
-function Table({ rows, sort, today, selected, flash, onSelect, onFile, onUnfile }: TableProps) {
+function Table({ rows, sort, today, selected, flash, anchors, onSelect, onFile, onUnfile }: TableProps) {
   const ref = useRef<HTMLTableElement>(null);
   useFlip(ref, [rows, sort]);
 
@@ -603,7 +682,7 @@ function Table({ rows, sort, today, selected, flash, onSelect, onFile, onUnfile 
               >
                 <td class="col-due num">
                   <span class="due-date">{formatDate(r.occ.due, { year: false })}</span>
-                  <span class={`due-left state-${r.state}`}>{r.state === 'filed' ? 'Filed' : left === 0 ? 'Today' : left < 0 ? `${-left}d late` : `${left}d`}</span>
+                  <span class={`due-left state-${r.state}`}>{r.state === 'filed' ? doneWord(r.rule) : left === 0 ? 'Today' : left < 0 ? `${-left}d late` : `${left}d`}</span>
                 </td>
                 <td class="col-code">
                   <button
@@ -625,6 +704,12 @@ function Table({ rows, sort, today, selected, flash, onSelect, onFile, onUnfile 
                     {r.occ.periodLabel}
                     {r.occ.projected && ' - projected'}
                   </span>
+                  {r.chainNote && (
+                    <span class="obl-chain">
+                      <Icon name="link" />
+                      {r.chainNote}
+                    </span>
+                  )}
                 </td>
                 <td class="col-auth muted" title={r.rule.authority}><span class="auth-text">{shortAuthority(r.rule.authority)}</span></td>
                 <td class="col-exp num">
@@ -632,7 +717,7 @@ function Table({ rows, sort, today, selected, flash, onSelect, onFile, onUnfile 
                   {interest && <span class="exp-int faint">+ interest</span>}
                 </td>
                 <td class="col-state">
-                  {r.state !== 'upcoming' && <span class="tag" data-state={r.state}>{STATE_LABEL[r.state]}</span>}
+                  {r.state !== 'upcoming' && <span class="tag" data-state={r.state}>{r.state === 'filed' ? doneWord(r.rule) : STATE_LABEL[r.state]}</span>}
                   {r.occ.extended && r.state !== 'extended' && <span class="tag" data-state="extended">Extended</span>}
                   {r.filed?.owner && <span class="owner muted">{r.filed.owner}</span>}
                 </td>
@@ -641,8 +726,14 @@ function Table({ rows, sort, today, selected, flash, onSelect, onFile, onUnfile 
                     type="button"
                     class={`file-btn${r.filed ? ' is-filed' : ''}`}
                     aria-pressed={Boolean(r.filed)}
-                    aria-label={r.filed ? `Undo filed: ${r.rule.code} ${r.occ.periodLabel}` : `Mark filed: ${r.rule.code} ${r.occ.periodLabel}`}
-                    title={r.filed ? 'Filed - click to undo' : 'Mark filed today'}
+                    aria-label={`${r.filed ? `Undo ${doneWord(r.rule).toLowerCase()}` : `Mark ${doneWord(r.rule).toLowerCase()}`}: ${r.rule.code} ${r.occ.periodLabel}`}
+                    title={
+                      r.filed
+                        ? `${doneWord(r.rule)} - click to undo`
+                        : anchors.has(r.rule.id)
+                          ? `Record the date it was ${doneWord(r.rule).toLowerCase()}`
+                          : `Mark ${doneWord(r.rule).toLowerCase()} today`
+                    }
                     onClick={(e) => {
                       e.stopPropagation();
                       (r.filed ? onUnfile : onFile)(r);

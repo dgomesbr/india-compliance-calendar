@@ -1,0 +1,229 @@
+{
+  "gazetted": {
+    "source": {
+      "title": "DoPT OM F.No. 12/2/2023-JCA dated 09-07-2024 - Holidays to be observed in Central Government Offices during the year 2025, Annexure I (plus the 14-04-2025 OM)",
+      "url": "https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf"
+    },
+    "holidays": [
+      {
+        "date": "2025-01-26",
+        "name": "Republic Day"
+      },
+      {
+        "date": "2025-02-26",
+        "name": "Maha Shivaratri"
+      },
+      {
+        "date": "2025-03-14",
+        "name": "Holi"
+      },
+      {
+        "date": "2025-03-31",
+        "name": "Id-ul-Fitr"
+      },
+      {
+        "date": "2025-04-10",
+        "name": "Mahavir Jayanti"
+      },
+      {
+        "date": "2025-04-14",
+        "name": "Dr. B.R. Ambedkar's Birthday",
+        "note": "Declared separately by DoPT OM F.No. 12/4/2020-JCA2 dated 27-03-2025 for all Central Government offices, including industrial establishments, throughout India; not part of Annexure I. OM: https://documents.doptcirculars.nic.in/D2/D02est/Holiday%20on%2014th%20April%202025%20Birthday%20of%20Dr%20B%20R%20AmbedkarDHZ8b.pdf"
+      },
+      {
+        "date": "2025-04-18",
+        "name": "Good Friday"
+      },
+      {
+        "date": "2025-05-12",
+        "name": "Buddha Purnima"
+      },
+      {
+        "date": "2025-06-07",
+        "name": "Id-ul-Zuha (Bakrid)"
+      },
+      {
+        "date": "2025-07-06",
+        "name": "Muharram"
+      },
+      {
+        "date": "2025-08-15",
+        "name": "Independence Day"
+      },
+      {
+        "date": "2025-08-16",
+        "name": "Janmashtami"
+      },
+      {
+        "date": "2025-09-05",
+        "name": "Milad-un-Nabi or Id-e-Milad (Prophet Mohammad's Birthday)"
+      },
+      {
+        "date": "2025-10-02",
+        "name": "Mahatma Gandhi's Birthday"
+      },
+      {
+        "date": "2025-10-02",
+        "name": "Dussehra"
+      },
+      {
+        "date": "2025-10-20",
+        "name": "Diwali (Deepavali)"
+      },
+      {
+        "date": "2025-11-05",
+        "name": "Guru Nanak's Birthday"
+      },
+      {
+        "date": "2025-12-25",
+        "name": "Christmas Day"
+      }
+    ]
+  },
+  "restricted": {
+    "source": {
+      "title": "DoPT OM F.No. 12/2/2023-JCA dated 09-07-2024 - Holidays to be observed in Central Government Offices during the year 2025, Annexure II (restricted holidays)",
+      "url": "https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf"
+    },
+    "holidays": [
+      {
+        "date": "2025-01-01",
+        "name": "New Year's Day"
+      },
+      {
+        "date": "2025-01-06",
+        "name": "Guru Gobind Singh's Birthday"
+      },
+      {
+        "date": "2025-01-14",
+        "name": "Makar Sankranti / Magha Bihu / Pongal / Hazarat Ali's Birthday"
+      },
+      {
+        "date": "2025-02-02",
+        "name": "Basant Panchami / Sri Panchami"
+      },
+      {
+        "date": "2025-02-12",
+        "name": "Guru Ravi Das's Birthday"
+      },
+      {
+        "date": "2025-02-19",
+        "name": "Shivaji Jayanti"
+      },
+      {
+        "date": "2025-02-23",
+        "name": "Swami Dayananda Saraswati's Birthday"
+      },
+      {
+        "date": "2025-03-13",
+        "name": "Holika Dahan"
+      },
+      {
+        "date": "2025-03-14",
+        "name": "Dolyatra"
+      },
+      {
+        "date": "2025-03-28",
+        "name": "Jamat-ul-Vida"
+      },
+      {
+        "date": "2025-03-30",
+        "name": "Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand"
+      },
+      {
+        "date": "2025-04-06",
+        "name": "Ram Navami"
+      },
+      {
+        "date": "2025-04-13",
+        "name": "Vaisakhi / Vishu"
+      },
+      {
+        "date": "2025-04-14",
+        "name": "Meshadi (Tamil New Year's Day)"
+      },
+      {
+        "date": "2025-04-15",
+        "name": "Vaisakhadi (Bengal) / Bahag Bihu (Assam)"
+      },
+      {
+        "date": "2025-04-20",
+        "name": "Easter Sunday"
+      },
+      {
+        "date": "2025-05-09",
+        "name": "Guru Rabindranath's Birthday"
+      },
+      {
+        "date": "2025-06-27",
+        "name": "Rath Yatra"
+      },
+      {
+        "date": "2025-08-09",
+        "name": "Raksha Bandhan"
+      },
+      {
+        "date": "2025-08-15",
+        "name": "Parsi New Year's Day / Nauraj"
+      },
+      {
+        "date": "2025-08-15",
+        "name": "Janmashtami (Smarta)"
+      },
+      {
+        "date": "2025-08-27",
+        "name": "Ganesh Chaturthi / Vinayaka Chaturthi"
+      },
+      {
+        "date": "2025-09-05",
+        "name": "Onam or Thiru Onam Day"
+      },
+      {
+        "date": "2025-09-29",
+        "name": "Dussehra (Saptami)"
+      },
+      {
+        "date": "2025-09-30",
+        "name": "Dussehra (Mahashtami)"
+      },
+      {
+        "date": "2025-10-01",
+        "name": "Dussehra (Mahanavami)"
+      },
+      {
+        "date": "2025-10-07",
+        "name": "Maharishi Valmiki's Birthday"
+      },
+      {
+        "date": "2025-10-10",
+        "name": "Karaka Chaturthi (Karva Chauth)"
+      },
+      {
+        "date": "2025-10-20",
+        "name": "Naraka Chaturdasi"
+      },
+      {
+        "date": "2025-10-22",
+        "name": "Govardhan Puja"
+      },
+      {
+        "date": "2025-10-23",
+        "name": "Bhai Duj"
+      },
+      {
+        "date": "2025-10-28",
+        "name": "Pratihar Shashthi or Surya Shashthi (Chhath Puja)"
+      },
+      {
+        "date": "2025-11-24",
+        "name": "Guru Teg Bahadur's Martyrdom Day"
+      },
+      {
+        "date": "2025-12-24",
+        "name": "Christmas Eve"
+      }
+    ]
+  },
+  "rbiMatrixHas2025": true,
+  "notes": "Both lists are for Central Government administrative offices in Delhi/New Delhi. dopt.gov.in, documents.doptcirculars.nic.in and persmin.gov.in timed out or reset the connection from this machine, so the OM (6 scanned pages, signed by Parveen Jargar, Deputy Secretary) was read from the Internet Archive copy of the official PDF captured 21-01-2025 (https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf). The National Portal of India calendar API (https://www.india.gov.in/calendar, run by NIC) returns the same 17 gazetted and 34 restricted entries for 2025, created on 11-07-2024, two days after the OM; every date was checked against the weekday printed in the OM. One row is added to the gazetted list: 14-04-2025, Dr. B.R. Ambedkar's Birthday, declared by a separate DoPT OM dated 27-03-2025 (read from an archived copy); the portal does not list it. No 2025 change of date for the moon-dependent holidays (Id-ul-Fitr, Id-ul-Zuha, Muharram, Id-e-Milad) was found: no such OM in the archived DoPT document index, none among DoPT's 2025 PIB releases, and the portal dates still match the OM. As in the OM, 2 October has two gazetted rows (Mahatma Gandhi's Birthday and Dussehra) and 15 August has two restricted rows. Offices outside Delhi observe the 14 compulsory holidays plus 3 chosen by the state Coordination Committee, so their lists differ. Restricted holidays are optional (any two per employee) and offices stay open. RBI holiday matrix: the drYear selector offers every year from 2001 to 2026, including 2025 (checked 15-10-2026; only the selector was read, no holiday data was fetched)."
+}

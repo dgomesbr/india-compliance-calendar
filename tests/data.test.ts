@@ -23,9 +23,10 @@ describe('data files', () => {
     expect(validateEvents(loadEvents(), rules)).toEqual([]);
   });
 
-  it('expands every scheduled rule to at least one date in the next 48 months', () => {
-    const from = '2026-04-01';
-    const to = addMonths(from, 48);
+  it('expands every scheduled rule to at least one date from the 15-month look back to 48 months ahead', () => {
+    // Rules that ended (the 1961-Act twins, the annual DIR-3 KYC) only have dates in the look back.
+    const from = addMonths('2026-04-01', -15);
+    const to = addMonths('2026-04-01', 48);
     const silent = rules.filter((r) => r.schedule && r.schedule.kind !== 'fixed' && expandRule(r, from, to).length === 0);
     expect(silent.map((r) => r.id)).toEqual([]);
   });

@@ -1,7 +1,10 @@
-import { useRef, useState } from 'preact/hooks';
-import { downloadFile, useTeamState } from '../lib/client.ts';
-import { todayIST } from '../lib/dates.ts';
+import { useMemo, useRef, useState } from 'preact/hooks';
+import { downloadFile, useBundle, useTeamState } from '../lib/client.ts';
+import { formatDate, isISODate, MONTHS_LONG, todayIST } from '../lib/dates.ts';
+import { fyEndMonth, fyStartOf, INDIAN_FY_START } from '../lib/fiscal.ts';
+import { MAX_LOOKBACK_MONTHS, minHorizonStart } from '../lib/horizon.ts';
 import {
+  appliesTo,
   DEFAULT_PROFILE,
   ENTITY_LABEL,
   ENTITY_TYPES,
@@ -12,7 +15,7 @@ import {
 } from '../lib/profile.ts';
 import { ABROAD, ABROAD_LABEL } from '../lib/abroad.ts';
 import { CURRENCY_LABEL, REF_CURRENCIES } from '../lib/money.ts';
-import { exportState, importState, type TeamState } from '../lib/store.ts';
+import { exportState, importState, withPrefs, type TeamState } from '../lib/store.ts';
 import { STATE_CODES, STATE_NAME } from '../lib/validate.ts';
 import { Icon } from './Icon.tsx';
 
@@ -27,6 +30,7 @@ const SWITCHES: { key: keyof Profile; label: string; hint: string }[] = [
 
 export default function ProfileButton() {
   const [team, saveTeam] = useTeamState();
+  const data = useBundle();
   const dialog = useRef<HTMLDialogElement>(null);
   const fileInput = useRef<HTMLInputElement>(null);
   const [draft, setDraft] = useState<Profile | null>(null);
@@ -61,6 +65,13 @@ export default function ProfileButton() {
 
   const label = team ? (isEverything(team.profile) ? 'All obligations' : team.profile.name) : 'Profile';
   const set = (patch: Partial<Profile>) => draft && setDraft({ ...draft, ...patch });
+  const fyStart = draft?.fyStart ?? INDIAN_FY_START;
+  const today = todayIST();
+  // The obligations that count from the entity's own year, for this profile.
+  const moves = useMemo(() => {
+    if (data.status !== 'ready' || !draft) return [] as string[];
+    return [...new Set(data.data.rules.filter((r) => r.schedule?.entityYear && appliesTo(r, draft)).map((r) => r.code))];
+  }, [data, draft]);
 
   return (
     <>
@@ -106,6 +117,36 @@ export default function ProfileButton() {
                 </select>
               </div>
             </div>
+
+            <fieldset class="fy">
+              <legend class="label">Financial year</legend>
+              <div class="field-row">
+                <div class="field">
+                  <label class="label faint" for="p-fy-start">Starts</label>
+                  <select id="p-fy-start" class="select" value={fyStart}
+                    onChange={(e) => set({ fyStart: Number((e.target as HTMLSelectElement).value) })}>
+                    {MONTHS_LONG.map((m, i) => <option value={i + 1}>1 {m}</option>)}
+                  </select>
+                </div>
+                <div class="field">
+                  <label class="label faint" for="p-fy-end">Ends</label>
+                  <select id="p-fy-end" class="select" value={fyEndMonth(fyStart)}
+                    onChange={(e) => set({ fyStart: fyStartOf(Number((e.target as HTMLSelectElement).value)) })}>
+                    {MONTHS_LONG.map((m, i) => <option value={i + 1}>{m === 'February' ? 'End of' : i === 3 || i === 5 || i === 8 || i === 10 ? '30' : '31'} {m}</option>)}
+                  </select>
+                </div>
+              </div>
+              <p class="faint">
+                Indian law sets April to March. A company that must follow another year to consolidate with a group abroad, as its
+                holding company, subsidiary or associate, can have it approved by the Tribunal (section 2(41), Companies Act); an
+                LLP, by the Central Government. Income tax, TDS and GST stay April to March.
+              </p>
+              {moves.length > 0 && (
+                <p class="faint fy-moves">
+                  <span class="label">Counts from this year</span> {moves.join(', ')}
+                </p>
+              )}
+            </fieldset>
 
             <fieldset class="switches">
               <legend class="label">Activities</legend>
@@ -156,7 +197,7 @@ export default function ProfileButton() {
                 {REF_CURRENCIES.map((c) => (
                   <label class="state-chip">
                     <input type="radio" name="p-currency" checked={team.prefs.currency === c}
-                      onChange={() => saveTeam({ ...team, prefs: { ...team.prefs, currency: c } })} />
+                      onChange={() => saveTeam(withPrefs(team, { currency: c }))} />
                     <span>{CURRENCY_LABEL[c]} ({c})</span>
                   </label>
                 ))}
@@ -166,9 +207,18 @@ export default function ProfileButton() {
             <fieldset class="team-data">
               <legend class="label">Team records</legend>
               <p class="faint">
-                {Object.keys(team.filed).length} filed records - tracking since {team.trackingSince}. Overdue items count only from
-                that date.
+                {Object.keys(team.filed).length} filed records. Items due before the tracking date show as before tracking, not
+                overdue; move it back (up to {MAX_LOOKBACK_MONTHS} months) to review earlier filings.
               </p>
+              <div class="field tracking-field">
+                <label class="label" for="p-since">Tracking filings since</label>
+                <input id="p-since" class="input num" type="date" min={minHorizonStart(today)} max={today} value={team.trackingSince}
+                  onChange={(e) => {
+                    const v = (e.target as HTMLInputElement).value;
+                    if (isISODate(v) && v <= today) saveTeam({ ...team, trackingSince: v < minHorizonStart(today) ? minHorizonStart(today) : v });
+                  }} />
+                <span class="faint num">{formatDate(team.trackingSince)}</span>
+              </div>
               <div class="form-actions">
                 <button type="button" class="btn" onClick={() => downloadFile(`compliance-records-${todayIST()}.json`, 'application/json', exportState(team))}>
                   <span class="btn-label"><Icon name="download" />Export records</span>
@@ -182,7 +232,7 @@ export default function ProfileButton() {
             </fieldset>
 
             <footer class="sheet-foot">
-              <button type="button" class="btn btn-quiet" onClick={() => setDraft({ ...DEFAULT_PROFILE })}>
+              <button type="button" class="btn btn-quiet" onClick={() => setDraft({ ...DEFAULT_PROFILE, fyStart: draft.fyStart })}>
                 <span class="btn-label">Show everything</span>
               </button>
               <button type="submit" class="btn">

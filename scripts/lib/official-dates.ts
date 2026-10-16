@@ -5,7 +5,7 @@
 import { fyLabel, fyStartYear, iso, type ISODate } from '../../src/lib/dates.ts';
 import { expandRules } from '../../src/lib/schedule.ts';
 import type { Bundle } from '../../src/lib/types.ts';
-import { centralHolidays } from '../../src/lib/view.ts';
+import { expandOptions } from '../../src/lib/view.ts';
 
 export interface OfficialCheck {
   source: string;
@@ -25,7 +25,7 @@ function occurrencesByDate(bundle: Bundle, category: string, from: ISODate, to: 
   const rules = bundle.rules.filter((r) => r.category === category && r.schedule);
   const byId = new Map(rules.map((r) => [r.id, r]));
   const out = new Map<ISODate, string[]>();
-  for (const o of expandRules(rules, from, to, { holidays: new Set(centralHolidays(bundle).keys()) })) {
+  for (const o of expandRules(rules, from, to, { ...expandOptions(bundle), confirmedThrough: undefined })) {
     out.set(o.due, [...(out.get(o.due) ?? []), byId.get(o.ruleId)!.code]);
   }
   return out;

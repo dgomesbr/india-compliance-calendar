@@ -93,6 +93,14 @@ export const FREQUENCY_LABEL: Record<Frequency, string> = {
 
 export type ScheduleKind = 'monthly' | 'quarterly' | 'half-yearly' | 'annual' | 'every-n-years' | 'fixed';
 
+/** A span of months then days; negative for "before". */
+export interface Offset {
+  months?: number;
+  days?: number;
+  /** From a month's last day, land on the target month's last day (CBDT's "one month before 30 November" is 31 October). */
+  monthEnd?: boolean;
+}
+
 /** How a due date is placed relative to the end of its period. */
 export interface DueSpec {
   /** Day of the target month; "last" for the month end. Clamped to month length. */
@@ -103,6 +111,26 @@ export interface DueSpec {
   daysAfter?: number;
   /** Alternative: working days (Mon-Fri, not a central holiday) after period end. */
   workingDaysAfter?: number;
+  /**
+   * Exact placement, preferred when present: N months (the same date, clamped) then N days
+   * after the period end. Rules that follow the entity's own financial year use it, because a
+   * fixed `day` only fits a March year end; `day` and `monthOffset` stay for older readers.
+   */
+  after?: Offset;
+}
+
+/** This rule's clock starts from another rule's occurrence for the same period. */
+export interface Follows {
+  /** The earlier rule, e.g. the AGM for AOC-4. */
+  rule: string;
+  /** Which period of the earlier rule, when it runs more often (e.g. "Q4" for an annual rule). */
+  slot?: string;
+  /** Time from the earlier occurrence; negative for "before" (the annual report goes out before the AGM). */
+  within: Offset;
+  /** "done" (default): the date recorded for the earlier step, else its due date. "due": always its due date. */
+  from?: 'done' | 'due';
+  /** "Whichever is earlier": the rule keeps its own date and a recorded earlier step can only bring it forward. */
+  earlier?: boolean;
 }
 
 export interface FixedDate {
@@ -115,6 +143,14 @@ export interface Schedule extends DueSpec {
   kind: ScheduleKind;
   /** FY quarters/halves/years (Apr-Mar) or calendar ones (Jan-Dec). */
   basis?: 'fy' | 'calendar';
+  /**
+   * Periods follow the entity's own financial year (company law, LLP, SEBI, the FEMA activity
+   * certificate): April to March unless the profile sets another approved year. Income tax and
+   * GST never do. Readers that ignore it get the April-March dates.
+   */
+  entityYear?: boolean;
+  /** Placed from another rule's occurrence instead of from the period end. */
+  follows?: Follows;
   /** Per-period overrides keyed "1".."12", "Q1".."Q4", "H1"/"H2". */
   except?: Record<string, DueSpec>;
   /** Periods without an occurrence, same key format as except. */
@@ -180,6 +216,30 @@ export interface Rule {
   notes?: string;
   /** Applicability refinements, e.g. "gst-monthly", "gst-qrmp", "opc-small". */
   tags?: string[];
+  /** What recording it means: a return is filed, a meeting is held. Default "filed". */
+  recordAs?: 'filed' | 'held';
+  /**
+   * Another rule for the same event under a different deadline (the AGM of a top 100 listed
+   * entity, due in five months, is the same meeting as the Companies Act AGM). Its record is
+   * kept under that rule, so recording either moves everything that runs from the meeting.
+   */
+  sameEventAs?: string;
+}
+
+/** Where an occurrence's date comes from when its rule follows another. */
+export interface ChainLink {
+  /** The earlier rule and its occurrence key. */
+  ruleId: string;
+  key: string;
+  /** The date the clock runs from. */
+  date: string;
+  /** "done": the date recorded for the earlier step. "due": its due date. */
+  from: 'done' | 'due';
+  within: Offset;
+  /** A "whichever is earlier" chain. */
+  earlier?: boolean;
+  /** For "earlier" chains: the recorded step brought this date forward. */
+  moved?: boolean;
 }
 
 export interface Occurrence {
@@ -196,6 +256,8 @@ export interface Occurrence {
   extended?: { reason: string; source?: Source };
   /** Computed from the standing rule beyond the verified window. */
   projected: boolean;
+  /** Set when the rule follows another: the earlier occurrence and the date it ran from. */
+  chain?: ChainLink;
 }
 
 export interface Holiday {

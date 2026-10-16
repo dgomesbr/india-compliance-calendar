@@ -1,9 +1,9 @@
 // View model shared by the islands: rows, states, sorting, holidays.
 
-import { addDays, addMonths, diffDays, isWeekend, type ISODate } from './dates.ts';
+import { addDays, addMonths, diffDays, formatDate, isISODate, isWeekend, type ISODate } from './dates.ts';
 import { exposure30 } from './exposure.ts';
 import { appliesTo, type Profile } from './profile.ts';
-import { expandRules } from './schedule.ts';
+import { chainKey, describeFollows, expandRules, occurrenceFor, type ExpandOptions } from './schedule.ts';
 import type { FiledRecord, PlannedEvent } from './store.ts';
 import { CATEGORIES, type Bundle, type Category, type EventType, type Occurrence, type Rule } from './types.ts';
 
@@ -38,6 +38,8 @@ export interface Row {
   closed?: string[];
   /** Comes from the event planner rather than a recurring rule. */
   planned?: { eventTitle: string; eventDate: ISODate };
+  /** For a rule that follows another: "30 days after AGM, held 12 Sep 2026". */
+  chainNote?: string;
 }
 
 export const SOON_DAYS = 7;
@@ -60,6 +62,81 @@ export function rowState(
   if (left <= SOON_DAYS) return 'soon';
   if (extended) return 'extended';
   return 'upcoming';
+}
+
+/** Past tense of recording an occurrence: a meeting is held, everything else is filed. */
+export function doneWord(rule: Pick<Rule, 'recordAs'>): 'Held' | 'Filed' {
+  return rule.recordAs === 'held' ? 'Held' : 'Filed';
+}
+
+const byIdCache = new WeakMap<object, Map<string, Rule>>();
+const holidayCache = new WeakMap<object, Set<ISODate>>();
+const anchorCache = new WeakMap<object, Set<string>>();
+
+/** Where an occurrence's record is kept: under the rule it shares an event with, else its own key. */
+export function recordKey(rule: Pick<Rule, 'id' | 'sameEventAs'>, occ: Pick<Occurrence, 'key' | 'periodKey'>): string {
+  return rule.sameEventAs && occ.key.startsWith(`${rule.id}@`) ? `${rule.sameEventAs}@${occ.periodKey}` : occ.key;
+}
+
+/** The record for an occurrence, wherever it is kept. */
+export function recordOf(filed: Record<string, FiledRecord>, rule: Pick<Rule, 'id' | 'sameEventAs'>, occ: Pick<Occurrence, 'key' | 'periodKey'>): FiledRecord | undefined {
+  return filed[recordKey(rule, occ)] ?? filed[occ.key];
+}
+
+/** Rules whose recorded date moves other rules (the AGM, GSTR-9): recording one asks for the real date. */
+export function anchorRules(bundle: Pick<Bundle, 'rules'>): Set<string> {
+  let s = anchorCache.get(bundle.rules);
+  if (s) return s;
+  s = new Set<string>();
+  for (const r of bundle.rules) {
+    const f = r.schedule?.follows;
+    if (f && (f.from ?? 'done') === 'done') s.add(f.rule);
+  }
+  for (const r of bundle.rules) if (r.sameEventAs && s.has(r.sameEventAs)) s.add(r.id);
+  anchorCache.set(bundle.rules, s);
+  return s;
+}
+
+/** Every rule by id, kept per bundle. */
+export function rulesById(bundle: Pick<Bundle, 'rules'>): Map<string, Rule> {
+  let m = byIdCache.get(bundle.rules);
+  if (!m) byIdCache.set(bundle.rules, (m = new Map(bundle.rules.map((r) => [r.id, r]))));
+  return m;
+}
+
+/**
+ * Expansion options for a bundle: the projected cut-off, central holidays, every rule (so
+ * chains resolve), the entity's financial year and, given filed records, the dates steps were done.
+ */
+export function expandOptions(bundle: Bundle, extra: { fyStart?: number; filed?: Record<string, FiledRecord> } = {}): ExpandOptions {
+  let holidays = holidayCache.get(bundle.holidays);
+  if (!holidays) holidayCache.set(bundle.holidays, (holidays = new Set(centralHolidays(bundle).keys())));
+  const filed = extra.filed;
+  return {
+    confirmedThrough: bundle.meta.confirmedThrough,
+    holidays,
+    rules: rulesById(bundle),
+    fyStart: extra.fyStart,
+    done: filed
+      ? (key) => {
+          const d = filed[key]?.filedOn;
+          return isISODate(d) ? d : undefined;
+        }
+      : undefined,
+  };
+}
+
+/** One line on where a chained date comes from, for tables and exports: "30 days after AGM, held 12 Sep 2026". */
+export function chainNote(occ: Occurrence, rules: ReadonlyMap<string, Rule>): string | undefined {
+  const c = occ.chain;
+  const prev = c && rules.get(c.ruleId);
+  const f = rules.get(occ.ruleId)?.schedule?.follows;
+  if (!c || !prev || !f) return undefined;
+  const when = `${doneWord(prev).toLowerCase()} ${formatDate(c.date, { weekday: false })}`;
+  // A "whichever is earlier" date only needs a note once the earlier step has moved it.
+  if (f.earlier) return c.moved ? `${prev.code} ${when}` : undefined;
+  const rel = describeFollows(f, prev.code);
+  return c.from === 'done' ? `${rel}, ${when}` : rel;
 }
 
 /** Central gazetted holidays by date, for "due on a holiday" notes and working-day counts. */
@@ -158,27 +235,34 @@ export function buildRows(input: RowInput): Row[] {
   const from = input.from ?? today;
   const rules = bundle.rules.filter((r) => appliesTo(r, profile));
   const byId = new Map(rules.map((r) => [r.id, r]));
-  const holidays = centralHolidays(bundle);
+  const all = rulesById(bundle);
   const closed = closedDays(bundle, profile.states);
   const start = input.includeOverdue && input.trackingSince < from ? input.trackingSince : from;
-  const occs = expandRules(rules, start, to, {
-    confirmedThrough: bundle.meta.confirmedThrough,
-    holidays: new Set(holidays.keys()),
-  });
+  const opts = expandOptions(bundle, { fyStart: profile.fyStart, filed });
+  // A date recorded for an earlier step (an AGM held early) can pull a later one back before the
+  // window, or before tracking began. Those are still the team's to file, so look further back for
+  // them and keep them as overdue rather than losing them.
+  const chained = rules.filter((r) => r.schedule?.follows);
+  const occs = [
+    ...expandRules(rules.filter((r) => !r.schedule?.follows), start, to, opts),
+    ...(input.includeOverdue ? expandRules(chained, addMonths(start, -15), to, opts).filter((o) => o.due >= start || o.chain?.from === 'done') : expandRules(chained, start, to, opts)),
+  ];
   const rows: Row[] = [];
   for (const occ of occs) {
     const rule = byId.get(occ.ruleId);
     if (!rule) continue;
-    const f = filed[occ.key];
+    const f = recordOf(filed, rule, occ);
     if (occ.due < from && (f || !input.includeOverdue)) continue;
+    const tracked = occ.chain?.from === 'done';
     rows.push({
       occ,
       rule,
-      state: rowState(occ.due, today, f, Boolean(occ.extended), input.trackingSince),
+      state: rowState(occ.due, today, f, Boolean(occ.extended), tracked ? undefined : input.trackingSince),
       daysLeft: diffDays(today, occ.due),
       exposure: exposure30(rule),
       filed: f,
       closed: closedNote(occ.due, closed),
+      chainNote: occ.chain ? chainNote(occ, all) : undefined,
     });
   }
   const events = new Map(bundle.events.map((e) => [e.id, e]));
@@ -204,6 +288,70 @@ export function buildRows(input: RowInput): Row[] {
     });
   }
   return rows;
+}
+
+/** One step in an occurrence's chain: the steps it runs from, itself, and the steps that run from it. */
+export interface ChainStep {
+  rule: Rule;
+  occ: Occurrence;
+  /** How this step follows the one above it, e.g. "30 days after AGM". */
+  relation?: string;
+  /** Depth below the selected step; negative above it. */
+  level: number;
+  self?: boolean;
+  filed?: FiledRecord;
+  /** False for an earlier step outside the profile (an OPC holds no AGM): it sets the date but cannot be recorded. */
+  applies?: boolean;
+}
+
+/**
+ * The chain around an occurrence: the earlier steps its date runs from (outermost first),
+ * then the occurrence, then the steps that run from it that apply to the profile, depth
+ * first. Planned events and rules outside any chain return the occurrence alone.
+ */
+export function lineage(bundle: Bundle, row: Row, ctx: { profile: Profile; filed: Record<string, FiledRecord> }): ChainStep[] {
+  const opts = expandOptions(bundle, { fyStart: ctx.profile.fyStart, filed: ctx.filed });
+  const all = rulesById(bundle);
+  const relation = (rule: Rule) => {
+    const f = rule.schedule?.follows;
+    const prev = f && all.get(f.rule);
+    return f && prev ? describeFollows(f, prev.code) : undefined;
+  };
+  const self: ChainStep = { rule: row.rule, occ: row.occ, level: 0, self: true, filed: recordOf(ctx.filed, row.rule, row.occ), relation: relation(row.rule) };
+  if (row.planned) return [self];
+
+  const up: ChainStep[] = [];
+  let link = row.occ.chain;
+  for (let level = -1; link && level > -5; level--) {
+    const rule = all.get(link.ruleId);
+    const occ = rule ? occurrenceFor(rule, link.key.slice(link.key.indexOf('@') + 1), opts) : null;
+    if (!rule || !occ) break;
+    up.unshift({ rule, occ, relation: relation(rule), level, filed: recordOf(ctx.filed, rule, occ), applies: appliesTo(rule, ctx.profile) });
+    link = occ.chain;
+  }
+
+  const down: ChainStep[] = [];
+  const walk = (rule: Rule, occ: Occurrence, level: number) => {
+    if (level > 3) return;
+    const next: { rule: Rule; occ: Occurrence }[] = [];
+    for (const d of bundle.rules) {
+      const f = d.schedule?.follows;
+      if (!f || f.rule !== rule.id || !appliesTo(d, ctx.profile)) continue;
+      // An annual rule that follows one quarter of a quarterly rule hangs off that quarter only.
+      const key = f.slot ? (occ.periodKey.endsWith(`-${f.slot}`) ? occ.periodKey.slice(0, -(f.slot.length + 1)) : null) : occ.periodKey;
+      if (!key || chainKey(f, key) !== occ.periodKey) continue;
+      const o = occurrenceFor(d, key, opts);
+      if (o) next.push({ rule: d, occ: o });
+    }
+    // Siblings in date order, so the list reads as a timetable.
+    next.sort((a, b) => (a.occ.due < b.occ.due ? -1 : a.occ.due > b.occ.due ? 1 : a.rule.code.localeCompare(b.rule.code)));
+    for (const n of next) {
+      down.push({ rule: n.rule, occ: n.occ, relation: relation(n.rule), level, filed: recordOf(ctx.filed, n.rule, n.occ) });
+      walk(n.rule, n.occ, level + 1);
+    }
+  };
+  walk(row.rule, row.occ, 1);
+  return [...up, self, ...down];
 }
 
 export type SortKey = 'due' | 'exposure' | 'law';

@@ -106,10 +106,8 @@
   padding-left: 34px;
 }
 .ov-custom {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--s-2) var(--s-3);
+  display: grid;
+  gap: var(--s-2);
   margin-top: var(--s-3);
   padding: var(--s-3) var(--s-4);
   border: 1px solid var(--rule);
@@ -122,6 +120,31 @@
 }
 .ov-custom .input {
   width: auto;
+}
+/* one row each for how far back and how far ahead: label, slider, count, date */
+.ov-custom-row {
+  display: grid;
+  grid-template-columns: 7.5em minmax(140px, 320px) 6.5em auto auto;
+  align-items: center;
+  justify-content: start;
+  gap: var(--s-2) var(--s-3);
+}
+.ov-custom-note {
+  max-width: 72ch;
+  margin: 2px 0 0;
+  font-size: var(--t-xs);
+}
+@media (max-width: 720px) {
+  /* label, slider and count on one line, the date input under them */
+  .ov-custom-row {
+    grid-template-columns: 7.2em minmax(0, 1fr) auto;
+  }
+  .ov-custom-row input[type='range'] {
+    width: 100%;
+  }
+  .ov-custom-row .input {
+    grid-column: 2 / -1;
+  }
 }
 .ov-filters {
   margin-top: var(--s-4);
@@ -703,6 +726,20 @@
   color: var(--ink-3);
   font-size: var(--t-xs);
 }
+/* where a chained date comes from: "30 days after AGM, held 12 Sep 2026" */
+.obl-chain {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+  color: var(--ink-3);
+  font-size: var(--t-xs);
+}
+.obl-chain .icon {
+  flex: none;
+  width: 12px;
+  height: 12px;
+}
 .col-auth {
   width: 128px;
   font-size: var(--t-xs);
@@ -934,6 +971,100 @@
   color: var(--ink-3);
   font-size: var(--t-xs);
 }
+/* chain: the steps a date runs from and those that run from it, hung on one rule */
+.chain {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0 0 0 14px;
+  list-style: none;
+}
+.chain::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 4px;
+  width: 1px;
+  background: var(--rule-2);
+}
+.chain-step {
+  display: grid;
+  gap: 1px;
+  padding-left: calc(var(--lvl, 0) * 16px);
+  animation: rise-in var(--dur-slow) var(--ease-out) both;
+  animation-delay: calc(80ms + var(--i, 0) * 40ms);
+}
+.chain-rel {
+  padding-top: 4px;
+  color: var(--ink-3);
+  font-size: var(--t-xs);
+}
+.chain-main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: var(--s-2);
+  margin-left: -6px;
+  padding: 4px 6px;
+  border-radius: var(--radius);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+/* each step's dot sits on the rule, whatever its depth: placed against the list, level with the step's first line */
+.chain-main::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  margin-top: calc(0.78em - 4.5px);
+  margin-top: calc(0.5lh - 4.5px);
+  width: 9px;
+  height: 9px;
+  box-sizing: border-box;
+  border: 2px solid var(--rule-3);
+  border-radius: 50%;
+  background: var(--ground);
+}
+.chain-step.is-done .chain-main::before {
+  border-color: var(--filed);
+  background: var(--filed);
+}
+.chain-step.is-self .chain-main {
+  background: var(--accent-weak);
+}
+.chain-step.is-self .chain-main::before {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+a.chain-main:hover {
+  background: var(--layer-1);
+}
+a.chain-main:hover .chain-code {
+  color: var(--accent);
+}
+.chain-code {
+  color: var(--navy);
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.chain-title {
+  overflow: hidden;
+  color: var(--ink-2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chain-date {
+  color: var(--ink-2);
+  font-size: var(--t-xs);
+  white-space: nowrap;
+}
+.chain-hint {
+  margin: 4px 0 0;
+  font-size: var(--t-xs);
+}
 .detail-note {
   margin-top: var(--s-3);
   padding: var(--s-2) var(--s-3);
@@ -954,6 +1085,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--s-2);
+}
+.field-hint {
+  font-size: var(--t-xs);
 }
 .filed-form,
 .filed-card {
@@ -1323,6 +1457,26 @@
   padding: 4px 0;
   font-size: var(--t-xs);
   cursor: pointer;
+}
+.fy-moves {
+  font-size: var(--t-xs);
+  line-height: 1.6;
+}
+.fy-moves .label {
+  margin-right: 6px;
+  color: var(--ink-2);
+}
+.tracking-field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2) var(--s-3);
+}
+.tracking-field .label {
+  flex-basis: 100%;
+}
+.tracking-field .input {
+  width: auto;
 }
 .state-chip span {
   overflow: hidden;

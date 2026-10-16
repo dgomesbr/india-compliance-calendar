@@ -1,26 +1,17 @@
 import { useMemo, useRef, useState } from 'preact/hooks';
 import { downloadFile, useBundle, useMoney, useTeamState, useToday } from '../lib/client.ts';
-import { addMonths, formatDate, fyLabel, fyStartYear, iso, lastDayOfMonth, parts, shiftMonth, type ISODate } from '../lib/dates.ts';
+import { addMonths, formatDate, iso, parts, type ISODate } from '../lib/dates.ts';
 import { toExcelCSV, toTSV } from '../lib/csv.ts';
+import { entityQuarter, entityStartYear, entityYear, INDIAN_FY_START } from '../lib/fiscal.ts';
+import { MAX_CUSTOM_MONTHS, minHorizonStart } from '../lib/horizon.ts';
 import { toRef } from '../lib/money.ts';
 import { isEverything } from '../lib/profile.ts';
 import { CATEGORY_LABEL } from '../lib/types.ts';
 import { useCountUp, useThumb } from '../lib/motion.ts';
-import { buildRows, sortRows, type Row } from '../lib/view.ts';
+import { buildRows, doneWord, sortRows, type Row } from '../lib/view.ts';
 import { Icon } from './Icon.tsx';
 
 type PeriodKey = 'this-q' | 'last-q' | 'this-fy' | 'last-fy' | 'custom';
-
-function quarterOf(date: ISODate, offset: number): { from: ISODate; to: ISODate; label: string } {
-  const { y, m } = parts(date);
-  // FY quarters start in April, July, October and January.
-  const startMonth = m >= 4 ? 4 + Math.floor((m - 4) / 3) * 3 : 1;
-  const s = shiftMonth(y, startMonth, offset * 3);
-  const e = shiftMonth(s.y, s.m, 2);
-  const fy = s.m >= 4 ? s.y : s.y - 1;
-  const q = s.m >= 4 ? (s.m - 4) / 3 + 1 : 4;
-  return { from: iso(s.y, s.m, 1), to: lastDayOfMonth(e.y, e.m), label: `Q${q} ${fyLabel(fy)}` };
-}
 
 type ReportStatus = 'Filed' | 'Overdue' | 'Pending' | 'Not recorded';
 
@@ -45,21 +36,29 @@ export default function Report() {
   const money = useMoney(data.status === 'ready' ? data.data : null, team);
   const [copied, setCopied] = useState('');
 
+  // Quarters and years are the entity's own: April to March unless the profile sets another year.
+  const fyStart = team?.profile.fyStart ?? INDIAN_FY_START;
+  const minFrom = minHorizonStart(today);
+  const maxTo = addMonths(today, MAX_CUSTOM_MONTHS);
   const range = useMemo(() => {
-    const fy = fyStartYear(today);
+    const fy = entityStartYear(today, fyStart);
     switch (period) {
       case 'this-q':
-        return quarterOf(today, 0);
+        return entityQuarter(today, 0, fyStart);
       case 'last-q':
-        return quarterOf(today, -1);
+        return entityQuarter(today, -1, fyStart);
       case 'this-fy':
-        return { from: iso(fy, 4, 1), to: iso(fy + 1, 3, 31), label: fyLabel(fy) };
-      case 'last-fy':
-        return { from: iso(fy - 1, 4, 1), to: iso(fy, 3, 31), label: fyLabel(fy - 1) };
-      case 'custom':
-        return { ...custom, label: `${formatDate(custom.from, { weekday: false })} - ${formatDate(custom.to, { weekday: false })}` };
+      case 'last-fy': {
+        const y = entityYear(period === 'this-fy' ? fy : fy - 1, fyStart);
+        return { from: y.from, to: y.to, label: y.label };
+      }
+      case 'custom': {
+        const from = custom.from < minFrom ? minFrom : custom.from;
+        const to = custom.to < from ? from : custom.to > maxTo ? maxTo : custom.to;
+        return { from, to, label: `${formatDate(from, { weekday: false })} - ${formatDate(to, { weekday: false })}` };
+      }
     }
-  }, [period, today, custom]);
+  }, [period, today, custom, fyStart]);
 
   const rows = useMemo(() => {
     if (data.status !== 'ready' || !team) return [] as Row[];
@@ -91,7 +90,7 @@ export default function Report() {
   const ref = money.cur.toLowerCase();
   const header = [
     'due', 'code', 'obligation', 'period', 'law_area', 'authority', 'status', 'filed_on', 'acknowledgement', 'owner', 'extended_from',
-    'cost_30_days_inr', ...(money.fx ? [`cost_30_days_${ref}`, `${ref}_rate_date`] : []), 'source',
+    'cost_30_days_inr', ...(money.fx ? [`cost_30_days_${ref}`, `${ref}_rate_date`] : []), 'runs_from', 'source',
   ];
   const table = () =>
       rows.map((r) => [
@@ -101,13 +100,14 @@ export default function Report() {
         r.occ.periodLabel,
         CATEGORY_LABEL[r.rule.category],
         r.rule.authority,
-        statusOf(r, today, team.trackingSince),
+        statusOf(r, today, team.trackingSince) === 'Filed' ? doneWord(r.rule) : statusOf(r, today, team.trackingSince),
         r.filed?.filedOn ?? '',
         r.filed?.ack ?? '',
         r.filed?.owner ?? team.owners[r.rule.id] ?? '',
         r.occ.originalDue ?? '',
         r.exposure || '',
         ...(money.fx ? [r.exposure ? toRef(r.exposure, money.fx, money.cur).toFixed(2) : '', money.fx.date] : []),
+        r.chainNote ?? '',
         r.rule.sources[0]?.url ?? '',
       ]);
   const copy = async () => {
@@ -147,9 +147,12 @@ export default function Report() {
           {period === 'custom' && (
             <div class="report-custom">
               <label class="label faint" for="r-from">From</label>
-              <input id="r-from" class="input num" type="date" value={custom.from} onChange={(e) => setCustom({ ...custom, from: (e.target as HTMLInputElement).value })} />
+              <input id="r-from" class="input num" type="date" value={range.from} min={minFrom} max={maxTo}
+                onChange={(e) => setCustom({ ...custom, from: (e.target as HTMLInputElement).value || minFrom })} />
               <label class="label faint" for="r-to">To</label>
-              <input id="r-to" class="input num" type="date" value={custom.to} min={custom.from} onChange={(e) => setCustom({ ...custom, to: (e.target as HTMLInputElement).value })} />
+              <input id="r-to" class="input num" type="date" value={range.to} min={range.from} max={maxTo}
+                onChange={(e) => setCustom({ ...custom, to: (e.target as HTMLInputElement).value || range.from })} />
+              <span class="faint">From up to 15 months back</span>
             </div>
           )}
           <div class="form-actions">
@@ -202,9 +205,12 @@ export default function Report() {
                 return (
                   <tr class={`report-row rise status-${s.replace(' ', '-').toLowerCase()}`} style={{ '--i': Math.min(i, 14) }}>
                     <td class="num">{formatDate(r.occ.due, { weekday: false })}{r.occ.originalDue && <span class="faint"> (ext.)</span>}</td>
-                    <td><span class="fig report-code">{r.rule.code}</span> {r.rule.title}</td>
+                    <td>
+                      <span class="fig report-code">{r.rule.code}</span> {r.rule.title}
+                      {r.chainNote && <span class="report-chain faint">{r.chainNote}</span>}
+                    </td>
                     <td class="muted">{r.occ.periodLabel}</td>
-                    <td>{s}</td>
+                    <td>{s === 'Filed' ? doneWord(r.rule) : s}</td>
                     <td class="num">{r.filed ? formatDate(r.filed.filedOn, { weekday: false }) : ''}</td>
                     <td class="num">{r.filed?.ack ?? ''}</td>
                     <td>{r.filed?.owner ?? team.owners[r.rule.id] ?? ''}</td>

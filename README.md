@@ -16,7 +16,26 @@ rules, with no content copied from any commercial site.
   due-this-week items at the top, the counts by state set large on the cover
   (each one filters the table), and the costliest-if-late list beside the table.
 - **Any horizon.** 1 week, 2 weeks, 1 month, 1 quarter, to year end, to FY end,
-  or a custom window up to 24 months ahead.
+  or a custom range from up to 15 months back to up to 24 months ahead. Items
+  that fell due before the team began tracking show as "before tracking", and
+  the tracking date can be moved back to review last year's filings.
+- **Your financial year.** Indian law sets April to March, but a company that
+  must follow another year to consolidate with a group abroad (as its holding
+  company, subsidiary or associate) can have it approved by the Tribunal (section
+  2(41), Companies Act), and an LLP by the Central Government (section 2(1)(l),
+  LLP Act). Set the year's start and end in the
+  profile and everything that counts from it moves: the AGM and the filings that
+  run from it, cost audit, LLP returns, SEBI results and annual filings, the FEMA
+  activity certificate, the "FY end" horizon and the report's quarters and years.
+  Income tax, TDS and GST stay April to March, as the law requires.
+- **Chains.** When one deadline runs from another, the calendar knows. AOC-4,
+  MGT-7, ADT-1 and MGT-15 run from the AGM; CSR-2 from AOC-4; the SEBI annual
+  report and BRSR from the AGM date; Form 16A and 27D from their TDS and TCS
+  statements; the tax audit and transfer-pricing reports one month before their
+  return; the GST credit cut-off moves up to the day GSTR-9 is filed. Mark the
+  AGM held on its real date and its whole chain moves with it. Every entry shows
+  where its date comes from and what runs from it, in the table, the detail
+  panel, the entry pages, the exports and the calendar feeds.
 - **Order by fine.** Sort by due date, by penalty exposure (the fixed cost of a
   30-day delay: late fees and flat penalties, with interest shown separately),
   or by law.

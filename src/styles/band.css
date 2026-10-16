@@ -250,6 +250,9 @@ button.figure:active:not([disabled]) {
 .figure[data-state='filed'] .figure-label::before {
   background: #4fb985;
 }
+.figure[data-state='past'] .figure-label::before {
+  background: rgba(255, 255, 255, 0.38);
+}
 .figure[data-state='overdue'].has-items .figure-n {
   color: #ff9d8f;
 }
@@ -381,6 +384,10 @@ button.figure:active:not([disabled]) {
     margin-left: 0;
     text-align: left;
     justify-items: start;
+  }
+  /* seven figures: the cost total takes the third row to itself */
+  .band-figures.has-past .figure-total {
+    grid-column: 1 / -1;
   }
   .figure-total .figure-label {
     align-items: flex-start;

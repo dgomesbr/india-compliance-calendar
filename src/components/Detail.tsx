@@ -1,13 +1,14 @@
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { baseUrl, downloadFile } from '../lib/client.ts';
 import { addDays, addMonths, formatDate, relativeDays, todayIST, type ISODate } from '../lib/dates.ts';
 import { hasDelayCurve } from '../lib/delay.ts';
 import { delayCost, interestNote, turnoverNote } from '../lib/exposure.ts';
+import { describeYear, INDIAN_FY_START } from '../lib/fiscal.ts';
 import { buildCalendar } from '../lib/ics.ts';
 import { describeSchedule, expandRule } from '../lib/schedule.ts';
 import type { TeamState } from '../lib/store.ts';
 import { CATEGORY_LABEL, CATEGORY_SHORT, type Bundle } from '../lib/types.ts';
-import { centralHolidays, STATE_LABEL, type Row } from '../lib/view.ts';
+import { anchorRules, doneWord, expandOptions, lineage, recordKey, recordOf, rulesById, STATE_LABEL, type ChainStep, type Row } from '../lib/view.ts';
 import DelayChart from './DelayChart.tsx';
 import { Icon } from './Icon.tsx';
 import { Money } from './Money.tsx';
@@ -26,10 +27,18 @@ interface Props {
   onClose: () => void;
   /** Prefix for element ids, so the side panel and the sheet can both be mounted. */
   idp?: string;
+  /** Show another occurrence in place (a step of the chain); false when it is not on screen. */
+  onOpen?: (key: string) => boolean;
+  /** Open with the record form showing, when this key asks for it (bump `editNonce` to ask again). */
+  editKey?: string | null;
+  editNonce?: number;
+  /** Move focus to the heading when this occurrence was opened from its chain. */
+  focusKey?: string | null;
 }
 
 export function occurrenceICS(row: Row): string {
   const base = `${location.origin}${baseUrl()}`;
+  const chain = row.chainNote ? `\nRuns from: ${row.chainNote}` : '';
   return buildCalendar({
     name: `${row.rule.code} - ${row.occ.periodLabel}`,
     stamp: new Date(),
@@ -38,7 +47,7 @@ export function occurrenceICS(row: Row): string {
         uid: `${row.occ.key}@india-compliance-calendar`,
         date: row.occ.due,
         summary: `${row.rule.code} due - ${row.occ.periodLabel}`,
-        description: `${row.rule.title}. ${row.rule.summary}\nLaw: ${row.rule.law}\nSource: ${row.rule.sources[0]?.url ?? ''}\nInformation only, not legal advice.`,
+        description: `${row.rule.title}. ${row.rule.summary}${chain}\nLaw: ${row.rule.law}\nSource: ${row.rule.sources[0]?.url ?? ''}\nInformation only, not legal advice.`,
         url: `${base}o/${row.rule.id}/`,
         categories: [CATEGORY_LABEL[row.rule.category]],
         alarmsDaysBefore: [7, 1],
@@ -47,28 +56,108 @@ export function occurrenceICS(row: Row): string {
   });
 }
 
-export default function Detail({ row, today, state, bundle, onSave, onClose, idp = 'd' }: Props) {
+/** The steps a date runs from and the steps that run from it, as one ruled list. */
+function Chain({ steps, onOpen }: { steps: ChainStep[]; onOpen?: (key: string) => boolean }) {
+  const top = Math.min(...steps.map((s) => s.level));
+  const self = steps.find((s) => s.self)!;
+  const parent = steps.find((s) => s.level === -1);
+  // The date counts from an earlier step that could be recorded but is not yet.
+  const follows = self.rule.schedule?.follows;
+  const waiting = parent && parent.applies !== false && self.occ.chain?.from === 'due' && (follows?.from ?? 'done') === 'done' && !follows?.earlier;
+  const below = steps.some((s) => s.level > 0);
+  return (
+    <section class="detail-section detail-chain" aria-label="Chain">
+      <h3 class="label faint">Chain</h3>
+      <ol class="chain">
+        {steps.map((s, i) => {
+          const body = (
+            <>
+              <span class="chain-code fig">{s.rule.code}</span>
+              <span class="chain-title">{s.rule.title}</span>
+              <span class="chain-date num">
+                {s.filed ? `${doneWord(s.rule)} ${formatDate(s.filed.filedOn, { weekday: false })}` : `Due ${formatDate(s.occ.due, { weekday: false })}`}
+              </span>
+            </>
+          );
+          return (
+            <li
+              class={`chain-step${s.self ? ' is-self' : ''}${s.filed ? ' is-done' : ''}`}
+              style={{ '--lvl': s.level - top, '--i': i }}
+              key={s.occ.key}
+            >
+              {s.relation && s.level > top && <span class="chain-rel">{s.relation}</span>}
+              {s.self ? (
+                <span class="chain-main" aria-current="true">{body}</span>
+              ) : (
+                <a
+                  class="chain-main"
+                  href={`${baseUrl()}o/${s.rule.id}/`}
+                  onClick={(e) => {
+                    if (onOpen?.(s.occ.key)) e.preventDefault();
+                  }}
+                >
+                  {body}
+                </a>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+      {waiting && parent && (
+        <p class="faint chain-hint">
+          Counted from the {parent.rule.code} deadline. Record the date it was {doneWord(parent.rule).toLowerCase()} and this date follows it.
+        </p>
+      )}
+      {self.rule.recordAs === 'held' && !self.filed && below && (
+        <p class="faint chain-hint">Record the date it was held; the filings below then run from it.</p>
+      )}
+      {parent?.occ.extended && follows?.from === 'due' && (
+        <p class="faint chain-hint">
+          Counted from {parent.rule.code}'s own due date of {formatDate(parent.occ.originalDue ?? parent.occ.due, { weekday: false })}: its
+          extension applies to this filing only where the circular names it too.
+        </p>
+      )}
+    </section>
+  );
+}
+
+export default function Detail({ row, today, state, bundle, onSave, onClose, idp = 'd', onOpen, editKey, editNonce, focusKey }: Props) {
   const { rule, occ } = row;
-  const filed = state.filed[occ.key];
+  // A meeting shared by two deadlines keeps one record; every other occurrence keeps its own.
+  const key = recordKey(rule, occ);
+  const filed = recordOf(state.filed, rule, occ);
+  const held = doneWord(rule);
+  const anchor = Boolean(bundle && anchorRules(bundle).has(rule.id));
+  const head = useRef<HTMLHeadingElement>(null);
   const [editing, setEditing] = useState(false);
   const [form, setForm] = useState({ filedOn: todayIST(), ack: '', owner: state.owners[rule.id] ?? '', note: '' });
   const [days, setDays] = useState(30);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    setEditing(false);
+    setEditing(editKey === occ.key);
     setForm({ filedOn: today, ack: '', owner: state.owners[rule.id] ?? '', note: '' });
     setDays(row.daysLeft < 0 ? Math.max(1, -row.daysLeft) : 30);
-  }, [occ.key]);
+  }, [occ.key, editKey, editNonce]);
+
+  // Opened from a step of its chain: the link that was clicked is gone, so focus lands on the heading.
+  useEffect(() => {
+    if (focusKey && focusKey === occ.key) head.current?.focus();
+  }, [occ.key, focusKey]);
 
   // The next few dates of the same obligation, so the panel answers "and after this?".
   const nextDates = useMemo(() => {
     if (!bundle || row.planned || !rule.schedule) return [];
-    return expandRule(rule, addDays(occ.due, 1), addMonths(occ.due, 25), {
-      confirmedThrough: bundle.meta.confirmedThrough,
-      holidays: new Set(centralHolidays(bundle).keys()),
-    }).slice(0, 3);
-  }, [bundle, rule, occ.due, row.planned]);
+    const opts = expandOptions(bundle, { fyStart: state.profile.fyStart, filed: state.filed });
+    return expandRule(rule, addDays(occ.due, 1), addMonths(occ.due, 25), opts).slice(0, 3);
+  }, [bundle, rule, occ.due, row.planned, state]);
+
+  // Where this date comes from and what runs from it.
+  const chain = useMemo(
+    () => (bundle && !row.planned ? lineage(bundle, row, { profile: state.profile, filed: state.filed }) : []),
+    [bundle, row, state],
+  );
+  const fyStart = state.profile.fyStart ?? INDIAN_FY_START;
 
   const owners = [...new Set([...Object.values(state.owners), ...Object.values(state.filed).map((f) => f.owner ?? '')])].filter(Boolean);
   const curve = hasDelayCurve(rule.exposure);
@@ -82,7 +171,7 @@ export default function Detail({ row, today, state, bundle, onSave, onClose, idp
     e.preventDefault();
     const next: TeamState = {
       ...state,
-      filed: { ...state.filed, [occ.key]: { filedOn: form.filedOn, ack: form.ack.trim() || undefined, owner: form.owner.trim() || undefined, note: form.note.trim() || undefined } },
+      filed: { ...state.filed, [key]: { filedOn: form.filedOn, ack: form.ack.trim() || undefined, owner: form.owner.trim() || undefined, note: form.note.trim() || undefined } },
       owners: form.owner.trim() ? { ...state.owners, [rule.id]: form.owner.trim() } : state.owners,
     };
     onSave(next);
@@ -91,6 +180,7 @@ export default function Detail({ row, today, state, bundle, onSave, onClose, idp
 
   const undo = () => {
     const f = { ...state.filed };
+    delete f[key];
     delete f[occ.key];
     onSave({ ...state, filed: f });
   };
@@ -105,7 +195,7 @@ export default function Detail({ row, today, state, bundle, onSave, onClose, idp
   return (
     <article class="detail" aria-labelledby={id('code')}>
       <header class="detail-head">
-        <h2 id={id('code')} class="fig detail-code">{rule.code}</h2>
+        <h2 id={id('code')} class="fig detail-code" tabIndex={-1} ref={head}>{rule.code}</h2>
         <button class="btn btn-quiet detail-close" type="button" onClick={onClose} aria-label="Close details">
           <span class="btn-label"><Icon name="x" /></span>
         </button>
@@ -124,11 +214,11 @@ export default function Detail({ row, today, state, bundle, onSave, onClose, idp
         </div>
         <div>
           <dt class="label faint">When</dt>
-          <dd class={`num state-${row.state}`}>{row.state === 'filed' ? 'Filed' : relativeDays(today, occ.due)}</dd>
+          <dd class={`num state-${row.state}`}>{row.state === 'filed' ? held : relativeDays(today, occ.due)}</dd>
         </div>
         <div>
           <dt class="label faint">State</dt>
-          <dd><span class="tag" data-state={row.state === 'upcoming' ? undefined : row.state}>{STATE_LABEL[row.state]}</span></dd>
+          <dd><span class="tag" data-state={row.state === 'upcoming' ? undefined : row.state}>{row.state === 'filed' ? held : STATE_LABEL[row.state]}</span></dd>
         </div>
       </dl>
 
@@ -145,6 +235,8 @@ export default function Detail({ row, today, state, bundle, onSave, onClose, idp
           </ol>
         </div>
       )}
+
+      {chain.length > 1 && <Chain steps={chain} onOpen={onOpen} />}
 
       {occ.extended && (
         <p class="detail-note extended">
@@ -175,22 +267,23 @@ export default function Detail({ row, today, state, bundle, onSave, onClose, idp
         {filed ? (
           <div class="filed-card">
             <p>
-              <span class="tag" data-state="filed">Filed</span>{' '}
+              <span class="tag" data-state="filed">{held}</span>{' '}
               <span class="num">{formatDate(filed.filedOn)}</span>
               {filed.ack && <> - acknowledgement <span class="num">{filed.ack}</span></>}
               {filed.owner && <> - {filed.owner}</>}
             </p>
             {filed.note && <p class="muted">{filed.note}</p>}
             <button class="btn" type="button" onClick={undo}>
-              <span class="btn-label">Undo filed</span>
+              <span class="btn-label">Undo {held.toLowerCase()}</span>
             </button>
           </div>
         ) : editing ? (
           <form class="filed-form" onSubmit={save}>
             <div class="field">
-              <label class="label" for={id('on')}>Filed on</label>
+              <label class="label" for={id('on')}>{held} on</label>
               <input id={id('on')} class="input num" type="date" required value={form.filedOn} max={today}
                 onInput={(e) => setForm({ ...form, filedOn: (e.target as HTMLInputElement).value })} />
+              {anchor && <span class="faint field-hint">The filings that run from it count from this date, so give the real one.</span>}
             </div>
             <div class="field">
               <label class="label" for={id('ack')}>Acknowledgement or SRN</label>
@@ -208,14 +301,14 @@ export default function Detail({ row, today, state, bundle, onSave, onClose, idp
                 onInput={(e) => setForm({ ...form, note: (e.target as HTMLInputElement).value })} />
             </div>
             <div class="form-actions">
-              <button class="btn" type="submit"><span class="btn-label"><Icon name="check" />Save as filed</span><span class="btn-block" /></button>
+              <button class="btn" type="submit"><span class="btn-label"><Icon name="check" />Save as {held.toLowerCase()}</span><span class="btn-block" /></button>
               <button class="btn btn-quiet" type="button" onClick={() => setEditing(false)}><span class="btn-label">Cancel</span></button>
             </div>
           </form>
         ) : (
           <div class="form-actions">
             <button class="btn" type="button" onClick={() => setEditing(true)}>
-              <span class="btn-label"><Icon name="check" />Mark filed</span>
+              <span class="btn-label"><Icon name="check" />Mark {held.toLowerCase()}</span>
               <span class="btn-block" />
             </button>
             <button class="btn" type="button" onClick={() => downloadFile(`${rule.code}-${occ.periodKey}.ics`, 'text/calendar', occurrenceICS(row))}>
@@ -269,7 +362,13 @@ export default function Detail({ row, today, state, bundle, onSave, onClose, idp
 
       <section class="detail-section">
         <h3 class="label faint">Rule</h3>
-        <p>{describeSchedule(rule)}</p>
+        <p>{describeSchedule(rule, bundle ? rulesById(bundle) : undefined)}</p>
+        {rule.schedule?.entityYear && (
+          <p class="muted">
+            Counts from the end of the entity's financial year: {describeYear(fyStart)}
+            {fyStart === INDIAN_FY_START ? ', the Indian default' : ', as set in the profile'}.
+          </p>
+        )}
         <p class="muted">{rule.law}</p>
       </section>
 

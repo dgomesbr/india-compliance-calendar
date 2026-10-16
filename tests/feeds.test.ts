@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { decode, parseFeed } from '../scripts/fetch-feeds.ts';
 
-const feed = { id: 'test', name: 'Test regulator' };
+const feed = { id: 'test', name: 'Test regulator', url: 'https://example.gov.in/feed' };
 
 describe('feed parsing', () => {
   it('reads RSS 2.0 with CDATA and entities', () => {

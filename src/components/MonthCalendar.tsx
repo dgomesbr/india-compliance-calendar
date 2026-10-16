@@ -14,7 +14,7 @@ import {
 } from '../lib/dates.ts';
 import { CATEGORIES, CATEGORY_LABEL, type Category } from '../lib/types.ts';
 import { buildRows, closedDays, STATE_LABEL, sortRows, type Row } from '../lib/view.ts';
-import { ABROAD, ABROAD_LABEL, COUNTRY_LABEL, abroadDays, abroadMeaning } from '../lib/abroad.ts';
+import { ABROAD, ABROAD_LABEL, COUNTRY_LABEL, abroadDays, abroadMeaning, type AbroadHoliday } from '../lib/abroad.ts';
 import { useInView } from '../lib/motion.ts';
 import Detail, { Law } from './Detail.tsx';
 import { MoneyContext } from './Money.tsx';
@@ -38,6 +38,10 @@ export default function MonthCalendar() {
   const [day, setDay] = useState<ISODate>(start);
   const [laws, setLaws] = useState<Category[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
+  const [jumped, setJumped] = useState<string | null>(null);
+  useEffect(() => {
+    if (jumped && jumped !== selected) setJumped(null);
+  }, [selected]);
   // Direction of the last month change; the new month slides in from that side.
   const [dir, setDir] = useState<'next' | 'prev' | ''>('');
   const sheet = useRef<HTMLDialogElement>(null);
@@ -68,7 +72,7 @@ export default function MonthCalendar() {
   );
   const abroadScopes = team?.profile.abroad ?? [];
   const abroad = useMemo(
-    () => (data.status === 'ready' ? abroadDays(data.data, abroadScopes) : new Map()),
+    () => (data.status === 'ready' ? abroadDays(data.data, abroadScopes) : new Map<ISODate, AbroadHoliday[]>()),
     [data, abroadScopes.join(',')],
   );
   const toggleAbroad = (scope: string) => {
@@ -282,6 +286,14 @@ export default function MonthCalendar() {
             bundle={data.status === 'ready' ? data.data : null}
             onSave={saveTeam}
             onClose={() => sheet.current?.close()}
+            onOpen={(key) => {
+              // A step of the chain due this month opens in place; others go to their entry page.
+              if (!rows.some((r) => r.occ.key === key)) return false;
+              setSelected(key);
+              setJumped(key);
+              return true;
+            }}
+            focusKey={jumped}
             idp="c"
           />
         )}

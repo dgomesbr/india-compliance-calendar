@@ -1,0 +1,1034 @@
+# Official holiday lists for 2025.
+lists:
+  - id: central-gazetted-2025
+    title: Central Government gazetted holidays 2025 (Delhi / New Delhi)
+    kind: gazetted
+    scope: IN
+    year: 2025
+    authority: Department of Personnel and Training (Ministry of Personnel, Public Grievances and Pensions)
+    source:
+      title: DoPT OM F.No. 12/2/2023-JCA dated 09-07-2024 - Holidays to be observed in Central Government Offices during the year 2025, Annexure I (plus the 14-04-2025 OM)
+      url: https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-01-26
+        name: Republic Day
+      - date: 2025-02-26
+        name: Maha Shivaratri
+      - date: 2025-03-14
+        name: Holi
+      - date: 2025-03-31
+        name: Id-ul-Fitr
+      - date: 2025-04-10
+        name: Mahavir Jayanti
+      - date: 2025-04-14
+        name: Dr. B.R. Ambedkar's Birthday
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-12
+        name: Buddha Purnima
+      - date: 2025-06-07
+        name: Id-ul-Zuha (Bakrid)
+      - date: 2025-07-06
+        name: Muharram
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-16
+        name: Janmashtami
+      - date: 2025-09-05
+        name: Milad-un-Nabi or Id-e-Milad (Prophet Mohammad's Birthday)
+      - date: 2025-10-02
+        name: Mahatma Gandhi's Birthday / Dussehra
+      - date: 2025-10-20
+        name: Diwali (Deepavali)
+      - date: 2025-11-05
+        name: Guru Nanak's Birthday
+      - date: 2025-12-25
+        name: Christmas Day
+    alsoSee:
+      - title: Internet Archive copy of the 2025 OM (captured 21-01-2025)
+        url: https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf
+      - &a1
+        title: National Portal of India - holiday calendar (central list, as per the DoPT circular)
+        url: https://www.india.gov.in/calendar
+    notes: "Applies to Central Government administrative offices in Delhi/New Delhi; offices elsewhere add three holidays chosen by the state's coordination committee. Read for the 15-month look back from the archived copy of DoPT's 2025 OM (the DoPT sites did not answer from the build machine) and checked against the National Portal calendar. Includes 14 April 2025 for Dr. B.R. Ambedkar, declared by a separate DoPT OM dated 27-03-2025. The OM's two 2 October rows are shown as one. A past year: kept as published."
+  - id: central-restricted-2025
+    title: Central Government restricted holidays 2025 (Delhi / New Delhi)
+    kind: restricted
+    scope: IN
+    year: 2025
+    authority: Department of Personnel and Training (Ministry of Personnel, Public Grievances and Pensions)
+    source:
+      title: DoPT OM F.No. 12/2/2023-JCA dated 09-07-2024 - Holidays to be observed in Central Government Offices during the year 2025, Annexure II (restricted holidays)
+      url: https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-01-01
+        name: New Year's Day
+      - date: 2025-01-06
+        name: Guru Gobind Singh's Birthday
+      - date: 2025-01-14
+        name: Makar Sankranti / Magha Bihu / Pongal / Hazarat Ali's Birthday
+      - date: 2025-02-02
+        name: Basant Panchami / Sri Panchami
+      - date: 2025-02-12
+        name: Guru Ravi Das's Birthday
+      - date: 2025-02-19
+        name: Shivaji Jayanti
+      - date: 2025-02-23
+        name: Swami Dayananda Saraswati's Birthday
+      - date: 2025-03-13
+        name: Holika Dahan
+      - date: 2025-03-14
+        name: Dolyatra
+      - date: 2025-03-28
+        name: Jamat-ul-Vida
+      - date: 2025-03-30
+        name: Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand
+      - date: 2025-04-06
+        name: Ram Navami
+      - date: 2025-04-13
+        name: Vaisakhi / Vishu
+      - date: 2025-04-14
+        name: Meshadi (Tamil New Year's Day)
+      - date: 2025-04-15
+        name: Vaisakhadi (Bengal) / Bahag Bihu (Assam)
+      - date: 2025-04-20
+        name: Easter Sunday
+      - date: 2025-05-09
+        name: Guru Rabindranath's Birthday
+      - date: 2025-06-27
+        name: Rath Yatra
+      - date: 2025-08-09
+        name: Raksha Bandhan
+      - date: 2025-08-15
+        name: Parsi New Year's Day / Nauraj
+      - date: 2025-08-15
+        name: Janmashtami (Smarta)
+      - date: 2025-08-27
+        name: Ganesh Chaturthi / Vinayaka Chaturthi
+      - date: 2025-09-05
+        name: Onam or Thiru Onam Day
+      - date: 2025-09-29
+        name: Dussehra (Saptami)
+      - date: 2025-09-30
+        name: Dussehra (Mahashtami)
+      - date: 2025-10-01
+        name: Dussehra (Mahanavami)
+      - date: 2025-10-07
+        name: Maharishi Valmiki's Birthday
+      - date: 2025-10-10
+        name: Karaka Chaturthi (Karva Chauth)
+      - date: 2025-10-20
+        name: Naraka Chaturdasi
+      - date: 2025-10-22
+        name: Govardhan Puja
+      - date: 2025-10-23
+        name: Bhai Duj
+      - date: 2025-10-28
+        name: Pratihar Shashthi or Surya Shashthi (Chhath Puja)
+      - date: 2025-11-24
+        name: Guru Teg Bahadur's Martyrdom Day
+      - date: 2025-12-24
+        name: Christmas Eve
+    alsoSee:
+      - title: Internet Archive copy of the 2025 OM (captured 21-01-2025)
+        url: https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf
+      - *a1
+    notes: "Optional holidays: each employee may take any two. Offices stay open, so these are not closures. The OM lists 34 items; 15 August carries two. A past year: kept as published."
+  - id: bank-mh-2025
+    title: Bank holidays 2025 - Maharashtra (RBI Mumbai centre)
+    kind: bank
+    scope: MH
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Mumbai regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-02-19
+        name: Chhatrapati Shivaji Maharaj Jayanti
+      - date: 2025-02-26
+        name: Mahashivratri
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-10
+        name: Mahavir Janmakalyanak / Mahavir Jayanti
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-01
+        name: Maharashtra Din / May Day (Labor Day)
+      - date: 2025-05-12
+        name: Buddha Pournima
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-27
+        name: Ganesh Chaturthi
+      - date: 2025-09-08
+        name: Id-E-Milad
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-21
+        name: Diwali Amavasya (Laxmi Pujan) / Deepawali
+      - date: 2025-10-22
+        name: Diwali (Bali Pratipada)
+      - date: 2025-11-05
+        name: Guru Nanak Jayanti / Kartika Purnima
+      - date: 2025-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-dl-2025
+    title: Bank holidays 2025 - Delhi (RBI New Delhi centre)
+    kind: bank
+    scope: DL
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - New Delhi regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-10
+        name: Mahavir Janmakalyanak / Mahavir Jayanti
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-12
+        name: Buddha Pournima
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-09-05
+        name: Id-E-Milad
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-11-05
+        name: Guru Nanak Jayanti / Kartika Purnima
+      - date: 2025-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-ka-2025
+    title: Bank holidays 2025 - Karnataka (RBI Bengaluru centre)
+    kind: bank
+    scope: KA
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Bengaluru regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-01-14
+        name: Makar Sankranti / Uttarayana Punyakala
+      - date: 2025-02-26
+        name: Mahashivratri
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-10
+        name: Mahavir Janmakalyanak / Mahavir Jayanti
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-04-30
+        name: Basava Jayanti / Akshaya Tritiya
+      - date: 2025-05-01
+        name: Maharashtra Din / May Day (Labor Day)
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-27
+        name: Ganesh Chaturthi
+      - date: 2025-09-05
+        name: Id-E-Milad
+      - date: 2025-10-01
+        name: Navaratri Ends / Maha Navami
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-07
+        name: Maharshi Valmiki Jayanti / Kumar Purnima
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-10-22
+        name: Diwali (Bali Pratipada)
+      - date: 2025-11-01
+        name: Kannada Rajyothsava / Igas-Bagwal
+      - date: 2025-11-08
+        name: Kanakadasa Jayanthi
+      - date: 2025-12-25
+        name: Christmas
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-tn-2025
+    title: Bank holidays 2025 - Tamil Nadu (RBI Chennai centre)
+    kind: bank
+    scope: TN
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Chennai regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-01-01
+        name: New Year's Day / Loosong
+      - date: 2025-01-14
+        name: Makar Sankranti / Uttarayana Punyakala
+      - date: 2025-01-15
+        name: Thiruvalluvar Day
+      - date: 2025-01-16
+        name: Uzhavar Thirunal
+      - date: 2025-02-11
+        name: Thai Poosam
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-10
+        name: Mahavir Janmakalyanak / Mahavir Jayanti
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-01
+        name: Maharashtra Din / May Day (Labor Day)
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-16
+        name: Janmashtami (Shravan Vad-8)
+      - date: 2025-08-27
+        name: Ganesh Chaturthi
+      - date: 2025-09-05
+        name: Id-E-Milad
+      - date: 2025-10-01
+        name: Navaratri Ends / Maha Navami
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-wb-2025
+    title: Bank holidays 2025 - West Bengal (RBI Kolkata centre)
+    kind: bank
+    scope: WB
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Kolkata regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-01-01
+        name: New Year's Day / Loosong
+      - date: 2025-01-23
+        name: Birthday of Netaji Subhas Chandra Bose
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-10
+        name: Mahavir Janmakalyanak / Mahavir Jayanti
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-15
+        name: Bengali New Year's Day / Himachal Day
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-01
+        name: Maharashtra Din / May Day (Labor Day)
+      - date: 2025-05-09
+        name: Birthday of Rabindranath Tagore
+      - date: 2025-05-12
+        name: Buddha Pournima
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-16
+        name: Janmashtami (Shravan Vad-8)
+      - date: 2025-09-29
+        name: Maha Saptami / Durga Puja
+      - date: 2025-09-30
+        name: Maha Ashtami / Durga Ashtami
+      - date: 2025-10-01
+        name: Navaratri Ends / Maha Navami
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-06
+        name: Lakshmi Puja
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-10-23
+        name: Bhai Bij / Bhaidooj
+      - date: 2025-10-27
+        name: Chath Puja (Evening Puja)
+      - date: 2025-11-05
+        name: Guru Nanak Jayanti / Kartika Purnima
+      - date: 2025-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-tg-2025
+    title: Bank holidays 2025 - Telangana (RBI Hyderabad centre)
+    kind: bank
+    scope: TS
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Hyderabad regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-01-14
+        name: Makar Sankranti / Uttarayana Punyakala
+      - date: 2025-02-26
+        name: Mahashivratri
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-05
+        name: Babu Jagjivan Ram's Birthday
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-01
+        name: Maharashtra Din / May Day (Labor Day)
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-16
+        name: Janmashtami (Shravan Vad-8)
+      - date: 2025-08-27
+        name: Ganesh Chaturthi
+      - date: 2025-09-05
+        name: Id-E-Milad
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-11-05
+        name: Guru Nanak Jayanti / Kartika Purnima
+      - date: 2025-12-25
+        name: Christmas
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-gj-2025
+    title: Bank holidays 2025 - Gujarat (RBI Ahmedabad centre)
+    kind: bank
+    scope: GJ
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Ahmedabad regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-01-14
+        name: Makar Sankranti / Uttarayana Punyakala
+      - date: 2025-02-26
+        name: Mahashivratri
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-10
+        name: Mahavir Janmakalyanak / Mahavir Jayanti
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-08-09
+        name: Raksha Bandhan / Jhulana Purnima
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-16
+        name: Janmashtami (Shravan Vad-8)
+      - date: 2025-08-27
+        name: Ganesh Chaturthi
+      - date: 2025-09-05
+        name: Id-E-Milad
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-10-22
+        name: Diwali (Bali Pratipada)
+      - date: 2025-10-23
+        name: Bhai Bij / Bhaidooj
+      - date: 2025-10-31
+        name: Sardar Vallabhbhai Patel's Birthday
+      - date: 2025-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-kl-2025
+    title: Bank holidays 2025 - Kerala (RBI Kochi centre)
+    kind: bank
+    scope: KL
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Kochi regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-02-26
+        name: Mahashivratri
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-01
+        name: Maharashtra Din / May Day (Labor Day)
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-07-22
+        name: Demise of Shri V.S.Achuthanandan, former Chief Minister of Kerala
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-09-04
+        name: First Onam
+      - date: 2025-09-05
+        name: Id-E-Milad
+      - date: 2025-10-01
+        name: Navaratri Ends / Maha Navami
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-12-09
+        name: General election to Local Government Institutions 2025
+      - date: 2025-12-25
+        name: Christmas
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-up-2025
+    title: Bank holidays 2025 - Uttar Pradesh (RBI Lucknow centre)
+    kind: bank
+    scope: UP
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Lucknow regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-01-14
+        name: Makar Sankranti / Uttarayana Punyakala
+      - date: 2025-02-12
+        name: Sant Ravidas Jayanti
+      - date: 2025-02-26
+        name: Mahashivratri
+      - date: 2025-03-13
+        name: Holika Dahan / Attukal Pongala
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-10
+        name: Mahavir Janmakalyanak / Mahavir Jayanti
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-12
+        name: Buddha Pournima
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-09
+        name: Raksha Bandhan / Jhulana Purnima
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-16
+        name: Janmashtami (Shravan Vad-8)
+      - date: 2025-09-05
+        name: Id-E-Milad
+      - date: 2025-10-01
+        name: Navaratri Ends / Maha Navami
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-10-22
+        name: Diwali (Bali Pratipada)
+      - date: 2025-10-23
+        name: Bhai Bij / Bhaidooj
+      - date: 2025-11-05
+        name: Guru Nanak Jayanti / Kartika Purnima
+      - date: 2025-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-rj-2025
+    title: Bank holidays 2025 - Rajasthan (RBI Jaipur centre)
+    kind: bank
+    scope: RJ
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Jaipur regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-02-26
+        name: Mahashivratri
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-10
+        name: Mahavir Janmakalyanak / Mahavir Jayanti
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-09
+        name: Raksha Bandhan / Jhulana Purnima
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-16
+        name: Janmashtami (Shravan Vad-8)
+      - date: 2025-09-22
+        name: Navratra Sthapna
+      - date: 2025-09-30
+        name: Maha Ashtami / Durga Ashtami
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-10-22
+        name: Diwali (Bali Pratipada)
+      - date: 2025-11-05
+        name: Guru Nanak Jayanti / Kartika Purnima
+      - date: 2025-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-br-2025
+    title: Bank holidays 2025 - Bihar (RBI Patna centre)
+    kind: bank
+    scope: BR
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Patna regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-15
+        name: Holi / Yaosang 2nd Day
+      - date: 2025-03-22
+        name: Bihar Diwas
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-01
+        name: Maharashtra Din / May Day (Labor Day)
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-16
+        name: Janmashtami (Shravan Vad-8)
+      - date: 2025-09-30
+        name: Maha Ashtami / Durga Ashtami
+      - date: 2025-10-01
+        name: Navaratri Ends / Maha Navami
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-27
+        name: Chath Puja (Evening Puja)
+      - date: 2025-10-28
+        name: Chath Puja (Morning Puja)
+      - date: 2025-11-06
+        name: Nongkrem Dance
+      - date: 2025-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-od-2025
+    title: Bank holidays 2025 - Odisha (RBI Bhubaneswar centre)
+    kind: bank
+    scope: OD
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Bhubaneswar regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-01-14
+        name: Makar Sankranti / Uttarayana Punyakala
+      - date: 2025-01-23
+        name: Birthday of Netaji Subhas Chandra Bose
+      - date: 2025-02-26
+        name: Mahashivratri
+      - date: 2025-03-15
+        name: Holi / Yaosang 2nd Day
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-06-27
+        name: Ratha Yatra / Kang (Rathajatra)
+      - date: 2025-08-09
+        name: Raksha Bandhan / Jhulana Purnima
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-27
+        name: Ganesh Chaturthi
+      - date: 2025-08-28
+        name: Ganesh Chaturthi (2nd Day) / Nuakhai
+      - date: 2025-09-30
+        name: Maha Ashtami / Durga Ashtami
+      - date: 2025-10-01
+        name: Navaratri Ends / Maha Navami
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-07
+        name: Maharshi Valmiki Jayanti / Kumar Purnima
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-11-05
+        name: Guru Nanak Jayanti / Kartika Purnima
+      - date: 2025-12-25
+        name: Christmas
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-as-2025
+    title: Bank holidays 2025 - Assam (RBI Guwahati centre)
+    kind: bank
+    scope: AS
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Guwahati regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-01-14
+        name: Makar Sankranti / Uttarayana Punyakala
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-15
+        name: Bengali New Year's Day / Himachal Day
+      - date: 2025-04-16
+        name: Bohag Bihu
+      - date: 2025-05-01
+        name: Maharashtra Din / May Day (Labor Day)
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-25
+        name: Tirubhav Tithi of Srimanta Sankardeva
+      - date: 2025-09-29
+        name: Maha Saptami / Durga Puja
+      - date: 2025-09-30
+        name: Maha Ashtami / Durga Ashtami
+      - date: 2025-10-01
+        name: Navaratri Ends / Maha Navami
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-18
+        name: Kati Bihu
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-10-21
+        name: Diwali Amavasya (Laxmi Pujan) / Deepawali
+      - date: 2025-12-25
+        name: Christmas
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-mp-2025
+    title: Bank holidays 2025 - Madhya Pradesh (RBI Bhopal centre)
+    kind: bank
+    scope: MP
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Bhopal regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-02-26
+        name: Mahashivratri
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-10
+        name: Mahavir Janmakalyanak / Mahavir Jayanti
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-12
+        name: Buddha Pournima
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-09
+        name: Raksha Bandhan / Jhulana Purnima
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-16
+        name: Janmashtami (Shravan Vad-8)
+      - date: 2025-09-05
+        name: Id-E-Milad
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-10-21
+        name: Diwali Amavasya (Laxmi Pujan) / Deepawali
+      - date: 2025-11-05
+        name: Guru Nanak Jayanti / Kartika Purnima
+      - date: 2025-12-25
+        name: Christmas
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-ap-2025
+    title: Bank holidays 2025 - Andhra Pradesh (RBI Vijayawada centre)
+    kind: bank
+    scope: AP
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Vijayawada regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-01-14
+        name: Makar Sankranti / Uttarayana Punyakala
+      - date: 2025-02-26
+        name: Mahashivratri
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-01
+        name: Maharashtra Din / May Day (Labor Day)
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-16
+        name: Janmashtami (Shravan Vad-8)
+      - date: 2025-08-27
+        name: Ganesh Chaturthi
+      - date: 2025-09-05
+        name: Id-E-Milad
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-12-25
+        name: Christmas
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-ga-2025
+    title: Bank holidays 2025 - Goa (RBI Panaji centre)
+    kind: bank
+    scope: GA
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Panaji regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-01
+        name: Maharashtra Din / May Day (Labor Day)
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-27
+        name: Ganesh Chaturthi
+      - date: 2025-08-28
+        name: Ganesh Chaturthi (2nd Day) / Nuakhai
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-12-03
+        name: Feast of St. Francis Xavier
+      - date: 2025-12-19
+        name: Goa Liberation Day
+      - date: 2025-12-25
+        name: Christmas
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
+  - id: bank-jh-2025
+    title: Bank holidays 2025 - Jharkhand (RBI Ranchi centre)
+    kind: bank
+    scope: JH
+    year: 2025
+    authority: Reserve Bank of India (holidays notified under the Negotiable Instruments Act, 1881)
+    source:
+      title: RBI holiday matrix - Ranchi regional office, 2025 (choose the office, All Months, 2026)
+      url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
+    verified: 2026-10-16
+    confidence: high
+    holidays:
+      - date: 2025-02-26
+        name: Mahashivratri
+      - date: 2025-03-13
+        name: Holika Dahan / Attukal Pongala
+      - date: 2025-03-14
+        name: Holi (Second Day) - Dhuleti / Dhulandi
+      - date: 2025-03-15
+        name: Holi / Yaosang 2nd Day
+      - date: 2025-03-31
+        name: Ramzan-Id (Id-Ul-Fitr) (Shawal-1)
+      - date: 2025-04-01
+        name: Annual closing of bank accounts
+      - date: 2025-04-10
+        name: Mahavir Janmakalyanak / Mahavir Jayanti
+      - date: 2025-04-14
+        name: Dr. Babasaheb Ambedkar Jayanti / Vishu
+      - date: 2025-04-18
+        name: Good Friday
+      - date: 2025-05-12
+        name: Buddha Pournima
+      - date: 2025-06-07
+        name: Bakri ID (Id-Uz-Zuha)
+      - date: 2025-08-15
+        name: Independence Day
+      - date: 2025-08-16
+        name: Janmashtami (Shravan Vad-8)
+      - date: 2025-09-03
+        name: Karma Puja
+      - date: 2025-09-05
+        name: Id-E-Milad
+      - date: 2025-09-30
+        name: Maha Ashtami / Durga Ashtami
+      - date: 2025-10-01
+        name: Navaratri Ends / Maha Navami
+      - date: 2025-10-02
+        name: Mahatma Gandhi Jayanti / Dasara
+      - date: 2025-10-20
+        name: Diwali (Deepavali) / Naraka Chaturdashi
+      - date: 2025-10-27
+        name: Chath Puja (Evening Puja)
+      - date: 2025-10-28
+        name: Chath Puja (Morning Puja)
+      - date: 2025-11-05
+        name: Guru Nanak Jayanti / Kartika Purnima
+      - date: 2025-11-15
+        name: Birsa Munda Birth Anniversary
+      - date: 2025-12-25
+        name: Christmas
+    alsoSee:
+      - title: RBI notification RBI/2025-26/204 dated 03-02-2026 - agency banks open on 31 March 2026
+        url: https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13288&Mode=0
+    notes: "Holidays under the Negotiable Instruments Act, 1881 for this state as RBI's holiday matrix shows them for 2025, read on 2026-10-16 for the calendar's 15-month look back. Names are RBI's labels for each date, which can name festivals of other states closing that day. A past year: kept as published, not updated monthly."
