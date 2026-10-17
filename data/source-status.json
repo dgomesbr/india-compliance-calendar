@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-15T06:24:22.358Z",
+ "checked": "2026-10-17T03:27:51.165Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -35,9 +35,9 @@
   }
  ],
  "links": {
-  "total": 677,
+  "total": 686,
   "answered": 300,
-  "refused": 229,
+  "refused": 236,
   "unreachable": [
    {
     "url": "https://apct.gov.in/apportal/",
@@ -78,6 +78,15 @@
     "citedBy": [
      "central-gazetted-2026",
      "central-restricted-2026"
+    ]
+   },
+   {
+    "url": "https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "central-gazetted-2025",
+     "central-restricted-2025"
     ]
    },
    {
@@ -254,22 +263,6 @@
      "state-pt-mp-monthly",
      "state-pt-mp-quarterly-return",
      "source state-pt-mp"
-    ]
-   },
-   {
-    "url": "https://nclt.gov.in/all-cause-list",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source legal-nclt"
-    ]
-   },
-   {
-    "url": "https://nclt.gov.in/notifcation-holidays",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source legal-nclt-holiday-notices"
     ]
    },
    {
@@ -1150,6 +1143,23 @@
     ]
    },
    {
+    "url": "https://web.archive.org/web/20221219221000/https://www.payments.ca/system-closure-schedule",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "ca-on-bank-2027"
+    ]
+   },
+   {
+    "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "central-gazetted-2025",
+     "central-restricted-2025"
+    ]
+   },
+   {
     "url": "https://www.biharcommercialtax.gov.in/bweb/",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -1298,6 +1308,14 @@
     "detail": "HTTP 404",
     "citedBy": [
      "state-pt-ka-monthly"
+    ]
+   },
+   {
+    "url": "https://tutorial.gst.gov.in/userguide/returns/FAQs_application_Unbarring.htm",
+    "status": "not-found",
+    "detail": "HTTP 404",
+    "citedBy": [
+     "gst-three-year-filing-bar"
     ]
    }
   ]
