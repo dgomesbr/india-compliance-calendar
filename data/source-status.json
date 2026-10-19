@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-17T03:27:51.165Z",
+ "checked": "2026-10-19T03:44:54.761Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -37,7 +37,7 @@
  "links": {
   "total": 686,
   "answered": 300,
-  "refused": 236,
+  "refused": 235,
   "unreachable": [
    {
     "url": "https://apct.gov.in/apportal/",
@@ -359,6 +359,16 @@
     "detail": "fetch failed",
     "citedBy": [
      "source state-pt-sk"
+    ]
+   },
+   {
+    "url": "https://steasy.com/pdf/PROFESSION%20TAX%20FAQs.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "state-pt-mh-ptec",
+     "state-pt-mh-ptrc-annual",
+     "state-pt-mh-ptrc-monthly"
     ]
    },
    {
@@ -1151,6 +1161,14 @@
     ]
    },
    {
+    "url": "https://web.archive.org/web/20231001000335/https://www.payments.ca/system-closure-schedule",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "ca-on-bank-2027"
+    ]
+   },
+   {
     "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -1308,14 +1326,6 @@
     "detail": "HTTP 404",
     "citedBy": [
      "state-pt-ka-monthly"
-    ]
-   },
-   {
-    "url": "https://tutorial.gst.gov.in/userguide/returns/FAQs_application_Unbarring.htm",
-    "status": "not-found",
-    "detail": "HTTP 404",
-    "citedBy": [
-     "gst-three-year-filing-bar"
     ]
    }
   ]
