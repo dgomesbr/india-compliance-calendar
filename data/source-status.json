@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-19T03:44:54.761Z",
+ "checked": "2026-10-21T03:45:54.795Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -36,7 +36,7 @@
  ],
  "links": {
   "total": 686,
-  "answered": 300,
+  "answered": 301,
   "refused": 235,
   "unreachable": [
    {
@@ -87,14 +87,6 @@
     "citedBy": [
      "central-gazetted-2025",
      "central-restricted-2025"
-    ]
-   },
-   {
-    "url": "https://dopt.gov.in/",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source dopt-holiday-om"
     ]
    },
    {
@@ -1169,15 +1161,6 @@
     ]
    },
    {
-    "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "central-gazetted-2025",
-     "central-restricted-2025"
-    ]
-   },
-   {
     "url": "https://www.biharcommercialtax.gov.in/bweb/",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -1288,6 +1271,14 @@
    }
   ],
   "notFound": [
+   {
+    "url": "https://nclt.gov.in/notifcation-holidays",
+    "status": "not-found",
+    "detail": "HTTP 404",
+    "citedBy": [
+     "source legal-nclt-holiday-notices"
+    ]
+   },
    {
     "url": "https://odishatax.gov.in/document/upload_img/170133-Profession%20Tax%20Rule%202000.pdf",
     "status": "not-found",
