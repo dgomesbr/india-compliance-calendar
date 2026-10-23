@@ -1,9 +1,9 @@
 {
  "source": "Bank of Canada daily exchange rates",
  "url": "https://www.bankofcanada.ca/rates/exchange/daily-exchange-rates/",
- "date": "2026-10-20",
- "cadPerInr": 0.01481,
- "usdcad": 1.4054,
- "usdPerInr": 0.0105379,
- "fetched": "2026-10-21T03:41:12.271Z"
+ "date": "2026-10-22",
+ "cadPerInr": 0.01479,
+ "usdcad": 1.4021,
+ "usdPerInr": 0.0105485,
+ "fetched": "2026-10-23T03:45:38.515Z"
 }

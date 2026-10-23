@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-21T03:45:54.795Z",
+ "checked": "2026-10-23T03:50:19.595Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -187,6 +187,14 @@
     "detail": "fetch failed",
     "citedBy": [
      "source legal-itat-holiday-lists"
+    ]
+   },
+   {
+    "url": "https://judgments.ecourts.gov.in/pdfsearch/index.php",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source legal-ecourts-judgments"
     ]
    },
    {
@@ -1145,19 +1153,12 @@
     ]
    },
    {
-    "url": "https://web.archive.org/web/20221219221000/https://www.payments.ca/system-closure-schedule",
+    "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
     "status": "unreachable",
     "detail": "fetch failed",
     "citedBy": [
-     "ca-on-bank-2027"
-    ]
-   },
-   {
-    "url": "https://web.archive.org/web/20231001000335/https://www.payments.ca/system-closure-schedule",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "ca-on-bank-2027"
+     "central-gazetted-2025",
+     "central-restricted-2025"
     ]
    },
    {
