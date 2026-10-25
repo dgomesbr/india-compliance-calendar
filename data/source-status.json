@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-23T03:50:19.595Z",
+ "checked": "2026-10-25T03:43:01.329Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -36,8 +36,8 @@
  ],
  "links": {
   "total": 686,
-  "answered": 301,
-  "refused": 235,
+  "answered": 299,
+  "refused": 233,
   "unreachable": [
    {
     "url": "https://apct.gov.in/apportal/",
@@ -53,6 +53,14 @@
     "detail": "fetch failed",
     "citedBy": [
      "source state-lwf-ap"
+    ]
+   },
+   {
+    "url": "https://cestat.gov.in/viewcauselist",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "source legal-cestat"
     ]
    },
    {
@@ -145,6 +153,14 @@
     "citedBy": [
      "gst-gstat-appeal",
      "gst-gstat-backlog-deadline"
+    ]
+   },
+   {
+    "url": "https://haryanarera.gov.in/regulations/Quarterly_Progress_ReportGURUGRAMRegulations2018.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-rera-quarterly-update"
     ]
    },
    {
@@ -266,6 +282,22 @@
     ]
    },
    {
+    "url": "https://nclt.gov.in/all-cause-list",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source legal-nclt"
+    ]
+   },
+   {
+    "url": "https://nclt.gov.in/notifcation-holidays",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source legal-nclt-holiday-notices"
+    ]
+   },
+   {
     "url": "https://nsearchives.nseindia.com/content/circulars/CMPT71904.pdf",
     "status": "unreachable",
     "detail": "timeout",
@@ -346,6 +378,14 @@
     ]
    },
    {
+    "url": "https://services.ecourts.gov.in/ecourtindia_v6/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source legal-ecourts-services"
+    ]
+   },
+   {
     "url": "https://shramsuvidha.gov.in/",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -359,16 +399,6 @@
     "detail": "fetch failed",
     "citedBy": [
      "source state-pt-sk"
-    ]
-   },
-   {
-    "url": "https://steasy.com/pdf/PROFESSION%20TAX%20FAQs.pdf",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "state-pt-mh-ptec",
-     "state-pt-mh-ptrc-annual",
-     "state-pt-mh-ptrc-monthly"
     ]
    },
    {
@@ -1153,6 +1183,14 @@
     ]
    },
    {
+    "url": "https://web.archive.org/web/20231001000335/https://www.payments.ca/system-closure-schedule",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "ca-on-bank-2027"
+    ]
+   },
+   {
     "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -1272,14 +1310,6 @@
    }
   ],
   "notFound": [
-   {
-    "url": "https://nclt.gov.in/notifcation-holidays",
-    "status": "not-found",
-    "detail": "HTTP 404",
-    "citedBy": [
-     "source legal-nclt-holiday-notices"
-    ]
-   },
    {
     "url": "https://odishatax.gov.in/document/upload_img/170133-Profession%20Tax%20Rule%202000.pdf",
     "status": "not-found",
