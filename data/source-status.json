@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-27T04:09:06.038Z",
+ "checked": "2026-10-29T04:52:10.196Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -36,8 +36,8 @@
  ],
  "links": {
   "total": 686,
-  "answered": 302,
-  "refused": 234,
+  "answered": 294,
+  "refused": 235,
   "unreachable": [
    {
     "url": "https://apct.gov.in/apportal/",
@@ -56,19 +56,19 @@
     ]
    },
    {
+    "url": "https://comtax.assam.gov.in/information-and-services/assam-professional-tax",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-as"
+    ]
+   },
+   {
     "url": "https://ctax.jharkhand.gov.in/web/10231/professional-tax-acts",
     "status": "unreachable",
     "detail": "fetch failed",
     "citedBy": [
      "source state-pt-jh"
-    ]
-   },
-   {
-    "url": "https://dlwb.delhi.gov.in/",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source state-lwf-dl"
     ]
    },
    {
@@ -145,14 +145,6 @@
     "citedBy": [
      "gst-gstat-appeal",
      "gst-gstat-backlog-deadline"
-    ]
-   },
-   {
-    "url": "https://haryanarera.gov.in/regulations/Quarterly_Progress_ReportGURUGRAMRegulations2018.pdf",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "other-rera-quarterly-update"
     ]
    },
    {
@@ -1159,6 +1151,32 @@
     ]
    },
    {
+    "url": "https://web.archive.org/web/20221219221000/https://www.payments.ca/system-closure-schedule",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "ca-on-bank-2027"
+    ]
+   },
+   {
+    "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "central-gazetted-2025",
+     "central-restricted-2025"
+    ]
+   },
+   {
+    "url": "https://web.archive.org/web/20260308000203/https://www.mahagst.gov.in/mr/profession-tax-and-allied-acts-notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "state-pt-mh-ptrc-annual",
+     "state-pt-mh-ptrc-monthly"
+    ]
+   },
+   {
     "url": "https://www.biharcommercialtax.gov.in/bweb/",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -1265,6 +1283,51 @@
      "sebi-integrated-filing-governance-quarterly",
      "sebi-reconciliation-share-capital-audit-quarterly",
      "sebi-secretarial-compliance-report-annual"
+    ]
+   },
+   {
+    "url": "https://www.suratmunicipal.gov.in/Content/Documents/Departments/ProfessionalTax/ghpt77.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "state-pt-gj-enrolment",
+     "state-pt-gj-monthly",
+     "state-pt-gj-quarterly"
+    ]
+   },
+   {
+    "url": "https://www.suratmunicipal.gov.in/Departments/ProfessionalTaxHome",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "state-pt-gj-enrolment",
+     "state-pt-gj-monthly",
+     "state-pt-gj-quarterly",
+     "source state-pt-gj"
+    ]
+   },
+   {
+    "url": "https://www.wcd.gov.in/documents/legislations",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-posh-ic-annual-report"
+    ]
+   },
+   {
+    "url": "https://www.wcd.gov.in/documents/uploaded/1710219823.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-posh-ic-annual-report"
+    ]
+   },
+   {
+    "url": "https://www.wcd.gov.in/documents/uploaded/1719914401_2NUqe91gql.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-posh-ic-annual-report"
     ]
    }
   ],
