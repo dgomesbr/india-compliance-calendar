@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-29T04:52:10.196Z",
+ "checked": "2026-10-31T04:36:14.567Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -36,7 +36,7 @@
  ],
  "links": {
   "total": 686,
-  "answered": 294,
+  "answered": 287,
   "refused": 235,
   "unreachable": [
    {
@@ -1159,12 +1159,11 @@
     ]
    },
    {
-    "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
+    "url": "https://web.archive.org/web/20231001000335/https://www.payments.ca/system-closure-schedule",
     "status": "unreachable",
     "detail": "fetch failed",
     "citedBy": [
-     "central-gazetted-2025",
-     "central-restricted-2025"
+     "ca-on-bank-2027"
     ]
    },
    {
@@ -1206,6 +1205,70 @@
     "detail": "fetch failed",
     "citedBy": [
      "source finmin"
+    ]
+   },
+   {
+    "url": "https://www.fssai.gov.in/",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "source fssai"
+    ]
+   },
+   {
+    "url": "https://www.fssai.gov.in/docs/food-law/advisory/5fe1c2422c4beOrder_Mandatory_Annual_Return_FBO_21_12_2020.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-fssai-annual-return-d1"
+    ]
+   },
+   {
+    "url": "https://www.fssai.gov.in/docs/whatsnew/advisories-orders/636c99269f006Order_Annual_Return_10_11_2022.pdf",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "other-fssai-annual-return-d1"
+    ]
+   },
+   {
+    "url": "https://www.fssai.gov.in/docs/whatsnew/advisories-orders/659d37a4645f0order_09.01.pdf",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "other-fssai-annual-return-d1"
+    ]
+   },
+   {
+    "url": "https://www.fssai.gov.in/docs/whatsnew/advisories-orders/661e73c35373eRevised%20annual%20return.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-fssai-annual-return-d1"
+    ]
+   },
+   {
+    "url": "https://www.fssai.gov.in/docs/whatsnew/advisories-orders/69c6a23234827order_27032026.pdf",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "other-fssai-annual-return-d1"
+    ]
+   },
+   {
+    "url": "https://www.fssai.gov.in/docs/whatsnew/gazette/69b2a2c804123Notification%20dt%2010.03.2026.pdf",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "other-fssai-annual-return-d1"
+    ]
+   },
+   {
+    "url": "https://www.fssai.gov.in/upload/uploadfiles/files/Compendium_Licensing_Regulations.pdf",
+    "status": "unreachable",
+    "detail": "timeout",
+    "citedBy": [
+     "other-fssai-annual-return-d1"
     ]
    },
    {
@@ -1286,27 +1349,6 @@
     ]
    },
    {
-    "url": "https://www.suratmunicipal.gov.in/Content/Documents/Departments/ProfessionalTax/ghpt77.pdf",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "state-pt-gj-enrolment",
-     "state-pt-gj-monthly",
-     "state-pt-gj-quarterly"
-    ]
-   },
-   {
-    "url": "https://www.suratmunicipal.gov.in/Departments/ProfessionalTaxHome",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "state-pt-gj-enrolment",
-     "state-pt-gj-monthly",
-     "state-pt-gj-quarterly",
-     "source state-pt-gj"
-    ]
-   },
-   {
     "url": "https://www.wcd.gov.in/documents/legislations",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -1378,6 +1420,14 @@
     "detail": "HTTP 404",
     "citedBy": [
      "state-pt-ka-monthly"
+    ]
+   },
+   {
+    "url": "https://www.ncdex.com/markets/holiday-list",
+    "status": "not-found",
+    "detail": "HTTP 404",
+    "citedBy": [
+     "source ncdex-holidays"
     ]
    }
   ]
