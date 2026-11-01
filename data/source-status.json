@@ -1,5 +1,5 @@
 {
- "checked": "2026-10-31T04:36:14.567Z",
+ "checked": "2026-11-01T04:55:43.561Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -28,7 +28,7 @@
   },
   {
    "source": "GST portal due dates",
-   "window": "due 2026-10",
+   "window": "due 2026-11, 2027-01",
    "items": 12,
    "unmatched": [],
    "calendarOnly": []
@@ -36,7 +36,7 @@
  ],
  "links": {
   "total": 686,
-  "answered": 287,
+  "answered": 297,
   "refused": 235,
   "unreachable": [
    {
@@ -1159,23 +1159,6 @@
     ]
    },
    {
-    "url": "https://web.archive.org/web/20231001000335/https://www.payments.ca/system-closure-schedule",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "ca-on-bank-2027"
-    ]
-   },
-   {
-    "url": "https://web.archive.org/web/20260308000203/https://www.mahagst.gov.in/mr/profession-tax-and-allied-acts-notifications",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "state-pt-mh-ptrc-annual",
-     "state-pt-mh-ptrc-monthly"
-    ]
-   },
-   {
     "url": "https://www.biharcommercialtax.gov.in/bweb/",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -1192,6 +1175,14 @@
     ]
    },
    {
+    "url": "https://www.ccilindia-lei.co.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source entity-leil-india"
+    ]
+   },
+   {
     "url": "https://www.esic.gov.in/circulars",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -1205,78 +1196,6 @@
     "detail": "fetch failed",
     "citedBy": [
      "source finmin"
-    ]
-   },
-   {
-    "url": "https://www.fssai.gov.in/",
-    "status": "unreachable",
-    "detail": "timeout",
-    "citedBy": [
-     "source fssai"
-    ]
-   },
-   {
-    "url": "https://www.fssai.gov.in/docs/food-law/advisory/5fe1c2422c4beOrder_Mandatory_Annual_Return_FBO_21_12_2020.pdf",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "other-fssai-annual-return-d1"
-    ]
-   },
-   {
-    "url": "https://www.fssai.gov.in/docs/whatsnew/advisories-orders/636c99269f006Order_Annual_Return_10_11_2022.pdf",
-    "status": "unreachable",
-    "detail": "timeout",
-    "citedBy": [
-     "other-fssai-annual-return-d1"
-    ]
-   },
-   {
-    "url": "https://www.fssai.gov.in/docs/whatsnew/advisories-orders/659d37a4645f0order_09.01.pdf",
-    "status": "unreachable",
-    "detail": "timeout",
-    "citedBy": [
-     "other-fssai-annual-return-d1"
-    ]
-   },
-   {
-    "url": "https://www.fssai.gov.in/docs/whatsnew/advisories-orders/661e73c35373eRevised%20annual%20return.pdf",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "other-fssai-annual-return-d1"
-    ]
-   },
-   {
-    "url": "https://www.fssai.gov.in/docs/whatsnew/advisories-orders/69c6a23234827order_27032026.pdf",
-    "status": "unreachable",
-    "detail": "timeout",
-    "citedBy": [
-     "other-fssai-annual-return-d1"
-    ]
-   },
-   {
-    "url": "https://www.fssai.gov.in/docs/whatsnew/gazette/69b2a2c804123Notification%20dt%2010.03.2026.pdf",
-    "status": "unreachable",
-    "detail": "timeout",
-    "citedBy": [
-     "other-fssai-annual-return-d1"
-    ]
-   },
-   {
-    "url": "https://www.fssai.gov.in/upload/uploadfiles/files/Compendium_Licensing_Regulations.pdf",
-    "status": "unreachable",
-    "detail": "timeout",
-    "citedBy": [
-     "other-fssai-annual-return-d1"
-    ]
-   },
-   {
-    "url": "https://www.icegate.gov.in/",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source icegate"
     ]
    },
    {
