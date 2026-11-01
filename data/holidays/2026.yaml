@@ -316,7 +316,7 @@ lists:
     source:
       title: RBI holiday matrix - Mumbai regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-15
@@ -378,7 +378,7 @@ lists:
     source:
       title: RBI holiday matrix - New Delhi regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-26
@@ -427,7 +427,7 @@ lists:
     source:
       title: RBI holiday matrix - Bengaluru regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-15
@@ -469,6 +469,9 @@ lists:
         name: Maha Navami / Ayudha Puja
       - date: 2026-10-21
         name: Vijaya Dashami
+      - date: 2026-10-26
+        name: Laxmi Puja / Accession Day / Maharishi Valmiki's Birthday
+        note: Added from RBI holiday matrix by the monthly holiday update on 2026-11-01.
       - date: 2026-11-10
         name: Balipadyami (Deepavali)
       - date: 2026-11-27
@@ -485,7 +488,7 @@ lists:
     source:
       title: RBI holiday matrix - Chennai regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-01
@@ -549,7 +552,7 @@ lists:
     source:
       title: RBI holiday matrix - Kolkata regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-01
@@ -623,7 +626,7 @@ lists:
     source:
       title: RBI holiday matrix - Hyderabad regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-15
@@ -676,7 +679,7 @@ lists:
     source:
       title: RBI holiday matrix - Ahmedabad regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-14
@@ -731,7 +734,7 @@ lists:
     source:
       title: RBI holiday matrix - Kochi regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-02
@@ -775,6 +778,9 @@ lists:
         name: Sree Narayana Guru Samadhi Day
       - date: 2026-10-02
         name: Gandhi Jayanti
+      - date: 2026-10-19
+        name: Dussehra (Mahashtami) / Maha Navami / Ayutha Pooja / Durga Puja / Vijaya Dashomi / Durga Ashtami
+        note: Added from RBI holiday matrix by the monthly holiday update on 2026-11-01.
       - date: 2026-10-20
         name: Maha Navami
       - date: 2026-10-21
@@ -791,7 +797,7 @@ lists:
     source:
       title: RBI holiday matrix - Lucknow regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-03
@@ -835,6 +841,9 @@ lists:
         name: Janmashtami
       - date: 2026-10-02
         name: Mahatma Gandhi Jayanti
+      - date: 2026-10-19
+        name: Dussehra (Mahashtami) / Maha Navami / Ayutha Pooja / Durga Puja / Vijaya Dashomi / Durga Ashtami
+        note: Added from RBI holiday matrix by the monthly holiday update on 2026-11-01.
       - date: 2026-10-20
         name: Dussehra (Vijaya Dashami)
       - date: 2026-11-09
@@ -858,7 +867,7 @@ lists:
     source:
       title: RBI holiday matrix - Jaipur regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-26
@@ -910,7 +919,7 @@ lists:
     source:
       title: RBI holiday matrix - Patna regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-26
@@ -967,7 +976,7 @@ lists:
     source:
       title: RBI holiday matrix - Bhubaneswar regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-14
@@ -1020,7 +1029,7 @@ lists:
     source:
       title: RBI holiday matrix - Guwahati regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-14
@@ -1071,7 +1080,7 @@ lists:
     source:
       title: RBI holiday matrix - Bhopal regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-26
@@ -1127,7 +1136,7 @@ lists:
     source:
       title: RBI holiday matrix - Vijayawada regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-15
@@ -1180,7 +1189,7 @@ lists:
     source:
       title: RBI holiday matrix - Panaji regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-26
@@ -1227,7 +1236,7 @@ lists:
     source:
       title: RBI holiday matrix - Ranchi regional office, 2026 (choose the office, All Months, 2026)
       url: https://www.rbi.org.in/Scripts/HolidayMatrixDisplay.aspx
-    verified: 2026-10-16
+    verified: 2026-11-01
     confidence: high
     holidays:
       - date: 2026-01-26
