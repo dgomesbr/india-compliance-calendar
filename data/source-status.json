@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-01T04:55:43.561Z",
+ "checked": "2026-11-03T05:46:58.169Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -190,14 +190,6 @@
     ]
    },
    {
-    "url": "https://judgments.ecourts.gov.in/pdfsearch/index.php",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source legal-ecourts-judgments"
-    ]
-   },
-   {
     "url": "https://klwb.karnataka.gov.in/",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -343,14 +335,6 @@
     "detail": "fetch failed",
     "citedBy": [
      "source state-pt-wb"
-    ]
-   },
-   {
-    "url": "https://services.ecourts.gov.in/ecourtindia_v6/",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source legal-ecourts-services"
     ]
    },
    {
@@ -1151,11 +1135,29 @@
     ]
    },
    {
-    "url": "https://web.archive.org/web/20221219221000/https://www.payments.ca/system-closure-schedule",
+    "url": "https://web.archive.org/web/20231001000335/https://www.payments.ca/system-closure-schedule",
     "status": "unreachable",
     "detail": "fetch failed",
     "citedBy": [
      "ca-on-bank-2027"
+    ]
+   },
+   {
+    "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "central-gazetted-2025",
+     "central-restricted-2025"
+    ]
+   },
+   {
+    "url": "https://web.archive.org/web/20260308000203/https://www.mahagst.gov.in/mr/profession-tax-and-allied-acts-notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "state-pt-mh-ptrc-annual",
+     "state-pt-mh-ptrc-monthly"
     ]
    },
    {
@@ -1172,14 +1174,6 @@
     "detail": "fetch failed",
     "citedBy": [
      "source cbic-website"
-    ]
-   },
-   {
-    "url": "https://www.ccilindia-lei.co.in/",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source entity-leil-india"
     ]
    },
    {
@@ -1293,6 +1287,14 @@
    }
   ],
   "notFound": [
+   {
+    "url": "https://github.com/Drona-jadhav7/HolidayLens",
+    "status": "not-found",
+    "detail": "HTTP 404",
+    "citedBy": [
+     "source gh-drona-jadhav7-holidaylens"
+    ]
+   },
    {
     "url": "https://nclt.gov.in/notifcation-holidays",
     "status": "not-found",
@@ -1428,8 +1430,7 @@
     "year": 2027,
     "list": "ca-on-bank-2027",
     "missing": [],
-    "extra": [],
-    "error": "nothing published for 2027 yet"
+    "extra": []
    },
    {
     "source": "canada-holidays.ca",
