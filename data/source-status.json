@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-05T05:39:32.822Z",
+ "checked": "2026-11-07T05:04:27.416Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -36,7 +36,7 @@
  ],
  "links": {
   "total": 686,
-  "answered": 300,
+  "answered": 301,
   "refused": 233,
   "unreachable": [
    {
@@ -235,14 +235,6 @@
     "detail": "fetch failed",
     "citedBy": [
      "source state-lwf-tn"
-    ]
-   },
-   {
-    "url": "https://meggst.gov.in/",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source state-pt-ml"
     ]
    },
    {
@@ -1143,11 +1135,11 @@
     ]
    },
    {
-    "url": "https://udyamregistration.gov.in/Udyam_Verify.aspx",
+    "url": "https://web.archive.org/web/20221219221000/https://www.payments.ca/system-closure-schedule",
     "status": "unreachable",
-    "detail": "timeout",
+    "detail": "fetch failed",
     "citedBy": [
-     "source entity-udyam-verify"
+     "ca-on-bank-2027"
     ]
    },
    {
