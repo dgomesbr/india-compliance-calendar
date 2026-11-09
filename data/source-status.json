@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-07T05:04:27.416Z",
+ "checked": "2026-11-09T05:08:23.222Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -36,8 +36,8 @@
  ],
  "links": {
   "total": 686,
-  "answered": 301,
-  "refused": 233,
+  "answered": 297,
+  "refused": 235,
   "unreachable": [
    {
     "url": "https://apct.gov.in/apportal/",
@@ -235,6 +235,14 @@
     "detail": "fetch failed",
     "citedBy": [
      "source state-lwf-tn"
+    ]
+   },
+   {
+    "url": "https://meggst.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-ml"
     ]
    },
    {
@@ -1140,6 +1148,15 @@
     "detail": "fetch failed",
     "citedBy": [
      "ca-on-bank-2027"
+    ]
+   },
+   {
+    "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "central-gazetted-2025",
+     "central-restricted-2025"
     ]
    },
    {
