@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-09T05:08:23.222Z",
+ "checked": "2026-11-11T05:09:40.206Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -235,14 +235,6 @@
     "detail": "fetch failed",
     "citedBy": [
      "source state-lwf-tn"
-    ]
-   },
-   {
-    "url": "https://meggst.gov.in/",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source state-pt-ml"
     ]
    },
    {
@@ -1151,12 +1143,20 @@
     ]
    },
    {
-    "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
+    "url": "https://web.archive.org/web/20231001000335/https://www.payments.ca/system-closure-schedule",
     "status": "unreachable",
     "detail": "fetch failed",
     "citedBy": [
-     "central-gazetted-2025",
-     "central-restricted-2025"
+     "ca-on-bank-2027"
+    ]
+   },
+   {
+    "url": "https://web.archive.org/web/20260308000203/https://www.mahagst.gov.in/mr/profession-tax-and-allied-acts-notifications",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "state-pt-mh-ptrc-annual",
+     "state-pt-mh-ptrc-monthly"
     ]
    },
    {
