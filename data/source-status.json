@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-11T05:09:40.206Z",
+ "checked": "2026-11-13T05:34:58.242Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -36,7 +36,7 @@
  ],
  "links": {
   "total": 686,
-  "answered": 297,
+  "answered": 299,
   "refused": 235,
   "unreachable": [
    {
@@ -1135,31 +1135,6 @@
     ]
    },
    {
-    "url": "https://web.archive.org/web/20221219221000/https://www.payments.ca/system-closure-schedule",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "ca-on-bank-2027"
-    ]
-   },
-   {
-    "url": "https://web.archive.org/web/20231001000335/https://www.payments.ca/system-closure-schedule",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "ca-on-bank-2027"
-    ]
-   },
-   {
-    "url": "https://web.archive.org/web/20260308000203/https://www.mahagst.gov.in/mr/profession-tax-and-allied-acts-notifications",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "state-pt-mh-ptrc-annual",
-     "state-pt-mh-ptrc-monthly"
-    ]
-   },
-   {
     "url": "https://www.biharcommercialtax.gov.in/bweb/",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -1197,6 +1172,14 @@
     "detail": "fetch failed",
     "citedBy": [
      "source state-pt-mh"
+    ]
+   },
+   {
+    "url": "https://www.manipurtaxes.gov.in/en/professional-tax/amendment/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source state-pt-mn"
     ]
    },
    {
