@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-13T05:34:58.242Z",
+ "checked": "2026-11-15T05:23:15.910Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -36,7 +36,7 @@
  ],
  "links": {
   "total": 686,
-  "answered": 299,
+  "answered": 281,
   "refused": 235,
   "unreachable": [
    {
@@ -61,6 +61,140 @@
     "detail": "fetch failed",
     "citedBy": [
      "source state-pt-as"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/openpdffile.php?id=TGF0ZXN0RmlsZS80MDhfMTcxMDQxODc5N19tZWRpYXBob3RvNDM0NC5wZGY=",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-epr-plastic-annual-return"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/openpdffile.php?id=TGF0ZXN0RmlsZS80MzRfMTczNzA4OTQ0OV9tZWRpYXBob3RvMzQ1My5wZGY=",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-ewaste-annual-return"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/openpdffile.php?id=UmVwb3J0RmlsZXMvMTc1MV8xNzUyNjQ0NzIwX21lZGlhcGhvdG85NTY2LnBkZg==",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-ewaste-annual-return",
+     "other-ewaste-annual-return (FY2024-25)",
+     "other-ewaste-quarterly-return",
+     "other-ewaste-quarterly-return (FY2024-25-Q1)",
+     "other-ewaste-quarterly-return (FY2024-25-Q2)"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/hwmd/Battery-WasteManagementRules-2022.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-battery-epr-annual-return"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/hwmd/Battery-WasteManagementRules-2023.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-battery-epr-annual-return"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/hwmd/Battery-WasteManagementRules-2024.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-battery-epr-annual-return"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/hwmd/Battery-WasteManagementRules-2025.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-battery-epr-annual-return"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/hwmd/HOWM-Ninth-Amendment-Rules-2024.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-hazardous-waste-annual-return"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/hwmd/HOWM-Tenth-Amendment-Rules-2024.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-hazardous-waste-annual-return"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/hwmd/HWM_Rules_2016.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-hazardous-waste-annual-return"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/MSW/SWM_2026.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-swm-bulk-waste-generator-annual-return"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/plasticwaste/PWM-Amendment-Rules-2022.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-epr-plastic-annual-return"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/Projects/Bio-Medical-Waste/Bio-medical_Waste_Management_Rules_2016.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-bmw-annual-report-form-iv"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/Projects/Bio-Medical-Waste/BMW_Amended_17-04-2026.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-bmw-annual-report-form-iv"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/Projects/E-Waste/e-waste_rules_2022.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-ewaste-annual-return",
+     "other-ewaste-quarterly-return"
+    ]
+   },
+   {
+    "url": "https://cpcb.nic.in/uploads/Projects/E-Waste/E-waste-Third-Amendment-Rules-2024.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-ewaste-annual-return",
+     "other-ewaste-quarterly-return"
     ]
    },
    {
@@ -1135,6 +1269,15 @@
     ]
    },
    {
+    "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "central-gazetted-2025",
+     "central-restricted-2025"
+    ]
+   },
+   {
     "url": "https://www.biharcommercialtax.gov.in/bweb/",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -1269,6 +1412,14 @@
    }
   ],
   "notFound": [
+   {
+    "url": "https://cleartax.in/s/income-tax-calendar",
+    "status": "not-found",
+    "detail": "HTTP 410",
+    "citedBy": [
+     "source cleartax-calendar"
+    ]
+   },
    {
     "url": "https://github.com/Drona-jadhav7/HolidayLens",
     "status": "not-found",
