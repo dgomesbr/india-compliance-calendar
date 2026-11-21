@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-19T06:27:38.883Z",
+ "checked": "2026-11-21T06:02:38.770Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -37,7 +37,7 @@
  "links": {
   "total": 686,
   "answered": 280,
-  "refused": 235,
+  "refused": 236,
   "unreachable": [
    {
     "url": "https://apct.gov.in/apportal/",
@@ -1269,23 +1269,6 @@
     ]
    },
    {
-    "url": "https://udyamregistration.gov.in/Udyam_Verify.aspx",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source entity-udyam-verify"
-    ]
-   },
-   {
-    "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "central-gazetted-2025",
-     "central-restricted-2025"
-    ]
-   },
-   {
     "url": "https://www.biharcommercialtax.gov.in/bweb/",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -1315,6 +1298,14 @@
     "detail": "fetch failed",
     "citedBy": [
      "source finmin"
+    ]
+   },
+   {
+    "url": "https://www.incometax.gov.in/iec/foportal/rss.xml",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source it-efiling-rss"
     ]
    },
    {
