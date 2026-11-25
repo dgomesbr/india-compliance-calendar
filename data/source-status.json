@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-23T06:19:18.489Z",
+ "checked": "2026-11-25T07:30:49.391Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -36,8 +36,8 @@
  ],
  "links": {
   "total": 686,
-  "answered": 280,
-  "refused": 236,
+  "answered": 279,
+  "refused": 235,
   "unreachable": [
    {
     "url": "https://apct.gov.in/apportal/",
@@ -1269,6 +1269,23 @@
     ]
    },
    {
+    "url": "https://web.archive.org/web/20231001000335/https://www.payments.ca/system-closure-schedule",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "ca-on-bank-2027"
+    ]
+   },
+   {
+    "url": "https://web.archive.org/web/20250121142111/https://documents.doptcirculars.nic.in/D2/D02est/List%20of%20holidays%202025KtKLw.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "central-gazetted-2025",
+     "central-restricted-2025"
+    ]
+   },
+   {
     "url": "https://www.biharcommercialtax.gov.in/bweb/",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -1298,14 +1315,6 @@
     "detail": "fetch failed",
     "citedBy": [
      "source finmin"
-    ]
-   },
-   {
-    "url": "https://www.incometax.gov.in/iec/foportal/rss.xml",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source it-efiling-rss"
     ]
    },
    {
@@ -1473,6 +1482,14 @@
     "detail": "HTTP 404",
     "citedBy": [
      "state-pt-ka-monthly"
+    ]
+   },
+   {
+    "url": "https://tutorial.gst.gov.in/userguide/returns/FAQs_application_Unbarring.htm",
+    "status": "not-found",
+    "detail": "HTTP 404",
+    "citedBy": [
+     "gst-three-year-filing-bar"
     ]
    },
    {
