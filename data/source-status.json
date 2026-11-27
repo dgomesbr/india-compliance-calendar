@@ -1,5 +1,5 @@
 {
- "checked": "2026-11-25T07:30:49.391Z",
+ "checked": "2026-11-27T07:15:22.040Z",
  "runner": "GitHub Actions",
  "official": [
   {
@@ -249,6 +249,14 @@
     ]
    },
    {
+    "url": "https://eprplastic.cpcb.gov.in/",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "source cpcb-epr-portals"
+    ]
+   },
+   {
     "url": "https://ewaybillgst.gov.in/",
     "status": "unreachable",
     "detail": "fetch failed",
@@ -361,14 +369,6 @@
     "detail": "fetch failed",
     "citedBy": [
      "source state-pt-py"
-    ]
-   },
-   {
-    "url": "https://lwb.tn.gov.in/",
-    "status": "unreachable",
-    "detail": "fetch failed",
-    "citedBy": [
-     "source state-lwf-tn"
     ]
    },
    {
@@ -1269,11 +1269,11 @@
     ]
    },
    {
-    "url": "https://web.archive.org/web/20231001000335/https://www.payments.ca/system-closure-schedule",
+    "url": "https://tutorial.gst.gov.in/userguide/returns/FAQs_application_Unbarring.htm",
     "status": "unreachable",
-    "detail": "fetch failed",
+    "detail": "timeout",
     "citedBy": [
-     "ca-on-bank-2027"
+     "gst-three-year-filing-bar"
     ]
    },
    {
@@ -1283,6 +1283,15 @@
     "citedBy": [
      "central-gazetted-2025",
      "central-restricted-2025"
+    ]
+   },
+   {
+    "url": "https://wp.vincular.in/wp-content/uploads/2026/09/AR_extension_FY25-26.pdf",
+    "status": "unreachable",
+    "detail": "fetch failed",
+    "citedBy": [
+     "other-epr-plastic-annual-return",
+     "other-epr-plastic-annual-return (FY2025-26)"
     ]
    },
    {
@@ -1482,14 +1491,6 @@
     "detail": "HTTP 404",
     "citedBy": [
      "state-pt-ka-monthly"
-    ]
-   },
-   {
-    "url": "https://tutorial.gst.gov.in/userguide/returns/FAQs_application_Unbarring.htm",
-    "status": "not-found",
-    "detail": "HTTP 404",
-    "citedBy": [
-     "gst-three-year-filing-bar"
     ]
    },
    {
